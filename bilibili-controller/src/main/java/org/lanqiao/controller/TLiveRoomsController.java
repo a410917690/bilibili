@@ -5,6 +5,8 @@ import org.lanqiao.entity.TLiveRooms;
 
 import org.lanqiao.service.TLiveRoomsService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,12 +27,19 @@ public class TLiveRoomsController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+
      * @return 单条数据
      */
-    @GetMapping("selectOne0")
-    public TLiveRooms selectOne(Integer id) {
-        return this.tLiveRoomsService.queryById(id);
+    @ResponseBody
+    @GetMapping("getOneRoom")
+    public TLiveRooms selectOne(String room_title) {
+        return this.tLiveRoomsService.queryById(room_title);
     }
 
+
+    @ResponseBody
+    @GetMapping("getAllRoom")
+    public Object getAllRoomByPage(@RequestParam(defaultValue = "1")int page){
+        return tLiveRoomsService.queryAllByPage(page,10);
+    }
 }

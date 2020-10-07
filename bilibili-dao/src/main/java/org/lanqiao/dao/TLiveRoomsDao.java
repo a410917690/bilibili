@@ -2,6 +2,7 @@ package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TLiveRooms;
 import org.springframework.stereotype.Repository;
 
@@ -20,10 +21,14 @@ public interface TLiveRoomsDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param roomNo 主键
+
      * @return 实例对象
      */
-    TLiveRooms queryById(Integer roomNo);
+    @Select("select * from t_live_rooms where room_title=#{room_title}")
+    TLiveRooms queryById(String room_title);
+
+    @Select("select * from t_live_rooms")
+    List<TLiveRooms> queryAllByPage();
 
     /**
      * 查询指定行数据

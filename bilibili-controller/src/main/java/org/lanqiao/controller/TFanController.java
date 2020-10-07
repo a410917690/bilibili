@@ -5,6 +5,8 @@ import org.lanqiao.entity.TFan;
 
 import org.lanqiao.service.TFanService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,12 +27,19 @@ public class TFanController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+
      * @return 单条数据
      */
-    @GetMapping("selectOne7")
-    public TFan selectOne(Integer id) {
-        return this.tFanService.queryById(id);
+    @ResponseBody
+    @GetMapping("getOneFan")
+    public TFan selectOne(String fan_title) {
+        return this.tFanService.queryById(fan_title);
+    }
+
+    @ResponseBody
+    @GetMapping("getAllFan")
+    public Object queryAllFanByPage(@RequestParam(defaultValue = "1")int page){
+        return tFanService.queryAllByPage(page,5);
     }
 
 }

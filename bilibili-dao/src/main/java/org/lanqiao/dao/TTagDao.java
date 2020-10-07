@@ -2,6 +2,7 @@ package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TTag;
 import org.springframework.stereotype.Repository;
 
@@ -38,10 +39,11 @@ public interface TTagDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param tTag 实例对象
+
      * @return 对象列表
      */
-    List<TTag> queryAll(TTag tTag);
+    @Select("select * from t_tag")
+    List<TTag> queryAll();
 
     /**
      * 新增数据

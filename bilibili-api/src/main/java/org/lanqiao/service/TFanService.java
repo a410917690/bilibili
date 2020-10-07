@@ -15,10 +15,12 @@ public interface TFanService {
     /**
      * 通过ID查询单条数据
      *
-     * @param fanNo 主键
+
      * @return 实例对象
      */
-    TFan queryById(Integer fanNo);
+    TFan queryById(String fan_title);
+
+    Object queryAllByPage(int pageNum,int pageSize);
 
     /**
      * 查询多条数据

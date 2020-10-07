@@ -15,10 +15,12 @@ public interface TLiveRoomsService {
     /**
      * 通过ID查询单条数据
      *
-     * @param roomNo 主键
+
      * @return 实例对象
      */
-    TLiveRooms queryById(Integer roomNo);
+    TLiveRooms queryById(String room_title);
+
+    Object queryAllByPage(int pageNum,int pageSize);
 
     /**
      * 查询多条数据

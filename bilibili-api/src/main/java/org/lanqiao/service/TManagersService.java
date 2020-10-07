@@ -15,10 +15,10 @@ public interface TManagersService {
     /**
      * 通过ID查询单条数据
      *
-     * @param mNo 主键
+
      * @return 实例对象
      */
-    TManagers queryById(Integer mNo);
+    TManagers queryById(String name);
 
     /**
      * 查询多条数据

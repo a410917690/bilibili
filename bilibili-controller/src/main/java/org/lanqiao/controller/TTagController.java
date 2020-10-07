@@ -4,7 +4,10 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TTag;
 import org.lanqiao.service.TTagService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 标签(TTag)表控制层
@@ -30,6 +33,12 @@ public class TTagController {
     @GetMapping("selectOne15")
     public TTag selectOne(Integer id) {
         return this.tTagService.queryById(id);
+    }
+
+    @ResponseBody
+    @GetMapping("getAllTag")
+    public List<TTag> getAllTag(){
+        return this.tTagService.queryAll();
     }
 
 }

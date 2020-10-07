@@ -31,6 +31,12 @@ public class TTagServiceImpl implements TTagService {
         return this.tTagDao.queryById(tNo);
     }
 
+    @Override
+    public List<TTag> queryAll() {
+        return this.tTagDao.queryAll();
+    }
+
+
     /**
      * 查询多条数据
      *

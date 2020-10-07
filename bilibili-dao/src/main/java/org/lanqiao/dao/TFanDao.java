@@ -2,6 +2,7 @@ package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TFan;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +24,11 @@ public interface TFanDao {
      * @param fanNo 主键
      * @return 实例对象
      */
-    TFan queryById(Integer fanNo);
+    @Select("select * from t_fan where fan_title=#{fan_title}")
+    TFan queryById(String fan_title);
+
+    @Select("select * from t_fan")
+    List<TFan> queryAllByPage();
 
     /**
      * 查询指定行数据

@@ -20,6 +20,8 @@ public interface TTagService {
      */
     TTag queryById(Integer tNo);
 
+    List<TTag> queryAll();
+
     /**
      * 查询多条数据
      *

@@ -31,6 +31,11 @@ public class TGiftServiceImpl implements TGiftService {
         return this.tGiftDao.queryById(gNo);
     }
 
+    @Override
+    public List<TGift> queryAll() {
+        return this.tGiftDao.queryAll();
+    }
+
     /**
      * 查询多条数据
      *

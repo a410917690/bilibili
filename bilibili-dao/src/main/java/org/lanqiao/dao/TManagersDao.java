@@ -2,6 +2,7 @@ package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TManagers;
 import org.springframework.stereotype.Repository;
 
@@ -20,10 +21,11 @@ public interface TManagersDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param mNo 主键
+
      * @return 实例对象
      */
-    TManagers queryById(Integer mNo);
+    @Select("select * from t_managers where name=#{name}")
+    TManagers queryById(String name);
 
     /**
      * 查询指定行数据

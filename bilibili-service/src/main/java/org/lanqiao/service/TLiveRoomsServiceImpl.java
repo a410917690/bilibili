@@ -1,6 +1,8 @@
 package org.lanqiao.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TLiveRoomsDao;
 import org.lanqiao.entity.TLiveRooms;
 import org.springframework.stereotype.Component;
@@ -23,12 +25,19 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
     /**
      * 通过ID查询单条数据
      *
-     * @param roomNo 主键
      * @return 实例对象
      */
+
     @Override
-    public TLiveRooms queryById(Integer roomNo) {
-        return this.tLiveRoomsDao.queryById(roomNo);
+    public TLiveRooms queryById(String room_title) {
+        return this.tLiveRoomsDao.queryById(room_title);
+    }
+
+    @Override
+    public PageInfo<TLiveRooms> queryAllByPage(int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<TLiveRooms> list = tLiveRoomsDao.queryAllByPage();
+        return new PageInfo<>(list);
     }
 
     /**
@@ -64,7 +73,7 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
     @Override
     public TLiveRooms update(TLiveRooms tLiveRooms) {
         this.tLiveRoomsDao.update(tLiveRooms);
-        return this.queryById(tLiveRooms.getRoom_no());
+        return this.queryById(tLiveRooms.getRoom_title());
     }
 
     /**

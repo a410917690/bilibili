@@ -27,8 +27,8 @@ public class TManagersServiceImpl implements TManagersService {
      * @return 实例对象
      */
     @Override
-    public TManagers queryById(Integer mNo) {
-        return this.tManagersDao.queryById(mNo);
+    public TManagers queryById(String name) {
+        return this.tManagersDao.queryById(name);
     }
 
     /**
@@ -64,7 +64,7 @@ public class TManagersServiceImpl implements TManagersService {
     @Override
     public TManagers update(TManagers tManagers) {
         this.tManagersDao.update(tManagers);
-        return this.queryById(tManagers.getM_no());
+        return this.queryById(tManagers.getName());
     }
 
     /**

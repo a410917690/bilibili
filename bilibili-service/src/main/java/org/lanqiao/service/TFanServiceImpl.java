@@ -1,6 +1,8 @@
 package org.lanqiao.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TFanDao;
 import org.lanqiao.entity.TFan;
 import org.springframework.stereotype.Component;
@@ -23,12 +25,19 @@ public class TFanServiceImpl implements TFanService {
     /**
      * 通过ID查询单条数据
      *
-     * @param fanNo 主键
+
      * @return 实例对象
      */
     @Override
-    public TFan queryById(Integer fanNo) {
-        return this.tFanDao.queryById(fanNo);
+    public TFan queryById(String fan_title) {
+        return this.tFanDao.queryById(fan_title);
+    }
+
+    @Override
+    public PageInfo<TFan> queryAllByPage(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<TFan> list = tFanDao.queryAllByPage();
+        return new PageInfo<>(list);
     }
 
     /**
@@ -64,7 +73,7 @@ public class TFanServiceImpl implements TFanService {
     @Override
     public TFan update(TFan tFan) {
         this.tFanDao.update(tFan);
-        return this.queryById(tFan.getFan_no());
+        return this.queryById(tFan.getFan_title());
     }
 
     /**

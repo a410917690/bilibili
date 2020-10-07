@@ -20,6 +20,8 @@ public interface TGiftService {
      */
     TGift queryById(Integer gNo);
 
+    List<TGift> queryAll();
+
     /**
      * 查询多条数据
      *
