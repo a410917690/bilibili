@@ -28,6 +28,10 @@ public interface TVideosDao {
     @Select("select * from t_videos where v_title=#{v_title}")
     TVideos queryById(String v_title);
 
+
+    @Select("select * from t_videos order by v_no desc")
+            public List<TVideos> getListByPage();
+
     /**
      * 查询指定行数据
      *
@@ -44,8 +48,6 @@ public interface TVideosDao {
 
      * @return 对象列表
      */
-    @Select("select * from t_videos order by v_no desc")
-    List<TVideos> queryAll();
 
     /**
      * 新增数据

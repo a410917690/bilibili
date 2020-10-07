@@ -5,6 +5,8 @@ import org.lanqiao.entity.TConsumers;
 
 import org.lanqiao.service.TConsumersService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,12 +27,19 @@ public class TConsumersController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+
      * @return 单条数据
      */
-    @GetMapping("selectOne5")
-    public TConsumers selectOne(Integer id) {
-        return this.tConsumersService.queryById(id);
+    @ResponseBody
+    @GetMapping("getOneConsumers")
+    public TConsumers selectOne(Integer con_no) {
+        return this.tConsumersService.queryById(con_no);
+    }
+
+    @ResponseBody
+    @GetMapping("getAllConsumers")
+    public Object getAllConsumersByPage(@RequestParam(defaultValue = "1")int page){
+        return tConsumersService.getAllConsumersByPage(page,10);
     }
 
 }

@@ -15,7 +15,7 @@ public interface TVideosService {
     /**
      * 通过ID查询单条数据
      *
-     * @param vNo 主键
+
      * @return 实例对象
      */
 
@@ -30,7 +30,7 @@ public interface TVideosService {
      */
     List<TVideos> queryAllByLimit(int offset, int limit);
 
-    List<TVideos> queryAll();
+
 
     /**
      * 新增数据
@@ -55,5 +55,8 @@ public interface TVideosService {
      * @return 是否成功
      */
     boolean deleteById(Integer vNo);
+
+    public Object getAllVideosByPage(int pageNum,int pageSize);
+
 
 }

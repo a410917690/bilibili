@@ -1,6 +1,8 @@
 package org.lanqiao.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TVideosDao;
 import org.lanqiao.entity.TVideos;
 import org.springframework.stereotype.Component;
@@ -23,7 +25,7 @@ public class TVideosServiceImpl implements TVideosService {
     /**
      * 通过ID查询单条数据
      *
-     * @param vNo 主键
+
      * @return 实例对象
      */
     @Override
@@ -36,10 +38,7 @@ public class TVideosServiceImpl implements TVideosService {
         return null;
     }
 
-    @Override
-    public List<TVideos> queryAll() {
-        return this.tVideosDao.queryAll();
-    }
+
 
     /**
      * 查询多条数据
@@ -83,5 +82,12 @@ public class TVideosServiceImpl implements TVideosService {
     @Override
     public boolean deleteById(Integer vNo) {
         return this.tVideosDao.deleteById(vNo) > 0;
+    }
+
+    @Override
+    public PageInfo<TVideos> getAllVideosByPage(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<TVideos> list = tVideosDao.getListByPage();
+        return new PageInfo<>(list);
     }
 }

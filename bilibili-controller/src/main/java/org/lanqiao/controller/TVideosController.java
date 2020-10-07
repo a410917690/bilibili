@@ -30,7 +30,7 @@ public class TVideosController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+
      * @return 单条数据
      */
     @ResponseBody
@@ -40,14 +40,20 @@ public class TVideosController {
     }
 
 
+//    @ResponseBody
+//    @GetMapping("getAllVideos")
+//    public List<TVideos> getAllVideos(@RequestParam(defaultValue = "1") int pageNum , Model model){
+//        PageHelper.startPage(pageNum,2);
+//        List<TVideos> list = tVideosService.queryAll();
+//        PageInfo<TVideos> pageInfo = new PageInfo<>(list);
+//        model.addAttribute("pageInfo",pageInfo);
+//        return list;
+//    }
+
     @ResponseBody
     @GetMapping("getAllVideos")
-    public List<TVideos> getAllVideos(@RequestParam(defaultValue = "1") int pageNum , Model model){
-        PageHelper.startPage(pageNum,4);
-        List<TVideos> list = tVideosService.queryAll();
-        PageInfo<TVideos> pageInfo = new PageInfo<>(list);
-        model.addAttribute("pageInfo",pageInfo);
-        return list;
+    public Object getAllVideosByPage(@RequestParam(defaultValue = "1")int page){
+        return tVideosService.getAllVideosByPage(page,2);
     }
     @ResponseBody
     @GetMapping("updateVideos")

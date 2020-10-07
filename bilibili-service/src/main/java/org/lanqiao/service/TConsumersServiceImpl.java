@@ -1,6 +1,8 @@
 package org.lanqiao.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TConsumersDao;
 import org.lanqiao.entity.TConsumers;
 import org.springframework.stereotype.Component;
@@ -23,12 +25,12 @@ public class TConsumersServiceImpl implements TConsumersService {
     /**
      * 通过ID查询单条数据
      *
-     * @param conNo 主键
+
      * @return 实例对象
      */
     @Override
-    public TConsumers queryById(Integer conNo) {
-        return this.tConsumersDao.queryById(conNo);
+    public TConsumers queryById(Integer con_no) {
+        return this.tConsumersDao.queryById(con_no);
     }
 
     /**
@@ -41,6 +43,14 @@ public class TConsumersServiceImpl implements TConsumersService {
     @Override
     public List<TConsumers> queryAllByLimit(int offset, int limit) {
         return this.tConsumersDao.queryAllByLimit(offset, limit);
+    }
+
+    @Override
+    public Object getAllConsumersByPage(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<TConsumers> list = tConsumersDao.getListByPage();
+        return new PageInfo<>(list);
+
     }
 
     /**

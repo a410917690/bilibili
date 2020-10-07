@@ -15,10 +15,10 @@ public interface TConsumersService {
     /**
      * 通过ID查询单条数据
      *
-     * @param conNo 主键
+
      * @return 实例对象
      */
-    TConsumers queryById(Integer conNo);
+    TConsumers queryById(Integer con_no);
 
     /**
      * 查询多条数据
@@ -28,6 +28,8 @@ public interface TConsumersService {
      * @return 对象列表
      */
     List<TConsumers> queryAllByLimit(int offset, int limit);
+
+    public Object getAllConsumersByPage(int pageNum,int pageSize);
 
     /**
      * 新增数据
