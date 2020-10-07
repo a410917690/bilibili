@@ -1,0 +1,80 @@
+package org.lanqiao.service;
+
+import com.alibaba.dubbo.config.annotation.Service;
+import org.lanqiao.dao.TConsumersDao;
+import org.lanqiao.entity.TConsumers;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * 用户(TConsumers)表服务实现类
+ *
+ * @author makejava
+ * @since 2020-10-07 11:30:05
+ */
+@Service
+@Component
+public class TConsumersServiceImpl implements TConsumersService {
+    @Resource
+    private TConsumersDao tConsumersDao;
+
+    /**
+     * 通过ID查询单条数据
+     *
+     * @param conNo 主键
+     * @return 实例对象
+     */
+    @Override
+    public TConsumers queryById(Integer conNo) {
+        return this.tConsumersDao.queryById(conNo);
+    }
+
+    /**
+     * 查询多条数据
+     *
+     * @param offset 查询起始位置
+     * @param limit  查询条数
+     * @return 对象列表
+     */
+    @Override
+    public List<TConsumers> queryAllByLimit(int offset, int limit) {
+        return this.tConsumersDao.queryAllByLimit(offset, limit);
+    }
+
+    /**
+     * 新增数据
+     *
+     * @param tConsumers 实例对象
+     * @return 实例对象
+     */
+    @Override
+    public TConsumers insert(TConsumers tConsumers) {
+        this.tConsumersDao.insert(tConsumers);
+        return tConsumers;
+    }
+
+    /**
+     * 修改数据
+     *
+     * @param tConsumers 实例对象
+     * @return 实例对象
+     */
+    @Override
+    public TConsumers update(TConsumers tConsumers) {
+        this.tConsumersDao.update(tConsumers);
+        return this.queryById(tConsumers.getCon_no());
+    }
+
+    /**
+     * 通过主键删除数据
+     *
+     * @param conNo 主键
+     * @return 是否成功
+     */
+    @Override
+    public boolean deleteById(Integer conNo) {
+        return this.tConsumersDao.deleteById(conNo) > 0;
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "name" : "TVTag",
+  "preName" : "",
+  "comment" : "视频标签",
+  "templateGroupName" : "Default",
+  "fullColumn" : [ {
+    "name" : "vTagNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "vNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "tNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "org.lanqiao",
+  "savePath" : "./bilibili-dao/src/main/java/org/lanqiao",
+  "saveModelName" : "bilibili-dao"
+}

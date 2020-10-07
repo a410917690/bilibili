@@ -1,0 +1,33 @@
+{
+  "name" : "TConGift",
+  "preName" : "",
+  "comment" : "用户礼物",
+  "templateGroupName" : "Default",
+  "fullColumn" : [ {
+    "name" : "conGNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "conNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "gNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "org.lanqiao",
+  "savePath" : "./bilibili-dao/src/main/java/org/lanqiao",
+  "saveModelName" : "bilibili-dao"
+}

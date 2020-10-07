@@ -1,0 +1,40 @@
+{
+  "name" : "TComComment",
+  "preName" : "",
+  "comment" : "评论的评论",
+  "templateGroupName" : "Default",
+  "fullColumn" : [ {
+    "name" : "comComNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "comNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "conNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "comCom",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "org.lanqiao",
+  "savePath" : "./bilibili-dao/src/main/java/org/lanqiao",
+  "saveModelName" : "bilibili-dao"
+}
