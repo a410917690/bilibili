@@ -1,11 +1,12 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TConsumers;
+import org.lanqiao.vo.ConsumersVo;
 
 import java.util.List;
 
 /**
- * 用户(TConsumers)表服务接口
+ * 用户(ConsumersVo)表服务接口
  *
  * @author makejava
  * @since 2020-10-07 11:28:28
@@ -18,7 +19,9 @@ public interface TConsumersService {
 
      * @return 实例对象
      */
-    TConsumers queryById(Integer con_no);
+    TConsumers queryById(String name);
+
+    String getRoleName(Integer con_no);
 
     /**
      * 查询多条数据
@@ -54,5 +57,7 @@ public interface TConsumersService {
      * @return 是否成功
      */
     boolean deleteById(Integer conNo);
+
+
 
 }

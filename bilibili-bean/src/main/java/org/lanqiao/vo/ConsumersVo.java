@@ -1,4 +1,4 @@
-package org.lanqiao.entity;
+package org.lanqiao.vo;
 
 import lombok.Data;
 
@@ -12,7 +12,7 @@ import java.util.Date;
  * @since 2020-10-07 11:12:44
  */
 @Data
-public class TConsumers implements Serializable {
+public class ConsumersVo implements Serializable {
     private static final long serialVersionUID = 792526065938981399L;
     /**
      * 用户编号
@@ -47,6 +47,7 @@ public class TConsumers implements Serializable {
      */
     private Integer con_is_legal;
 
+    private String role_name;
 
 
 }

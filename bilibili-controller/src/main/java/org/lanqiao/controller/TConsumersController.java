@@ -4,13 +4,10 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TConsumers;
 
 import org.lanqiao.service.TConsumersService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
- * 用户(TConsumers)表控制层
+ * 用户(ConsumersVo)表控制层
  *
  * @author makejava
  * @since 2020-10-07 11:33:08
@@ -31,15 +28,21 @@ public class TConsumersController {
      * @return 单条数据
      */
     @ResponseBody
-    @GetMapping("getOneConsumers")
-    public TConsumers selectOne(Integer con_no) {
-        return this.tConsumersService.queryById(con_no);
+    @PostMapping("login")
+    public TConsumers selectOne(String name) {
+        return this.tConsumersService.queryById(name);
     }
 
     @ResponseBody
-    @GetMapping("getAllConsumers")
+    @PostMapping("getAllConsumers")
     public Object getAllConsumersByPage(@RequestParam(defaultValue = "1")int page){
         return tConsumersService.getAllConsumersByPage(page,10);
+    }
+
+    @ResponseBody
+    @PostMapping("getRoleName")
+    public String getRoleName(Integer con_no){
+        return this.tConsumersService.getRoleName(con_no);
     }
 
 }

@@ -5,13 +5,14 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TConsumersDao;
 import org.lanqiao.entity.TConsumers;
+import org.lanqiao.vo.ConsumersVo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 用户(TConsumers)表服务实现类
+ * 用户(ConsumersVo)表服务实现类
  *
  * @author makejava
  * @since 2020-10-07 11:30:05
@@ -29,8 +30,13 @@ public class TConsumersServiceImpl implements TConsumersService {
      * @return 实例对象
      */
     @Override
-    public TConsumers queryById(Integer con_no) {
-        return this.tConsumersDao.queryById(con_no);
+    public TConsumers queryById(String name) {
+        return this.tConsumersDao.queryById(name);
+    }
+
+    @Override
+    public String getRoleName(Integer con_no) {
+        return this.tConsumersDao.getRoleName(con_no);
     }
 
     /**
@@ -74,8 +80,13 @@ public class TConsumersServiceImpl implements TConsumersService {
     @Override
     public TConsumers update(TConsumers tConsumers) {
         this.tConsumersDao.update(tConsumers);
-        return this.queryById(tConsumers.getCon_no());
+        return this.queryById(tConsumers.getName());
     }
+
+//    public ConsumersVo getConsumersVo(){
+//        return this.tConsumersDao.getConsumersVo();
+//    }
+
 
     /**
      * 通过主键删除数据

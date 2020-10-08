@@ -4,12 +4,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TConsumers;
+import org.lanqiao.vo.ConsumersVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * 用户(TConsumers)表数据库访问层
+ * 用户(ConsumersVo)表数据库访问层
  *
  * @author makejava
  * @since 2020-10-07 11:27:33
@@ -21,11 +22,17 @@ public interface TConsumersDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param conNo 主键
+
      * @return 实例对象
      */
-    @Select("select * from t_consumers where con_no=#{con_no}")
-    TConsumers queryById(Integer con_no);
+    @Select("select * from t_consumers where name=#{name}")
+    TConsumers queryById(String name);
+
+//    @Select("select c.*,r.role_name from t_consumers c ,t_roles r  where c.role_no=r.role_no")
+//    ConsumersVo getConsumersVo();
+
+    @Select("select role_name from t_roles where role_no in (select role_no from t_consumers where con_no=#{con_no});")
+    String getRoleName(Integer con_no);
 
 
     @Select("select * from t_consumers order by con_no")

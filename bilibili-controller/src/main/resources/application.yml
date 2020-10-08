@@ -1,0 +1,26 @@
+server:
+  port: 8082
+# dubbo-consumer.properties
+dubbo:
+  application:
+     name: annotation-consumer
+#dubbo.registry.address=redis://127.0.0.1:6379
+  registry:
+     address: zookeeper://127.0.0.1:2181
+  consumer:
+     timeout: 3000
+# solr≈‰÷√
+#spring.data.solr.zk-host=http://localhost:8983/solr
+  # Redis ˝æ›ø‚
+redis:
+  database: 0
+  host: localhost
+  port: 6379
+  password:
+  timeout: 300
+  jedis:
+     pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
