@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>动态渲染整个表格</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="lib/elementui/theme-chalk/index.css" type="text/css">
+</head>
+<body>
+<div id="app">
+    <el-tabs value="first">
+        <el-tab-pane label="用户管理" name="first"></el-tab-pane>
+    </el-tabs>
+    <div style="float: right">
+        <el-button type="primary" @click.native="handleAdd()"> + 添加用户</el-button>
+    </div>
+    <!--弹窗-->
+    <el-dialog :title="dialogTitle"
+               :visible.sync="editFormVisible"
+               :close-on-click-modal="false"
+               class="edit-form">
+        <el-form :model="editForm" label-width="80px" ref="editForm">
+            <el-form-item label="用户名">
+                <el-input lable="" v-model="editForm.userName" auto-complete="off" size="small"></el-input>
+            </el-form-item>
+            <el-form-item label="密码">
+                <el-input v-model="editForm.password" auto-complete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="头像">
+                <el-input v-model="editForm.facePic" auto-complete="off"></el-input>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click.native="handleCancel('editForm')">取消</el-button>
+            <div v-if="isInsert">
+                <el-button type="primary" @click.native="handleInsert('editForm')">添加</el-button>
+            </div>
+            <div v-else>
+                <el-button type="primary" @click.native="handleUpdate('editForm')">更新</el-button>
+            </div>
+        </div>
+    </el-dialog>
+    <table-component ref="tableRef" :table-columns="tableColumns"></table-component>
+</div>
+<!-- 引入组件库 -->
+<script type="text/javascript" src="lib/vue.js"></script>
+<script type="text/javascript" src="lib/elementui/index.js"></script>
+<script type="text/javascript" src="lib/axios.min.js"></script>
+
+<!--表格组件，需要分页-->
+<div id="tableComponentApp">
+    <div>
+
+
+        <el-table
+                :data="pageData"
+                border
+                style="width: 100%">
+            <el-table-column
+                    v-for="(item, index) in tableColumns"
+                    :prop="item.prop"
+                    :label="item.label"
+                    :key="item.id"
+                    sortable
+                    show-overflow-tooltip
+            ></el-table-column>
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                    <el-button-group style="margin:0 5px">
+                        <el-button type="warning" @click="$parent.handleModify(scope.$index)">修改</el-button><el-button type="danger" @click="$parent.handleDelete(scope.$index)">删除</el-button>
+                    </el-button-group>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div style="text-align: center;width: 100%; margin-top: 5px;">
+            <el-pagination
+                    background
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    layout="prev, pager, next, sizes"
+                    :current-page="pageNum"
+                    :page-sizes="pageSizes"
+                    :page-size="pageSize"
+                    :total="total"
+            ></el-pagination>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    const tableComponent = {
+        template: window.document.getElementById("tableComponentApp").innerHTML,
+        data: function () {
+            return {
+                pageData: [],
+                //当前页数
+                pageNum: 1,
+                // 总条数，根据接口获取数据长度(注意：这里不能为空)
+                total: 1,
+                // 个数选择器（可修改）
+                pageSizes: [5, 10, 15, 20],
+                // 默认每页显示的条数（可修改）
+                pageSize: 1,
+                editForm: {},
+                editFormVisible: false,
+                isInsert: false,
+            }
+        },
+        props: {
+            tableColumns: {
+                type: Array,
+                required: true
+            }
+        },
+        methods: {
+            handleSizeChange: function (val) {
+                // 改变每页显示的条数
+                this.pageSize = val;
+                // 注意：在改变每页显示的条数时，要将页码显示到第一页
+                this.currentPage = 1;
+                // 点击每页显示的条数时，显示第一页
+                this.$parent.getData(1, val);
+            },
+            handleCurrentChange: function (val) {
+                // 改变默认的页数
+                this.pageNum = val;
+                // 切换页码时，要获取每页显示的条数
+                this.$parent.getData(val, this.pageSize);
+            }
+        }
+    };
+</script>
+
+<script type="text/javascript">
+
+    new Vue({
+        el: "#app",
+        data: {
+            tableColumns: [
+                {id: "id", prop: "id", label: "用户编号"},
+                {id: "userName", prop: "userName", label: "用户名"},
+                {id: "password", prop: "password", label: "密码"},
+                {id: "facePic", prop: "facePic", label: "头像"},
+            ],
+            editForm: {},
+            editFormVisible: false,
+            isInsert: false,
+            dialogTitle: "编辑用户"
+        },
+        components: {
+            'table-component': tableComponent
+        },
+        methods: {
+            getData(pageNum, pageSize) {
+                axios.post('getUserByPage', {pageNum: pageNum, pageSize: pageSize}).then(res => {
+                    console.log('数据是:', res);
+                    this.$refs.tableRef.pageData = res.data.list;
+                    this.$refs.tableRef.pageNum = res.data.pageNum;
+                    this.$refs.tableRef.total = res.data.total;
+                    this.$refs.tableRef.pageSize = res.data.pageSize;
+                }).catch((e) => {
+                    console.log('获取数据失败');
+                });
+            },
+            handleModify(index) {
+                this.editForm = this.$refs.tableRef.pageData[index];
+                this.editFormVisible = true;//dialog对话窗口打开
+                this.isInsert = false;//修改提交按钮
+                this.dialogTitle = "编辑用户";
+            },
+            handleUpdate(val) {
+                console.log(this.editForm);
+                axios.patch('updateUser', this.editForm).then(res => {
+                    if (res.data != null) {
+                        this.getData(this.$refs.tableRef.pageNum, this.$refs.tableRef.pageSize);
+                        this.$message({message: '用户修改成功！', type: 'success'});
+                        this.editFormVisible = false;
+                    } else {
+                        this.$message.error('用户修改失败！');
+                    }
+                }).catch((e) => {
+                    console.log(e);
+                });
+            },
+            handleDelete(index) {
+                this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    axios.delete('delUser?id=' + this.$refs.tableRef.pageData[index].id).then(res => {
+                        if (res.data == true) {
+                            this.getData(this.$refs.tableRef.pageNum, this.$refs.tableRef.pageSize);
+                            this.$message({message: '用户删除成功！', type: 'success'});
+                            this.editFormVisible = false;
+                        } else {
+                            this.$message.error('用户删除失败！');
+                        }
+                    }).catch((e) => {
+                        console.log(e);
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info', message: '已取消删除'
+                    });
+                });
+            },
+            handleCancel() {
+                this.editForm = {};
+                this.editFormVisible = false;
+            },
+            handleAdd() {
+                this.editForm = {};
+                this.isInsert = true;
+                this.editFormVisible = true;
+                this.dialogTitle = "添加用户"
+            },
+            handleInsert() {
+                axios.post('insertUser', this.editForm).then(res => {
+                    if (res != null) {
+                        this.getData(this.$refs.tableRef.pageNum, this.$refs.tableRef.pageSize);
+                        this.$message({message: '用户添加成功！', type: 'success'});
+                        this.editFormVisible = false;
+                    } else {
+                        this.$message.error('用户添加失败！');
+                    }
+                }).catch((e) => {
+                    console.log(e);
+                });
+            },
+        },
+        mounted() {
+            this.getData(1, 5);
+        },
+    });
+</script>
+
+</body>
+
+</html>
