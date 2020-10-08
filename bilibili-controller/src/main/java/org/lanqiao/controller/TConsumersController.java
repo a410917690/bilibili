@@ -7,6 +7,7 @@ import org.lanqiao.service.TConsumersService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 /**
@@ -17,13 +18,13 @@ import java.util.List;
  */
 @RestController
 @CrossOrigin
-
 public class TConsumersController {
     /**
      * 服务对象
      */
     @Reference
     TConsumersService tConsumersService;
+
 
     /**
      * 通过主键查询单条数据

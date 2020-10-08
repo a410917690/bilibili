@@ -22,12 +22,12 @@ public interface TCommentsService {
 
     /**
      * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
+     *n 对象列表
      */
-    List<TComments> queryAllByLimit(int offset, int limit);
+
+
+
+    Object queryAllByVno(int pageNum,int pageSize,Integer v_no);
 
     /**
      * 新增数据
@@ -45,12 +45,14 @@ public interface TCommentsService {
      */
     TComments update(TComments tComments);
 
+    public void delete(Integer v_no,Integer con_no);
+
     /**
      * 通过主键删除数据
      *
      * @param comNo 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer comNo);
+
 
 }
