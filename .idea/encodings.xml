@@ -4,8 +4,8 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bilibili-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bilibili-bean" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bilibili-bean" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bilibili-controller" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/application.yml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/bilibili-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bilibili-service" charset="UTF-8" />
   </component>

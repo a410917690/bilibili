@@ -21,6 +21,8 @@ public interface TConsumersService {
      */
     TConsumers queryById(String name);
 
+    TConsumers queryByTel(String tel_num);
+
     String getRoleName(Integer con_no);
 
     List<TConsumers> queryAll(TConsumers tConsumers);
@@ -51,7 +53,12 @@ public interface TConsumersService {
      *
      * @param tConsumers 实例对象
      * @return 实例对象
+     *
+
      */
+
+
+
     TConsumers update(TConsumers tConsumers);
 
     /**

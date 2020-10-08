@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TConsumers;
 
 import org.lanqiao.service.TConsumersService;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @since 2020-10-07 11:33:08
  */
 @RestController
+@CrossOrigin
 
 public class TConsumersController {
     /**
@@ -49,28 +51,29 @@ public class TConsumersController {
 
 
     @ResponseBody
-    @GetMapping("register")
-    public boolean isUser(String name,String tel_num){
+    @PostMapping("register")
+    public boolean isUser(String name,String password,String tel_num){
         TConsumers tConsumers= new TConsumers();
         tConsumers.setName(name);
         tConsumers.setTel_num(tel_num);
+        tConsumers.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
         List<TConsumers> list = this.tConsumersService.queryAll(tConsumers);
         if(list.isEmpty()){
+            this.tConsumersService.insert(tConsumers);
             return  true;
         }else {
             return false;
         }
     }
 
+
     @ResponseBody
-    @PostMapping("insertConsumers")
-    public String insertConsumers(String name,String password,String tel_num){
-        TConsumers tConsumers = new TConsumers();
-        tConsumers.setName(name);
-        tConsumers.setPassword(password);
-        tConsumers.setTel_num(tel_num);
-        this.tConsumersService.insert(tConsumers);
-        return "success";
+    @PostMapping("updateConsumers")
+    public String updateConsumers(String tel_num,String password){
+        TConsumers tConsumers = this.tConsumersService.queryByTel(tel_num);
+        tConsumers.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
+        this.tConsumersService.update(tConsumers);
+        return "修改成功！";
     }
 }
 

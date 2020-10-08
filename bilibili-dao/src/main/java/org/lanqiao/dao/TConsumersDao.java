@@ -1,9 +1,6 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TConsumers;
 import org.lanqiao.vo.ConsumersVo;
 import org.springframework.stereotype.Repository;
@@ -28,6 +25,9 @@ public interface TConsumersDao {
      */
     @Select("select * from t_consumers where name=#{name}")
     TConsumers queryById(String name);
+
+    @Select("select * from t_consumers where tel_num=#{tel_num}")
+    TConsumers queryByTel(String tel_num);
 
 //    @Select("select c.*,r.role_name from t_consumers c ,t_roles r  where c.role_no=r.role_no")
 //    ConsumersVo getConsumersVo();
@@ -81,6 +81,7 @@ public interface TConsumersDao {
      * @param tConsumers 实例对象
      * @return 影响行数
      */
+    @Update("update t_consumers set password=#{password},tel_num=#{tel_num} where name=#{name}")
     int update(TConsumers tConsumers);
 
     /**
