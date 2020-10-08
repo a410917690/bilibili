@@ -23,6 +23,10 @@ public interface TConsumersService {
 
     String getRoleName(Integer con_no);
 
+    List<TConsumers> queryAll(TConsumers tConsumers);
+
+    List<TConsumers> queryByTelNum(TConsumers tConsumers);
+
     /**
      * 查询多条数据
      *

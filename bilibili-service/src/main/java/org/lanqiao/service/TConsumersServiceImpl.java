@@ -39,6 +39,16 @@ public class TConsumersServiceImpl implements TConsumersService {
         return this.tConsumersDao.getRoleName(con_no);
     }
 
+    @Override
+    public List<TConsumers> queryAll(TConsumers tConsumers) {
+        return this.tConsumersDao.queryAll(tConsumers);
+    }
+
+    @Override
+    public List<TConsumers> queryByTelNum(TConsumers tConsumers) {
+        return  this.tConsumersDao.queryByTelNum(tConsumers);
+    }
+
     /**
      * 查询多条数据
      *

@@ -1,5 +1,6 @@
 package org.lanqiao.dao;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -53,7 +54,17 @@ public interface TConsumersDao {
      * @param tConsumers 实例对象
      * @return 对象列表
      */
+    @Select("select * from t_consumers where name = #{name} or tel_num = #{tel_num}")
     List<TConsumers> queryAll(TConsumers tConsumers);
+
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param tConsumers 实例对象
+     * @return 对象列表
+     */
+    @Select("select * from t_consumers where tel_num = #{tel_num}")
+    List<TConsumers> queryByTelNum(TConsumers tConsumers);
 
     /**
      * 新增数据
@@ -61,6 +72,7 @@ public interface TConsumersDao {
      * @param tConsumers 实例对象
      * @return 影响行数
      */
+    @Insert("insert into t_consumers (name,password,tel_num) values (#{name},#{password},#{tel_num})")
     int insert(TConsumers tConsumers);
 
     /**

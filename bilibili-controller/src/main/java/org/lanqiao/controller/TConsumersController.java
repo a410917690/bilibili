@@ -6,6 +6,8 @@ import org.lanqiao.entity.TConsumers;
 import org.lanqiao.service.TConsumersService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 用户(ConsumersVo)表控制层
  *
@@ -45,4 +47,31 @@ public class TConsumersController {
         return this.tConsumersService.getRoleName(con_no);
     }
 
+
+    @ResponseBody
+    @GetMapping("register")
+    public boolean isUser(String name,String tel_num){
+        TConsumers tConsumers= new TConsumers();
+        tConsumers.setName(name);
+        tConsumers.setTel_num(tel_num);
+        List<TConsumers> list = this.tConsumersService.queryAll(tConsumers);
+        if(list.isEmpty()){
+            return  true;
+        }else {
+            return false;
+        }
+    }
+
+    @ResponseBody
+    @PostMapping("insertConsumers")
+    public String insertConsumers(String name,String password,String tel_num){
+        TConsumers tConsumers = new TConsumers();
+        tConsumers.setName(name);
+        tConsumers.setPassword(password);
+        tConsumers.setTel_num(tel_num);
+        this.tConsumersService.insert(tConsumers);
+        return "success";
+    }
 }
+
+

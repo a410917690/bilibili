@@ -47,6 +47,6 @@ public class TConsumers implements Serializable {
      */
     private Integer con_is_legal;
 
-
+    private String tel_num;
 
 }
