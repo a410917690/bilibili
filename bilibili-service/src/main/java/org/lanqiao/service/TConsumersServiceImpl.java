@@ -35,6 +35,11 @@ public class TConsumersServiceImpl implements TConsumersService {
     }
 
     @Override
+    public TConsumers queryByTel(String tel_num) {
+        return this.tConsumersDao.queryByTel(tel_num);
+    }
+
+    @Override
     public String getRoleName(Integer con_no) {
         return this.tConsumersDao.getRoleName(con_no);
     }

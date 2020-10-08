@@ -4,11 +4,12 @@
 
 
 ========用户=============
-获取单个用户   login（username,password）    返回所查找用户         （Post）
+获取单个用户   login（name）    返回所查找用户         （Post）
 获取所有用户   getAllConsumers       			           （Post）
 获取用户角色   getRoleName（con_no）   返回String 用户角色       （Post）
+修改用户         updateConsumers(name,password,tel_name)   只能修改密码和手机号   （post）
 
-注册用户      register（name,password,tel_num）  返回ture false
+注册用户      register（name，password,tel_num）  返回ture            false
 
 
 ============标签==============
