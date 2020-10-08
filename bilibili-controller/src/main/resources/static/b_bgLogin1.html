@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style1.css">
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(function () {
+            /*toggleClass() 对设置或移除被选元素的一个或多个类进行切换。*/
+            $(".show-login-btn").on("click", function () {
+                $(".login-box").toggleClass("showed");
+            })
+            $(".hide-login-btn").on("click", function () {
+                $(".login-box").toggleClass("showed");
+            })
+        });
+    </script>
+</head>
+<body>
+
+<div class="show-login-btn">
+    <i class="fa fa-sign-in" aria-hidden="true"></i>
+    管理员登录入口
+</div>
+
+<div class="login-box">
+    <div class="hide-login-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+    <form class="login-form" action="b_index.html" method="post">
+        <h1>后台登录</h1>
+        <input class="txtb" type="text" name="username" placeholder="Username">
+        <input class="txtb" type="password" name="password" placeholder="Password">
+        <input class="login-btn" type="submit" name="bg-login" value="login">
+    </form>
+</div>
+</body>
+</html>

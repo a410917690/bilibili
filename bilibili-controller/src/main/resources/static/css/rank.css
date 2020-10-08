@@ -1,0 +1,39 @@
+#rank {
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    background-color: deepskyblue;
+}
+
+#rank a{
+    color: white;
+}
+
+#rank a:hover{
+    color: deeppink;
+}
+
+a:hover {
+    color: deeppink;
+}
+
+a {
+    padding-right: 80px;
+}
+
+#rank-con {
+    text-align: center;
+    font-size: 30px;
+}
+
+.ra {
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+.ra span {
+    color: hotpink;
+}
+#b{
+    height: 35px;
+}

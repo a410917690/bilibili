@@ -1,0 +1,14 @@
+#com{
+    padding-top: 30px;
+    padding-left: 180px;
+}
+
+#s{
+    padding-top: -50px;
+    height: 30px;
+    width: 120px;
+    font-size: 20px;
+    background-color: deepskyblue;
+    text-align: center;
+    color: white;
+}

@@ -1,0 +1,63 @@
+a:hover {
+    color: red;
+}
+
+#se {
+    text-align: center;
+    display: flex;
+    padding-left: 580px;
+    padding-bottom: 50px;
+}
+
+#in {
+    font-size: 22px;
+    width: 350px;
+}
+
+
+a {
+    padding-right: 120px;
+}
+
+#pi {
+    padding-top: 30px;
+    height: 130px;
+    width: 100%;
+    position: relative;
+    background-image: url("../images/b.jpg");
+}
+
+.home-home {
+    padding-left: 190px;
+    font-size: 30px;
+    color: hotpink;
+    background-color: azure;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+.wel {
+    padding-left: 200px;
+}
+
+#list {
+    height: 40px;
+    font-size: 16px;
+    padding-top: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list-tl{
+    padding-left: 30px;
+    padding-right: 40px;
+}
+
+.list-tll{
+    padding-left: 115px;
+    padding-right: 40px;
+}
+
+.list-tr{
+    padding-left: 480px;
+    padding-right: 10px;
+}
