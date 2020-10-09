@@ -3,6 +3,7 @@ package org.lanqiao.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TRoomGift;
 import org.lanqiao.service.TRoomGiftService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-10-07 11:33:09
  */
 @RestController
-
+@CrossOrigin
 public class TRoomGiftController {
     /**
      * 服务对象

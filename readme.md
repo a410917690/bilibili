@@ -1,6 +1,7 @@
 ==========视频=====================
 获取所有视频    getAllVideos              返回：list<TVideos>
 获取单个视频    getOneVideos(v_title)            tVideos对象
+获取视频（通过标签 ）  getVideosByTag(page[可不写，默认为1],t_name)       返回：list<TVideos>
 
 
 ========用户=============
@@ -32,7 +33,14 @@
 
 ============弹幕=============
 
+
+
 ===========评论===============
 通过v_no获取评论      getCommentsByVno(page[可不写，默认参数为1],v_no)          返回list
+添加评论       insertComment （tComments对象）   
+删除评论      deleteComment  (v_no,con_no)
+
+===========收藏==============
+
 
 

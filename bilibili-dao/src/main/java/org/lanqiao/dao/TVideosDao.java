@@ -25,9 +25,11 @@ public interface TVideosDao {
 
      * @return 实例对象
      */
-    @Select("select * from t_videos where v_title=#{v_title}")
-    TVideos queryById(String v_title);
+    @Select("select * from t_videos where v_no=#{v_no}")
+    TVideos queryById(Integer v_no);
 
+    @Select("select * from t_videos where v_no =(select v_no from t_v_tag where t_no=#{t_no})")
+    List<TVideos> queryByTag(Integer t_no);
 
     @Select("select * from t_videos order by v_no desc")
             public List<TVideos> getListByPage();

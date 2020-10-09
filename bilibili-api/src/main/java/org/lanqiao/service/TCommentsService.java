@@ -45,7 +45,7 @@ public interface TCommentsService {
      */
     TComments update(TComments tComments);
 
-    public void delete(Integer v_no,Integer con_no);
+    String deleteComment(Integer v_no,Integer con_no);
 
     /**
      * 通过主键删除数据

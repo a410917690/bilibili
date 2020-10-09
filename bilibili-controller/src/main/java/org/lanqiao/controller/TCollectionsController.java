@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2020-10-07 11:33:04
  */
 @Controller
+@CrossOrigin
 public class TCollectionsController {
     /**
      * 服务对象

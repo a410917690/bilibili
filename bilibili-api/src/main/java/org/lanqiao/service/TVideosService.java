@@ -19,7 +19,7 @@ public interface TVideosService {
      * @return 实例对象
      */
 
-    TVideos queryById(String v_title);
+    TVideos queryById(Integer v_no);
 
     /**
      * 查询多条数据
@@ -58,5 +58,5 @@ public interface TVideosService {
 
     public Object getAllVideosByPage(int pageNum,int pageSize);
 
-
+    public Object getVideosByTag(int pageNum,int pageSize,Integer t_no);
 }

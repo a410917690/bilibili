@@ -7,9 +7,11 @@ import org.lanqiao.entity.TVideos;
 import org.lanqiao.service.TVideosService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ import java.util.List;
  * @since 2020-10-07 11:33:09
  */
 @Controller
+@CrossOrigin
 public class TVideosController {
     /**
      * 服务对象
@@ -35,8 +38,8 @@ public class TVideosController {
      */
     @ResponseBody
     @GetMapping("getOneVideos")
-    public TVideos selectOne(String v_title) {
-        return this.tVideosService.queryById(v_title);
+    public TVideos selectOne(Integer v_no) {
+        return this.tVideosService.queryById(v_no);
     }
 
 
@@ -53,8 +56,16 @@ public class TVideosController {
     @ResponseBody
     @GetMapping("getAllVideos")
     public Object getAllVideosByPage(@RequestParam(defaultValue = "1")int page){
-        return tVideosService.getAllVideosByPage(page,2);
+        return tVideosService.getAllVideosByPage(page,6);
     }
+
+    @ResponseBody
+    @GetMapping("getVideosByTag")
+    public Object getVideosByTag(@RequestParam(defaultValue = "1")int page,@RequestParam("t_no")int t_no){
+        return tVideosService.getVideosByTag(page,6,t_no);
+    }
+
+
     @ResponseBody
     @GetMapping("updateVideos")
     public TVideos update(TVideos tVideos){

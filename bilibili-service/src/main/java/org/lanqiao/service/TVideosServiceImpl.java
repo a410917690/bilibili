@@ -29,8 +29,8 @@ public class TVideosServiceImpl implements TVideosService {
      * @return 实例对象
      */
     @Override
-    public TVideos queryById(String v_title) {
-        return this.tVideosDao.queryById(v_title);
+    public TVideos queryById(Integer v_no) {
+        return this.tVideosDao.queryById(v_no);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class TVideosServiceImpl implements TVideosService {
     @Override
     public TVideos update(TVideos tVideos) {
         this.tVideosDao.update(tVideos);
-        return this.queryById(tVideos.getV_title());
+        return this.queryById(tVideos.getV_no());
     }
 
     /**
@@ -88,6 +88,13 @@ public class TVideosServiceImpl implements TVideosService {
     public PageInfo<TVideos> getAllVideosByPage(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         List<TVideos> list = tVideosDao.getListByPage();
+        return new PageInfo<>(list);
+    }
+
+    @Override
+    public PageInfo<TVideos> getVideosByTag(int pageNum,int pageSize,Integer t_no){
+        PageHelper.startPage(pageNum,pageSize);
+        List<TVideos> list = tVideosDao.queryByTag(t_no);
         return new PageInfo<>(list);
     }
 }

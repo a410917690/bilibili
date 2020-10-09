@@ -24,8 +24,8 @@ public interface TLiveRoomsDao {
 
      * @return 实例对象
      */
-    @Select("select * from t_live_rooms where room_title=#{room_title}")
-    TLiveRooms queryById(String room_title);
+    @Select("select * from t_live_rooms where room_no=#{room_no}")
+    TLiveRooms queryById(Integer room_no);
 
     @Select("select * from t_live_rooms")
     List<TLiveRooms> queryAllByPage();

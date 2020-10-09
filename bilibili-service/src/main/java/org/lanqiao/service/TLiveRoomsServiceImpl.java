@@ -29,8 +29,8 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
      */
 
     @Override
-    public TLiveRooms queryById(String room_title) {
-        return this.tLiveRoomsDao.queryById(room_title);
+    public TLiveRooms queryById(Integer room_no) {
+        return this.tLiveRoomsDao.queryById(room_no);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
     @Override
     public TLiveRooms update(TLiveRooms tLiveRooms) {
         this.tLiveRoomsDao.update(tLiveRooms);
-        return this.queryById(tLiveRooms.getRoom_title());
+        return this.queryById(tLiveRooms.getRoom_no());
     }
 
     /**

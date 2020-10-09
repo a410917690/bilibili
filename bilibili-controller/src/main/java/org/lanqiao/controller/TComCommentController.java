@@ -3,6 +3,7 @@ package org.lanqiao.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TComComment;
 import org.lanqiao.service.TComCommentService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-10-07 11:33:06
  */
 @RestController
-
+@CrossOrigin
 public class TComCommentController {
     /**
      * 服务对象

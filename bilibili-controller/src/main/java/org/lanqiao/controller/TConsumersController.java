@@ -70,7 +70,7 @@ public class TConsumersController {
 
     @ResponseBody
     @PostMapping("updateConsumers")
-    public String updateConsumers(String tel_num,String password){
+    public String updateConsumers(String tel_num,String password,Integer coins){
         TConsumers tConsumers = this.tConsumersService.queryByTel(tel_num);
         tConsumers.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
         this.tConsumersService.update(tConsumers);

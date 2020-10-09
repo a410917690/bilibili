@@ -1,7 +1,9 @@
 package org.lanqiao.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -10,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
 // Security 配置,继承WebSecurityConfigurerAdapter这个类
@@ -40,13 +45,44 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(failureHandler).and() //定义登录失败处理
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and() // 不需要session验证，加上token不好使。
                 .authorizeRequests().antMatchers("/login").permitAll()//不校验我们配置的登录页面
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated() //其他页面都校验
-                .and().csrf().disable() //不允许csr
+
+                .and()
+                .cors().configurationSource(CorsConfigurationSource()).and()
+                .csrf().disable() //不允许csr
                 .addFilterBefore(redisAuthenticationFilter, BasicAuthenticationFilter.class); //验证token操作
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**","/register");
+        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**",
+                "/register","/getAllVideos","/getOneVideos","/getVideosByTag",
+                "/getAllFan",
+                "/getAllTag",
+                "/getOneRoom","/getAllRoom",
+                "/*.html","/b_index.html");
     }
+
+//    @Bean
+//    CorsConfigurationSource corsConfigurationSource(){
+//        return httpServletRequest -> {
+//            CorsConfiguration cfg = new CorsConfiguration();
+//            cfg.addAllowedHeader("*");
+//            cfg.addAllowedMethod("*");
+//           // cfg.addAllowedOrigin("http://localhost:9528");
+//            cfg.setAllowCredentials(true);
+//           // cfg.checkOrigin("http://localhost:9528");
+//            return cfg;
+//        };
+//    }
+private CorsConfigurationSource CorsConfigurationSource() {
+    CorsConfigurationSource source =   new UrlBasedCorsConfigurationSource();
+    CorsConfiguration corsConfiguration = new CorsConfiguration();
+    corsConfiguration.addAllowedOrigin("*");	//同源配置，*表示任何请求都视为同源，若需指定ip和端口可以改为如“localhost：8080”，多个以“，”分隔；
+    corsConfiguration.addAllowedHeader("*");//header，允许哪些header，本案中使用的是token，此处可将*替换为token；
+    corsConfiguration.addAllowedMethod("*");	//允许的请求方法，PSOT、GET等
+    ((UrlBasedCorsConfigurationSource) source).registerCorsConfiguration("/**",corsConfiguration); //配置允许跨域访问的url
+    return source;
+}
 }

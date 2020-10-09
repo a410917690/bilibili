@@ -68,9 +68,11 @@ public class TCommentsServiceImpl implements TCommentsService {
     }
 
     @Override
-    public void delete(Integer v_no, Integer con_no) {
-       tCommentsDao.deleteById(v_no,con_no);
+     public String deleteComment(Integer v_no,Integer con_no) {
+        this.tCommentsDao.deleteByVno(v_no,con_no);
+        return "删除成功！";
     }
+
 
     /**
      * 通过主键删除数据

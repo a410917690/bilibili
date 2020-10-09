@@ -81,7 +81,7 @@ public interface TConsumersDao {
      * @param tConsumers 实例对象
      * @return 影响行数
      */
-    @Update("update t_consumers set password=#{password},tel_num=#{tel_num} where name=#{name}")
+    @Update("update t_consumers set password=#{password},tel_num=#{tel_num},coins=#{coins},member_deadline=#{member_deadline},con_is_legal=#{con_is_legal} where name=#{name}")
     int update(TConsumers tConsumers);
 
     /**

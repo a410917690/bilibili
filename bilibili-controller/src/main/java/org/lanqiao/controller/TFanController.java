@@ -4,10 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TFan;
 
 import org.lanqiao.service.TFanService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 番剧(TFan)表控制层
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-10-07 11:33:08
  */
 @RestController
-
+@CrossOrigin
 public class TFanController {
     /**
      * 服务对象
@@ -39,7 +36,7 @@ public class TFanController {
     @ResponseBody
     @GetMapping("getAllFan")
     public Object queryAllFanByPage(@RequestParam(defaultValue = "1")int page){
-        return tFanService.queryAllByPage(page,5);
+        return tFanService.queryAllByPage(page,6);
     }
 
 }

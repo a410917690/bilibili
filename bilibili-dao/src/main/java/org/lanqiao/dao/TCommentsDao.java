@@ -58,7 +58,7 @@ public interface TCommentsDao {
 
      * @return 影响行数
      */
-    @Delete("delete from t_comments where v_no=#{v_no} and con_no=#{con_no};")
-    int deleteById(Integer v_no,Integer con_no);
+    @Delete("delete from t_comments where v_no=#{v_no} and con_no=#{con_no}")
+    int deleteByVno(@Param("v_no") Integer v_no,@Param("con_no") Integer con_no);
 
 }

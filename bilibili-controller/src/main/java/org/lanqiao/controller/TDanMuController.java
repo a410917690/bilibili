@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TDanMu;
 
 import org.lanqiao.service.TDanMuService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-10-07 11:33:08
  */
 @RestController
-
+@CrossOrigin
 public class TDanMuController {
     /**
      * 服务对象

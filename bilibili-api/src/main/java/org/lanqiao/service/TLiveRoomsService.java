@@ -18,7 +18,7 @@ public interface TLiveRoomsService {
 
      * @return 实例对象
      */
-    TLiveRooms queryById(String room_title);
+    TLiveRooms queryById(Integer room_no);
 
     Object queryAllByPage(int pageNum,int pageSize);
 

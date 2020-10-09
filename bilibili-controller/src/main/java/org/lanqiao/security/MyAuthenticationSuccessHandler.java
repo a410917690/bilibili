@@ -1,7 +1,10 @@
 package org.lanqiao.security;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+
+
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.lanqiao.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,7 +16,9 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 
 // 认证成功
 @Component
@@ -31,7 +36,12 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         //将token返回
         response.setContentType("application/json;charset=UTF-8");
         response.addHeader("Authorization", "Bearer " + token);
-        response.getWriter().print("用户token：" + token);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", username);
+        jsonObject.put("token",token);
+        String jsonStr = JSONObject.toJSONString(jsonObject);
+        response.getWriter().print(jsonStr);
+
     }
 
 }
