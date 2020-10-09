@@ -1,8 +1,6 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TFan;
 import org.springframework.stereotype.Repository;
 
@@ -21,11 +19,11 @@ public interface TFanDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param fanNo 主键
+
      * @return 实例对象
      */
-    @Select("select * from t_fan where fan_title=#{fan_title}")
-    TFan queryById(String fan_title);
+    @Select("select * from t_fan where fan_no=#{fan_no}")
+    TFan queryById(Integer fan_no);
 
     @Select("select * from t_fan")
     List<TFan> queryAllByPage();
@@ -62,14 +60,16 @@ public interface TFanDao {
      * @param tFan 实例对象
      * @return 影响行数
      */
+    @Update("update t_fan set fan_title=#{fan_title},m_no=#{m_no},fan_pic=#{fan_pic} where fan_no=#{fan_no}")
     int update(TFan tFan);
 
     /**
      * 通过主键删除数据
      *
-     * @param fanNo 主键
+
      * @return 影响行数
      */
-    int deleteById(Integer fanNo);
+    @Delete("delete from t_fan where fan_no=#{fan_no}")
+    int deleteById(Integer fan_no);
 
 }

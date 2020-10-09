@@ -29,8 +29,8 @@ public class TFanServiceImpl implements TFanService {
      * @return 实例对象
      */
     @Override
-    public TFan queryById(String fan_title) {
-        return this.tFanDao.queryById(fan_title);
+    public TFan queryById(Integer fan_no) {
+        return this.tFanDao.queryById(fan_no);
     }
 
     @Override
@@ -73,17 +73,18 @@ public class TFanServiceImpl implements TFanService {
     @Override
     public TFan update(TFan tFan) {
         this.tFanDao.update(tFan);
-        return this.queryById(tFan.getFan_title());
+        return this.queryById(tFan.getFan_no());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param fanNo 主键
+
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer fanNo) {
-        return this.tFanDao.deleteById(fanNo) > 0;
+    public String deleteById(Integer fan_no) {
+        this.tFanDao.deleteById(fan_no);
+        return "删除成功！";
     }
 }

@@ -40,8 +40,9 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         jsonObject.put("name", username);
         jsonObject.put("token",token);
         String jsonStr = JSONObject.toJSONString(jsonObject);
+        //JSONObject jsonObj= JSONObject.parseObject(jsonStr);
+        //response.getWriter().print(jsonObj);
         response.getWriter().print(jsonStr);
-
     }
 
 }

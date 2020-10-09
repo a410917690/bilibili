@@ -3,12 +3,15 @@ package org.lanqiao.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TGift;
 import org.lanqiao.service.TGiftService;
+import org.lanqiao.util.Result;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+import static org.lanqiao.util.ResultFactory.setResultSuccess;
 
 /**
  * 礼物(TGift)表控制层
@@ -39,7 +42,7 @@ public class TGiftController {
 
     @ResponseBody
     @GetMapping("getAllGit")
-    public List<TGift> queryAll(){
-        return this.tGiftService.queryAll();
+    public Result queryAll(){
+        return setResultSuccess(tGiftService.queryAll());
     }
 }

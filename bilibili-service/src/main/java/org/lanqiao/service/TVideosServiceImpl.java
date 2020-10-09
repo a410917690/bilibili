@@ -70,18 +70,20 @@ public class TVideosServiceImpl implements TVideosService {
     @Override
     public TVideos update(TVideos tVideos) {
         this.tVideosDao.update(tVideos);
-        return this.queryById(tVideos.getV_no());
+        return tVideosDao.queryById(tVideos.getV_no());
+
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param vNo 主键
+
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer vNo) {
-        return this.tVideosDao.deleteById(vNo) > 0;
+    public String deleteById(Integer v_no) {
+        this.tVideosDao.deleteById(v_no);
+        return "删除成功！";
     }
 
     @Override

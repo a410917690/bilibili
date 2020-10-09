@@ -5,15 +5,15 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.lanqiao.entity.TVideos;
 import org.lanqiao.service.TVideosService;
+import org.lanqiao.util.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+
+import static org.lanqiao.util.ResultFactory.setResultSuccess;
 
 /**
  * 视频(TVideos)表控制层
@@ -38,39 +38,35 @@ public class TVideosController {
      */
     @ResponseBody
     @GetMapping("getOneVideos")
-    public TVideos selectOne(Integer v_no) {
-        return this.tVideosService.queryById(v_no);
+    public Result selectOne(Integer v_no) {
+        return setResultSuccess(tVideosService.queryById(v_no));
     }
 
 
-//    @ResponseBody
-//    @GetMapping("getAllVideos")
-//    public List<TVideos> getAllVideos(@RequestParam(defaultValue = "1") int pageNum , Model model){
-//        PageHelper.startPage(pageNum,2);
-//        List<TVideos> list = tVideosService.queryAll();
-//        PageInfo<TVideos> pageInfo = new PageInfo<>(list);
-//        model.addAttribute("pageInfo",pageInfo);
-//        return list;
-//    }
-
     @ResponseBody
     @GetMapping("getAllVideos")
-    public Object getAllVideosByPage(@RequestParam(defaultValue = "1")int page){
-        return tVideosService.getAllVideosByPage(page,6);
+    public Result getAllVideosByPage(@RequestParam(defaultValue = "1")int page){
+        return setResultSuccess(tVideosService.getAllVideosByPage(page,6));
     }
 
     @ResponseBody
     @GetMapping("getVideosByTag")
-    public Object getVideosByTag(@RequestParam(defaultValue = "1")int page,@RequestParam("t_no")int t_no){
-        return tVideosService.getVideosByTag(page,6,t_no);
+    public Result getVideosByTag(@RequestParam(defaultValue = "1")int page,@RequestParam("t_no")int t_no){
+        return setResultSuccess(tVideosService.getVideosByTag(page,6,t_no));
     }
 
 
     @ResponseBody
-    @GetMapping("updateVideos")
-    public TVideos update(TVideos tVideos){
-        return this.tVideosService.update(tVideos);
+    @PostMapping("updateVideos")
+    public Result update(TVideos tVideos){
+        return setResultSuccess(tVideosService.update(tVideos));
 
+    }
+
+    @ResponseBody
+    @PostMapping("deleteVideos")
+    public Result delete(Integer v_no){
+        return setResultSuccess(tVideosService.deleteById(v_no));
     }
 
 

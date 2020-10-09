@@ -1,9 +1,6 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TVideos;
 import org.springframework.stereotype.Repository;
 
@@ -65,15 +62,16 @@ public interface TVideosDao {
      * @param tVideos 实例对象
      * @return 影响行数
      */
-    @Update("update t_videos set v_title,v_url,v_pic = #{v_title},#{v_url},#{v_pic} where v_no=#{v_no} ")
+    @Update("update t_videos set v_title= #{v_title},v_url=#{v_url},v_pic =#{v_pic} where v_no=#{v_no}")
     int update(TVideos tVideos);
 
     /**
      * 通过主键删除数据
      *
-     * @param vNo 主键
+
      * @return 影响行数
      */
-    int deleteById(Integer vNo);
+    @Delete("delete from t_videos where v_no=#{v_no}")
+    int deleteById(Integer v_no);
 
 }

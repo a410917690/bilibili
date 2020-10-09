@@ -40,6 +40,11 @@ public class TConsumersServiceImpl implements TConsumersService {
     }
 
     @Override
+    public TConsumers queryByCno(Integer con_no) {
+        return this.tConsumersDao.queryByCno(con_no);
+    }
+
+    @Override
     public String getRoleName(Integer con_no) {
         return this.tConsumersDao.getRoleName(con_no);
     }
@@ -95,7 +100,8 @@ public class TConsumersServiceImpl implements TConsumersService {
     @Override
     public TConsumers update(TConsumers tConsumers) {
         this.tConsumersDao.update(tConsumers);
-        return this.queryById(tConsumers.getName());
+        return tConsumers;
+
     }
 
 //    public ConsumersVo getConsumersVo(){
@@ -106,11 +112,12 @@ public class TConsumersServiceImpl implements TConsumersService {
     /**
      * 通过主键删除数据
      *
-     * @param conNo 主键
+
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer conNo) {
-        return this.tConsumersDao.deleteById(conNo) > 0;
+    public String deleteById(Integer con_no) {
+         this.tConsumersDao.deleteById(con_no);
+         return "删除成功！";
     }
 }

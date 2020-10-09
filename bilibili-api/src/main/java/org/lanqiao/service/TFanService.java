@@ -18,7 +18,7 @@ public interface TFanService {
 
      * @return 实例对象
      */
-    TFan queryById(String fan_title);
+    TFan queryById(Integer fan_no);
 
     Object queryAllByPage(int pageNum,int pageSize);
 
@@ -50,9 +50,9 @@ public interface TFanService {
     /**
      * 通过主键删除数据
      *
-     * @param fanNo 主键
+
      * @return 是否成功
      */
-    boolean deleteById(Integer fanNo);
+    String deleteById(Integer fan_no);
 
 }

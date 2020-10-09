@@ -26,6 +26,9 @@ public interface TConsumersDao {
     @Select("select * from t_consumers where name=#{name}")
     TConsumers queryById(String name);
 
+    @Select("select * from t_consumers where con_no=#{con_no}")
+    TConsumers queryByCno(Integer con_no);
+
     @Select("select * from t_consumers where tel_num=#{tel_num}")
     TConsumers queryByTel(String tel_num);
 
@@ -81,15 +84,16 @@ public interface TConsumersDao {
      * @param tConsumers 实例对象
      * @return 影响行数
      */
-    @Update("update t_consumers set password=#{password},tel_num=#{tel_num},coins=#{coins},member_deadline=#{member_deadline},con_is_legal=#{con_is_legal} where name=#{name}")
+    @Update("update t_consumers set password=#{password},role_no=#{role_no},tel_num=#{tel_num},coins=#{coins},member_deadline=#{member_deadline},con_is_legal=#{con_is_legal} where con_no=#{con_no}")
     int update(TConsumers tConsumers);
 
     /**
      * 通过主键删除数据
      *
-     * @param conNo 主键
+
      * @return 影响行数
      */
-    int deleteById(Integer conNo);
+    @Delete("delete from t_consumers where con_no=#{con_no}")
+    int deleteById(Integer con_no);
 
 }

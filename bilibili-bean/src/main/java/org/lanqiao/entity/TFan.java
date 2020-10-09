@@ -24,7 +24,7 @@ public class TFan implements Serializable {
     /**
      * 番剧地址
      */
-    private String fan_url;
+//    private String fan_url;
     /**
      * 管理员编号
      */

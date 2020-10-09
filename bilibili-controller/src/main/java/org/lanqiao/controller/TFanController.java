@@ -4,7 +4,10 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TFan;
 
 import org.lanqiao.service.TFanService;
+import org.lanqiao.util.Result;
 import org.springframework.web.bind.annotation.*;
+
+import static org.lanqiao.util.ResultFactory.setResultSuccess;
 
 /**
  * 番剧(TFan)表控制层
@@ -29,14 +32,26 @@ public class TFanController {
      */
     @ResponseBody
     @GetMapping("getOneFan")
-    public TFan selectOne(String fan_title) {
-        return this.tFanService.queryById(fan_title);
+    public Result selectOne(Integer fan_no) {
+        return setResultSuccess(tFanService.queryById(fan_no));
     }
 
     @ResponseBody
     @GetMapping("getAllFan")
-    public Object queryAllFanByPage(@RequestParam(defaultValue = "1")int page){
-        return tFanService.queryAllByPage(page,6);
+    public Result queryAllFanByPage(@RequestParam(defaultValue = "1")int page){
+        return setResultSuccess(tFanService.queryAllByPage(page,6));
+    }
+
+    @ResponseBody
+    @PostMapping("updateFan")
+    public Result updateFan(TFan tFan){
+        return setResultSuccess(tFanService.update(tFan));
+    }
+
+    @ResponseBody
+    @PostMapping("deleteFan")
+    public Result deleteFan(Integer fan_no){
+        return setResultSuccess(tFanService.deleteById(fan_no));
     }
 
 }

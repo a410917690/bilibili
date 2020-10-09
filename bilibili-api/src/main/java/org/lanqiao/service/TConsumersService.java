@@ -23,6 +23,8 @@ public interface TConsumersService {
 
     TConsumers queryByTel(String tel_num);
 
+    TConsumers queryByCno(Integer con_no);
+
     String getRoleName(Integer con_no);
 
     List<TConsumers> queryAll(TConsumers tConsumers);
@@ -64,10 +66,10 @@ public interface TConsumersService {
     /**
      * 通过主键删除数据
      *
-     * @param conNo 主键
+
      * @return 是否成功
      */
-    boolean deleteById(Integer conNo);
+    String deleteById(Integer con_no);
 
 
 
