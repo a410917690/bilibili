@@ -1,6 +1,8 @@
 package org.lanqiao.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TCommentsDao;
 import org.lanqiao.entity.TComments;
 import org.springframework.stereotype.Component;
@@ -31,17 +33,15 @@ public class TCommentsServiceImpl implements TCommentsService {
         return this.tCommentsDao.queryById(comNo);
     }
 
+    @Override
+    public Object queryAllByVno(int pageNum, int pageSize,Integer v_no) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<TComments> list = tCommentsDao.queryAllByVno(v_no);
+        return new PageInfo<>(list);
+    }
+
     /**
      * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<TComments> queryAllByLimit(int offset, int limit) {
-        return this.tCommentsDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -67,14 +67,16 @@ public class TCommentsServiceImpl implements TCommentsService {
         return this.queryById(tComments.getCom_no());
     }
 
+    @Override
+    public void delete(Integer v_no, Integer con_no) {
+       tCommentsDao.deleteById(v_no,con_no);
+    }
+
     /**
      * 通过主键删除数据
      *
      * @param comNo 主键
      * @return 是否成功
      */
-    @Override
-    public boolean deleteById(Integer comNo) {
-        return this.tCommentsDao.deleteById(comNo) > 0;
-    }
+
 }

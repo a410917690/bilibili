@@ -1,7 +1,6 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TComments;
 import org.springframework.stereotype.Repository;
 
@@ -25,23 +24,16 @@ public interface TCommentsDao {
      */
     TComments queryById(Integer comNo);
 
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    List<TComments> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
+
+    @Select("select * from t_comments where v_no in (select v_no from t_videos where v_no = #{v_no})")
+    List<TComments> queryAllByVno(Integer v_no);
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param tComments 实例对象
-     * @return 对象列表
-     */
-    List<TComments> queryAll(TComments tComments);
+     *
+
 
     /**
      * 新增数据
@@ -49,6 +41,7 @@ public interface TCommentsDao {
      * @param tComments 实例对象
      * @return 影响行数
      */
+    @Insert("insert into t_comments (v_no,con_no,con_comment) values (#{v_no},#{con_no},#{con_comment})")
     int insert(TComments tComments);
 
     /**
@@ -62,9 +55,10 @@ public interface TCommentsDao {
     /**
      * 通过主键删除数据
      *
-     * @param comNo 主键
+
      * @return 影响行数
      */
-    int deleteById(Integer comNo);
+    @Delete("delete from t_comments where v_no=#{v_no} and con_no=#{con_no};")
+    int deleteById(Integer v_no,Integer con_no);
 
 }

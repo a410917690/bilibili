@@ -4,8 +4,9 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TComments;
 
 import org.lanqiao.service.TCommentsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 评论(TComments)表控制层
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-10-07 11:33:08
  */
 @RestController
-
 public class TCommentsController {
     /**
      * 服务对象
@@ -22,15 +22,26 @@ public class TCommentsController {
     @Reference
     TCommentsService tCommentsService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne3")
-    public TComments selectOne(Integer id) {
-        return this.tCommentsService.queryById(id);
+
+    @ResponseBody
+    @PostMapping("getCommentsByVno")
+    public Object queryAllByVno(@RequestParam(defaultValue = "1")int page,Integer v_no){
+        return tCommentsService.queryAllByVno(page,5,v_no);
     }
+
+    @ResponseBody
+    @PostMapping("insertComment")
+    public String insertComment(TComments tComments){
+        tCommentsService.insert(tComments);
+        return "添加成功！";
+    }
+
+    @ResponseBody
+    @PostMapping("deleteComment")
+    public String deleteComment(Integer v_no,Integer con_no){
+        tCommentsService.delete(v_no,con_no);
+        return "删除成功！";
+    }
+
 
 }
