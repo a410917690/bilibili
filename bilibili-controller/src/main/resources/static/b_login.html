@@ -15,6 +15,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="js/jquery.slider.min.js"></script>
+    <script src="js/head.js"></script>
 </head>
 <body>
 <div class="container">
@@ -83,7 +84,6 @@
 <!--                        </div>-->
 <!--                    </div>-->
                 </div>
-
             </div>
         </div>
     </div>
@@ -186,7 +186,42 @@
             callback: function (result) {
                 if (result !== true) {
                     $("#result1").text("验证结果：" + result);
-                    return;
+                }
+                else{
+                    // $("#result1").text("验证结果：" + result);
+                    $("#doLogin").click(function () {
+                        $.ajax({
+                            url: basePath + "/login",
+                            type: "post",
+                            dataType: "json",
+                            // beforeSend:function(request){
+                            //     request.setRequestHeader("Authorization",token);
+                            // },
+                            data: {
+                                "username": $("#userName").val(),
+                                "password": $("#passwd").val()
+                            },
+                            success: function (data) {
+                                alert(data)
+                                // console.log("111");
+                                if (data.status === 0) {
+                                    window.location.href = "b_index.html";
+                                    alert(data.data.username + "登录成功");
+                                } else {
+                                    alert("登录失败")
+                                }
+                                //console.log(data);
+                                // var getToken ="Bearer "+data.data.token;
+                                // //console.log(getToken);
+                                // var getId = data.data.user.id;
+                                // var getUsername = data.data.user.username;
+                                // localStorage.setItem("token",getToken);
+                                // localStorage.setItem("id",getId);
+                                // localStorage.setItem("username",getUsername);
+                                // alert("登录失败。404：该用户还未注册或用户名密码输入错误！")
+                            }
+                        })
+                    })
                 }
             }
         });
@@ -212,40 +247,8 @@
         //
         //     }
         // });
-        lo();
-        function lo() {
-            $.ajax({
-                url: "http://localhost:8082/login",
-                type: "post",
-                contentType: 'application/json',
-                dataType: "json",
-                // beforeSend:function(request){
-                //     request.setRequestHeader("Authorization",token);
-                // },
-                data: JSON.stringify({
-                    "username": $("#userName").val(),
-                    "password": $("#passwd").val()
-                }),
-                success: function (data) {
-                    console.log("111");
-                    if (data.status === 0) {
-                        window.location = "b_index.html";
-                        alert(data.data.username + "登录成功");
-                    } else {
-                        alert("登录失败")
-                    }
-                    //console.log(data);
-                    // var getToken ="Bearer "+data.data.token;
-                    // //console.log(getToken);
-                    // var getId = data.data.user.id;
-                    // var getUsername = data.data.user.username;
-                    // localStorage.setItem("token",getToken);
-                    // localStorage.setItem("id",getId);
-                    // localStorage.setItem("username",getUsername);
-                    // alert("登录失败。404：该用户还未注册或用户名密码输入错误！")
-                }
-            })
-        }
+
+
     });
 </script>
 </body>
