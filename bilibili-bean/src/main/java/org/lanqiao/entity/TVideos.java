@@ -42,6 +42,8 @@ public class TVideos implements Serializable {
      */
     private String v_pic;
 
+    private Integer v_coins;
+
 
 
 

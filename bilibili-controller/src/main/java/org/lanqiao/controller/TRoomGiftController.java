@@ -28,9 +28,6 @@ public class TRoomGiftController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne14")
-    public TRoomGift selectOne(Integer id) {
-        return this.tRoomGiftService.queryById(id);
-    }
+
 
 }

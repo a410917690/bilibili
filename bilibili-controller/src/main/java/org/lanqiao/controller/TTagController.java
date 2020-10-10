@@ -34,10 +34,7 @@ public class TTagController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne15")
-    public TTag selectOne(Integer id) {
-        return this.tTagService.queryById(id);
-    }
+
 
     @ResponseBody
     @GetMapping("getAllTag")

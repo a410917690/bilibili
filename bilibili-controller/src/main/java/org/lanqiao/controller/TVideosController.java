@@ -60,8 +60,11 @@ public class TVideosController {
     @PostMapping("updateVideos")
     public Result update(TVideos tVideos){
         return setResultSuccess(tVideosService.update(tVideos));
-
     }
+//
+//    @ResponseBody
+//    @PostMapping("update")
+
 
     @ResponseBody
     @PostMapping("deleteVideos")

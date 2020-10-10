@@ -48,6 +48,8 @@ public interface TVideosService {
      */
     TVideos update(TVideos tVideos);
 
+    TVideos updateCoins(Integer v_no);
+
     /**
      * 通过主键删除数据
      *

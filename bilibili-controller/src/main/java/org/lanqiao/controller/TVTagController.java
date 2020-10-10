@@ -29,9 +29,6 @@ public class TVTagController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne17")
-    public TVTag selectOne(Integer id) {
-        return this.tVTagService.queryById(id);
-    }
+
 
 }

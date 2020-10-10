@@ -29,9 +29,6 @@ public class TDanMuController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne6")
-    public TDanMu selectOne(Integer id) {
-        return this.tDanMuService.queryById(id);
-    }
+
 
 }

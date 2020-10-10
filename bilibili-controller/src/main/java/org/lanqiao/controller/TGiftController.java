@@ -35,10 +35,7 @@ public class TGiftController {
      * @return 单条数据
      */
 
-    @GetMapping("selectOne8")
-    public TGift selectOne(Integer id) {
-        return this.tGiftService.queryById(id);
-    }
+
 
     @ResponseBody
     @GetMapping("getAllGit")

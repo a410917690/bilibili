@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/login").permitAll()//不校验我们配置的登录页面
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated() //其他页面都校验
-
+//                .anyRequest().permitAll()
                 .and()
                 .cors().configurationSource(CorsConfigurationSource()).and()
                 .csrf().disable() //不允许csr
@@ -61,7 +61,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/getAllFan",
                 "/getAllTag",
                 "/getOneRoom","/getAllRoom",
-                "/*.html","/b_index.html");
+                "/*.html","/b_index.html")
+                .antMatchers("/swagger-ui.html")
+                .antMatchers("/v2/**")
+                .antMatchers("/webjars/**")
+                .antMatchers("/swagger-resources/**");;
     }
 
 //    @Bean

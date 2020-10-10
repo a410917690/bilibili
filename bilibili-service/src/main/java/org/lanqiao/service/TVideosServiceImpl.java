@@ -74,6 +74,12 @@ public class TVideosServiceImpl implements TVideosService {
 
     }
 
+    @Override
+    public TVideos updateCoins(Integer v_no) {
+        this.tVideosDao.updateCoins(v_no);
+        return tVideosDao.queryById(v_no);
+    }
+
     /**
      * 通过主键删除数据
      *

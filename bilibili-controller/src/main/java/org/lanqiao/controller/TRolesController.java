@@ -28,9 +28,6 @@ public class TRolesController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne12")
-    public TRoles selectOne(Integer id) {
-        return this.tRolesService.queryById(id);
-    }
+
 
 }

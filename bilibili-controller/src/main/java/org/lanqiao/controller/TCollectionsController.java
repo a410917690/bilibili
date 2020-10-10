@@ -28,10 +28,6 @@ public class TCollectionsController {
      * @param id 主键
      * @return 单条数据
      */
-    @ResponseBody
-    @RequestMapping("selectOne1")
-    public TCollections selectOne(Integer id) {
-         return this.tCollectionsService.queryById(1);
-    }
+
 
 }

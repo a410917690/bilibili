@@ -28,9 +28,6 @@ public class TComCommentController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne2")
-    public TComComment selectOne(Integer id) {
-        return this.tComCommentService.queryById(id);
-    }
+
 
 }

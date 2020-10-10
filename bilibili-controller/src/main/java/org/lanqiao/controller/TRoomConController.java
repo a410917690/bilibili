@@ -28,9 +28,6 @@ public class TRoomConController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne13")
-    public TRoomCon selectOne(Integer id) {
-        return this.tRoomConService.queryById(id);
-    }
+
 
 }

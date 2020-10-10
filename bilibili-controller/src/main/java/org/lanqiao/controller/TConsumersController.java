@@ -1,6 +1,8 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.entity.TConsumers;
 
 import org.lanqiao.service.TConsumersService;
@@ -22,6 +24,7 @@ import static org.lanqiao.util.ResultFactory.setResultSuccess;
  */
 @RestController
 @CrossOrigin
+//@Api(tags = "用户")
 public class TConsumersController {
     /**
      * 服务对象
@@ -36,6 +39,7 @@ public class TConsumersController {
 
      * @return 单条数据
      */
+//    @ApiOperation
     @ResponseBody
     @PostMapping("login")
     public Result selectOne(String name) {

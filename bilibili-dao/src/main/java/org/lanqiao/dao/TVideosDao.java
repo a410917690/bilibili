@@ -62,8 +62,12 @@ public interface TVideosDao {
      * @param tVideos 实例对象
      * @return 影响行数
      */
-    @Update("update t_videos set v_title= #{v_title},v_url=#{v_url},v_pic =#{v_pic} where v_no=#{v_no}")
+    @Update("update t_videos set v_title= #{v_title},v_url=#{v_url},v_pic =#{v_pic},v_coins=#{v_coins} where v_no=#{v_no}")
     int update(TVideos tVideos);
+
+
+    @Update("update t_videos set v_coins=v_coins + 1 where v_no=#{v_no}")
+    int updateCoins(Integer v_no);
 
     /**
      * 通过主键删除数据

@@ -29,9 +29,6 @@ public class TConGiftController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne4")
-    public TConGift selectOne(Integer id) {
-        return this.tConGiftService.queryById(id);
-    }
+
 
 }
