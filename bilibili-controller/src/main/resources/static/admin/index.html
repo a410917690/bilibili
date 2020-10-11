@@ -80,7 +80,7 @@
             <div class="title">
                 <span>ik视频弹幕网后台管理</span>
             </div>
-            <div @click="openGitHub" class="author">
+            <div class="author">
                 <i class="el-icon-location-outline author-github">管理员</i>
                 <img title="gitHub 主页" alt="@yuleGH" class="author-img author-github"
                      src="https://avatars2.githubusercontent.com/u/31040588?s=40&amp;v=4">
@@ -100,6 +100,7 @@
                             </el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
+                </el-menu>
             </el-aside>
 
             <el-main class="right">
@@ -131,17 +132,51 @@
                         {
                             id: "视频列表",
                             children: [
-                                {name: "视频列表", id: "input-demo1", url: "form/demoUpper.html"}
+                                {name: "视频列表", id: "input-demo1", url: "videoTable.html"}
+                            ]
+                        },
+                        // {
+                        //     id: "上传视频",
+                        //     children: [
+                        //         {name: "上传视频", id: "validateRules-demo", url: "upVideo.html"}
+                        //     ]
+                        // }
+                    ]
+                },
+
+                {
+                    name: "番剧管理",
+                    id: "form1",
+                    iconClass: "el-icon-edit-outline",
+                    children: [
+                        {
+                            id: "番剧列表",
+                            children: [
+                                {name: "番剧列表", id: "input-demo2", url: "fanTable.html"}
                             ]
                         },
                         {
-                            id: "上传视频",
+                            id: "上传番剧",
                             children: [
-                                {name: "上传视频", id: "validateRules-demo", url: "form/validateRules.html"}
+                                {name: "上传番剧", id: "validateRules-demo", url: "upFan.html"}
                             ]
                         }
                     ]
                 },
+                {
+                    name: "直播管理",
+                    id: "form1",
+                    iconClass: "el-icon-edit-outline",
+                    children: [
+                        {
+                            id: "直播列表",
+                            children: [
+                                {name: "直播列表", id: "input-demo3", url: "liveTable.html"}
+                            ]
+                        },
+                    ]
+                },
+
                 {
                     name: "Table",
                     id: "Table",
@@ -166,126 +201,13 @@
                         }
                     ]
                 },
-                {
-                    name: "Dialog",
-                    id: "Dialog",
-                    iconClass: "el-icon-message",
-                    children: [
-                        {
-                            name: "Notification 通知",
-                            id: "notification",
-                            children: [
-                                {name: "使用vNode", id: "noti-demo1", url: "dialog/notification/notification.html"}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: "Tabs 标签页",
-                    id: "Tab",
-                    iconClass: "el-icon-more",
-                    children: [
-                        {
-                            name: "Tab",
-                            id: "Tab1",
-                            children: [
-                                {name: "动态增减，切换时提示用户是否切换", id: "tab-demo1", url: "tab/tabDemo.html"}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: "组件",
-                    id: "component",
-                    iconClass: "el-icon-news",
-                    children: [
-                        {
-                            name: "数据绑定",
-                            id: "databind",
-                            children: [
-                                {name: "双向绑定", id: "databind-demo1", url: "component/demoDataBindTwoWay.html"}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: "上传文件",
-                    id: "upload",
-                    iconClass: "el-icon-news",
-                    children: [
-                        {
-                            name: "上传文件",
-                            id: "uploadFile",
-                            children: [
-                                {name: "上传文件-组件", id: "uploadForComponent", url: "upload/uploadForComponent.html"}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: "播放器提示",
-                    id: "audio",
-                    iconClass: "el-icon-bell",
-                    children: [
-                        {
-                            name: "声音提示",
-                            id: "tip_mp3",
-                            children: [
-                                {name: "声音提示", id: "tip-mp3-demo1", url: "audio/audioMsgTip.html"}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: "其他",
-                    id: "other",
-                    children: [
-                        {
-                            name: "跳转页面",
-                            id: "other-skip-page",
-                            children: [
-                                {name: "在当页来回跳转", id: "other-skip-cur", url: "other/skipPage.html"}
-                            ]
-                        },
-                        {
-                            name: "滚动条",
-                            id: "other-scroll",
-                            children: [
-                                {name: "固定在可视区域", id: "other-scroll-demo1", url: "other/demoScroll.html"}
-                            ]
-                        },
-                        {
-                            name: "复制",
-                            id: "other-copy",
-                            children: [
-                                {name: "复制内容到粘贴板", id: "other-copy-demo1", url: "other/copyValue.html"}
-                            ]
-                        },
-                        {
-                            name: "工具",
-                            id: "other-tool",
-                            children: [
-                                {name: "js Date 工具", id: "other-date-tool", url: "other/dateTool.html"}
-                            ]
-                        },
-                        {
-                            name: "js 数组",
-                            id: "array-demo",
-                            children: [
-                                {name: "js 数组删除", id: "array-delete", url: "other/arrayDeleteTest.html"}
-                            ]
-                        }
-                    ]
-                }
+
             ]
         },
         methods: {
             open(url){
                 this.iframeUrl = url;
             },
-            openGitHub(){
-                window.open("https://github.com/yuleGH", "_blank");
-            }
         }
     });
 </script>
