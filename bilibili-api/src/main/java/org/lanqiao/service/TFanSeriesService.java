@@ -20,7 +20,7 @@ public interface TFanSeriesService {
 
      * @return 实例对象
      */
-    TFanSeries queryById(Integer id);
+    TFanSeries queryById(Integer fan_series_no);
 
     Object querySeries(int pageNum,int pageSize,Integer fan_no);
 

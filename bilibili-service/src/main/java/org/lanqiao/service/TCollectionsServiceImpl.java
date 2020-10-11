@@ -24,13 +24,13 @@ public class TCollectionsServiceImpl implements TCollectionsService {
     /**
      * 通过ID查询单条数据
      *
-     * @param colNo 主键
      * @return 实例对象
      */
-    @Override
-    public TCollections queryById(Integer colNo) {
-         return this.tCollectionsDao.queryById(colNo);
 
+
+    @Override
+    public List<TCollections> queryByCno(Integer con_no) {
+        return tCollectionsDao.queryByCno(con_no);
     }
 
     /**
@@ -48,13 +48,12 @@ public class TCollectionsServiceImpl implements TCollectionsService {
     /**
      * 新增数据
      *
-     * @param tCollections 实例对象
      * @return 实例对象
      */
     @Override
-    public TCollections insert(TCollections tCollections) {
-        this.tCollectionsDao.insert(tCollections);
-        return tCollections;
+    public String insert(Integer con_no, Integer v_no) {
+        this.tCollectionsDao.insert(con_no, v_no);
+        return "收藏成功！";
     }
 
     /**
@@ -63,20 +62,23 @@ public class TCollectionsServiceImpl implements TCollectionsService {
      * @param tCollections 实例对象
      * @return 实例对象
      */
-    @Override
-    public TCollections update(TCollections tCollections) {
-        this.tCollectionsDao.update(tCollections);
-        return this.queryById(tCollections.getCol_no());
-    }
+//    @Override
+//    public TCollections update(TCollections tCollections) {
+//        this.tCollectionsDao.update(tCollections);
+//        return this.queryByCno(tCollections.getCon_no());
+//    }
 
     /**
      * 通过主键删除数据
      *
-     * @param colNo 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer colNo) {
-        return this.tCollectionsDao.deleteById(colNo) > 0;
+    public boolean delete(Integer con_no, Integer v_no) {
+        if (this.tCollectionsDao.delete(con_no, v_no) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

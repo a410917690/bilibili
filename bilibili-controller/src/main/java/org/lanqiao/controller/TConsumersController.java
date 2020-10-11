@@ -43,7 +43,7 @@ public class TConsumersController {
     @ResponseBody
     @PostMapping("login")
     public Result selectOne(String name) {
-        return setResultSuccess(tConsumersService.queryById(name));
+        return setResultSuccess(tConsumersService.queryByName(name));
 
         //return this.tConsumersService.queryById(name);
     }
@@ -53,6 +53,13 @@ public class TConsumersController {
     public Result getAllConsumersByPage(@RequestParam(defaultValue = "1")int page){
         return setResultSuccess(tConsumersService.getAllConsumersByPage(page,10));
     }
+
+    @ResponseBody
+    @PostMapping("getConsumersByName")
+    public Result getConsumersByName(String name){
+        return setResultSuccess(tConsumersService.queryByName(name));
+    }
+
 
     @ResponseBody
     @PostMapping("getRoleName")

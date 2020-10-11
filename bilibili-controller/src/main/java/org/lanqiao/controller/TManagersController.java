@@ -29,9 +29,9 @@ public class TManagersController {
 
      * @return 单条数据
      */
-    @PostMapping("getOneManager")
-    public TManagers selectOne(String name) {
-        return this.tManagersService.queryById(name);
-    }
+//    @PostMapping("getOneManager")
+//    public TManagers selectOne(String name) {
+//        return this.tManagersService.queryById(name);
+//    }
 
 }

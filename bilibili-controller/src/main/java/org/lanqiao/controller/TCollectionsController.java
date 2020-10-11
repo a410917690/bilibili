@@ -2,10 +2,17 @@ package org.lanqiao.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.models.auth.In;
 import org.lanqiao.entity.TCollections;
 import org.lanqiao.service.TCollectionsService;
+import org.lanqiao.util.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static org.lanqiao.util.ResultFactory.setResultError;
+import static org.lanqiao.util.ResultFactory.setResultSuccess;
 
 /**
  * 收藏(TCollections)表控制层
@@ -22,12 +29,28 @@ public class TCollectionsController {
     @Reference
     TCollectionsService tCollectionsService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
+    @ResponseBody
+    @GetMapping("getCollections")
+    public Result getCollections(Integer con_no) {
+        return setResultSuccess(this.tCollectionsService.queryByCno(con_no));
+    }
+
+    @ResponseBody
+    @PostMapping("insertCollections")
+    public Result insertCollections(Integer con_no, Integer v_no) {
+        return setResultSuccess(this.tCollectionsService.insert(con_no, v_no));
+    }
+
+    @ResponseBody
+    @PostMapping("deleteCollections")
+    public Result deleteCollections(@RequestParam("con_no") Integer con_no, @RequestParam("v_no") Integer v_no) {
+        boolean falg = this.tCollectionsService.delete(con_no, v_no);
+        if (falg == true) {
+            return setResultSuccess("取消收藏成功！");
+        } else {
+            return setResultError(500,"请求失败，请检查参数！");
+        }
+    }
 
 
 }

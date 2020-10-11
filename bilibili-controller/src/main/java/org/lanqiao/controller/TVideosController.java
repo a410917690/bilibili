@@ -51,7 +51,7 @@ public class TVideosController {
 
     @ResponseBody
     @GetMapping("getVideosByTag")
-    public Result getVideosByTag(@RequestParam(defaultValue = "1")int page,@RequestParam("t_no")int t_no){
+    public Result getVideosByTag(@RequestParam(defaultValue = "1")int page,int t_no){
         return setResultSuccess(tVideosService.getVideosByTag(page,6,t_no));
     }
 

@@ -67,7 +67,7 @@ public interface TVideosDao {
 
 
     @Update("update t_videos set v_coins=v_coins + 1 where v_no=#{v_no}")
-    int updateCoins(Integer v_no);
+    int updateVideosCoins(Integer v_no);
 
     /**
      * 通过主键删除数据

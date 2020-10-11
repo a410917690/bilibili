@@ -7,8 +7,7 @@ import org.lanqiao.service.TFanSeriesService;
 import org.lanqiao.util.Result;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.util.List;
+
 
 import static org.lanqiao.util.ResultFactory.setResultSuccess;
 
@@ -33,6 +32,14 @@ public class TFanSeriesController {
 
      * @return 单条数据
      */
+    @ResponseBody
+    @GetMapping("getOneSeriesFan")
+    public Result getOneSeriesFan(Integer fan_series_no){
+        return setResultSuccess(tFanSeriesService.queryById(fan_series_no));
+    }
+
+
+
     @ResponseBody
     @GetMapping("getSeriesFan")
     public Result querySeries(@RequestParam(defaultValue = "1")int page, Integer fan_no) {

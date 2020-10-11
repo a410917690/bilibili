@@ -16,8 +16,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 // 认证成功
@@ -30,6 +29,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         //生成token
         String username = ((User) authentication.getPrincipal()).getUsername();
+
         String token = BCrypt.hashpw(username, BCrypt.gensalt());
         //将token存入redis
         redisUtil.set(token,username,20*60*1000);//有效期20分钟

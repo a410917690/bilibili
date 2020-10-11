@@ -15,10 +15,10 @@ public interface TCollectionsService {
     /**
      * 通过ID查询单条数据
      *
-     * @param colNo 主键
+
      * @return 实例对象
      */
-    TCollections queryById(Integer colNo);
+    List queryByCno(Integer con_no);
 
     /**
      * 查询多条数据
@@ -32,10 +32,10 @@ public interface TCollectionsService {
     /**
      * 新增数据
      *
-     * @param tCollections 实例对象
+
      * @return 实例对象
      */
-    TCollections insert(TCollections tCollections);
+    String insert(Integer con_no,Integer v_no);
 
     /**
      * 修改数据
@@ -43,14 +43,14 @@ public interface TCollectionsService {
      * @param tCollections 实例对象
      * @return 实例对象
      */
-    TCollections update(TCollections tCollections);
+//    TCollections update(TCollections tCollections);
 
     /**
      * 通过主键删除数据
      *
-     * @param colNo 主键
+
      * @return 是否成功
      */
-    boolean deleteById(Integer colNo);
+    boolean delete(Integer con_no,Integer v_no);
 
 }

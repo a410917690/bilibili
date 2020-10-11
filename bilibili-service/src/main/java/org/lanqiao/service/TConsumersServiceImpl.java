@@ -30,8 +30,8 @@ public class TConsumersServiceImpl implements TConsumersService {
      * @return 实例对象
      */
     @Override
-    public TConsumers queryById(String name) {
-        return this.tConsumersDao.queryById(name);
+    public TConsumers queryByName(String name) {
+        return this.tConsumersDao.queryByName(name);
     }
 
     @Override

@@ -24,7 +24,7 @@ public interface TConsumersDao {
      * @return 实例对象
      */
     @Select("select * from t_consumers where name=#{name}")
-    TConsumers queryById(String name);
+    TConsumers queryByName(String name);
 
     @Select("select * from t_consumers where con_no=#{con_no}")
     TConsumers queryByCno(Integer con_no);

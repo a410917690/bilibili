@@ -1,7 +1,7 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TConsumers;
-import org.lanqiao.vo.ConsumersVo;
+import org.lanqiao.vo.UpdateCoinsVo;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public interface TConsumersService {
 
      * @return 实例对象
      */
-    TConsumers queryById(String name);
+    TConsumers queryByName(String name);
 
     TConsumers queryByTel(String tel_num);
 
@@ -62,6 +62,7 @@ public interface TConsumersService {
 
 
     TConsumers update(TConsumers tConsumers);
+
 
     /**
      * 通过主键删除数据

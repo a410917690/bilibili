@@ -1,8 +1,7 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import io.swagger.models.auth.In;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TCollections;
 import org.springframework.stereotype.Repository;
 
@@ -21,11 +20,11 @@ public interface TCollectionsDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param colNo 主键
+
      * @return 实例对象
      */
-    @Select("select * from t_collections where col_no=#{colNo}")
-    TCollections queryById(Integer colNo);
+    @Select("select * from t_collections where con_no=#{con_no}")
+    List<TCollections> queryByCno(Integer con_no);
 
     /**
      * 查询指定行数据
@@ -46,13 +45,9 @@ public interface TCollectionsDao {
 
     List<TCollections> queryAll(TCollections tCollections);
 
-    /**
-     * 新增数据
-     *
-     * @param tCollections 实例对象
-     * @return 影响行数
-     */
-    int insert(TCollections tCollections);
+
+    @Insert("insert into t_collections (con_no,v_no) values (#{con_no},#{v_no})")
+    int insert(Integer con_no,Integer v_no);
 
     /**
      * 修改数据
@@ -65,9 +60,10 @@ public interface TCollectionsDao {
     /**
      * 通过主键删除数据
      *
-     * @param colNo 主键
+
      * @return 影响行数
      */
-    int deleteById(Integer colNo);
+    @Delete("delete from t_collections where con_no=#{con_no} and v_no=#{v_no}")
+    int delete(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
 }

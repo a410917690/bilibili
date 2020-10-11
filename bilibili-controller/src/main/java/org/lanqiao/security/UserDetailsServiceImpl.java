@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService  {
  
 	@Override
 	public UserDetails loadUserByUsername(final String name) throws UsernameNotFoundException {
-		TConsumers tConsumers = tConsumersService.queryById(name);
+		TConsumers tConsumers = tConsumersService.queryByName(name);
 		if (name == null) {
 			throw new UsernameNotFoundException(name + "该用户信息不存在");
 		}else{
