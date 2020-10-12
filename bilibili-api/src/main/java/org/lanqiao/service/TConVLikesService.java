@@ -1,32 +1,33 @@
 package org.lanqiao.service;
 
-import org.lanqiao.entity.THistory;
+import org.lanqiao.entity.TConVLikes;
 
 import java.util.List;
 
 /**
- * 观看历史(THistory)表服务接口
+ * 用户点赞过 的视频(TConVLikes)表服务接口
  *
  * @author makejava
- * @since 2020-10-07 11:28:29
+ * @since 2020-10-11 15:36:22
  */
-public interface THistoryService {
+public interface TConVLikesService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param hisNo 主键
+
      * @return 实例对象
      */
-    THistory queryById(Integer hisNo);
+    boolean queryByVnoCno(Integer v_no,Integer con_no);
 
     /**
      * 查询多条数据
      *
-
+     * @param offset 查询起始位置
+     * @param limit  查询条数
      * @return 对象列表
      */
-    List<THistory> queryAllHisByCon(Integer con_no);
+    List<TConVLikes> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -39,17 +40,17 @@ public interface THistoryService {
     /**
      * 修改数据
      *
-     * @param tHistory 实例对象
+     * @param tConVLikes 实例对象
      * @return 实例对象
      */
-    THistory update(THistory tHistory);
+
 
     /**
      * 通过主键删除数据
      *
-
+     * @param conVLikesNo 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer con_no,Integer v_no);
+    boolean deleteById(Integer conVLikesNo);
 
 }

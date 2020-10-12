@@ -4,9 +4,13 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TDanMu;
 
 import org.lanqiao.service.TDanMuService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.lanqiao.util.Result;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static org.lanqiao.util.ResultFactory.setResultError;
+import static org.lanqiao.util.ResultFactory.setResultSuccess;
 
 /**
  * 弹幕(TDanMu)表控制层
@@ -26,9 +30,26 @@ public class TDanMuController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
      * @return 单条数据
      */
+    @ResponseBody
+    @GetMapping("Fan/getDanMu")
+    public List<TDanMu> getDanMu(Integer v_no){
+        return tDanMuService.queryAll(v_no);
+    }
+
+    @ResponseBody
+    @PostMapping("insertDanMu")
+    public Result insertDanMu(TDanMu tDanMu){
+        boolean falg =this.tDanMuService.insert(tDanMu);
+        if (falg ==true){
+            return setResultSuccess("发送成功！");
+        }else {
+            return setResultError(500,"发送失败！");
+        }
+
+    }
+
 
 
 }

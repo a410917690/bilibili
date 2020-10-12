@@ -65,6 +65,9 @@ public interface TVideosDao {
     @Update("update t_videos set v_title= #{v_title},v_url=#{v_url},v_pic =#{v_pic},v_coins=#{v_coins} where v_no=#{v_no}")
     int update(TVideos tVideos);
 
+    @Update("update t_videos set v_likes=#{v_likes} where v_no=#{v_no}")
+    int updateLikeNum(@Param("v_likes") Integer v_likes,@Param("v_no") Integer v_no);
+
 
     @Update("update t_videos set v_coins=v_coins + 1 where v_no=#{v_no}")
     int updateVideosCoins(Integer v_no);

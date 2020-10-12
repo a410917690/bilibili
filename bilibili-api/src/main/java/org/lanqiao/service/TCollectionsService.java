@@ -20,6 +20,8 @@ public interface TCollectionsService {
      */
     List queryByCno(Integer con_no);
 
+    List getVno(Integer con_no);  //用来判断是否可以添加收藏（已收藏过就无法再收藏）;
+
     /**
      * 查询多条数据
      *
@@ -35,7 +37,7 @@ public interface TCollectionsService {
 
      * @return 实例对象
      */
-    String insert(Integer con_no,Integer v_no);
+    boolean insert(Integer con_no,Integer v_no);
 
     /**
      * 修改数据

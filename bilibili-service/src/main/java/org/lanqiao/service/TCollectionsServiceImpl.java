@@ -33,6 +33,11 @@ public class TCollectionsServiceImpl implements TCollectionsService {
         return tCollectionsDao.queryByCno(con_no);
     }
 
+    @Override
+    public List getVno(Integer con_no) {
+        return tCollectionsDao.getVno(con_no);
+    }
+
     /**
      * 查询多条数据
      *
@@ -51,9 +56,13 @@ public class TCollectionsServiceImpl implements TCollectionsService {
      * @return 实例对象
      */
     @Override
-    public String insert(Integer con_no, Integer v_no) {
-        this.tCollectionsDao.insert(con_no, v_no);
-        return "收藏成功！";
+    public boolean insert(Integer con_no, Integer v_no) {
+        if(this.tCollectionsDao.insert(con_no, v_no)>0){
+            return true;
+        }else {
+            return false;
+        }
+
     }
 
     /**

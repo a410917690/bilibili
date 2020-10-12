@@ -26,6 +26,9 @@ public interface TCollectionsDao {
     @Select("select * from t_collections where con_no=#{con_no}")
     List<TCollections> queryByCno(Integer con_no);
 
+
+    @Select("select v_no from t_collections where con_no=#{con_no}")
+    List<Integer> getVno(Integer con_no);
     /**
      * 查询指定行数据
      *
@@ -47,7 +50,7 @@ public interface TCollectionsDao {
 
 
     @Insert("insert into t_collections (con_no,v_no) values (#{con_no},#{v_no})")
-    int insert(Integer con_no,Integer v_no);
+    int insert(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
     /**
      * 修改数据

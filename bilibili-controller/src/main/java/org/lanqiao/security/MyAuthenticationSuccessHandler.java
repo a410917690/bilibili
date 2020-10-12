@@ -32,7 +32,8 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 
         String token = BCrypt.hashpw(username, BCrypt.gensalt());
         //将token存入redis
-        redisUtil.set(token,username,20*60*1000);//有效期20分钟
+//        redisUtil.set(token,username,24*60*60*1000);//有效期24小时
+        redisUtil.set(token,username,24*3600);
         //将token返回
         response.setContentType("application/json;charset=UTF-8");
         response.addHeader("Authorization", "Bearer " + token);

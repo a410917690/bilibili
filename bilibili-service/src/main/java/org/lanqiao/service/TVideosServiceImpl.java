@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TVideosDao;
 import org.lanqiao.entity.TVideos;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import java.util.List;
 public class TVideosServiceImpl implements TVideosService {
     @Resource
     private TVideosDao tVideosDao;
+
 
     /**
      * 通过ID查询单条数据
@@ -103,5 +105,15 @@ public class TVideosServiceImpl implements TVideosService {
         PageHelper.startPage(pageNum,pageSize);
         List<TVideos> list = tVideosDao.queryByTag(t_no);
         return new PageInfo<>(list);
+    }
+
+    @Override
+    public TVideos LikesVideos(TVideos tVideos) {
+        return tVideos;
+    }
+
+    @Override
+    public void updateLikeNum(Integer v_likes, Integer v_no) {
+        tVideosDao.updateLikeNum(v_likes,v_no);
     }
 }

@@ -3,6 +3,7 @@ package org.lanqiao.service;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.lanqiao.dao.TComCommentDao;
 import org.lanqiao.entity.TComComment;
+import org.lanqiao.vo.TCommentVo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -20,15 +21,22 @@ public class TComCommentServiceImpl implements TComCommentService {
     @Resource
     private TComCommentDao tComCommentDao;
 
+    @Override
+    public Integer queryComNo(Integer v_no, Integer con_no) {
+        return tComCommentDao.queryComNo(v_no,con_no);
+    }
+
     /**
      * 通过ID查询单条数据
      *
-     * @param comComNo 主键
+
      * @return 实例对象
      */
+
+
     @Override
-    public TComComment queryById(Integer comComNo) {
-        return this.tComCommentDao.queryById(comComNo);
+    public List<TCommentVo> getComReply(Integer v_no, Integer con_no) {
+        return tComCommentDao.queryComReply(v_no,con_no);
     }
 
     /**
@@ -46,13 +54,12 @@ public class TComCommentServiceImpl implements TComCommentService {
     /**
      * 新增数据
      *
-     * @param tComComment 实例对象
+
      * @return 实例对象
      */
     @Override
-    public TComComment insert(TComComment tComComment) {
-        this.tComCommentDao.insert(tComComment);
-        return tComComment;
+    public boolean insert(String com_com,Integer con_no,Integer com_no) {
+        return this.tComCommentDao.insert(com_com,con_no,com_no)>0;
     }
 
     /**
@@ -61,11 +68,7 @@ public class TComCommentServiceImpl implements TComCommentService {
      * @param tComComment 实例对象
      * @return 实例对象
      */
-    @Override
-    public TComComment update(TComComment tComComment) {
-        this.tComCommentDao.update(tComComment);
-        return this.queryById(tComComment.getCom_no());
-    }
+
 
     /**
      * 通过主键删除数据

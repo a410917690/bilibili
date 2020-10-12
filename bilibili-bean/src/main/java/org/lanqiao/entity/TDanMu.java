@@ -28,15 +28,19 @@ public class TDanMu implements Serializable {
     /**
      * 弹幕内容
      */
-    private String dan_content;
+    private String text;
     /**
      * 弹幕位置
      */
-    private Integer dan_position;
+    private Integer position;
     /**
      * 创建弹幕时间
      */
-    private Integer dan_time;
+    private Integer time;
+
+    private String color;
+
+    private Integer size;
 
 
 

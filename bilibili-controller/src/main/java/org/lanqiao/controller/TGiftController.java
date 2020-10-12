@@ -38,7 +38,7 @@ public class TGiftController {
 
 
     @ResponseBody
-    @GetMapping("getAllGit")
+    @GetMapping("Fan/getAllGit")
     public Result queryAll(){
         return setResultSuccess(tGiftService.queryAll());
     }

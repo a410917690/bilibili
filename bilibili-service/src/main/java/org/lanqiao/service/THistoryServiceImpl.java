@@ -20,15 +20,22 @@ public class THistoryServiceImpl implements THistoryService {
     @Resource
     private THistoryDao tHistoryDao;
 
+    @Override
+    public THistory queryById(Integer hisNo) {
+        return null;
+    }
+
     /**
      * 通过ID查询单条数据
      *
-     * @param hisNo 主键
+
      * @return 实例对象
      */
+
+
     @Override
-    public THistory queryById(Integer hisNo) {
-        return this.tHistoryDao.queryById(hisNo);
+    public List<THistory> queryAllHisByCon(Integer con_no) {
+        return tHistoryDao.queryAllHisBycon(con_no);
     }
 
     /**
@@ -38,21 +45,20 @@ public class THistoryServiceImpl implements THistoryService {
      * @param limit  查询条数
      * @return 对象列表
      */
-    @Override
-    public List<THistory> queryAllByLimit(int offset, int limit) {
-        return this.tHistoryDao.queryAllByLimit(offset, limit);
-    }
+
 
     /**
      * 新增数据
      *
-     * @param tHistory 实例对象
      * @return 实例对象
      */
     @Override
-    public THistory insert(THistory tHistory) {
-        this.tHistoryDao.insert(tHistory);
-        return tHistory;
+    public boolean insert(Integer con_no, Integer v_no) {
+        if (this.tHistoryDao.insert(con_no, v_no) > 0) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**
@@ -70,11 +76,10 @@ public class THistoryServiceImpl implements THistoryService {
     /**
      * 通过主键删除数据
      *
-     * @param hisNo 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer hisNo) {
-        return this.tHistoryDao.deleteById(hisNo) > 0;
+    public boolean deleteById(Integer con_no, Integer v_no) {
+        return this.tHistoryDao.deleteById(con_no, v_no) > 0;
     }
 }

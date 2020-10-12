@@ -1,8 +1,11 @@
 package org.lanqiao.dao;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TComComment;
+import org.lanqiao.vo.TCommentVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,18 +23,17 @@ public interface TComCommentDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param comComNo 主键
+
      * @return 实例对象
      */
-    TComComment queryById(Integer comComNo);
+    @Select("select com_no from t_comments where v_no=#{v_no} and con_no=#{con_no}")
+    int queryComNo(@Param("v_no") Integer v_no,@Param("con_no") Integer con_no);
 
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
+
+    @Select("select * from t_com_comment where com_no=(select com_no from t_comments where v_no=#{v_no} and con_no=#{con_no})")
+    List<TCommentVo> queryComReply(@Param("v_no") Integer v_no,@Param("con_no") Integer con_no);
+
+
     List<TComComment> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
@@ -46,10 +48,11 @@ public interface TComCommentDao {
     /**
      * 新增数据
      *
-     * @param tComComment 实例对象
+
      * @return 影响行数
      */
-    int insert(TComComment tComComment);
+    @Insert("insert into t_com_comment (com_com,con_no,com_no) values (#{com_com},#{con_no},#{com_no})")
+    int insert(@Param("com_com")String com_com,@Param("con_no") Integer con_no,@Param("com_no")Integer com_no);
 
     /**
      * 修改数据

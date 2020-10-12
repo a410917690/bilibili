@@ -43,6 +43,11 @@ public class TDanMuServiceImpl implements TDanMuService {
         return this.tDanMuDao.queryAllByLimit(offset, limit);
     }
 
+    @Override
+    public List<TDanMu> queryAll(Integer v_no) {
+        return this.tDanMuDao.queryAll(v_no);
+    }
+
     /**
      * 新增数据
      *
@@ -50,9 +55,9 @@ public class TDanMuServiceImpl implements TDanMuService {
      * @return 实例对象
      */
     @Override
-    public TDanMu insert(TDanMu tDanMu) {
+    public boolean insert(TDanMu tDanMu) {
         this.tDanMuDao.insert(tDanMu);
-        return tDanMu;
+        return true;
     }
 
     /**

@@ -37,7 +37,7 @@ public class TTagController {
 
 
     @ResponseBody
-    @GetMapping("getAllTag")
+    @GetMapping("Fan/getAllTag")
     public Result getAllTag(){
         return setResultSuccess(tTagService.queryAll());
     }

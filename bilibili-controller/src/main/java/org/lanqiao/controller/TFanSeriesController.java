@@ -33,7 +33,7 @@ public class TFanSeriesController {
      * @return 单条数据
      */
     @ResponseBody
-    @GetMapping("getOneSeriesFan")
+    @GetMapping("Fan/getOneSeriesFan")
     public Result getOneSeriesFan(Integer fan_series_no){
         return setResultSuccess(tFanSeriesService.queryById(fan_series_no));
     }
@@ -41,7 +41,7 @@ public class TFanSeriesController {
 
 
     @ResponseBody
-    @GetMapping("getSeriesFan")
+    @GetMapping("Fan/getSeriesFan")
     public Result querySeries(@RequestParam(defaultValue = "1")int page, Integer fan_no) {
          return setResultSuccess(tFanSeriesService.querySeries(page,4,fan_no));
     }

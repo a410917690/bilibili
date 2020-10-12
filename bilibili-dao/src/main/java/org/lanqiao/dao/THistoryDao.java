@@ -1,7 +1,6 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.THistory;
 import org.springframework.stereotype.Repository;
 
@@ -20,19 +19,18 @@ public interface THistoryDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param hisNo 主键
      * @return 实例对象
      */
-    THistory queryById(Integer hisNo);
+    @Select("select * from t_history where con_no=#{con_no} and v_no=#{v_no}")
+    THistory queryByCnoVno(@Param("con_no")Integer con_no,@Param("v_no")Integer v_no);
 
     /**
      * 查询指定行数据
      *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
+
      */
-    List<THistory> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    @Select("select * from t_history where con_no=#{con_no}")
+    List<THistory> queryAllHisBycon(Integer con_no);
 
 
     /**
@@ -46,10 +44,11 @@ public interface THistoryDao {
     /**
      * 新增数据
      *
-     * @param tHistory 实例对象
+
      * @return 影响行数
      */
-    int insert(THistory tHistory);
+    @Insert("insert into t_history (con_no,v_no) values (#{con_no},#{v_no})")
+    int insert(@Param("con_no")Integer con_no,@Param("v_no")Integer v_no);
 
     /**
      * 修改数据
@@ -57,14 +56,16 @@ public interface THistoryDao {
      * @param tHistory 实例对象
      * @return 影响行数
      */
+
     int update(THistory tHistory);
 
     /**
      * 通过主键删除数据
      *
-     * @param hisNo 主键
+
      * @return 影响行数
      */
-    int deleteById(Integer hisNo);
+    @Delete("delete from t_history where con_no=#{con_no} and v_no=#{v_no}")
+    int deleteById(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
 }

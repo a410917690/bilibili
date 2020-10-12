@@ -319,12 +319,12 @@ public class RedisUtil {
      * @return
      */
     public Set<Object> sGet(String key) {
-        try {
-            return redisTemplate.opsForSet().members(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+            try {
+                return redisTemplate.opsForSet().members(key);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
     }
 
     /**

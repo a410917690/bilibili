@@ -1,0 +1,33 @@
+{
+  "name" : "TConVLikes",
+  "preName" : "",
+  "comment" : "用户点赞过 的视频",
+  "templateGroupName" : "Default",
+  "fullColumn" : [ {
+    "name" : "conVLikesNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "conNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "vNo",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "org.lanqiao",
+  "savePath" : "./bilibili-controller/src/main/java/org/lanqiao",
+  "saveModelName" : "bilibili-controller"
+}

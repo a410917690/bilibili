@@ -57,13 +57,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/js/**", "/css/**", "/images/**",
-                "/register","/getAllVideos","/getOneVideos","/getVideosByTag","/getConsumersByName",
-                "/getAllFan","/getSeriesFan",
-                "/getAllTag",
-                "/getOneRoom","/getAllRoom",
-                "/getCollections","/deleteCollections",
-                "/giveCoins","/getOneSeriesFan",
+//                "/register","/getAllVideos","/getOneVideos","/getVideosByTag","/getConsumersByName",
+//               "/giveLike",
+//                "/getLikesNum","/isLike",
+//                "/getDanMu","/insertDanMu",
+//                "/getAllFan","/getSeriesFan",
+//                "/getAllTag",
+//                "/getOneRoom","/getAllRoom",
+//                "/getCollections","/deleteCollections","/insertCollections","/isCollections",
+//                "/giveCoins","/getOneSeriesFan",
+//                "/getHistory","/deleteHistory",
 //                "/*",
+                "/Fan/*",
                 "/*.html","/b_index.html")
                 .antMatchers("/swagger-ui.html")
                 .antMatchers("/v2/**")

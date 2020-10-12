@@ -61,4 +61,8 @@ public interface TVideosService {
     public Object getAllVideosByPage(int pageNum,int pageSize);
 
     public Object getVideosByTag(int pageNum,int pageSize,Integer t_no);
+
+    TVideos LikesVideos(TVideos tVideos);
+
+    void updateLikeNum(Integer v_likes,Integer v_no);
 }

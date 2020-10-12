@@ -31,14 +31,14 @@ public class TLiveRoomsController {
      * @return 单条数据
      */
     @ResponseBody
-    @GetMapping("getOneRoom")
+    @GetMapping("Fan/getOneRoom")
     public Result selectOne(Integer room_no) {
         return setResultSuccess(tLiveRoomsService.queryById(room_no));
     }
 
 
     @ResponseBody
-    @GetMapping("getAllRoom")
+    @GetMapping("Fan/getAllRoom")
     public Result getAllRoomByPage(@RequestParam(defaultValue = "1")int page){
         return setResultSuccess(tLiveRoomsService.queryAllByPage(page,6));
     }

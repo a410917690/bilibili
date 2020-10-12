@@ -9,6 +9,7 @@ import org.lanqiao.util.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 import static org.lanqiao.util.ResultFactory.setResultError;
@@ -37,8 +38,25 @@ public class TCollectionsController {
 
     @ResponseBody
     @PostMapping("insertCollections")
-    public Result insertCollections(Integer con_no, Integer v_no) {
-        return setResultSuccess(this.tCollectionsService.insert(con_no, v_no));
+    public Result insertCollections(@RequestParam("con_no") Integer con_no, @RequestParam("v_no") Integer v_no) {
+        List list = tCollectionsService.getVno(con_no);
+        if (list.contains(v_no)==false) {
+            this.tCollectionsService.insert(con_no, v_no);
+            return setResultSuccess("收藏成功！");
+        }else {
+            return setResultError(500,"请求失败，请检查参数！");
+        }
+    }
+
+    @ResponseBody
+    @PostMapping("isCollections")
+    public Result isCollections(@RequestParam("con_no") Integer con_no, @RequestParam("v_no") Integer v_no) {
+        List list = tCollectionsService.getVno(con_no);
+        if (list.contains(v_no) == true) {
+            return setResultSuccess(true);
+        }else {
+            return setResultError(500,"您已收藏过该视频");
+        }
     }
 
     @ResponseBody

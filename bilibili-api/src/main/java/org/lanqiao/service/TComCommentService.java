@@ -1,6 +1,8 @@
 package org.lanqiao.service;
 
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TComComment;
+import org.lanqiao.vo.TCommentVo;
 
 import java.util.List;
 
@@ -15,10 +17,15 @@ public interface TComCommentService {
     /**
      * 通过ID查询单条数据
      *
-     * @param comComNo 主键
+
      * @return 实例对象
      */
-    TComComment queryById(Integer comComNo);
+
+    Integer queryComNo(Integer v_no,Integer con_no);
+
+
+    List<TCommentVo> getComReply(Integer v_no,Integer con_no);
+
 
     /**
      * 查询多条数据
@@ -32,10 +39,10 @@ public interface TComCommentService {
     /**
      * 新增数据
      *
-     * @param tComComment 实例对象
+
      * @return 实例对象
      */
-    TComComment insert(TComComment tComComment);
+    boolean insert(String com_com,Integer con_no,Integer com_no);
 
     /**
      * 修改数据
@@ -43,7 +50,7 @@ public interface TComCommentService {
      * @param tComComment 实例对象
      * @return 实例对象
      */
-    TComComment update(TComComment tComComment);
+
 
     /**
      * 通过主键删除数据

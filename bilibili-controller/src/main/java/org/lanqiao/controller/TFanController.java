@@ -31,13 +31,13 @@ public class TFanController {
      * @return 单条数据
      */
     @ResponseBody
-    @GetMapping("getOneFan")
+    @GetMapping("Fan/getOneFan")
     public Result selectOne(Integer fan_no) {
         return setResultSuccess(tFanService.queryById(fan_no));
     }
 
     @ResponseBody
-    @GetMapping("getAllFan")
+    @GetMapping("Fan/getAllFan")
     public Result queryAllFanByPage(@RequestParam(defaultValue = "1")int page){
         return setResultSuccess(tFanService.queryAllByPage(page,6));
     }

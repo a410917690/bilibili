@@ -1,5 +1,6 @@
 package org.lanqiao.service;
 
+import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TDanMu;
 
 import java.util.List;
@@ -29,13 +30,15 @@ public interface TDanMuService {
      */
     List<TDanMu> queryAllByLimit(int offset, int limit);
 
+    List<TDanMu> queryAll(Integer v_no);
+
     /**
      * 新增数据
      *
      * @param tDanMu 实例对象
      * @return 实例对象
      */
-    TDanMu insert(TDanMu tDanMu);
+    boolean insert(TDanMu tDanMu);
 
     /**
      * 修改数据

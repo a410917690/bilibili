@@ -69,7 +69,7 @@ public class TConsumersController {
 
 
     @ResponseBody
-    @PostMapping("register")
+    @PostMapping("Fan/register")
     public Result isUser(String name,String password,String tel_num){
         TConsumers tConsumers= new TConsumers();
         tConsumers.setName(name);
