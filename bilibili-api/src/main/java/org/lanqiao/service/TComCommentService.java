@@ -13,8 +13,10 @@ import java.util.List;
  */
 public interface TComCommentService {
 
+
     /**
      * 通过ID查询单条数据
+     *
      *
 
      * @return 实例对象
