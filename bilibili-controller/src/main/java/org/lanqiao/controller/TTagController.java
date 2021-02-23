@@ -1,17 +1,14 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import org.lanqiao.entity.TTag;
 import org.lanqiao.service.TTagService;
-import org.lanqiao.util.Result;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 标签(TTag)表控制层

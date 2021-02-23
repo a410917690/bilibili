@@ -1,9 +1,10 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TConsumers;
-import org.lanqiao.vo.UpdateCoinsVo;
+import org.lanqiao.vo.ConsumerCodeVo;
 
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 /**
  * 用户(ConsumersVo)表服务接口
@@ -21,7 +22,7 @@ public interface TConsumersService {
      */
     TConsumers queryByName(String name);
 
-    TConsumers queryByTel(String tel_num);
+    public TConsumers queryByNameAndPwd(String name,String password);
 
     TConsumers queryByCno(Integer con_no);
 
@@ -59,10 +60,7 @@ public interface TConsumersService {
 
      */
 
-
-
     TConsumers update(TConsumers tConsumers);
-
 
     /**
      * 通过主键删除数据
@@ -72,6 +70,23 @@ public interface TConsumersService {
      */
     String deleteById(Integer con_no);
 
+    public boolean sendMimeMail(String email);
+
+    public boolean registered(ConsumerCodeVo consumerCodeVo);
+
+    public TConsumers loginInByEmail(String email, String code);
+
+    public String findPwd(String name,String mail,String code);
+
+    Integer updatePwd(String mail,String password);
+
+    Integer updateDetail(String name,String tele_num,Integer age);
+
+    int uploadPic(byte[] pic,Integer con_no);
+
+    int report(Integer con_no);
+
+    int toIllegal(Integer con_no);
 
 
 }

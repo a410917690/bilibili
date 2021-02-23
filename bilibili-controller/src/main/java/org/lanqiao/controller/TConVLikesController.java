@@ -1,19 +1,12 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import io.swagger.models.auth.In;
-import org.lanqiao.entity.TConVLikes;
 import org.lanqiao.service.TConVLikesService;
-import org.lanqiao.service.TConsumersService;
-import org.lanqiao.util.RedisUtil;
-import org.lanqiao.util.Result;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-
-import static org.lanqiao.util.ResultFactory.setResultError;
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultError;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 用户点赞过 的视频(TConVLikes)表控制层

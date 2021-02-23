@@ -6,6 +6,83 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2733954",
+      "name": "标题",
+      "font_class": "biaoti",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "1348240",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "10549619",
+      "name": "历史记录",
+      "font_class": "lishijilu",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "7006860",
+      "name": "播放量",
+      "font_class": "bofangliang",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "1754539",
+      "name": "播视web_播放量",
+      "font_class": "boshiweb_bofangliang",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "11121384",
+      "name": "功能排行榜",
+      "font_class": "gongnengpaihangbang",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "468401",
+      "name": "上一页",
+      "font_class": "iconfontzuo",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "7791985",
+      "name": "上一页",
+      "font_class": "ziyuanxhdpi",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "2507442",
+      "name": "右",
+      "font_class": "you",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "774366",
+      "name": "左",
+      "font_class": "zuo",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "2310976",
+      "name": "火箭",
+      "font_class": "huojian",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
       "icon_id": "1929807",
       "name": "喇叭",
       "font_class": "laba",
@@ -25,13 +102,6 @@
       "font_class": "search",
       "unicode": "e616",
       "unicode_decimal": 58902
-    },
-    {
-      "icon_id": "10332475",
-      "name": "个人中心",
-      "font_class": "gerenzhongxin",
-      "unicode": "e603",
-      "unicode_decimal": 58883
     },
     {
       "icon_id": "579286",

@@ -2,7 +2,6 @@ package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TConsumers;
-import org.lanqiao.vo.ConsumersVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,11 +25,17 @@ public interface TConsumersDao {
     @Select("select * from t_consumers where name=#{name}")
     TConsumers queryByName(String name);
 
+    @Select("select * from t_consumers where name=#{name} and password=#{password}")
+    TConsumers queryByNameAndPwd(String name,String password);
+
     @Select("select * from t_consumers where con_no=#{con_no}")
     TConsumers queryByCno(Integer con_no);
 
     @Select("select * from t_consumers where tel_num=#{tel_num}")
     TConsumers queryByTel(String tel_num);
+
+    @Select("select * from t_consumers where mail=#{mail}")
+    TConsumers queryByMail(String mail);
 
 //    @Select("select c.*,r.role_name from t_consumers c ,t_roles r  where c.role_no=r.role_no")
 //    ConsumersVo getConsumersVo();
@@ -70,13 +75,15 @@ public interface TConsumersDao {
     List<TConsumers> queryByTelNum(TConsumers tConsumers);
 
     /**
-     * 新增数据
-     *
+     * 新增用户
      * @param tConsumers 实例对象
      * @return 影响行数
      */
-    @Insert("insert into t_consumers (name,password,tel_num) values (#{name},#{password},#{tel_num})")
+    @Insert("insert into t_consumers (name,password,mail) values (#{name},#{password},#{mail})")
     int insert(TConsumers tConsumers);
+
+    @Update("update t_consumers set pic=#{pic} where con_no!=#{con_no}")
+    int uploadPic(byte[] pic,Integer con_no);
 
     /**
      * 修改数据
@@ -89,11 +96,24 @@ public interface TConsumersDao {
 
     /**
      * 通过主键删除数据
-     *
-
      * @return 影响行数
      */
     @Delete("delete from t_consumers where con_no=#{con_no}")
     int deleteById(Integer con_no);
+
+    @Select("select password from t_consumers where name=#{name}")
+    String findPwd(String name);
+
+    @Update("update t_consumers set password=#{password} where name=#{name}")
+    Integer updatePwd(String name,String password);
+
+    @Update("update t_consumers set age=#{age},tele_num=#{tele_num} where name=#{name}")
+    Integer updateDetail(String name,String tele_num,Integer age);
+
+    @Update("update t_consumers set report_num = report_num + 1 where con_no=#{con_no}")
+    int addReportNum(Integer con_no);
+
+    @Update("update t_consumers set con_is_legal = 0 where con_no=#{con_no} and report_num > 30")
+    int toIllegal(Integer con_no);
 
 }

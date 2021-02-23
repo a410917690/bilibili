@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>历史记录</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/head.js"></script>
+    <script>
+        $(function () {
+
+            // var token=localStorage.getItem("token");
+            //
+            //     let bb = function () {
+            //         $.ajax({
+            //             url: basePath + "/isCollections",
+            //             data: {"con_no": 1, "v_no": 2},
+            //             type: "post",
+            //             dataType: "json",
+            //             success: function (data) {
+            //                 console.log(data);
+            //                 if (code === 200)
+            //                     $("#cl").css({"color": "#ff568b"});
+            //             }
+            //         });
+            //     }
+            // bb();
+
+
+
+
+
+
+
+
+            var token = localStorage.getItem("token");
+            var name = localStorage.getItem("name");
+            var con_no;
+            var v_no;
+            var num_likes;
+
+            var vl = new Vue({
+                el: '#v',
+                data: {
+                    video: [],
+                    comments: [],
+                    isCol:false,
+                    isLike:false,
+                    num_likes:num_likes,
+                },
+                mounted: function () {
+
+                },
+                methods: {
+                    collect: function () {
+                        if (this.isCol ===  false){
+                            $.ajax({
+                                url: basePath + "/insertCollections",
+                                data:{"con_no": con_no, "v_no" : v_no},
+                                beforeSend:function(request){
+                                    request.setRequestHeader("Authorization",token);
+                                },
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    // console.log(data);
+                                    if(data.code === 200){
+                                        $("#cl").css({"color": "#ff568b"});
+                                        $("#cl0").text("收藏成功").css({"font-size":"13px","margin-left":"-8px"});
+                                        this.isCol = true;
+                                    }
+                                    else {
+                                        // $("#cl0").text("不能重复收藏哦").css({"font-size":"13px","margin-left":"-30px"});
+                                        $.ajax({
+                                            url: basePath + "/deleteCollections",
+                                            data:{"con_no": con_no, "v_no" : v_no},
+                                            beforeSend:function(request){
+                                                request.setRequestHeader("Authorization",token);
+                                            },
+                                            type: "post",
+                                            dataType: "json",
+                                            success: function (data) {
+                                                // console.log(data);
+                                                if(data.code === 200){
+                                                    $("#cl").css({"color": "gray"});
+                                                    $("#cl0").text("已取消收藏").css({"font-size":"13px","margin-left":"-13px"});
+                                                    this.isCol = false;
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        }else {
+                            $.ajax({
+                                url: basePath + "/deleteCollections",
+                                data:{"con_no": con_no, "v_no" : v_no},
+                                beforeSend:function(request){
+                                    request.setRequestHeader("Authorization",token);
+                                },
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    // console.log(data);
+                                    if(data.code === 200){
+                                        $("#cl").css({"color": "gray"});
+                                        $("#cl0").text("已取消收藏").css({"font-size":"13px","margin-left":"-13px"});
+                                        this.isCol = false;
+                                    }else {
+                                        $.ajax({
+                                            url: basePath + "/insertCollections",
+                                            data: {"con_no": con_no, "v_no": v_no},
+                                            beforeSend:function(request){
+                                                request.setRequestHeader("Authorization",token);
+                                            },
+                                            type: "post",
+                                            dataType: "json",
+                                            success: function (data) {
+                                                // console.log(data);
+                                                if (data.code === 200) {
+                                                    $("#cl").css({"color": "#ff568b"});
+                                                    $("#cl0").text("收藏成功").css({
+                                                        "font-size": "13px",
+                                                        "margin-left": "-8px"
+                                                    });
+                                                    this.isCol = true;
+                                                }
+                                            }
+                                        })
+                                    }
+                                }
+                            });
+                        }
+                    },
+
+
+                    give_a_like: function () {
+                        if (this.isLike ===  false){
+                            $.ajax({
+                                url: basePath + "/giveLike",
+                                data:{"con_no": con_no, "v_no" : v_no},
+                                beforeSend:function(request){
+                                    request.setRequestHeader("Authorization",token);
+                                },
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    // console.log(data);
+                                    if(data.code === 200){
+                                        $("#dz").css({"color": "#ff568b"});
+                                        this.isLike = true;
+                                        $.ajax({
+                                            url: basePath + "/getLikesNum",
+                                            data:{"v_no":v_no},
+                                            beforeSend:function(request){
+                                                request.setRequestHeader("Authorization",token);
+                                            },
+                                            type: "post",
+                                            dataType: "json",
+                                            success: function (data) {
+                                                console.log(data.data);
+                                                if(data.code === 200){
+                                                    num_likes = data.data;
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        $("#dz0").text("不能重复点赞哦").css({"font-size":"13px","margin-left":"-30px"});
+                                    }
+                                }
+                            });
+                        }
+                    },
+
+
+                    give_coins: function () {
+                        $.ajax({
+                            url: basePath + "/giveCoins",
+                            data:{"con_no": con_no, "v_no" : v_no},
+                            beforeSend:function(request){
+                                request.setRequestHeader("Authorization",token);
+                            },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                // console.log(data);
+                                if(data.code === 200){
+                                    $("#jb").css({"color": "#ff568b"});
+                                    $("#jb0").text("已投币").css({"font-size":"13px","margin-left":"-0.5px"});
+                                }else {
+                                    // $("#jb").css({"color": "#ff568b"});
+                                    $("#jb0").text("币数不足，请充值").css({"font-size":"13px","margin-left":"-30px"});
+                                }
+                            }
+                        });
+
+                    },
+                    give_a_comment: function () {
+
+                    }
+                }
+            });
+
+            let oneValues = function () {
+                var url = window.location.search; //获取url中"?"符后的字串
+                // alert(url);
+                if (url.indexOf("?") !== -1) {
+                    v_no = url.substr(url.indexOf("=") + 1);
+                }
+                // alert(t_no)
+                return v_no;
+            };
+            oneValues();
+
+            let b = function () {
+                $.ajax({
+                    url: basePath + "/getConsumersByName?name=" + name,
+                    type: "post",
+                    beforeSend:function(request){
+                        request.setRequestHeader("Authorization",token);
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        // console.log(data.data.con_no);
+                        con_no = data.data.con_no;
+                        $.ajax({
+                            url: basePath + "/isCollections?con_no="+con_no+"&v_no="+v_no,
+                            type: "post",
+                            beforeSend:function(request){
+                                request.setRequestHeader("Authorization",token);
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                console.log(data);
+                                if(data.code === 200){
+                                    $("#cl").css({"color": "#ff568b"});
+                                    $("#cl0").text("收藏过啦").css({"font-size":"13px","margin-left":"-8px"});
+                                    vl.isCol = true;
+                                }
+                            }
+                        });
+
+                        $.ajax({
+                            url: basePath + "/isLike",
+                            data:{"con_no":con_no,"v_no":v_no},
+                            beforeSend:function(request){
+                                request.setRequestHeader("Authorization",token);
+                            },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                console.log(data);
+                                if(data.code !== 200){
+                                    $("#dz").css({"color": "#ff568b"});
+                                    // $("#cl0").text("啦").css({"font-size":"13px","margin-left":"-8px"});
+                                    vl.isLike = true;
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+            b();
+
+
+            let aa = function () {
+                $.ajax({
+                    url: basePath + "/Fan/getOneVideos?v_no=" + v_no,
+                    type: "get",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                        request.setRequestHeader("Authorization", token)
+                    },
+                    success: function (data) {
+                        vl.video = data.data;
+                        $("#danmup").DanmuPlayer({
+                            // src:"http://49.234.77.189:8080/examples/videos/敢杀我的马.mp4",
+                            src: data.data.v_url,
+                            height: "600px", //区域的高度
+                            width: "1200px" //区域的宽度
+                            , urlToGetDanmu: "query.php"
+                            , urlToPostDanmu: "stone.php"
+                        });
+                        $("#danmup .danmu-div").danmu("addDanmu", [
+                            // {"text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2}
+                            // , {"text": "这是测试弹幕", size: 5, position: 0,time:5}
+                            // , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 3}
+                            // , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 2}
+                            // , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 3}
+                            // , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 9}
+                            // , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 3}
+                            {"text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2}
+                            , {"text": "这是测试弹幕", size: 5, position: 0,time:5}
+                            , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 13}
+                            , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 22}
+                            , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 30}
+                            , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 39}
+                            , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 43}
+                            , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 53}
+                            , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 62}
+                            , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 73}
+                            , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 79}
+                            , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 83}
+                            , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 93}
+                            , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 102}
+                            , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 103}
+                            , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 109}
+                            , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 113}
+                            , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 113}
+                            , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 122}
+                            , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 123}
+                            , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 129}
+                            , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 133}
+                        ])
+                    }
+                });
+            }
+            aa();
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
+
+

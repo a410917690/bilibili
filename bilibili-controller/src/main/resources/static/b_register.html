@@ -16,6 +16,7 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/layer.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/head.js "></script>
     <script>
 
         $(function () {
@@ -80,7 +81,7 @@
                     },
                     password: {
                         required: true,
-                        equalTo: "#password1"
+                        equalTo: "#password1",
                     },
                     password1: {
                         required: true,
@@ -88,7 +89,8 @@
                     },
                     tel: {
                         required: true,
-                        number: true
+                        number: true,
+                        pattern:'[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+'
                     },
                     code: {
                         required: true,
@@ -108,8 +110,9 @@
                         equalTo: "两次密码输入不一致"
                     },
                     tel: {
-                        required: "手机号码不能为空",
-                        number: "非法字符"
+                        required: "邮箱不能为空",
+                        number: "非法字符",
+                        pattern: "请正确填写"
                     },
                     code: {
                         required: "验证码不能为空",
@@ -117,33 +120,39 @@
                     }
                 },
                 submitHandler: function (form) {
-                    sendJson(HTTP.POST, "/auth/register", $("#registryUsernameForm").serialize() , false, function (res) {
-                        if (res.code === 0) {
-                            layer.msg("注册成功", {icon: 1});
-                            setTimeout("new function(){window.location.href='/b_login'}","3000");
-                        } else {
-                            layer.msg(res.msg, {icon: 2});
-                        }
-                    }, function () {
-                        layer.msg("未知错误", {icon: 2});
-                    });
-                }
 
-                // $("#sub").click(function () {
-                // $.ajax({
-                //     url:"/register",
-                //     type:"post",
-                //     data:JSON.stringify({"username":$("input[name='username']").value(),
-                //         "password":$("input[name='password']").value()
-                //     }),
-                //     dataType:"text",
-                //     success:function (data) {
-                //         token = token + data;
-                //         alert(token);
-                //     }
-                // })
+                }
             });
             });
+
+            $("#sub").click(function () {
+                $.ajax({
+                    url:basePath + "/Fan/register",
+                    type: "post",
+                    dataType: "text",
+                    // beforeSend:function(request){
+                    //     request.setRequestHeader("Authorization",token);
+                    // },
+                    data:{
+                        "name": $("#username").val(),
+                        "password": $("#password").val(),
+                        "tel_num": $("#inputTel").val(),
+                        // "name": "qqwp",
+                        // "password": "123",
+                        // "tel_num": "15232563291"
+                    },
+                    success:function (data) {
+                        if (data.status === 0){
+                            alert("注册成功!");
+                            window.location.href = "b_login.html";
+                        }
+                        else{
+                            alert("未知原因，您未注册成功，请尝试填写新的数据！")
+                        }
+                        alert("您已注册成功，请去登录！");
+                    }
+                });
+            })
         });
     </script>
 </head>
@@ -183,9 +192,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputTel" class="col-sm-3 control-label">手机号</label>
+                        <label for="inputTel" class="col-sm-3 control-label">邮箱</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputTel" name="tel" placeholder="请输入手机号">
+                            <input type="text" class="form-control" id="inputTel" name="tel" placeholder="请输入邮箱">
                         </div>
                     </div>
                     <div class="form-group">
@@ -196,14 +205,14 @@
                                     <input type="text" class="form-control" id="telCode" name="code" placeholder="请输入验证码">
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12 telCode">
-                                    <button type="button" class="btn btn-info btn-block" id="getTelCode" >获取验证码</button>
+                                    <button type="button" class="btn btn-info btn-block" id="getTelCode" >获取邮箱验证码</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" id="sub" class="btn btn-success btn-block">注册</button>
+                            <button type="button" id="sub" class="btn btn-success btn-block">注册</button>
                         </div>
                     </div>
                 </form>

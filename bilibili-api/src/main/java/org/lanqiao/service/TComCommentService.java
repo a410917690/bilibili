@@ -1,6 +1,5 @@
 package org.lanqiao.service;
 
-import org.apache.ibatis.annotations.Select;
 import org.lanqiao.entity.TComComment;
 import org.lanqiao.vo.TCommentVo;
 

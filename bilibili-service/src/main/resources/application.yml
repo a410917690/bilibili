@@ -2,20 +2,38 @@ dubbo:
   application:
     name: dubbo_provider
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://106.12.195.187:2181
   protocol:
     name: dubbo
-    port: 20880
+    port: 20881
     host: 127.0.0.1
   scan:
     base-packages: org.lanqiao
 spring:
   datasource:
     username: root
-    password: 123
+    password: bili3.14159
     url: jdbc:mysql://49.234.77.189:3306/bilibili?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
-
-    # solr配置
- # data:
-  #  solr:
-   #   zk-host: http://localhost:8983/solr
+  mail:
+    default-encoding: UTF-8
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    username: sonnie_yyds@qq.com
+    password: meifunitfnkmbfgh
+  redis:
+    host: 106.12.195.187
+    port: 6379
+    password: root
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    database: 0
+server:
+  port: 8082

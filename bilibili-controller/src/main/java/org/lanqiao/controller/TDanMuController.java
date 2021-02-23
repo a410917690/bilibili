@@ -4,13 +4,13 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TDanMu;
 
 import org.lanqiao.service.TDanMuService;
-import org.lanqiao.util.Result;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static org.lanqiao.util.ResultFactory.setResultError;
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultError;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 弹幕(TDanMu)表控制层

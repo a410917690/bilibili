@@ -4,10 +4,10 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.lanqiao.entity.TFan;
 
 import org.lanqiao.service.TFanService;
-import org.lanqiao.util.Result;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.*;
 
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 番剧(TFan)表控制层

@@ -1,6 +1,5 @@
 package org.lanqiao.dao;
 
-import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TCollections;
 import org.springframework.stereotype.Repository;
@@ -23,6 +22,7 @@ public interface TCollectionsDao {
 
      * @return 实例对象
      */
+
     @Select("select * from t_collections where con_no=#{con_no}")
     List<TCollections> queryByCno(Integer con_no);
 

@@ -1,25 +1,19 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import io.swagger.models.auth.In;
 import org.lanqiao.entity.TVideos;
 import org.lanqiao.service.TConVLikesService;
 import org.lanqiao.service.TVideosService;
 import org.lanqiao.util.RedisUtil;
-import org.lanqiao.util.Result;
+import org.lanqiao.util.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.annotation.Resource;
-
-
-import static org.lanqiao.util.ResultFactory.setResultError;
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultError;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 视频(TVideos)表控制层
@@ -98,8 +92,8 @@ public class TVideosController {
     @PostMapping("giveLike")
     public Result giveLike(@RequestParam("con_no") Integer con_no ,@RequestParam("v_no") Integer v_no){
 
-        boolean falg = tConVLikesService.queryByVnoCno(con_no,v_no);
-        if (falg ==true) {
+        boolean flag = tConVLikesService.queryByVnoCno(con_no,v_no);
+        if (flag ==true) {
             redisUtil.incr("v_likes"+v_no,1);
             tConVLikesService.insert(con_no,v_no);
             return setResultSuccess("点赞成功！");

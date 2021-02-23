@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery.slider.css"/>
+    <link rel="stylesheet" href="css/forget.css"/>
     <script src="js/http.js"></script>
     <script src="js/express.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -29,12 +30,12 @@
                 </div>
                 <ul id="myTab" class="nav nav-tabs">
                     <li class="active"><a href="#namePW" data-toggle="tab">用户名登录</a></li>
-                                        <li><a href="#phone" data-toggle="tab">短信验证登录</a></li>
+                    <li><a href="#phone" data-toggle="tab">邮箱验证登录</a></li>
 <!--                    <li class="dropdown"><a href="#face" data-toggle="tab">人脸登录</a></li>-->
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade in active" id="namePW">
-                        <form role="form" id="loginUserName" action="" method="post">
+                        <form role="form" id="loginUserName">
                             <div class="form-group">
                                 <label for="userName">用户名</label>
                                 <input type="text" class="form-control" id="userName" name="userName" placeholder="请输入用户名">
@@ -53,15 +54,16 @@
                                     <input type="checkbox" name="remember-me" checked> 自动登录
                                 </div>
                             </div>
-                            <button type="submit" id="doLogin" class="btn btn-success btn-lg btn-block">登录</button>
+                            <button type="button" id="doLogin" class="btn btn-success btn-lg btn-block">登录</button>
+                            <a id="forget" style="font-size:13px;color: gray;margin-left: 235px;" href="b_forget.html">忘记密码?</a>
                         </form>
                     </div>
 
                     <div class="tab-pane fade" id="phone">
                         <form role="form" action="" method="post">
                             <div class="form-group">
-                                <label for="inputTel">手机号</label>
-                                <input type="text" class="form-control" id="inputTel" name="mobile" placeholder="请输入手机号">
+                                <label for="inputTel">邮箱</label>
+                                <input type="text" class="form-control" id="inputTel" name="mobile" placeholder="请输入邮箱">
                             </div>
                             <div class="form-group">
                                 <label for="telCode">验证码</label>
@@ -74,7 +76,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success btn-lg btn-block" id="submit2">登录</button>
+                            <button type="button" class="btn btn-success btn-lg btn-block" id="submit2">登录</button>
+                            <a id="forget" style="font-size:13px;color: gray;margin-left: 235px;" href="b_forget.html">忘记密码?</a>
                         </form>
                     </div>
 <!--                    <div class="tab-pane fade" id="face">-->
@@ -193,32 +196,25 @@
                         $.ajax({
                             url: basePath + "/login",
                             type: "post",
-                            dataType: "json",
+                            dataType: "json",//接收类型
+                            // dataType: "text",
+
                             // beforeSend:function(request){
                             //     request.setRequestHeader("Authorization",token);
                             // },
                             data: {
-                                "username": $("#userName").val(),
+                                "name": $("#userName").val(),
                                 "password": $("#passwd").val()
                             },
                             success: function (data) {
-                                alert(data)
-                                // console.log("111");
-                                if (data.status === 0) {
-                                    window.location.href = "b_index.html";
-                                    alert(data.data.username + "登录成功");
-                                } else {
-                                    alert("登录失败")
-                                }
-                                //console.log(data);
-                                // var getToken ="Bearer "+data.data.token;
-                                // //console.log(getToken);
-                                // var getId = data.data.user.id;
-                                // var getUsername = data.data.user.username;
-                                // localStorage.setItem("token",getToken);
-                                // localStorage.setItem("id",getId);
-                                // localStorage.setItem("username",getUsername);
-                                // alert("登录失败。404：该用户还未注册或用户名密码输入错误！")
+                                 // console.log(data);
+                               // alert("用户 : " + data.name + " 正在登录...");
+                                var getToken = data.data;
+                                // var getToken ="Bearer "+data.token;
+                                // var name = data.name;
+                                localStorage.setItem("token",getToken);
+                                // localStorage.setItem("name",name);
+                                window.location.href = "b_index.html";
                             }
                         })
                     })
@@ -247,7 +243,6 @@
         //
         //     }
         // });
-
 
     });
 </script>

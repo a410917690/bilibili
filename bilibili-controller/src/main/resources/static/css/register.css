@@ -9,7 +9,7 @@
 .container{
     width: 100%;
     min-height: 100vh;
-    background: #2848af url("../images/lo.png")right top no-repeat;
+    background: #2848af url("../images/slider.jpg")right top no-repeat;
     background-size: cover;
     /*font-size: 1rem;*/
     text-align: center;

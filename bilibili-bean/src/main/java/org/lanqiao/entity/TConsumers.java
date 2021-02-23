@@ -1,8 +1,11 @@
 package org.lanqiao.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -12,6 +15,8 @@ import java.util.Date;
  * @since 2020-10-07 11:12:44
  */
 @Data
+@Setter
+@Getter
 public class TConsumers implements Serializable {
     private static final long serialVersionUID = 792526065938981399L;
     /**
@@ -46,7 +51,25 @@ public class TConsumers implements Serializable {
      * 用户是否合法
      */
     private Integer con_is_legal;
-
+    /**
+     * 电话号码
+     */
     private String tel_num;
+    /**
+     * 邮箱
+     */
+    private String mail;
+    /**
+     * 头像
+     */
+    private byte[] pic;
+    /**
+     * 年龄
+     */
+    private Integer age;
 
+    /**
+     * 被举报次数
+     */
+    private Integer report_num;
 }

@@ -2,8 +2,6 @@ package org.lanqiao.service;
 
 import org.lanqiao.entity.TComments;
 
-import java.util.List;
-
 /**
  * 评论(TComments)表服务接口
  *

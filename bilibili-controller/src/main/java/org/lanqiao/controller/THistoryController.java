@@ -1,15 +1,12 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import org.lanqiao.entity.THistory;
 
 import org.lanqiao.service.THistoryService;
-import org.lanqiao.util.Result;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 观看历史(THistory)表控制层

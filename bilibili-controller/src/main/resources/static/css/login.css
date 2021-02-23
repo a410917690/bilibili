@@ -2,7 +2,8 @@
 .container{
     width: 100%;
     min-height: 100vh;
-    background: #2848af url("../images/l (2).png")right top no-repeat;
+    /*background: #2848af url("../images/l (2).png")right top no-repeat;*/
+    background: #2848af url("../images/video-business.jpg")right top no-repeat;
     background-size: cover;
     font-size: 1rem;
 }

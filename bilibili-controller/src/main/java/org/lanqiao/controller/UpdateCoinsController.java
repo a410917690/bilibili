@@ -2,18 +2,15 @@ package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.auth.In;
 import org.lanqiao.service.UpdateCoinsService;
-import org.lanqiao.util.Result;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-
-import static org.lanqiao.util.ResultFactory.setResultError;
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultError;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 @RestController
 @CrossOrigin

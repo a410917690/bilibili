@@ -22,7 +22,6 @@ a {
 }
 
 #rank-con {
-    text-align: center;
     font-size: 30px;
 }
 
@@ -31,9 +30,9 @@ a {
     padding-bottom: 40px;
 }
 
-.ra span {
-    color: hotpink;
-}
+/*.ra span {*/
+/*    color: hotpink;*/
+/*}*/
 #b{
     height: 35px;
 }

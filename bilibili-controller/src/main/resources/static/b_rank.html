@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>bilibili</title>
+    <title>排行榜</title>
     <link rel="dns-prefetch" href="//s1.hdslb.com">
     <link rel="stylesheet"
           href="//s1.hdslb.com/bfs/static/jinkela/international-home/css/international-home.1.84ec06c5afd7d63c5e5d3eaa47e45c96e3201a59.css">
     <link rel="stylesheet"
           href="//s1.hdslb.com/bfs/static/jinkela/international-home/css/international-home.0.84ec06c5afd7d63c5e5d3eaa47e45c96e3201a59.css">
-    <link rel="stylesheet" href="css/rank.css">
     <link rel="stylesheet" href="css/iconfont/iconfont.css">
+    <script src="js/vue.js"></script>
+    <script src="js/head.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
     <style type="text/css">li[data-v-257aeccc] {
         list-style: none;
         color: #222;
@@ -615,6 +617,193 @@
     }
     </style>
 </head>
+<script>
+    $(function () {
+
+        var token=localStorage.getItem("token");
+        var con_name=localStorage.getItem("name");
+        var v_no;
+        var fan_no;
+        var vi = new Vue({
+            el: '#all',
+            data: {
+                videos:[],
+                fan:[],
+                live_room:[]
+            },
+            mounted: function () {
+
+            },
+            methods: {
+                to: function (index) {
+                    if(token===null){
+                        window.location = "b_login.html";
+                    }else{
+                        v_no= this.videos[index].v_no;
+                        window.location.href = 'b_video.html?id='+v_no;
+                    }
+                },
+                toS: function (index) {
+                    if(token===null){
+                        window.location = "b_login.html";
+                    }else{
+                        fan_no= this.fan[index].fan_no;
+                        window.location.href = 'b_series.html?fan_no='+fan_no;
+                    }
+                },
+            }
+        });
+
+        let a = function (){
+            $.get(basePath + "/Fan/getAllVideos", function (data) {
+                // console.log(data.data.list);
+                // for (let i = 0; i < data.data.list.length; i++) {
+                //     console.log(data.data.list[i].v_pic);
+                //     // console.log(data.data.list[i]);
+                // }
+                vi.videos = data.data.list;
+            });
+
+            $.get(basePath + "/Fan/getAllFan", function (data) {
+                console.log(data);
+                for (let i = 0; i < data.data.list.length; i++) {
+                    console.log(data.data.list[i].fan_pic);
+                }
+                vi.fan = data.data.list;
+            });
+        }
+        a();
+
+        $("#home").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_home.html";
+            }
+        })
+
+        $("#mem").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_vip.html";
+            }
+        })
+
+        $("#coll").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_collections.html";
+            }
+        })
+
+        $("#hei").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_history.html";
+            }
+        })
+
+        $("#cz").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_upload.html";
+            }
+        })
+
+        $("#tg").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_upload.html";
+            }
+        })
+
+        $("#hyg").click(function () {
+            if(token===null){
+                window.location = "b_login.html";
+            }else{
+                window.location.href = "b_vip.html";
+            }
+        })
+
+        $("#dh").click(function () {
+            window.location.href = "b_list.html?tag_no="+1;
+        })
+
+        $("#wd").click(function () {
+            window.location.href = "b_list.html?tag_no="+3;
+        })
+
+        $("#gc").click(function () {
+            window.location.href = "b_list.html?tag_no="+6;
+        })
+
+        $("#sh").click(function () {
+            window.location.href = "b_list.html?tag_no="+4;
+        })
+
+        $("#gx").click(function () {
+            window.location.href = "b_list.html?tag_no="+9;
+        })
+
+        $("#ms").click(function () {
+            window.location.href = "b_list.html?tag_no="+5;
+        })
+
+        $("#xw").click(function () {
+            window.location.href = "b_list.html?tag_no="+8;
+        })
+
+        $("#yy").click(function () {
+            window.location.href = "b_list.html?tag_no="+2;
+        })
+
+
+
+
+
+        $("#ys").click(function () {
+            window.location.href = "b_list.html?tag_no="+16;
+        })
+
+        $("#yx").click(function () {
+            window.location.href = "b_list.html?tag_no="+15;
+        })
+
+        $("#dw").click(function () {
+            window.location.href = "b_list.html?tag_no="+14;
+        })
+
+        $("#fj").click(function () {
+            if(token === null){
+                window.location.href = 'b_login.html';
+            }else
+                window.location.href = "b_list_fan.html";
+        })
+
+        $("#zs").click(function () {
+            window.location.href = "b_list.html?tag_no="+11;
+        })
+
+        $("#yl").click(function () {
+            window.location.href = "b_list.html?tag_no="+7;
+        })
+
+        $("#sm").click(function () {
+            window.location.href = "b_list.html?tag_no="+10;
+        })
+
+        $("#ss").click(function () {
+            window.location.href = "b_list.html?tag_no="+12;
+        })
+
+
+    });
+</script>
 <body>
 <div id="international-home-app"></div>
 <div id="app">
@@ -626,8 +815,8 @@
                     <!--                    top-left-->
                     <div class="nav-link">
                         <ul class="nav-link-ul">
-                            <li class="nav-link-item"><a href="#" class="link"><i
-                                    class="bilifont bili-icon_dingdao_zhuzhan"></i>主站</a></li>
+                            <li class="nav-link-item"><a class="link">
+                                <i class="bilifont bili-icon_dingdao_zhuzhan"></i>主站</a></li>
                             <li class="nav-link-item"><a href="#" target="_blank" class="link">番剧</a>
                             </li>
                             <li class="nav-link-item"><span><div role="tooltip" id="van-popover-3563" aria-hidden="true"
@@ -635,8 +824,7 @@
                                                                  style="width:undefinedpx;display:none;" tabindex="0"><!----> </div> <a
                                     href="#" target="_blank" class="link van-popover__reference"
                                     aria-describedby="van-popover-3563" tabindex="0">直播</a></span></li>
-                            <li class="nav-link-item"><a href="#"
-                                                         target="_blank" class="link">会员购</a></li>
+                            <li class="nav-link-item"><a id="hyg" target="_blank" class="link">会员购</a></li>
                         </ul>
                     </div>
 
@@ -666,7 +854,7 @@
                                                                                                style="width: 260px; display: none;"><!----> </div>
                                 <div data-v-7bfd2c69="" class="mini-vip van-popover__reference"
                                      aria-describedby="van-popover-7309" tabindex="0">
-                                    <span data-v-7bfd2c69="" target="_blank" class="name">个人中心</span>
+                                    <span data-v-7bfd2c69="" target="_blank" class="name"><a id="home" style="color: white">个人中心</a></span>
                                 </div>
                             </span>
                             </div>
@@ -680,7 +868,7 @@
                                                                                                style="width: 260px; display: none;"><!----> </div>
                                 <div data-v-7bfd2c69="" class="mini-vip van-popover__reference"
                                      aria-describedby="van-popover-7309" tabindex="0">
-                                    <span data-v-7bfd2c69="" target="_blank" class="name">大会员</span>
+                                    <span data-v-7bfd2c69="" target="_blank" class="name"><a id="mem" style="color: white">大会员</a></span>
                                 </div>
                             </span>
                             </div>
@@ -691,7 +879,7 @@
                                 <div class="mini-favorite van-popover__reference" aria-describedby="van-popover-1594"
                                      tabindex="0">
                                     <span>
-                                        <span class="name">收藏</span>
+                                        <span class="name"><a style="color: white;" id="coll">收藏</a></span>
                                     </span>
                                 </div>
                                 </span>
@@ -703,7 +891,7 @@
                                     <div data-v-4f980dd1="" class="mini-history van-popover__reference"
                                          aria-describedby="van-popover-5350" tabindex="0">
                                         <span data-v-4f980dd1="">
-                                            <span data-v-4f980dd1="" class="name">历史</span>
+                                            <span data-v-4f980dd1="" class="name"><a id="hei" style="color: white">历史</a></span>
                                         </span>
                                     </div>
                                 </span>
@@ -711,7 +899,7 @@
 
                             <!--                            创作中心-->
                             <div class="item"><a href="#" target="_blank">
-                                <span class="name">创作中心</span>
+                                <span class="name"><a id="cz" style="color: white">创作中心</a></span>
                             </a>
                             </div>
                         </div>
@@ -722,13 +910,11 @@
                                  class="van-popover van-popper van-popper-upload" style="width:304px;display:none;"
                                  tabindex="0"></div>
                             <span class="mini-upload van-popover__reference" data-v-31cc0059=""
-                                  aria-describedby="van-popover-5260" tabindex="0">投稿</span></span>
+                                  aria-describedby="van-popover-5260" tabindex="0"><a id="tg" style="color: white">投稿</a></span></span>
                         </div>
                     </div>
                 </div>
             </div>
-
-
             <div class="bili-banner" style="" data-v-7965f258="">
                 <div data-v-0a487de8="" data-v-7965f258="" class="animated-banner">
                     <div class="layer"><img
@@ -739,164 +925,26 @@
                 <div class="taper-line" data-v-7965f258=""></div>
             </div>
 
-            <div class="b-wrap">
-                <div class="primary-menu-itnl">
+            <div>
+                <div>
+                    <br>
+                    <span class="iconfont icon-gongnengpaihangbang" style="padding-left: 200px;color: deepskyblue;font-size: 22px"></span>
+                    <span style="padding-left:15px;margin-top: 60px;font-size: 18px;color:black">全站榜</span><br><br>
 
-                    <div id="primaryPageTab" class="page-tab report-wrap-module">
-                        <ul class="con">
-                            <li><a href="/">
-                                <div class="round"><i class="bilifont bili-icon_fenqudaohang_shouye"></i></div>
-                                <span>首页</span></a></li>
-
-                            <li><a href="" target="_blank">
-                                <div class="round blue"><i class="bilifont bili-icon_fenqudaohang_paihangbang"></i>
-                                </div>
-                                排行榜</a>
-                            </li>
-                        </ul>
+                    <div style="margin-left: 200px;height: 120px;width: 1200px;border: 1px solid gainsboro">
+                        <span style="margin-left: 25px;font-size: 35px;font-family: 方正粗黑宋简体;color: darkgray"> 1 </span>
+                        <span><img src="images/favicon.png" style="margin-left: 60px;height: 120px;width: 200px"></span>
+                        <span style="margin-left: 30px;font-size: 21px"><a>视频标题</a></span>
+                        <span class="iconfont icon-bofangliang" style="padding-left: 620px;color: gray;font-size: 22px"></span>
+                        <span class="" style="margin-left: 0px;font-size: 15px">播放量</span>
                     </div>
-
-                    <span class="tab-line-itnl"></span>
-                    <div id="primaryChannelMenu" class="channel-menu-itnl report-wrap-module">
-                        <span>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-3966" tabindex="0">
-                                <a href="//www.bilibili.com/v/douga/" class="name">
-                                    <span>动画<em>999+</em></span>
-                                </a>
-                            </div>
-                        </span>
-
-                        <span>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-6146" tabindex="0">
-                                <a href="//www.bilibili.com/anime/" class="name"><span>番剧<em>134</em></span></a>
-                            </div>
-                        </span>
-
-                        <span>
-                            <div role="tooltip" id="van-popover-6236" aria-hidden="true"
-                                 class="van-popover van-popper van-popper-channel" style="width:172px;display:none;"
-                                 tabindex="0"><!---->
-                                <div class="sub-container"></div>
-                            </div>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-6236" tabindex="0">
-                                <a href="#" class="name"><span>舞蹈<em>538</em></span></a>
-                            </div>
-                        </span>
-
-                        <span>
-                            <div role="tooltip" id="van-popover-1681" aria-hidden="true"
-                                 class="van-popover van-popper van-popper-channel" style="width:164px;display:none;"
-                                 tabindex="0">
-                                <div class="sub-container"></div>
-                            </div>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-1681" tabindex="0"><a
-                                    href="#" class="name"><span>生活<em>999+</em></span>
-                            </a></div></span>
-
-                        <span>
-                            <div role="tooltip" id="van-popover-7873" aria-hidden="true"
-                                 class="van-popover van-popper van-popper-channel" style="width:118px;display:none;"
-                                 tabindex="0">
-                                <div class="sub-container">
-                                    <div class="sub-item"></div>
-                                </div>
-                            </div>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-7873" tabindex="0"><a
-                                    href="#" class="name"><span>鬼畜<em>51</em></span></a>
-                            </div>
-                        </span>
-
-
-                        <span>
-                            <div role="tooltip" id="van-popover-1101" aria-hidden="true"
-                                 class="van-popover van-popper van-popper-channel" style="width:60px;display:none;"
-                                 tabindex="0"><!---->
-                                <div class="sub-container">
-                                    <div class="sub-item"></div>
-                                </div>
-                            </div>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-1101" tabindex="0">
-                            `   <a href="#" class="name"><span>新闻<em>207</em></span></a>
-                            </div>
-                        </span>
-
-
-                        <span><div role="tooltip" id="van-popover-6920" aria-hidden="true"
-                                   class="van-popover van-popper van-popper-channel" style="width:0px;display:none;"
-                                   tabindex="0"><!---->
-                            <div class="sub-container"></div>
-                        </div>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-6920" tabindex="0">
-                                <a href="#" class="name"><span>搞笑<em>999+</em></span></a>
-                            </div>
-                        </span>
-
-
-                        <span>
-                            <div role="tooltip" id="van-popover-7922" aria-hidden="true"
-                                 class="van-popover van-popper van-popper-channel" style="width:0px;display:none;"
-                                 tabindex="0"><!---->
-                            </div>
-                            <div class="item van-popover__reference" aria-describedby="van-popover-7922" tabindex="0">
-                                <a href="#" class="name">
-                                    <span>美食<em>999+</em></span>
-                                </a>
-                            </div>
-                        </span>
-                    </div>
+                    <br>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div id="b" style="text-align: center;font-size: 40px;">全站榜</div>
-<div style="height: 35px"></div>
-<div id="rank-bc">
-    <div id="rank">
-        <a>动画</a>
-        <a>音乐</a>
-        <a>舞蹈</a>
-        <a>生活</a>
-        <a>美食</a>
-        <a>鬼畜</a>
-        <a>娱乐</a>
-        <a>新闻</a>
-    </div>
-    <div id="rank-con">
-        <div class="ra">
-            <span>第一名</span>
-            <div>
-                <div class="rank-title"></div>
-                11
-            </div>
-        </div>
-        <div class="ra">
-            <span>第二名</span>
-            <div>
-                <div class="rank-title"></div>
-                22
-            </div>
-        </div>
-        <div class="ra">
-            <span>第三名</span>
-            <div class="rank-title"></div>
-            <div>
-                33
-            </div>
-        </div>
-        <div class="ra">
-            <span>第四名</span>
-            <div class="rank-title"></div>
-            <div>
-                44
-            </div>
-        </div>
-        <div class="ra">
-            <span>第五名</span>
-            <div class="rank-title"></div>
-            <div>
-                55
-            </div>
+
+
+
+
         </div>
     </div>
 </div>

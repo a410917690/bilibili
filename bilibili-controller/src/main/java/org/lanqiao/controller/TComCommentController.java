@@ -1,18 +1,13 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.lanqiao.entity.TComComment;
 import org.lanqiao.service.TComCommentService;
-import org.lanqiao.util.Result;
-import org.lanqiao.vo.TCommentVo;
+import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-import static org.lanqiao.util.ResultFactory.setResultError;
-import static org.lanqiao.util.ResultFactory.setResultSuccess;
+import static org.lanqiao.util.result.ResultFactory.setResultError;
+import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
  * 评论的评论(TComComment)表控制层
