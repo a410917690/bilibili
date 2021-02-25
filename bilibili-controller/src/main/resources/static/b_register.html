@@ -73,6 +73,32 @@
             }, 1000) //每1000毫秒执行一次
         }
 
+
+            // //默认执行
+            // let a = function () {
+            //
+            //     $.ajax({
+            //         url: basePath + "/uploadPic",
+            //         data:{"page":1,"v_no":v_no},
+            //         type: "post",
+            //         // beforeSend:function(request){
+            //         //     request.setRequestHeader("Authorization",token);
+            //         // },
+            //         dataType: "json",
+            //         success: function (data) {
+            //             console.log(data);
+            //             if(data.code === 200){
+            //                 // name = data.data.list;
+            //
+            //             }
+            //         }
+            //     });
+            // }
+            // a();
+
+
+
+
         $().ready(function() {
             $("#registryUsernameForm").validate({
                 rules: {
@@ -89,12 +115,10 @@
                     },
                     tel: {
                         required: true,
-                        number: true,
-                        pattern:'[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+'
+                        pattern:'[1-9]\\d{7,10}@qq\\.com'
                     },
                     code: {
-                        required: true,
-                        number: true
+                        required: true
                     }
                 },
                 messages: {
@@ -111,12 +135,10 @@
                     },
                     tel: {
                         required: "邮箱不能为空",
-                        number: "非法字符",
                         pattern: "请正确填写"
                     },
                     code: {
-                        required: "验证码不能为空",
-                        number: "非法字符"
+                        required: "验证码不能为空"
                     }
                 },
                 submitHandler: function (form) {
@@ -124,6 +146,44 @@
                 }
             });
             });
+
+            /**
+             * 显示验证码剩余时间
+             * @type {number}
+             */
+            var time = 60;
+            $("#getTelCode").on('click',function () {
+                $(this).attr("disabled",true);
+                var timer = setInterval(function () {
+                    if(time == 0){
+                        $("#getTelCode").removeAttr("disabled");
+                        $("#getTelCode").html("重新发送");
+                        clearInterval(timer);
+                    }else {
+                        $("#getTelCode").html(time);
+                        time--;
+                    }
+                },1000);
+            });
+
+            //获取验证码
+            $("#getTelCode").click(function () {
+                $.ajax({
+                    url: basePath + "/send",
+                    type: "post",
+                    dataType: "json",//接收类型
+                    // dataType: "text",
+                    // beforeSend:function(request){
+                    //     request.setRequestHeader("Authorization",token);
+                    // },
+                    data: {
+                        "mail": $("#inputTel").val()
+                    },
+                    success: function (data) {
+                        console.log(data);
+                    }
+                })
+            })
 
             $("#sub").click(function () {
                 $.ajax({
@@ -136,20 +196,15 @@
                     data:{
                         "name": $("#username").val(),
                         "password": $("#password").val(),
-                        "tel_num": $("#inputTel").val(),
-                        // "name": "qqwp",
-                        // "password": "123",
-                        // "tel_num": "15232563291"
+                        "mail": $("#inputTel").val(),
+                        "code": $("#telCode").val()
                     },
                     success:function (data) {
-                        if (data.status === 0){
+                        console.log(data.code);
+                        if (data.code === 200){
                             alert("注册成功!");
-                            window.location.href = "b_login.html";
                         }
-                        else{
-                            alert("未知原因，您未注册成功，请尝试填写新的数据！")
-                        }
-                        alert("您已注册成功，请去登录！");
+                        alert("您已注册成功，请前去登录！");
                     }
                 });
             })

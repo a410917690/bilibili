@@ -80,7 +80,7 @@ public interface TConsumersService {
 
     Integer updatePwd(String mail,String password);
 
-    Integer updateDetail(String name,String tele_num,Integer age);
+    Integer updateDetail(String newName,String name,String tele_num,Integer age,String password,String newPwd,String confirmPwd);
 
     int uploadPic(byte[] pic,Integer con_no);
 

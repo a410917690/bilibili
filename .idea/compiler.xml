@@ -15,7 +15,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bilibiliapi" target="1.5" />
+      <module name="bilibili-api" target="1.8" />
+      <module name="bilibili-bean" target="1.8" />
+      <module name="bilibili-controller" target="1.8" />
+      <module name="bilibili-dao" target="1.8" />
+      <module name="bilibili-service" target="1.8" />
+      <module name="bilibili-withoutSercurity" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

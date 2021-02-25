@@ -195,6 +195,7 @@ public class TConsumersServiceImpl implements TConsumersService {
 
         //获取表单中的提交的验证信息
         String voCode = consumerCodeVo.getCode();
+        String voMail = consumerCodeVo.getMail();
 
         //如果email数据为空，或者不一致，注册失败
         if (mail == null || mail.isEmpty()) {
@@ -203,7 +204,6 @@ public class TConsumersServiceImpl implements TConsumersService {
         } else {
             assert code != null;
             if (!code.equals(voCode)) {
-                //return "error,请重新注册";
                 return false;
             }
         }
@@ -212,7 +212,6 @@ public class TConsumersServiceImpl implements TConsumersService {
         //将数据写入数据库
         this.tConsumersDao.insert(tConsumers);
 
-        //跳转成功页面
         return true;
     }
 
@@ -250,7 +249,7 @@ public class TConsumersServiceImpl implements TConsumersService {
 
                     mailMessage.setSubject("找回密码");//主题
 
-                    mailMessage.setText("您的密码为：" + password);//内容
+                    mailMessage.setText("您的IK账号密码为：" + password);//内容
 
                     mailMessage.setTo(mail);//发给谁
                     mailMessage.setSentDate(date);
@@ -277,8 +276,13 @@ public class TConsumersServiceImpl implements TConsumersService {
     }
 
     @Override
-    public Integer updateDetail(String name, String tele_num, Integer age) {
-        return tConsumersDao.updateDetail(name, tele_num, age);
+    public Integer updateDetail(String newName,String name, String tele_num, Integer age,String password,String newPwd,String confirmPwd) {
+        if (newPwd != confirmPwd) {
+            return tConsumersDao.updateDetail(newName,name, tele_num, age, password, newPwd);
+        }
+        else {
+            return 0;
+        }
     }
 
     @Override

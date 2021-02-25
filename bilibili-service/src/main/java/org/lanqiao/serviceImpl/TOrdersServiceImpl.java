@@ -1,6 +1,7 @@
 package org.lanqiao.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import org.lanqiao.dao.TIncomingDao;
 import org.lanqiao.dao.TOrderDao;
 import org.lanqiao.entity.TOrders;
 import org.lanqiao.service.TOrdersService;
@@ -27,6 +28,9 @@ public class TOrdersServiceImpl implements TOrdersService {
     @Resource
     TOrderDao tOrderDao;
 
+    @Resource
+    TIncomingDao tIncomingDao;
+
     @Override
     public TOrders insertOrder(String o_no,Integer con_no, String i_name, Float money, Integer i_no) {
 
@@ -44,6 +48,8 @@ public class TOrdersServiceImpl implements TOrdersService {
 
     @Override
     public Integer updateOrder(String o_no) {
+        TOrders tOrders = tOrderDao.queryOrder(o_no);
+        tIncomingDao.addIncoming(tOrders.getMoney());
         return tOrderDao.updateOrder(o_no);
     }
 

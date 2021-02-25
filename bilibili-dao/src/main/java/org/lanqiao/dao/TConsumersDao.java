@@ -107,8 +107,8 @@ public interface TConsumersDao {
     @Update("update t_consumers set password=#{password} where name=#{name}")
     Integer updatePwd(String name,String password);
 
-    @Update("update t_consumers set age=#{age},tele_num=#{tele_num} where name=#{name}")
-    Integer updateDetail(String name,String tele_num,Integer age);
+    @Update("update t_consumers set name=#{newName},age=#{age},tele_num=#{tele_num},password=#{newPwd} where name=#{name} and password=#{password}")
+    Integer updateDetail(String newName,String name,String tele_num,Integer age,String password,String newPwd);
 
     @Update("update t_consumers set report_num = report_num + 1 where con_no=#{con_no}")
     int addReportNum(Integer con_no);

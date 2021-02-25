@@ -89,9 +89,9 @@ public class TConsumersController {
         if (tConsumers != null) {
             //生成token,三种方法
             //第一种，UUID.randomUUID() + ""
-//            String token = UUID.randomUUID() + "";
+            String token = UUID.randomUUID() + "";
             //第二种，利用JWT生成Token，用HS256对称算法加密
-            String token = JWT_HS256.buildJWT(tConsumers);
+//            String token = JWT_HS256.buildJWT(tConsumers);
             // 第二种，利用JWT生成Token，用RS256对称算法加密
 //            String token = JWT_RS256.buildToken(user);
             //将token和数据存入redis缓存中
@@ -100,6 +100,18 @@ public class TConsumersController {
             return setResultSuccess(200, "登录成功", token);
         } else {
             return setResultSuccess(400, "登录失败");
+        }
+    }
+
+
+    @ResponseBody
+    @PostMapping("getConByToken")
+    public Result getConByToken(String token) {
+        Object user = redisTemplate.opsForValue().get(token);
+        if(user != null) {
+            return setResultSuccess(200, "获取用户成功", user);
+        }else {
+            return setResultError(400, "获取用户成功", null);
         }
     }
 
@@ -185,8 +197,8 @@ public class TConsumersController {
 
     @PostMapping("/updateDetail")
     @ResponseBody
-    public Result updateDetail(String name, String tele_num, Integer age) {
-        Integer res = tConsumersService.updateDetail(name, tele_num, age);
+    public Result updateDetail(String newName,String name, String tele_num, Integer age,String password,String newPwd,String confirmPwd) {
+        Integer res = tConsumersService.updateDetail(newName,name, tele_num, age,password,newPwd,confirmPwd);
         if (res != 0) {
             return setResultSuccess(200, "success", res);
         }
