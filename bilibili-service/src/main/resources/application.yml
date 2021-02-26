@@ -5,7 +5,7 @@ dubbo:
     address: zookeeper://106.12.195.187:2181
   protocol:
     name: dubbo
-    port: 20881
+    port: 20882
     host: 127.0.0.1
   scan:
     base-packages: org.lanqiao
@@ -36,4 +36,4 @@ spring:
         min-idle: 0
     database: 0
 server:
-  port: 8082
+  port: 8081

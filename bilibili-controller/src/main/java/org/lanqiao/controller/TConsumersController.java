@@ -206,7 +206,7 @@ public class TConsumersController {
     }
 
     @PostMapping("/uploadPic")
-    public Result savePic(@RequestParam("file") MultipartFile file) {
+    public Result savePic(@RequestParam("file") MultipartFile file,@RequestParam("name")String name) {
         byte[] pic = null;
         if (file != null) {
             try {
@@ -222,8 +222,7 @@ public class TConsumersController {
         } else {
             return setResultError();
         }
-        Integer con_no = -1;
-        tConsumersService.uploadPic(pic, con_no);
+        tConsumersService.uploadPic(pic, name);
 
         return setResultSuccess(200, "上传图片成功", pic);
     }

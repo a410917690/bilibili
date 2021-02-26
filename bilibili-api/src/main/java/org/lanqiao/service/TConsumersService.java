@@ -82,7 +82,7 @@ public interface TConsumersService {
 
     Integer updateDetail(String newName,String name,String tele_num,Integer age,String password,String newPwd,String confirmPwd);
 
-    int uploadPic(byte[] pic,Integer con_no);
+    int uploadPic(byte[] pic,String name);
 
     int report(Integer con_no);
 

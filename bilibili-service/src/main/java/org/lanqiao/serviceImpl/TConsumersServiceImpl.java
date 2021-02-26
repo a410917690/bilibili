@@ -286,8 +286,8 @@ public class TConsumersServiceImpl implements TConsumersService {
     }
 
     @Override
-    public int uploadPic( byte[] pic,Integer con_no) {
-        return tConsumersDao.uploadPic(pic,con_no);
+    public int uploadPic( byte[] pic,String name) {
+        return tConsumersDao.uploadPic(pic,name);
     }
 
     @Override

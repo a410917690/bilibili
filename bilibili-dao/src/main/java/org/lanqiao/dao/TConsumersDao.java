@@ -82,8 +82,8 @@ public interface TConsumersDao {
     @Insert("insert into t_consumers (name,password,mail) values (#{name},#{password},#{mail})")
     int insert(TConsumers tConsumers);
 
-    @Update("update t_consumers set pic=#{pic} where con_no!=#{con_no}")
-    int uploadPic(byte[] pic,Integer con_no);
+    @Update("update t_consumers set pic=#{pic} where name=#{name}")
+    int uploadPic(@Param("pic") byte[] pic,@Param("name") String name);
 
     /**
      * 修改数据
