@@ -1240,10 +1240,9 @@
     $(function () {
         var username = localStorage.getItem("name");
         $("#usn").html(username);
-        // 默认执行
-        let a = function () {
+        if(username !== null){
+            $("#yz").html("已验证");
         }
-        a();
         var con_no;
         var home = new Vue({
             el: '#focus',

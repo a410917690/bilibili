@@ -395,7 +395,7 @@
                             </div>
                             <div class="dropdown-user-name">
                                 <span id="usn"> 未登录</span>
-                                <span> 已验证 <i class="uil-check"></i> </span>
+                                <span id="yz"> 未登录 <i class="uil-check"></i> </span>
                             </div>
                         </div>
 
@@ -587,10 +587,9 @@
     $(function () {
         var username = localStorage.getItem("name");
         $("#usn").html(username);
-        // 默认执行
-        let a = function () {
+        if(username !== null){
+            $("#yz").html("已验证");
         }
-        a();
         var con_no;
         var home = new Vue({
             el: '#focus',
