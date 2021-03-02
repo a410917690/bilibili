@@ -5,7 +5,7 @@
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>TubeLite Streaming Video HTML Template</title>
+    <title>IK大会员</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
@@ -72,18 +72,20 @@
                     <div class="sections">
                         <!--                <div class="sections" v-for="(f,index) in focuses">-->
                         <h3> 关注列表 </h3>
-                        <ul>
-                            <!--                    <ul v-for="(f,index) in focuses">-->
-                            <!--                        <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                            <!--                            <span> {{f.name}} </span> <span class="dot-notiv"></span></a></li>-->
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                <span> {{focuses[1].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                <span> {{focuses[2].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                <span> {{focuses[3].name}} </span> <span class="dot-notiv"></span></a></li>
+                        <!--                        <ul>-->
+                        <ul v-for="(f,index) in focuses">
+                            <li>
+                                <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
+                                    <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
+
+                                    <!--                            <li>-->
+                                    <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
+                                    <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
+                            </li>
+                            <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                            <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
 
                         </ul>
 
@@ -449,7 +451,7 @@
                 <div class="section text-center uk-light" style="margin-top: -175px">
                     <div class="se-kl">
                         <div class="se-cn">抢6折月会员</div>
-                        <a class="se-en" href="secKillOrder.html">点击立即抢购</a>
+                        <a id="secKill" class="se-en">点击立即抢购</a>
                         <i class="se-io"></i>
                         <div class="se-info">距离活动结束还剩</div>
                         <div class="se-count">
@@ -652,6 +654,7 @@
 <script>
     $(function () {
         var username = localStorage.getItem("name");
+        var token = localStorage.getItem("token");
         $("#usn").html(username);
         if(username !== null){
             $("#yz").html("已验证");
@@ -669,20 +672,22 @@
 
             },
             methods: {
-                // to: function (con_no) {
+                // secKill: function () {
                 //     if(token===null){
                 //         window.location = "b_login.html";
                 //     }else{
-                //         window.location.href = 'b_video.html?id='+v_no;
-                //         //加入历史记录
+                //         //secKill
                 //         $.ajax({
-                //             url: basePath + "/insertHistory",
-                //             data: {"con_no": con_no,"v_no":v_no},
-                //             beforeSend: function (request) {
-                //                 request.setRequestHeader("Authorization", token);
-                //             },
+                //             url: basePath + "/secKill",
                 //             type: "post",
-                //             dataType: "json",
+                //             dataType: "json",//接收类型
+                //             // dataType: "text",
+                //             // beforeSend:function(request){
+                //             //     request.setRequestHeader("Authorization",token);
+                //             // },
+                //             data: {
+                //                 "con_no": con_no
+                //             },
                 //             success: function (data) {
                 //                 console.log(data);
                 //             }
@@ -725,9 +730,33 @@
                         console.log(data);
                         home.focuses = data.data;
                     }
+                });
+
+                $("#secKill").click(function () {
+                    if(token===null){
+                        window.location = "b_login.html";
+                    }else{
+                        $.ajax({
+                            url: basePath + "/secKill",
+                            type: "post",
+                            dataType: "json",//接收类型
+                            // dataType: "text",
+                            // beforeSend:function(request){
+                            //     request.setRequestHeader("Authorization",token);
+                            // },
+                            data: {
+                                "con_no": con_no
+                            },
+                            success: function (data) {
+                                console.log(data);
+                                console.log(data.data);
+                                window.location = data.data+"";
+                            }
+                        })}
                 })
             }
         })
+
 
         //显示我的头像
         // $.ajax({

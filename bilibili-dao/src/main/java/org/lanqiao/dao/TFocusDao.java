@@ -29,6 +29,15 @@ public interface TFocusDao {
     @Select("select fo_fo_no from t_focus where con_no=#{con_no}")
     List<Integer> getAllFocusByCon(Integer con_no);
 
+    @Select("SELECT count(*) a FROM t_focus WHERE fo_fo_no = #{fo_fo_no}")
+    Integer getNumBF(Integer fo_fo_no);
+
+    @Select("SELECT count(*) b FROM t_focus WHERE con_no = #{fo_fo_no}")
+    Integer getNumF(Integer fo_fo_no);
+
+    @Select("SELECT count( v_likes ) c FROM t_videos WHERE con_no = #{fo_fo_no}")
+    Integer getNumL(Integer fo_fo_no);
+
     @Select("select * from t_consumers where con_no in (select fo_fo_no from t_focus where con_no=#{con_no})")
     List<TConsumers> getAllFocusConsumerByCon(Integer con_no);
 

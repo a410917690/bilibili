@@ -61,8 +61,7 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
      */
     @Override
     public TLiveRooms insert(TLiveRooms tLiveRooms) {
-        this.tLiveRoomsDao.insert(tLiveRooms);
-        return tLiveRooms;
+        return null;
     }
 
     /**

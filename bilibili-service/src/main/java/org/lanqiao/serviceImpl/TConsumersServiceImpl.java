@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TConsumersDao;
+import org.lanqiao.dao.TLiveRoomsDao;
 import org.lanqiao.entity.TConsumers;
 import org.lanqiao.service.TConsumersService;
 import org.lanqiao.util.RandomCharData;
@@ -21,7 +22,9 @@ import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -39,6 +42,9 @@ public class TConsumersServiceImpl implements TConsumersService {
 
     @Resource
     private TConsumersDao tConsumersDao;
+
+    @Resource
+    private TLiveRoomsDao tLiveRoomsDao;
 
     @Autowired
     private JavaMailSender mailSender;//一定要用@Autowired
@@ -211,6 +217,7 @@ public class TConsumersServiceImpl implements TConsumersService {
         TConsumers tConsumers = ConsumerCodeVoToConsumer.toConsumer(consumerCodeVo);
         //将数据写入数据库
         this.tConsumersDao.insert(tConsumers);
+        this.tLiveRoomsDao.addLive(tConsumers.getCon_no());
 
         return true;
     }
@@ -299,6 +306,16 @@ public class TConsumersServiceImpl implements TConsumersService {
     public int toIllegal(Integer con_no) {
 
         return tConsumersDao.toIllegal(con_no);
+    }
+
+    @Override
+    public int decrMemberDeadline(Integer con_no) {
+        if(stringRedisTemplate.opsForValue().get(con_no) == null){
+            int i = tConsumersDao.toCommon(con_no);
+            return i;
+        }else {
+            return 0;
+        }
     }
 
 }

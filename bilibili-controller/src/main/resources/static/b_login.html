@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录</title>
+    <title>IK登录</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery.slider.css"/>
@@ -100,9 +100,11 @@
 <script>
     $(function () {
 
+        var con_no;
         let cookieName = 'loginCookie';
 
         $(function () {
+
             // 传递消息
             let text = $("#messageInfo").val();
             if (text != null && text !== '') {
@@ -194,7 +196,7 @@
         //设置localStorage【过期时间】
         const foowwLocalStorage = {
             set: function (key, value, ttl_ms) {
-                var data = { value: value, expirse: new Date(ttl_ms).getTime() };
+                var data = value;
                 localStorage.setItem(key, JSON.stringify(data));
             },
             get: function (key) {
@@ -328,7 +330,7 @@
                     if (data.code === 200) {
                         var getToken = data.data;
                         // var getToken ="Bearer "+data.token;
-                        foowwLocalStorage.set("token", getToken, date + 10000);
+                        localStorage.setItem("token", getToken);
                         // localStorage.setItem("token", getToken);
                         // localStorage.setItem("name",name);
                         $.ajax({
@@ -347,7 +349,40 @@
                                 if (data.code === 200) {
                                     var name = data.data.name;
                                     // localStorage.setItem("name",name);
-                                    foowwLocalStorage.set("name", name, date + 10000);
+                                    localStorage.setItem("name", name);
+                                    //获取用户id
+                                    $.ajax({
+                                        url: basePath + "/getConsumersByName",
+                                        type: "post",
+                                        dataType: "json",//接收类型
+                                        // dataType: "text",
+                                        // beforeSend:function(request){
+                                        //     request.setRequestHeader("Authorization",token);
+                                        // },
+                                        data: {
+                                            "name": name
+                                        },
+                                        success: function (data) {
+                                            console.log(data);
+                                            console.log(data.data.con_no);
+                                            con_no = data.data.con_no;
+                                            $.ajax({
+                                                url: basePath + "/decrMemberDeadline",
+                                                type: "post",
+                                                dataType: "json",//接收类型
+                                                // dataType: "text",
+                                                // beforeSend:function(request){
+                                                //     request.setRequestHeader("Authorization",token);
+                                                // },
+                                                data: {
+                                                    "con_no": con_no
+                                                },
+                                                success: function (data) {
+                                                    console.log(data);
+                                                }
+                                            })
+                                        }
+                                    })
                                     window.location.href = "home.html";
                                 }
                             }
@@ -358,12 +393,14 @@
         })
 
 
-        //默认执行
+
+
+        // // 默认执行
         // let a = function () {
         //
         //     $.ajax({
-        //         url: basePath + "/getCommentsByVno",
-        //         data:{"page":1,"v_no":v_no},
+        //         url: basePath + "/decrMemberDeadline",
+        //         data:{"con_no":con_no},
         //         type: "post",
         //         // beforeSend:function(request){
         //         //     request.setRequestHeader("Authorization",token);
@@ -371,10 +408,6 @@
         //         dataType: "json",
         //         success: function (data) {
         //             console.log(data);
-        //             if(data.code === 200){
-        //                 // name = data.data.list;
-        //
-        //             }
         //         }
         //     });
         // }
@@ -408,8 +441,41 @@
                                 var getToken = data.data;
                                 // var getToken ="Bearer "+data.token;
                                 var name = $("#userName").val();
+                                localStorage.setItem("name", name);
                                 localStorage.setItem("token", getToken);
-                                localStorage.setItem("name",name);
+                                //获取用户id
+                                $.ajax({
+                                    url: basePath + "/getConsumersByName",
+                                    type: "post",
+                                    dataType: "json",//接收类型
+                                    // dataType: "text",
+                                    // beforeSend:function(request){
+                                    //     request.setRequestHeader("Authorization",token);
+                                    // },
+                                    data: {
+                                        "name": name
+                                    },
+                                    success: function (data) {
+                                        console.log(data);
+                                        console.log(data.data.con_no);
+                                        con_no = data.data.con_no;
+                                        $.ajax({
+                                            url: basePath + "/decrMemberDeadline",
+                                            type: "post",
+                                            dataType: "json",//接收类型
+                                            // dataType: "text",
+                                            // beforeSend:function(request){
+                                            //     request.setRequestHeader("Authorization",token);
+                                            // },
+                                            data: {
+                                                "con_no": con_no
+                                            },
+                                            success: function (data) {
+                                                console.log(data);
+                                            }
+                                        })
+                                    }
+                                })
                                 window.location.href = "home.html";
                             }
                         })
@@ -439,6 +505,7 @@
         //
         //     }
         // });
+
 
     });
 </script>

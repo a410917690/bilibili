@@ -5,11 +5,13 @@ import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
 
+@Component
 public class JWT_HS256 {
 
     /**
@@ -29,7 +31,7 @@ public class JWT_HS256 {
      * @param object
      * @return
      */
-    public static String buildJWT(Object object) {
+    public String buildJWT(Object object) {
         try {
             /**
              * 1.创建一个32-byte的密匙

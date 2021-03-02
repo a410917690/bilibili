@@ -32,9 +32,11 @@ public class TLiveRooms implements Serializable {
     /**
      * 直播间是否合法
      */
-    private Object room_is_legal;
-
-
+    private Boolean room_is_legal;
+    /**
+     * 是否开播
+     */
+    private Boolean is_live;
 
 
 }

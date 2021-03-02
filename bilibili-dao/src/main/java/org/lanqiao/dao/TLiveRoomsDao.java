@@ -51,10 +51,10 @@ public interface TLiveRoomsDao {
     /**
      * 新增数据
      *
-     * @param tLiveRooms 实例对象
      * @return 影响行数
      */
-    int insert(TLiveRooms tLiveRooms);
+    @Select("insert into t_live_rooms (con_no) values(#{con_no})")
+    int addLive(Integer con_no);
 
     /**
      * 修改数据

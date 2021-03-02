@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="yes" name="apple-touch-fullscreen">
-<title>订单页面</title>
-<link rel="stylesheet" href="css/global.css">
-<script src="https://www.jq22.com/jquery/vue.min.js"></script>
-<link rel="stylesheet" href="css/orderComfirm.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <title>IK订单页面</title>
+    <link rel="stylesheet" href="css/global.css">
+    <script src="https://www.jq22.com/jquery/vue.min.js"></script>
+    <link rel="stylesheet" href="css/orderComfirm.css">
 </head>
 <body>
 <div style="font-size: 17px;font-weight:700;margin-top: 20px;margin-bottom: 15px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,23 +35,27 @@
                 <table cellspacing="0" cellpadding="0" border="0" width="100%" class="orderC-tb">
                     <thead>
                     <tr>
-                        <th width="60%">订单详情 </th>
+                        <th width="60%">订单详情</th>
                         <th width="20%">用户</th>
                         <th width="20%">金额</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="(item,index) in productList" :key="index">
-                        <td class="text-left"><div class="order-gw clearfix">
-                            <div class="order-img"><img :src="item.pro_img"/></div>
-                            <div class="order-sum">
-                                <h2><a :href="item.pro_url" style="color: grey">商品名： &nbsp;&nbsp;月度大会员</a></h2>
-                                <div class="parameter" style="color: grey">商品详情：{{item.pro_dec}}</div>
-                                <div class="parameter" style="color: grey">商品单价：￥14.9</div>
+                        <td class="text-left">
+                            <div class="order-gw clearfix">
+                                <div class="order-img"><img :src="item.pro_img"/></div>
+                                <div class="order-sum">
+                                    <h2><a :href="item.pro_url" style="color: grey">商品名： &nbsp;&nbsp;<span id="spm">月度大会员</span></a>
+                                    </h2>
+                                    <div class="parameter" style="color: grey">商品详情：购买大会员，番剧随心看</div>
+                                    <div class="parameter" style="color: grey">商品单价：￥14.9</div>
+                                </div>
                             </div>
-                        </div></td>
-                        <td style="color: grey">sonnie</td>
-                        <td style="color: grey"><span class="noTel">总额</span><span class="priceD">￥14.9</span></td>
+                        </td>
+                        <td style="color: grey" id="yh">sonnie</td>
+                        <td style="color: grey"><span class="noTel">总额：￥</span><span class="priceD" id="per">14.9</span>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -80,7 +84,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="order-submit" style="padding-top: 10px;">
-                    <a href="#" class="btn-red btn-submit">确认订单</a>
+                    <a id="qr" class="btn-red btn-submit">确认订单</a>
                 </div>
             </div>
         </div>
@@ -88,50 +92,20 @@
 </div>
 </body>
 <script src="./js/areaList.js"></script>
-<script>  
+<script>
     var res = [];
     new Vue({
-        el:'#orderComfirm',
-        data:{
-            areaList: areaList,
-            addrIsShow: false,
-            provinceValue:'',
-            cityValue:'',
-            districtValue:'',
-            formItem:{
-                addr_person: '',
-                addr_province: '',
-                addr_city: '',
-                addr_district: '',
-                addr_moreD: '',
-                addr_tel: '',
-                addr_ftel: '',
-                addr_email: ''
-
-            },
-            productList:[
-            {
-                'pro_name': '月度大会员',//产品名称
-                'pro_url': '#',//产品链接
-                'pro_dec': '购买大会员，番剧随心看',//产品参数
-                'pro_person': '陈某某',//收货人
-                'pro_img': 'assets/images/hy.png',//图片链接
-                'pro_price': 8.9//单价
-            }
-            ],
-            addressList: [
-            {
-                'addr_person': '某某1',
-                'addr_province':'福建省',
-                'addr_city':'厦门市',
-                'addr_district':'思明区',
-                'addr_moreD':'某某路XX号',
-                'addr_tel':'12345678901',
-                'addr_ftel':'0592-1234567',
-                'addr_email':'xxxxx@xxxx.com',
-                'selected': true
-
-            }
+        el: '#orderComfirm',
+        data: {
+            productList: [
+                {
+                    'pro_name': '月度大会员',//产品名称
+                    'pro_url': '#',//产品链接
+                    'pro_dec': '购买大会员，番剧随心看',//产品参数
+                    'pro_person': '陈某某',//收货人
+                    'pro_img': 'assets/images/hy.png',//图片链接
+                    'pro_price': 8.9//单价
+                }
             ],
             freight: 0,//运费
             msg: '',//留言
@@ -139,20 +113,20 @@
             payment: 1,//支付方式
             countNum1: 0
         },
-        mounted:function(){
+        mounted: function () {
             var _this = this;
-            
+
         },
         computed: {
-            getTotal1:function(){
+            getTotal1: function () {
                 //价格总和
-                var _proList=this.productList,totalPrice=0;
-                for(var i=0,len=_proList.length;i<len;i++){
+                var _proList = this.productList, totalPrice = 0;
+                for (var i = 0, len = _proList.length; i < len; i++) {
                     //总价累加
-                    totalPrice+=_proList[i].pro_price;
+                    totalPrice += _proList[i].pro_price;
                 }
                 //选择产品的件数就是_proList.length，总价就是totalPrice
-                return {totalPrice:totalPrice}
+                return {totalPrice: totalPrice}
             },
             provinceList: function () {
                 res = [{"label": "", "value": "-- 请选择省份 --"}];
@@ -170,9 +144,9 @@
                     areaList.forEach(function (one) {
                         if (one.label == _this.formItem.addr_province) {
                             // 判断是否需要清空下级值
-                            if("" != _this.formItem.addr_city && _this.formItem.addr_province != _this.formItem.addr_city.substr(0,2)){
+                            if ("" != _this.formItem.addr_city && _this.formItem.addr_province != _this.formItem.addr_city.substr(0, 2)) {
                                 _this.formItem.addr_city = "";
-                                _this.formItem.addr_district = ""; 
+                                _this.formItem.addr_district = "";
                             }
                             one.children.forEach(function (item) {
                                 res.push({"label": item.label, "value": item.value})
@@ -195,7 +169,7 @@
                             one.children.forEach(function (item) {
                                 if (item.label == _this.formItem.addr_city) {
                                     // 判断是否需要清空下级值
-                                    if("" != _this.formItem.addr_district && _this.formItem.addr_city != _this.formItem.addr_district.substr(0,4)){
+                                    if ("" != _this.formItem.addr_district && _this.formItem.addr_city != _this.formItem.addr_district.substr(0, 4)) {
                                         _this.formItem.addr_district = "";
                                     }
                                     item.children.forEach(function (value) {
@@ -208,7 +182,7 @@
                 }
                 return res
             },
-            streetTip:function () {
+            streetTip: function () {
                 var _this = this;
                 if ("" == _this.formItem.addr_province) {
                     res = "-- 请选择省份 --";
@@ -222,37 +196,43 @@
                 return res;
             }
         },
-        methods:{
-            selecteAddr:function(index){
+        methods: {
+            selecteAddr: function (index) {
                 //遍历addressList
                 for (var i = 0, len = this.addressList.length; i < len; i++) {
                     this.addressList[i].selected = false;
                 }
                 this.addressList[index].selected = true;
             },
-            selectProduct:function(_isSelect){
+            selectProduct: function (_isSelect) {
                 //遍历productList
                 for (var i = 0, len = this.productList.length; i < len; i++) {
-                    this.productList[i].select  = !_isSelect;
+                    this.productList[i].select = !_isSelect;
                 }
             },
             //删除地址
-            deleteAddress:function (index) {
+            deleteAddress: function (index) {
                 //根据索引删除addressList的记录
-                this.addressList.splice(index,1);
+                this.addressList.splice(index, 1);
             },
-            add(){
-               if(this.formItem.addr_person==null || this.formItem.addr_person==''){alert('收货人不能为空'); return false;}
-               let reg = /^1[0-9]{10}$/;
-               if(this.formItem.addr_tel==null || this.formItem.addr_tel=='' || this.formItem.addr_tel.length <= 10 || !reg.test(this.formItem.addr_tel)){alert('请输入正确的手机号码'); return false;}
-               let atpos=this.formItem.addr_email.indexOf("@");
-               let dotpos=this.formItem.addr_email.lastIndexOf(".");
-               if (atpos<1 || dotpos<atpos+2 || dotpos+2>=this.formItem.addr_email.length){
+            add() {
+                if (this.formItem.addr_person == null || this.formItem.addr_person == '') {
+                    alert('收货人不能为空');
+                    return false;
+                }
+                let reg = /^1[0-9]{10}$/;
+                if (this.formItem.addr_tel == null || this.formItem.addr_tel == '' || this.formItem.addr_tel.length <= 10 || !reg.test(this.formItem.addr_tel)) {
+                    alert('请输入正确的手机号码');
+                    return false;
+                }
+                let atpos = this.formItem.addr_email.indexOf("@");
+                let dotpos = this.formItem.addr_email.lastIndexOf(".");
+                if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= this.formItem.addr_email.length) {
                     alert("不是一个有效的 e-mail 地址");
                     return false;
-               }
-               var _this = this;
-               _this.areaList.forEach(function (one) {
+                }
+                var _this = this;
+                _this.areaList.forEach(function (one) {
                     if (one.label == _this.formItem.addr_province) {
                         _this.provinceValue = one.value;
                         one.children.forEach(function (item) {
@@ -267,12 +247,83 @@
                         });
                     }
                 });
-               var addrli={addr_person:this.formItem.addr_person, addr_province:this.provinceValue, addr_city:this.cityValue, addr_district:this.districtValue, addr_moreD:this.formItem.addr_moreD, addr_tel:this.formItem.addr_tel, addr_ftel:this.formItem.addr_ftel, addr_email:this.formItem.addr_email, selected:false};
-               this.addressList.push(addrli);
-               this.formItem.addr_person = this.formItem.addr_province = this.formItem.addr_city = this.formItem.addr_district = this.formItem.addr_moreD = this.formItem.addr_tel = this.formItem.addr_ftel = this.formItem.addr_email = '';
-               this.addrIsShow = false;
+                var addrli = {
+                    addr_person: this.formItem.addr_person,
+                    addr_province: this.provinceValue,
+                    addr_city: this.cityValue,
+                    addr_district: this.districtValue,
+                    addr_moreD: this.formItem.addr_moreD,
+                    addr_tel: this.formItem.addr_tel,
+                    addr_ftel: this.formItem.addr_ftel,
+                    addr_email: this.formItem.addr_email,
+                    selected: false
+                };
+                this.addressList.push(addrli);
+                this.formItem.addr_person = this.formItem.addr_province = this.formItem.addr_city = this.formItem.addr_district = this.formItem.addr_moreD = this.formItem.addr_tel = this.formItem.addr_ftel = this.formItem.addr_email = '';
+                this.addrIsShow = false;
             }
         }
     })
+</script>
+
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/head.js"></script>
+<script>
+
+    $(function () {
+        var username = localStorage.getItem("name");
+        var token = localStorage.getItem("token");
+
+        var con_no;
+        var i_no = 1;
+
+        $("#yh").html(username);
+        //获取用户id
+        $.ajax({
+            url: basePath + "/getConsumersByName",
+            type: "post",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {
+                "name": username
+            },
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.con_no);
+                con_no = data.data.con_no;
+            }
+        })
+
+
+        //生成订单
+        $("#qr").click(function () {
+            //order
+            $.ajax({
+                url: basePath + "/insertOrder",
+                type: "post",
+                dataType: "json",//接收类型
+                // dataType: "text",
+                // beforeSend:function(request){
+                //     request.setRequestHeader("Authorization",token);
+                // },
+                data: {
+                    "con_no": con_no,
+                    "i_name": $("#spm").html(),
+                    "money": $("#per").html(),
+                    "i_no": i_no
+                },
+                success: function (data) {
+                    console.log(data);
+                    console.log(data.data);
+                    window.location = data.data + "";
+                }
+            })
+        })
+
+    });
 </script>
 </html>

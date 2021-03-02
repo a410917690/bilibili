@@ -5,7 +5,7 @@
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>TubeLite Streaming Video HTML Template</title>
+    <title>IK设置</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
@@ -71,18 +71,20 @@
                     <div class="sections">
                         <!--                <div class="sections" v-for="(f,index) in focuses">-->
                         <h3> 关注列表 </h3>
-                        <ul>
-                            <!--                    <ul v-for="(f,index) in focuses">-->
-                            <!--                        <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                            <!--                            <span> {{f.name}} </span> <span class="dot-notiv"></span></a></li>-->
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                <span> {{focuses[1].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                <span> {{focuses[2].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                <span> {{focuses[3].name}} </span> <span class="dot-notiv"></span></a></li>
+                        <!--                        <ul>-->
+                        <ul v-for="(f,index) in focuses">
+                            <li>
+                                <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
+                                    <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
+
+                                    <!--                            <li>-->
+                                    <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
+                                    <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
+                            </li>
+                            <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                            <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
 
                         </ul>
 

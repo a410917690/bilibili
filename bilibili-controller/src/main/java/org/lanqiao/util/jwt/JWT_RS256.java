@@ -9,11 +9,13 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.gen.RSAKeyGenerator;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
 
+@Component
 public class JWT_RS256 {
 
     /**

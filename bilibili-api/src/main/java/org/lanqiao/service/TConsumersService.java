@@ -88,5 +88,6 @@ public interface TConsumersService {
 
     int toIllegal(Integer con_no);
 
+    int decrMemberDeadline(Integer con_no);
 
 }

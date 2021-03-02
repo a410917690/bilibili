@@ -14,7 +14,8 @@ import java.sql.Timestamp;
  */
 @Data
 public class TOrders implements Serializable {
-    private String o_no;
+    private Long o_no;
+//    private String o_no;
     private Integer con_no;
     private Float money;
     private Timestamp o_time;

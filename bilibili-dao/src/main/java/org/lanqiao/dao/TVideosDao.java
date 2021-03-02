@@ -74,8 +74,6 @@ public interface TVideosDao {
 
     /**
      * 通过主键删除数据
-     *
-
      * @return 影响行数
      */
     @Delete("delete from t_videos where v_no=#{v_no}")

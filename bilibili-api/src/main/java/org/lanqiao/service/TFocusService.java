@@ -22,4 +22,10 @@ public interface TFocusService {
 
     List<TConsumers> getAllFocusConsumerByCon(Integer con_no);
 
+    Integer getNumBF(Integer fo_fo_no);
+
+    Integer getNumF(Integer fo_fo_no);
+
+    Integer getNumL(Integer fo_fo_no);
+
 }

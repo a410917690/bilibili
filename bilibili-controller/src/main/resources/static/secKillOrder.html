@@ -48,14 +48,16 @@
                                     <img src="images/hy.png" alt="">
                                 </div>
                                 <div class="order-sum">
-                                    <h2><a :href="item.pro_url" style="color: grey">商品名： &nbsp;&nbsp;6折月度大会员</a></h2>
-                                    <div class="parameter" style="color: grey">商品详情：{{item.pro_dec}}</div>
+                                    <h2><a :href="item.pro_url" style="color: grey">商品名： &nbsp;&nbsp;<span id="spm">6折月度大会员</span></a>
+                                    </h2>
+                                    <div class="parameter" style="color: grey">商品详情：购买大会员，番剧随心看</div>
                                     <div class="parameter" style="color: grey">商品单价：￥8.9</div>
                                 </div>
                             </div>
                         </td>
                         <td style="color: grey">sonnie</td>
-                        <td style="color: grey"><span class="noTel">总额</span><span class="priceD">￥8.9</span></td>
+                        <td style="color: grey"><span class="noTel">总额：￥</span><span class="priceD" id="per">8.9</span>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -84,7 +86,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="order-submit" style="padding-top: 10px;">
-                    <a href="#" class="btn-red btn-submit">确认订单</a>
+                    <a id="qr" class="btn-red btn-submit">确认订单</a>
                 </div>
             </div>
         </div>
@@ -92,7 +94,6 @@
 </div>
 </body>
 <script src="./js/areaList.js"></script>
-<script src="js/head.js"></script>
 <script>
     var res = [];
     new Vue({
@@ -295,5 +296,67 @@
             }
         }
     })
+</script>
+
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/head.js"></script>
+<script>
+
+    $(function () {
+        var username = localStorage.getItem("name");
+        var token = localStorage.getItem("token");
+
+        var con_no;
+        var i_no = 1;
+
+
+        $("#yh").html(username);
+        //获取用户id
+        $.ajax({
+            url: basePath + "/getConsumersByName",
+            type: "post",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {
+                "name": username
+            },
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.con_no);
+                con_no = data.data.con_no;
+            }
+        })
+
+
+        //生成订单
+        $("#qr").click(function () {
+            //order
+            $.ajax({
+                url: basePath + "/insertOrder",
+                type: "post",
+                dataType: "json",//接收类型
+                // dataType: "text",
+                // beforeSend:function(request){
+                //     request.setRequestHeader("Authorization",token);
+                // },
+                data: {
+                    "con_no": con_no,
+                    "i_name": $("#spm").html(),
+                    "money": $("#per").html(),
+                    "i_no": i_no
+                },
+                success: function (data) {
+                    console.log(data);
+                    console.log(data.data);
+                    window.location = data.data + "";
+                }
+            })
+        })
+
+    });
 </script>
 </html>

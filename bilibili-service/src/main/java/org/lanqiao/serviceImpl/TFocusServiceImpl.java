@@ -52,6 +52,22 @@ public class TFocusServiceImpl implements TFocusService {
 
     @Override
     public List<TConsumers> getAllFocusConsumerByCon(Integer con_no) {
+
         return tFocusDao.getAllFocusConsumerByCon(con_no);
+    }
+
+    @Override
+    public Integer getNumBF(Integer fo_fo_no) {
+        return this.tFocusDao.getNumBF(fo_fo_no);
+    }
+
+    @Override
+    public Integer getNumF(Integer fo_fo_no) {
+        return this.tFocusDao.getNumF(fo_fo_no);
+    }
+
+    @Override
+    public Integer getNumL(Integer fo_fo_no) {
+        return this.tFocusDao.getNumL(fo_fo_no);
     }
 }

@@ -1,20 +1,25 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.swagger.annotations.ApiOperation;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.lanqiao.config.AlipayConfig;
 import org.lanqiao.config.kafka.Consumer;
 import org.lanqiao.entity.TOrders;
+import org.lanqiao.service.TConsumersService;
 import org.lanqiao.service.TOrdersService;
+import org.lanqiao.util.idGenerator.Snowflake;
 import org.lanqiao.util.result.Result;
 import org.lanqiao.vo.OrdersVo;
 import org.lanqiao.vo.TOrderToOrderVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -28,10 +33,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import static org.lanqiao.util.result.ResultFactory.setResultError;
 import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
 /**
@@ -48,11 +55,17 @@ public class TOrdersController {
     @Reference
     TOrdersService tOrdersService;
 
+    @Reference
+    TConsumersService tConsumersService;
+
     @Autowired
     private KafkaTemplate kafkaTemplate;
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @ResponseBody
     @PostMapping("getAllOrders")
@@ -60,13 +73,18 @@ public class TOrdersController {
         return setResultSuccess(this.tOrdersService.queryAll());
     }
 
+    @Autowired
+    Snowflake snowflake;
+
+    @ApiOperation("生成订单")
     @ResponseBody
     @PostMapping("insertOrder")
-    public Result insertOrder(Integer con_no, String i_name, Float money, Integer i_no) {
+    public Result insertOrder(Integer con_no, String i_name, Float money, Integer i_no) throws AlipayApiException {
         Date date = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String o_no = ft.format(date) + UUID.randomUUID().toString();
-
+//        String o_no = ft.format(date) + UUID.randomUUID().toString();
+        /*雪花算法*/
+        long o_no = snowflake.nextId();
         TOrders tOrders = new TOrders();
         tOrders.setO_no(o_no);
         tOrders.setMoney(money);
@@ -75,15 +93,7 @@ public class TOrdersController {
         tOrders.setCon_no(con_no);
         Gson gson = new GsonBuilder().create();
         kafkaTemplate.send("test", gson.toJson(tOrders));
-        tOrdersService.insertOrder(tOrders.getO_no(),tOrders.getCon_no(),tOrders.getI_name(),tOrders.getMoney(),tOrders.getI_no());
-
-        return setResultSuccess(tOrders);
-    }
-
-    @RequestMapping("aliPay")
-    public ModelAndView goAlipay(String o_no) throws Exception {
-
-        TOrders tOrder = tOrdersService.queryOrder(o_no);
+        TOrders tOrder = tOrdersService.insertOrder(tOrders.getO_no(), tOrders.getCon_no(), tOrders.getI_name(), tOrders.getMoney(), tOrders.getI_no());
         OrdersVo ordersVo = TOrderToOrderVo.ToOrderVo(tOrder);
 
         //获得初始化的AlipayClient
@@ -93,13 +103,13 @@ public class TOrdersController {
         //这里设置支付后跳转的地址
         alipayRequest.setReturnUrl(ordersVo.getRetUrl());
         //订单编号
-        String out_trade_no = ordersVo.getO_no();
+        String out_trade_no = ordersVo.getO_no().toString();
         //付款金额，必填
         String total_amount = ordersVo.getMoney().toString();
         //订单名称，必填
         String subject = ordersVo.getI_name();
         //商品描述，可空
-        String body = ordersVo.getI_name();
+        String body = "购买大会员，番剧随心看";
         // 该笔订单允许的最晚付款时间，逾期将关闭交易。取值范围：1m～15d。m-分钟，h-小时，d-天，1c-当天（1c-当天的情况下，无论交易何时创建，都在0点关闭）。 该参数数值不接受小数点， 如 1.5h，可转换为 90m。
         String timeout_express = "5m";
 
@@ -114,44 +124,72 @@ public class TOrdersController {
         String form = alipayClient.pageExecute(alipayRequest, "get").getBody();
         System.out.println(form);
 
-        ModelAndView  model = new ModelAndView("redirect:" + form);
-        tOrdersService.updateOrder(o_no);
-        return model;
+//        ModelAndView  model = new ModelAndView("redirect:" + form);
+        Integer flag = tOrdersService.updateOrder(o_no);
+        if (flag != 0) {
+            if ("6折月度大会员".equals(subject)) {
+                tOrdersService.to1Vip(con_no);
+                stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,30,TimeUnit.DAYS);
+            } else if ("月度大会员".equals(subject)) {
+                tOrdersService.to1Vip(con_no);
+                stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,30,TimeUnit.DAYS);
+            } else if ("季度大会员".equals(subject)) {
+                tOrdersService.to3Vip(con_no);
+                stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,90,TimeUnit.DAYS);
+            } else if ("年度大会员".equals(subject)) {
+                tOrdersService.to12Vip(con_no);
+                stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,365,TimeUnit.DAYS);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+        return setResultSuccess(200, "success", form);
     }
 
+    @ApiOperation("生成订单")
     @ResponseBody
     @PostMapping("deleteOrders")
-    public Result deleteOrder(String o_no) {
+    public Result deleteOrder(Long o_no) {
         return setResultSuccess(this.tOrdersService.deleteOrder(o_no));
     }
 
+    @ApiOperation("修改订单")
     @ResponseBody
     @PostMapping("updateOrder")
-    public Result updateOrder(String o_no) {
+    public Result updateOrder(Long o_no) {
         return setResultSuccess(this.tOrdersService.updateOrder(o_no));
     }
 
+    @ApiOperation("通过订单号查询订单")
     @ResponseBody
     @PostMapping("queryOrder")
-    public Result queryOrder(String o_no) {
+    public Result queryOrder(Long o_no) {
         return setResultSuccess(this.tOrdersService.queryOrder(o_no));
     }
 
+    @ApiOperation("开始秒杀活动")
     @ResponseBody
     @PostMapping("setSecKill")
     public Result setSecKill() {
-        stringRedisTemplate.opsForValue().set("key", String.valueOf(1000), Duration.ofSeconds(60*60*24*3));
+        stringRedisTemplate.opsForValue().set("key", String.valueOf(1000), Duration.ofSeconds(60 * 60 * 24 * 3));
         return setResultSuccess();
     }
 
+    @ApiOperation("秒杀")
+    @ResponseBody
     @RequestMapping("/secKill")
-    public ModelAndView sk(Integer con_no) {
+    public Result sk(Integer con_no) {
         String lockKey = "pro01";
         String clientId = con_no.toString();
         try {
             Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, clientId, 2, TimeUnit.SECONDS);
             if (!result) {
-                return new ModelAndView("redirect:secKillFail.html");
+                return setResultError(400, "抢购失败", "secKillFail.html");
+            }
+            if(stringRedisTemplate.getExpire("key") == -1){
+                return setResultError(400, "抢购失败", "secKillFail.html");
             }
             int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("key"));
 
@@ -161,23 +199,15 @@ public class TOrdersController {
                 System.out.println("扣减成功！库存：" + realStock);
             } else {
                 System.out.println("扣减失败，库存不足！");
-                return new ModelAndView("redirect:secKillFail.html");
+                return setResultSuccess(200, "抢购成功", "secKillFail.html");
             }
         } finally {
-            if(clientId.equals(stringRedisTemplate.opsForValue().get(lockKey))) {
+            if (clientId.equals(stringRedisTemplate.opsForValue().get(lockKey))) {
                 stringRedisTemplate.delete(lockKey);
             }
         }
-        ModelAndView modelAndView = new ModelAndView("redirect:secKillOrder.html");
-        return modelAndView;
+//        ModelAndView modelAndView = new ModelAndView("redirect:secKillOrder.html");
+        return setResultSuccess(200, "抢购成功", "secKillOrder.html");
     }
-
-    @RequestMapping("/testTest")
-    public ModelAndView a() {
-
-        ModelAndView modelAndView = new ModelAndView("redirect:secKillFail.html");
-        return modelAndView;
-    }
-
 
 }

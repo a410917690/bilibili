@@ -5,7 +5,7 @@
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>TubeLite Streaming Video HTML Template</title>
+    <title>IK视频分类</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
@@ -70,18 +70,20 @@
                     <div class="sections">
                         <!--                <div class="sections" v-for="(f,index) in focuses">-->
                         <h3> 关注列表 </h3>
-                        <ul>
-                            <!--                    <ul v-for="(f,index) in focuses">-->
-                            <!--                        <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                            <!--                            <span> {{f.name}} </span> <span class="dot-notiv"></span></a></li>-->
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                <span> {{focuses[1].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                <span> {{focuses[2].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                <span> {{focuses[3].name}} </span> <span class="dot-notiv"></span></a></li>
+                        <!--                        <ul>-->
+                        <ul v-for="(f,index) in focuses">
+                            <li>
+                                <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
+                                    <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
+
+                                    <!--                            <li>-->
+                                    <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
+                                    <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
+                            </li>
+                            <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                            <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
 
                         </ul>
 
@@ -438,9 +440,9 @@
 
                 <nav class="responsive-tab">
                     <ul>
-                        <li class="uk-active"><a href="#"> <i class="uil-video"></i> Videos </a></li>
-                        <li><a href="#"> <i class="uil-game"></i> Games</a></li>
-                        <li><a href="#"> <i class="uil-film"></i> Movies </a></li>
+                        <li class="uk-active"><a href="#"> <i class="uil-video"></i> 视频分类 </a></li>
+<!--                        <li><a href="#"> <i class="uil-game"></i> Games</a></li>-->
+<!--                        <li><a href="#"> <i class="uil-film"></i> Movies </a></li>-->
                     </ul>
                 </nav>
 
@@ -449,9 +451,9 @@
                         <div>
 
                             <a href="#">
-                                <div class="catagroy-card animate-this" data-src="assets/images/channals/img6.jpg" uk-img>
+                                <div class="catagroy-card animate-this" data-src="assets/images/channals/1.png" uk-img>
                                     <div class="catagroy-card-content">
-                                        <h4> Animals </h4>
+                                        <h4> 动画 </h4>
                                     </div>
                                 </div>
                             </a>
@@ -459,9 +461,9 @@
                         </div>                        
                         <div>
                             <a href="#">
-                                <div class="catagroy-card animate-this" data-src="assets/images/channals/img1.jpg" uk-img>
+                                <div class="catagroy-card animate-this" data-src="assets/images/channals/2.png" uk-img>
                                     <div class="catagroy-card-content">
-                                        <h4> Sports </h4>
+                                        <h4> 舞蹈 </h4>
                                     </div>
                                 </div>
                             </a>
@@ -469,9 +471,9 @@
                         </div>
                         <div>
                             <a href="#">
-                                <div class="catagroy-card animate-this" data-src="assets/images/channals/img3.jpg" uk-img>
+                                <div class="catagroy-card animate-this" data-src="assets/images/channals/3.png" uk-img>
                                     <div class="catagroy-card-content">
-                                        <h4> Workout </h4>
+                                        <h4> 知识 </h4>
                                     </div>
                                 </div>
                             </a>
@@ -480,9 +482,9 @@
                         <div>
 
                                 <a href="#">
-                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/img2.jpg" uk-img>
+                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/4.png" uk-img>
                                         <div class="catagroy-card-content">
-                                            <h4> Motivation </h4>
+                                            <h4> 娱乐 </h4>
                                         </div>
                                     </div>
                                 </a>
@@ -491,9 +493,9 @@
                         <div>
 
                             <a href="#">
-                                <div class="catagroy-card animate-this" data-src="assets/images/channals/img4.jpg" uk-img>
+                                <div class="catagroy-card animate-this" data-src="assets/images/channals/5.png" uk-img>
                                     <div class="catagroy-card-content">
-                                        <h4> Music </h4>
+                                        <h4> 游戏 </h4>
                                     </div>
                                 </div>
                             </a>
@@ -502,9 +504,9 @@
                         <div>
 
                             <a href="#">
-                                <div class="catagroy-card animate-this" data-src="assets/images/channals/img5.jpg" uk-img>
+                                <div class="catagroy-card animate-this" data-src="assets/images/channals/6.png" uk-img>
                                     <div class="catagroy-card-content">
-                                        <h4> Food </h4>
+                                        <h4> 鬼畜 </h4>
                                     </div>
                                 </div>
                             </a>
@@ -514,9 +516,9 @@
                         <div>
 
                                 <a href="#">
-                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/img6.jpg" uk-img>
+                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/7.png" uk-img>
                                         <div class="catagroy-card-content">
-                                            <h4> Animals </h4>
+                                            <h4> 搞笑 </h4>
                                         </div>
                                     </div>
                                 </a>
@@ -524,9 +526,9 @@
                             </div>                        
                             <div>
                                 <a href="#">
-                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/img1.jpg" uk-img>
+                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/8.png" uk-img>
                                         <div class="catagroy-card-content">
-                                            <h4> Sports </h4>
+                                            <h4> 影视 </h4>
                                         </div>
                                     </div>
                                 </a>
@@ -534,9 +536,9 @@
                             </div>
                             <div>
                                 <a href="#">
-                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/img3.jpg" uk-img>
+                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/9.png" uk-img>
                                         <div class="catagroy-card-content">
-                                            <h4> Workout </h4>
+                                            <h4> 资讯 </h4>
                                         </div>
                                     </div>
                                 </a>
@@ -545,9 +547,9 @@
                             <div>
     
                                     <a href="#">
-                                        <div class="catagroy-card animate-this" data-src="assets/images/channals/img2.jpg" uk-img>
+                                        <div class="catagroy-card animate-this" data-src="assets/images/channals/10.png" uk-img>
                                             <div class="catagroy-card-content">
-                                                <h4> Motivation </h4>
+                                                <h4> 美食 </h4>
                                             </div>
                                         </div>
                                     </a>
@@ -556,9 +558,9 @@
                             <div>
     
                                 <a href="#">
-                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/img4.jpg" uk-img>
+                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/11.png" uk-img>
                                         <div class="catagroy-card-content">
-                                            <h4> Music </h4>
+                                            <h4> 体育 </h4>
                                         </div>
                                     </div>
                                 </a>
@@ -567,9 +569,9 @@
                             <div>
     
                                 <a href="#">
-                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/img5.jpg" uk-img>
+                                    <div class="catagroy-card animate-this" data-src="assets/images/channals/12.png" uk-img>
                                         <div class="catagroy-card-content">
-                                            <h4> Food </h4>
+                                            <h4> 时尚 </h4>
                                         </div>
                                     </div>
                                 </a>
@@ -735,31 +737,6 @@
                     })
                 }
             })
-
-            //显示我的头像
-            // $.ajax({
-            //     url: basePath + "/getPhoto",
-            //     type: "get",
-            //     dataType: "json",//接收类型
-            //     // dataType: "text",
-            //     // beforeSend:function(request){
-            //     //     request.setRequestHeader("Authorization",token);
-            //     // },
-            //     data: {
-            //         "con_no": con_no
-            //     },
-            //     success: function (data) {
-            //         console.log(data);
-            //     }
-            // })
-
-            //
-            // // 获取直播间
-            // $.get(basePath + "/Fan/getAllRoom?page=1", function (data) {
-            //     console.log(data);
-            //     home.lives = data.data.list;
-            // });
-
 
         });
     </script>

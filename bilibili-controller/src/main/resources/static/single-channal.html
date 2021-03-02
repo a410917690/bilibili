@@ -5,7 +5,7 @@
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>TubeStar Streaming Video HTML Template</title>
+    <title>IK动态</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeStar is - Professional A unique and beautiful collection of UI elements">
@@ -68,18 +68,20 @@
                     <div class="sections">
                         <!--                <div class="sections" v-for="(f,index) in focuses">-->
                         <h3> 关注列表 </h3>
-                        <ul>
-                            <!--                    <ul v-for="(f,index) in focuses">-->
-                            <!--                        <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                            <!--                            <span> {{f.name}} </span> <span class="dot-notiv"></span></a></li>-->
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                <span> {{focuses[1].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                <span> {{focuses[2].name}} </span> <span class="dot-notiv"></span></a></li>
-                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                <span> {{focuses[3].name}} </span> <span class="dot-notiv"></span></a></li>
+                        <!--                        <ul>-->
+                        <ul v-for="(f,index) in focuses">
+                            <li>
+                                <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
+                                    <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
+
+                                    <!--                            <li>-->
+                                    <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
+                                    <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
+                            </li>
+                            <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                            <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
 
                         </ul>
 
@@ -450,15 +452,13 @@
                                 </a>
                             </div>
                             <div class="channal-details-info">
-                                <h3>  Adrian Mohani  </h3>
-                                <p> 12k Subscirptions</p>
-                            </div>
-                        </div>
-                        <div class="right-side">
-                            <div class="btn-subscribe">
-                                <a href="#" class="button primary"> <i class="icon-feather-plus"></i> subscribe
-                                </a>
-                                <span class="subs-amount">120K</span>
+                                <h3 id="yhm">  sonnie  </h3>
+                                <div style="padding-bottom: 20px">
+                                <span style="color: white" > 关注：<span style="color: white" id="gz">12000</span></span>&nbsp;&nbsp;&nbsp;
+                                <span style="color: white" > 被关注：<span style="color: white" id="bgz">120</span></span>&nbsp;&nbsp;&nbsp;
+                                <span style="color: white" > 被点赞数：<span style="color: white" id="bdz">1200000</span></span>&nbsp;&nbsp;&nbsp;
+<!--                                <p style="padding-bottom: 20px"><span id="bgz">12k</span> 被关注</p>-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -466,17 +466,13 @@
                     <div class="nav-channal" k-sticky="offset:61;media : @s">
                         <nav class="responsive-tab">
                             <ul>
-                                <li class="uk-active"><a class="active" href="#0">Home</a></li>
-                                <li><a href="#0">Videos</a></li>
-                                <li><a href="#0">Playlist</a></li>
-                                <li><a href="#0">Channels</a></li>
-                                <li><a href="#0">About</a></li>
+                                <li class="uk-active"><a class="active" href="#0">发布的视频</a></li>
                             </ul>
                         </nav>
-                        <form class="nav-channal-saerchbox">
-                            <i class="uil-search"></i>
-                            <input class="uk-input" type="text" value="Search Video...">
-                        </form>
+<!--                        <form class="nav-channal-saerchbox">-->
+<!--                            <i class="uil-search"></i>-->
+<!--                            <input class="uk-input" type="text" value="Search Video...">-->
+<!--                        </form>-->
                     </div>
                 </div>
 
@@ -485,63 +481,8 @@
 
             <div class="main_content_inner">
 
-
-                <!-- feature video-->
-                <div class="uk-grid-large" uk-grid>
-                    <div class="uk-width-3-4@m">
-
-                        <h3> Feature Videos </h3>
-
-                        <div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                            <div class="uk-card-media-left uk-cover-container">
-
-
-                                <div class="embed-video">
-                                    <iframe src="https://www.youtube.com/embed/pQN-pnXPaVg" frameborder="0"
-                                        uk-video="automute: true" allowfullscreen uk-responsive></iframe>
-                                </div>
-
-                                <!--  Single image
-                                <img src="assets/images/photo2.jpg" alt="" uk-cover>
-                                <canvas width="600" height="350"></canvas> -->
-
-                            </div>
-                            <div>
-                                <div class="pl-lg-5 mt-sm-3">
-                                    <h3 class="uk-card-title"> Build a Website Tutorial </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt. favorite sketches, behind the scenes clips and web exclusives,
-                                        featuring all your favorite
-                                        hosts and cast members. Check out more SNL at </p>
-
-                                        <div class="user-details-card py-0">
-                                            <div class="user-details-card-avatar">
-                                                <img src="assets/images/avatars/avatar-3.jpg" style="width: 40px;" alt="">
-                                            </div>
-                                            <div class="user-details-card-name">
-                                                Stella Johnson <span> Developer <span> 1 year ago </span> </span>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="uk-width-expand">
-
-                        <h5> Stats </h5>
-                        <ul class="uk-list">
-                            <li> Joined Jul 2019 </li>
-                            <li> 3,741,400,119 views </li>
-                            <li> 25,345,348 subscribers </li>
-                            <li> 729 videos</li>
-                        </ul>
-
-                    </div>
-                </div>
-
                 <div class="section-small">
-                    <h3> Latest Video uplaods </h3>
+                    <h3> 最近投稿 </h3>
 
                     <div class="video-grid-slider" uk-slider="finite: true">
                         <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid">
@@ -794,7 +735,7 @@
 
                 <div class="section-small">
 
-                    <h3> All Videos </h3>
+                    <h3> 所有投稿 </h3>
 
                     <div class="uk-child-width-1-4@m mb-11" uk-grid
                         uk-scrollspy="target: > div; cls: uk-animation-slide-bottom-small; delay: 100">
@@ -1116,9 +1057,9 @@
                     </div>
 
                     <ul class="uk-pagination my-5 uk-flex-center" uk-margin>
-                        <li class="uk-active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
+                        <li class="uk-active"><span id="one">1</span></li>
+                        <li><a id="two">2</a></li>
+                        <li><a id="three">3</a></li>
                         <li class="uk-disabled"><span>...</span></li>
                         <li><a href="#"><span uk-pagination-next></span></a></li>
                     </ul>
@@ -1208,6 +1149,20 @@
         if(username !== null){
             $("#yz").html("已验证");
         }
+
+        //获取传值
+        var fo_fo_no;
+        let oneValues = function () {
+            var url = window.location.search; //获取url中"?"符后的字串
+            // alert(url);
+            if (url.indexOf("?") !== -1) {
+                fo_fo_no = url.substr(url.indexOf("=") + 1);
+            }
+            // alert(t_no)
+            return fo_fo_no;
+        };
+        oneValues();
+
         var con_no;
         var home = new Vue({
             el: '#focus',
@@ -1281,29 +1236,80 @@
             }
         })
 
-        //显示我的头像
-        // $.ajax({
-        //     url: basePath + "/getPhoto",
-        //     type: "get",
-        //     dataType: "json",//接收类型
-        //     // dataType: "text",
-        //     // beforeSend:function(request){
-        //     //     request.setRequestHeader("Authorization",token);
-        //     // },
-        //     data: {
-        //         "con_no": con_no
-        //     },
-        //     success: function (data) {
-        //         console.log(data);
-        //     }
-        // })
+        //获取被关注数
+        $.ajax({
+            url: basePath + "/getNumBF",
+            type: "get",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {
+                "fo_fo_no": fo_fo_no
+            },
+            success: function (data) {
+                console.log(data);
+                $("#bgz").html(data.data);
 
-        //
-        // // 获取直播间
-        // $.get(basePath + "/Fan/getAllRoom?page=1", function (data) {
-        //     console.log(data);
-        //     home.lives = data.data.list;
-        // });
+            }
+        })
+
+        //获取关注数
+        $.ajax({
+            url: basePath + "/getNumF",
+            type: "get",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {
+                "fo_fo_no": fo_fo_no
+            },
+            success: function (data) {
+                console.log(data);
+                $("#gz").html(data.data);
+
+            }
+        })
+
+        //获取被点赞数
+        $.ajax({
+            url: basePath + "/getNumL",
+            type: "get",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {
+                "fo_fo_no": fo_fo_no
+            },
+            success: function (data) {
+                console.log(data);
+                $("#bdz").html(data.data);
+            }
+    })
+
+                //获取被关注用户名
+                $.ajax({
+                    url: basePath + "/getConsumersByNo",
+                    type: "post",
+                    dataType: "json",//接收类型
+                    // dataType: "text",
+                    // beforeSend:function(request){
+                    //     request.setRequestHeader("Authorization",token);
+                    // },
+                    data: {
+                        "con_no": fo_fo_no
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        $("#yhm").html(data.data.name);
+
+                    }
+                })
 
 
     });

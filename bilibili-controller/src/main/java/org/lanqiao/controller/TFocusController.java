@@ -1,13 +1,17 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.entity.TConsumers;
 import org.lanqiao.entity.TFocus;
 import org.lanqiao.service.TFocusService;
 import org.lanqiao.util.result.Result;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 import static org.lanqiao.util.result.ResultFactory.setResultError;
 import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
@@ -27,6 +31,7 @@ public class TFocusController {
     TFocusService tFocusService;
 
 
+    @ApiOperation("关注")
     @ResponseBody
     @PostMapping("addFocus")
     public Result addFocus(Integer con_no, Integer fo_fo_no) {
@@ -44,6 +49,7 @@ public class TFocusController {
     }
 
 
+    @ApiOperation("取消关注")
     @ResponseBody
     @PostMapping("deleteFocus")
     public Result deleteFocus(Integer con_no, Integer fo_fo_no) {
@@ -56,6 +62,7 @@ public class TFocusController {
     }
 
 
+    @ApiOperation("获取指定的关注用户信息")
     @ResponseBody
     @PostMapping("getFocus")
     public Result getFocus(Integer fo_fo_no) {
@@ -68,10 +75,35 @@ public class TFocusController {
     }
 
 
+    @ApiOperation("获取所有关注用户")
     @ResponseBody
     @PostMapping("getAllFocusConsumerByCon")
     public Result getAllFocusConsumerByCon(Integer con_no) {
         return setResultSuccess(200,"获取所有关注用户成功",tFocusService.getAllFocusConsumerByCon(con_no));
+    }
+
+
+    @ApiOperation("获取被关注数")
+    @ResponseBody
+    @GetMapping("getNumBF")
+    public Result getNumBF(Integer fo_fo_no){
+        return setResultSuccess(200,"success",tFocusService.getNumBF(fo_fo_no));
+    }
+
+
+    @ApiOperation("获取关注数")
+    @ResponseBody
+    @GetMapping("getNumF")
+    public Result getNumF(Integer fo_fo_no){
+        return setResultSuccess(200,"success",tFocusService.getNumF(fo_fo_no));
+    }
+
+
+    @ApiOperation("获取被点赞数")
+    @ResponseBody
+    @GetMapping("getNumL")
+    public Result getNumL(Integer fo_fo_no){
+        return setResultSuccess(200,"success",tFocusService.getNumL(fo_fo_no));
     }
 
 }

@@ -19,7 +19,7 @@ public class TOrderToOrderVo implements Serializable {
          ordersVo.setI_name(tOrders.getI_name());
          ordersVo.setMoney(tOrders.getMoney());
          ordersVo.setO_no(tOrders.getO_no());
-         ordersVo.setRetUrl("http://localhost:8084/b_index.html");
+         ordersVo.setRetUrl("http://localhost:8084/home.html");
 
          return ordersVo;
      }

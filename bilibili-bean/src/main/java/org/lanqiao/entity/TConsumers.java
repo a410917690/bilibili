@@ -46,7 +46,7 @@ public class TConsumers implements Serializable {
     /**
      * 成为会员后的会员到期时间
      */
-    private Date member_deadline;
+    private Integer member_deadline;
     /**
      * 用户是否合法
      */

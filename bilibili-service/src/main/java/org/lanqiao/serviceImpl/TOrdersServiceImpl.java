@@ -1,6 +1,7 @@
 package org.lanqiao.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import org.lanqiao.dao.TConsumersDao;
 import org.lanqiao.dao.TIncomingDao;
 import org.lanqiao.dao.TOrderDao;
 import org.lanqiao.entity.TOrders;
@@ -31,8 +32,11 @@ public class TOrdersServiceImpl implements TOrdersService {
     @Resource
     TIncomingDao tIncomingDao;
 
+    @Resource
+    TConsumersDao tConsumersDao;
+
     @Override
-    public TOrders insertOrder(String o_no,Integer con_no, String i_name, Float money, Integer i_no) {
+    public TOrders insertOrder(Long o_no,Integer con_no, String i_name, Float money, Integer i_no) {
 
         tOrderDao.insertOrder(o_no, con_no, i_name, money, i_no);
         TOrders tOrders = tOrderDao.queryOrder(o_no);
@@ -42,19 +46,19 @@ public class TOrdersServiceImpl implements TOrdersService {
     }
 
     @Override
-    public Integer deleteOrder(String o_no) {
+    public Integer deleteOrder(Long o_no) {
         return tOrderDao.deleteOrder(o_no);
     }
 
     @Override
-    public Integer updateOrder(String o_no) {
+    public Integer updateOrder(Long o_no) {
         TOrders tOrders = tOrderDao.queryOrder(o_no);
         tIncomingDao.addIncoming(tOrders.getMoney());
         return tOrderDao.updateOrder(o_no);
     }
 
     @Override
-    public TOrders queryOrder(String o_no) {
+    public TOrders queryOrder(Long o_no) {
         return tOrderDao.queryOrder(o_no);
     }
 
@@ -64,8 +68,23 @@ public class TOrdersServiceImpl implements TOrdersService {
     }
 
     @Override
-    public TOrders queryCon(String o_no){
+    public TOrders queryCon(Long o_no){
         return tOrderDao.queryCon(o_no);
+    }
+
+    @Override
+    public int to1Vip(Integer con_no) {
+        return tConsumersDao.to1Vip(con_no);
+    }
+
+    @Override
+    public int to3Vip(Integer con_no) {
+        return tConsumersDao.to3Vip(con_no);
+    }
+
+    @Override
+    public int to12Vip(Integer con_no) {
+        return tConsumersDao.to12Vip(con_no);
     }
 
 }

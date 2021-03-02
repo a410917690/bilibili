@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.*;
 import org.lanqiao.entity.TConsumers;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -115,5 +116,23 @@ public interface TConsumersDao {
 
     @Update("update t_consumers set con_is_legal = 0 where con_no=#{con_no} and report_num > 30")
     int toIllegal(Integer con_no);
+
+    @Update("update t_consumers set role_no=4,member_deadline=member_deadline+30 where con_no=#{con_no}")
+    int to1Vip(Integer con_no);
+
+    @Update("update t_consumers set role_no=5,member_deadline=member_deadline+90 where con_no=#{con_no}")
+    int to3Vip(Integer con_no);
+
+    @Update("update t_consumers set role_no=6,member_deadline=member_deadline+365 where con_no=#{con_no}")
+    int to12Vip(Integer con_no);
+
+    @Update("update t_consumers set role_no=1,member_deadline=0 where con_no=#{con_no}")
+    int toCommon(Integer con_no);
+
+    @Update("update t_consumers set member_deadline=#{member_deadline} where con_no=#{con_no} and member_deadline>0")
+    int decrMemberDeadline(Integer member_deadline,Integer con_no);
+//
+//    @Select("select be_vip_time from t_consumers where con_no=#{con_no} and member_deadline>0")
+//    Date getBeVipTime(Integer con_no);
 
 }

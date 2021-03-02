@@ -1,6 +1,7 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.entity.TConsumers;
 
 import org.lanqiao.service.TConsumersService;
@@ -59,7 +60,10 @@ public class TConsumersController {
      *
      * @return 单条数据
      */
-//    @ApiOperation
+    @Autowired
+    JWT_HS256 jwt_hs256;
+
+    @ApiOperation("账号密码登录")
     @ResponseBody
     @PostMapping("login")
     public Result selectOne(String name, String password) {
@@ -69,7 +73,7 @@ public class TConsumersController {
             //第一种，UUID.randomUUID() + ""
             String token = UUID.randomUUID() + "";
             //第二种，利用JWT生成Token，用HS256对称算法加密
-//            String token = JWT_HS256.buildJWT(tConsumers);
+//            String token = jwt_hs256.buildJWT(tConsumers);
             // 第二种，利用JWT生成Token，用RS256对称算法加密
 //            String token = JWT_RS256.buildToken(user);
             //将token和数据存入redis缓存中
@@ -82,6 +86,7 @@ public class TConsumersController {
     }
 
 
+    @ApiOperation("验证码登录")
     @ResponseBody
     @PostMapping("loginByMail")
     public Result loginByMail(String mail, String code) {
@@ -104,30 +109,42 @@ public class TConsumersController {
     }
 
 
+
+    @ApiOperation("通过token获取用户信息")
     @ResponseBody
     @PostMapping("getConByToken")
     public Result getConByToken(String token) {
         Object user = redisTemplate.opsForValue().get(token);
-        if(user != null) {
+        if (user != null) {
             return setResultSuccess(200, "获取用户成功", user);
-        }else {
+        } else {
             return setResultError(400, "获取用户成功", null);
         }
     }
 
+    @ApiOperation("获取所有用户")
     @ResponseBody
     @PostMapping("getAllConsumers")
     public Result getAllConsumersByPage(@RequestParam(defaultValue = "1") int page) {
         return setResultSuccess(tConsumersService.getAllConsumersByPage(page, 10));
     }
 
+    @ApiOperation("通过<唯一字段>用户名获取用户信息")
     @ResponseBody
     @PostMapping("getConsumersByName")
     public Result getConsumersByName(String name) {
         return setResultSuccess(tConsumersService.queryByName(name));
     }
 
+    @ApiOperation("通过用户id获取用户信息")
+    @ResponseBody
+    @PostMapping("getConsumersByNo")
+    public Result getConsumersByNo(Integer con_no) {
+        return setResultSuccess(tConsumersService.queryByCno(con_no));
+    }
 
+
+    @ApiOperation("通过用户id获取角色名称")
     @ResponseBody
     @PostMapping("getRoleName")
     public Result getRoleName(Integer con_no) {
@@ -135,6 +152,7 @@ public class TConsumersController {
     }
 
 
+    @ApiOperation("验证码注册")
     @ResponseBody
     @PostMapping("Fan/register")
     public Result isUser(ConsumerCodeVo consumerCodeVo) {
@@ -147,7 +165,7 @@ public class TConsumersController {
         }
     }
 
-
+    @ApiOperation("修改用户信息")
     @ResponseBody
     @PostMapping("updateConsumers")
     public Result updateConsumers(TConsumers tConsumers) {
@@ -161,20 +179,23 @@ public class TConsumersController {
         return setResultSuccess(tConsumersService.update(tConsumers1));
     }
 
+    @ApiOperation("通过用户id删除用户")
     @ResponseBody
     @PostMapping("deleteConsumers")
     public Result deleteConsumers(Integer con_no) {
         return setResultSuccess(tConsumersService.deleteById(con_no));
     }
 
+    @ApiOperation("发送验证码")
     @PostMapping("/send")
     @ResponseBody
     public Result sendEmail(String mail) {
         boolean flag;
         flag = tConsumersService.sendMimeMail(mail);
-            return setResultSuccess(200, "验证码发送成功",flag);
+        return setResultSuccess(200, "验证码发送成功", flag);
     }
 
+    @ApiOperation("通过用户名获取密码<验证码验证>")
     @PostMapping("/findPwd")
     @ResponseBody
     public Result findPwd(String name, String mail, String code) {
@@ -185,6 +206,7 @@ public class TConsumersController {
         return setResultError(400, "fail");
     }
 
+    @ApiOperation("更新密码")
     @PostMapping("/updatePwd")
     @ResponseBody
     public Result updatePwd(String name, String password) {
@@ -195,18 +217,21 @@ public class TConsumersController {
         return setResultError(400, "fail");
     }
 
+    @ApiOperation("修改用户信息")
     @PostMapping("/updateDetail")
     @ResponseBody
-    public Result updateDetail(String newName,String name, String tele_num, Integer age,String password,String newPwd,String confirmPwd) {
-        Integer res = tConsumersService.updateDetail(newName,name, tele_num, age,password,newPwd,confirmPwd);
+    public Result updateDetail(String newName, String name, String tele_num, Integer age, String password, String newPwd, String confirmPwd) {
+        Integer res = tConsumersService.updateDetail(newName, name, tele_num, age, password, newPwd, confirmPwd);
         if (res != 0) {
             return setResultSuccess(200, "success", res);
         }
         return setResultError(400, "fail");
     }
 
+    @ApiOperation("上传图片")
+    @ResponseBody
     @PostMapping("/uploadPic")
-    public Result savePic(@RequestParam("file") MultipartFile file,@RequestParam("name")String name) {
+    public Result savePic(@RequestParam("file") MultipartFile file, @RequestParam("name") String name) {
         byte[] pic = null;
         if (file != null) {
             try {
@@ -227,6 +252,8 @@ public class TConsumersController {
         return setResultSuccess(200, "上传图片成功", pic);
     }
 
+    @ApiOperation("通过用户id获取用户头像")
+    @ResponseBody
     @GetMapping(value = "/getPhoto")
     public Result getPhotoById(final HttpServletResponse response, Integer con_no) throws IOException {
         TConsumers users = tConsumersService.queryByCno(con_no);
@@ -244,26 +271,36 @@ public class TConsumersController {
         return setResultSuccess(200, "获取图片成功", buf);
     }
 
-
+    @ApiOperation("用户举报")
+    @ResponseBody
     @PostMapping(value = "/conReport")
     public Result report(Integer con_no) {
         int report = tConsumersService.report(con_no);
         if (report > 0) {
-            return setResultSuccess(200, "举报成功",report);
+            return setResultSuccess(200, "举报成功", report);
         } else {
-            return setResultError(400, "举报失败",report);
+            return setResultError(400, "举报失败", report);
         }
     }
 
-
+    @ApiOperation("用户账号异常")
+    @ResponseBody
     @PostMapping(value = "/conToIllegal")
     public Result toIllegal(Integer con_no) {
         int i = tConsumersService.toIllegal(con_no);
         if (i > 0) {
-            return setResultSuccess(200, "该用户涉嫌非法操作",i);
+            return setResultSuccess(200, "账号异常，已被冻结", i);
         } else {
-            return setResultError(400, "我们会持续监控该用户的操作",i);
+            return setResultError(400, "我们会持续监控该用户的操作", i);
         }
+    }
+
+    @ApiOperation("会员到期检测")
+    @ResponseBody
+    @PostMapping(value = "/decrMemberDeadline")
+    public Result decrMemberDeadline(Integer con_no) {
+        int i = tConsumersService.decrMemberDeadline(con_no);
+        return setResultSuccess(200, "success",i);
     }
 
 }

@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  */
 @Data
 public class OrdersVo implements Serializable {
-    private String o_no;
+    private Long o_no;
     private Float money;
     private String i_name;
     private String retUrl;
