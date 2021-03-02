@@ -15,7 +15,6 @@ public interface TCollectionsService {
     /**
      * 通过ID查询单条数据
      *
-
      * @return 实例对象
      */
     List queryByCno(Integer con_no);
@@ -31,17 +30,16 @@ public interface TCollectionsService {
      */
     List<TCollections> queryAllByLimit(int offset, int limit);
 
+
     /**
      * 新增数据
      *
-
      * @return 实例对象
      */
     boolean insert(Integer con_no,Integer v_no);
 
     /**
      * 修改数据
-     *
      * @param tCollections 实例对象
      * @return 实例对象
      */
@@ -49,8 +47,6 @@ public interface TCollectionsService {
 
     /**
      * 通过主键删除数据
-     *
-
      * @return 是否成功
      */
     boolean delete(Integer con_no,Integer v_no);

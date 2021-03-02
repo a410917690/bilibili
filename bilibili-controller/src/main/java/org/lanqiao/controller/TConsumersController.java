@@ -66,7 +66,7 @@ public class TConsumersController {
     @ApiOperation("账号密码登录")
     @ResponseBody
     @PostMapping("login")
-    public Result selectOne(String name, String password) {
+    public Result selectOne(@RequestParam("name") String name,@RequestParam("password") String password) {
         TConsumers tConsumers = tConsumersService.queryByNameAndPwd(name, password);
         if (tConsumers != null) {
             //生成token,三种方法

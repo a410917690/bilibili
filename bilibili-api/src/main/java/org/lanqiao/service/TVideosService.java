@@ -13,27 +13,16 @@ import java.util.List;
 public interface TVideosService {
 
     /**
-     * 通过ID查询单条数据
+     * 通过v_no查询单个视频
      *
-
-     * @return 实例对象
+     *
      */
-
     TVideos queryById(Integer v_no);
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    List<TVideos> queryAllByLimit(int offset, int limit);
-
 
 
     /**
-     * 新增数据
+     * 新增视频
      *
      * @param tVideos 实例对象
      * @return 实例对象
@@ -41,8 +30,7 @@ public interface TVideosService {
     TVideos insert(TVideos tVideos);
 
     /**
-     * 修改数据
-     *
+     * 修改视频信息
      * @param tVideos 实例对象
      * @return 实例对象
      */
@@ -53,16 +41,37 @@ public interface TVideosService {
     /**
      * 通过主键删除数据
      *
-
      * @return 是否成功
      */
     String deleteById(Integer v_no);
 
-    public Object getAllVideosByPage(int pageNum,int pageSize);
+    /**
+     * 获取所有视频（分页）
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+     Object getAllVideosByPage(int pageNum,int pageSize);
 
-    public Object getVideosByTag(int pageNum,int pageSize,Integer t_no);
+    /**
+     * 通过标签获取所有视频（分页）
+     * @param pageNum
+     * @param pageSize
+     * @param t_no
+     * @return
+     */
+     Object getVideosByTag(int pageNum,int pageSize,Integer t_no);
 
-    TVideos LikesVideos(TVideos tVideos);
 
-    void updateLikeNum(Integer v_likes,Integer v_no);
+    /**
+     * 给视频点赞数
+     * @param v_no
+     */
+    int updateLikeNum(Integer v_no);
+
+
+    /**
+     * 举报视频
+     */
+    boolean updateReportVideo(Integer con_no,Integer v_no);
 }

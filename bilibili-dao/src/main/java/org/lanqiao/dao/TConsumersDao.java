@@ -27,7 +27,7 @@ public interface TConsumersDao {
     TConsumers queryByName(String name);
 
     @Select("select * from t_consumers where name=#{name} and password=#{password}")
-    TConsumers queryByNameAndPwd(String name,String password);
+    TConsumers queryByNameAndPwd(@Param("name") String name,@Param("password") String password);
 
     @Select("select * from t_consumers where con_no=#{con_no}")
     TConsumers queryByCno(Integer con_no);

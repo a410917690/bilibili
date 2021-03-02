@@ -16,67 +16,88 @@ import java.util.List;
 @Mapper
 public interface TVideosDao {
 
-    /**
-     * 通过ID查询单条数据
-     *
 
-     * @return 实例对象
+    /**
+     * 通过v_no查询单个视频
+     *
      */
     @Select("select * from t_videos where v_no=#{v_no}")
     TVideos queryById(Integer v_no);
 
+
+    /**
+     * 获取单个标签下的所有视频
+     * @param t_no
+     * @return
+     */
     @Select("select * from t_videos where v_no =(select v_no from t_v_tag where t_no=#{t_no})")
     List<TVideos> queryByTag(Integer t_no);
 
+    /**
+     * 获取所有视频
+     * @return
+     */
     @Select("select * from t_videos order by v_no desc")
-            public List<TVideos> getListByPage();
-
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    List<TVideos> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<TVideos> getListByPage();
 
 
     /**
-     * 通过实体作为筛选条件查询
+     * 新增视频
+     * （投稿视频）
      *
-
-     * @return 对象列表
      */
-
-    /**
-     * 新增数据
-     *
-     * @param tVideos 实例对象
-     * @return 影响行数
-     */
+    @Insert("insert into t_videos (v_title,v_amount_of_play,v_url,con_no,v_likes,v_pic,v_coins,v_reports,v_legal) values (#{v_title},0,#{v_url},#{con_no},0,#{v_pic},0,0,1)")
     int insert(TVideos tVideos);
 
     /**
-     * 修改数据
+     * 修改视频信息
      *
      * @param tVideos 实例对象
      * @return 影响行数
      */
-    @Update("update t_videos set v_title= #{v_title},v_url=#{v_url},v_pic =#{v_pic},v_coins=#{v_coins} where v_no=#{v_no}")
+    @Update("update t_videos set v_title= #{v_title},v_url=#{v_url},v_pic =#{v_pic} where v_no=#{v_no}")
     int update(TVideos tVideos);
 
-    @Update("update t_videos set v_likes=#{v_likes} where v_no=#{v_no}")
-    int updateLikeNum(@Param("v_likes") Integer v_likes,@Param("v_no") Integer v_no);
-
-
-    @Update("update t_videos set v_coins=v_coins + 1 where v_no=#{v_no}")
-    int updateVideosCoins(Integer v_no);
 
     /**
-     * 通过主键删除数据
+     * 修改视频的点赞数
+     * @param
+     * @param v_no
+     * @return
+     */
+    @Update("update t_videos set v_likes=v_likes+1 where v_no=#{v_no}")
+    int updateLikeNum(Integer v_no);
+
+
+    /**
+     * 修改视频的投币数
+     * @param v_no
+     * @return
+     */
+    @Update("update t_videos set v_coins=v_coins+1 where v_no=#{v_no}")
+    int updateVideosCoins(Integer v_no);
+
+
+    /**
+     * 通过v_no删除视频
      * @return 影响行数
      */
     @Delete("delete from t_videos where v_no=#{v_no}")
     int deleteById(Integer v_no);
+
+    /**
+     * 举报视频插入v_videos表中
+     */
+    @Update("update t_videos set v_reports=v_reports+1")
+    int updateVideosReports();
+
+    /**
+     * 举报视频插入t_report表中（当该用户还未举报过时）
+     */
+    @Insert("insert into t_report (con_no,v_no) values (#{con_no},#{v_no})")
+    int insertVideosReport(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
+
+
+
 
 }

@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bilibili-api" />
-        <module name="bilibili-dao" />
         <module name="bilibili-bean" />
-        <module name="bilibili-service" />
         <module name="bilibili-controller" />
+        <module name="bilibili-dao" />
+        <module name="bilibili-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,11 +25,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="bilibili-api" options="-parameters" />
-      <module name="bilibili-bean" options="-parameters" />
-      <module name="bilibili-controller" options="-parameters" />
-      <module name="bilibili-dao" options="-parameters" />
-      <module name="bilibili-service" options="-parameters" />
+      <module name="bilibili-api" options="" />
+      <module name="bilibili-bean" options="" />
+      <module name="bilibili-controller" options="" />
+      <module name="bilibili-dao" options="" />
+      <module name="bilibili-service" options="" />
     </option>
   </component>
 </project>
