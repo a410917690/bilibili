@@ -17,6 +17,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -114,6 +115,20 @@ public class TConsumersController {
     @ResponseBody
     @PostMapping("getConByToken")
     public Result getConByToken(String token) {
+        Object user = redisTemplate.opsForValue().get(token);
+        if (user != null) {
+            return setResultSuccess(200, "获取用户成功", user);
+        } else {
+            return setResultError(400, "获取用户成功", null);
+        }
+    }
+
+
+    @ApiOperation("通过前端传回来的token获取用户信息")
+    @ResponseBody
+    @PostMapping("getConByRequestToken")
+    public Result getConByToken(HttpServletRequest request) {
+        String token = request.getHeader("token");
         Object user = redisTemplate.opsForValue().get(token);
         if (user != null) {
             return setResultSuccess(200, "获取用户成功", user);

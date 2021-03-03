@@ -135,4 +135,9 @@ public class TVideosServiceImpl implements TVideosService {
             return false;
         }
     }
+
+    @Override
+    public int getLike(Integer v_no) {
+        return tVideosDao.getLike(v_no);
+    }
 }

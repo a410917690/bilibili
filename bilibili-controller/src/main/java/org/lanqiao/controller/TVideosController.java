@@ -125,17 +125,18 @@ public class TVideosController {
 //            tConVLikesService.insert(con_no,v_no);
 //            return setResultSuccess("点赞成功！");
 //        }else {
-//            return setResultError(500,"点赞失败！");
+//            return setResultError(400,"点赞失败！");
 //        }
         boolean flag = tConVLikesService.queryByVnoCno(con_no, v_no);
         if (flag == true) {
             if (this.tVideosService.updateLikeNum(v_no) > 0 && this.tConVLikesService.insert(con_no, v_no)) {
-                return setResultSuccess("点赞成功！");
+                int like = tVideosService.getLike(v_no);
+                return setResultSuccess(200,"点赞成功！",like);
             } else {
-                return setResultError(500, "点赞失败,您已给该视频点过赞了！");
+                return setResultError(400, "点赞失败,您已给该视频点过赞了！");
             }
         } else {
-            return setResultError(500, "点赞失败,您已给该视频点过赞了！");
+            return setResultError(400, "点赞失败,您已给该视频点过赞了！");
         }
     }
 
@@ -149,11 +150,11 @@ public class TVideosController {
         if (this.tVideosService.updateReportVideo(con_no, v_no) == true) {
             return setResultSuccess("举报成功！");
         } else {
-            return setResultError(500, "举报失败，您已举报过该视频!");
+            return setResultError(400, "举报失败，您已举报过该视频!");
         }
     }
 
-
+//
 //    /**
 //     * 获取视频的点赞数
 //     * @param v_no
@@ -161,10 +162,8 @@ public class TVideosController {
 //     */
 //    @ResponseBody
 //    @PostMapping("getLikesNum")
-//    public Result giveLikesNum(Integer v_no){
-//        int num =(int)redisUtil.get("v_likes"+v_no);
-//        tVideosService.updateLikeNum(num,v_no);
-//        return setResultSuccess(redisUtil.get("v_likes"+v_no));
+//    public Result getLikesNum(Integer v_no){
+//        return setResultSuccess(200,"获取点赞数");
 //    }
 
 }

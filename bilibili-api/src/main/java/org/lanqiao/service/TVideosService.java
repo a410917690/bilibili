@@ -74,4 +74,6 @@ public interface TVideosService {
      * 举报视频
      */
     boolean updateReportVideo(Integer con_no,Integer v_no);
+
+    int getLike(Integer v_no);
 }

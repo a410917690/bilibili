@@ -97,7 +97,8 @@ public interface TVideosDao {
     @Insert("insert into t_report (con_no,v_no) values (#{con_no},#{v_no})")
     int insertVideosReport(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
-
+    @Select("select v_likes from t_videos where v_no=#{v_no}")
+    int getLike(Integer v_no);
 
 
 }
