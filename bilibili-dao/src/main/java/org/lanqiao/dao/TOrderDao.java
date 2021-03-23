@@ -1,6 +1,7 @@
 package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TOrders;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @Description:
  * @Date 2021/2/17 18:56
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TOrderDao {

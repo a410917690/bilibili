@@ -7,7 +7,7 @@ dubbo:
 #dubbo.registry.address=redis://127.0.0.1:6379
   registry:
 #     address: zookeeper://127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
-     address: zookeeper://106.12.195.187:2181
+     address: zookeeper://49.232.26.166:2181
   consumer:
      timeout: 3000
 
@@ -15,10 +15,10 @@ dubbo:
 spring:
   redis:
     database: 0
-    host: 106.12.195.187
+    host: 49.232.26.166
     port: 6379
-    password: root
-    timeout: 1000
+    password: sonnie
+    timeout: 3000
     jedis:
        pool:
           max-active: 8
@@ -26,7 +26,7 @@ spring:
           min-idle: 0
   kafka:
     #    bootstrap-servers: 127.0.0.1:9092
-    bootstrap-servers: 106.12.195.187:9092
+    bootstrap-servers: 49.232.26.166:9092
     #生产者的配置，大部分我们可以使用默认的，这里列出几个比较重要的属性
     producer:
       #每批次发送消息的数量

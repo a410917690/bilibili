@@ -1,6 +1,7 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TVideos;
+import org.lanqiao.vo.VideoVo;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface TVideosService {
      *
      *
      */
-    TVideos queryById(Integer v_no);
+    VideoVo queryById(Integer v_no);
 
 
 
@@ -34,7 +35,7 @@ public interface TVideosService {
      * @param tVideos 实例对象
      * @return 实例对象
      */
-    TVideos update(TVideos tVideos);
+    VideoVo update(TVideos tVideos);
 
 
 
@@ -67,13 +68,13 @@ public interface TVideosService {
      * 给视频点赞数
      * @param v_no
      */
-    int updateLikeNum(Integer v_no);
+    int updateLikeNum(Integer v_no,Integer likes);
 
 
     /**
      * 举报视频
      */
-    boolean updateReportVideo(Integer con_no,Integer v_no);
+    boolean updateReportVideo(Integer con_no,Integer v_no,String reason);
 
     int getLike(Integer v_no);
 }

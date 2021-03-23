@@ -8,12 +8,10 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.swagger.annotations.ApiOperation;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.lanqiao.config.AlipayConfig;
-import org.lanqiao.config.kafka.Consumer;
 import org.lanqiao.entity.TOrders;
-import org.lanqiao.service.TConsumersService;
 import org.lanqiao.service.TOrdersService;
+import org.lanqiao.util.common.OrderEnum;
 import org.lanqiao.util.idGenerator.Snowflake;
 import org.lanqiao.util.result.Result;
 import org.lanqiao.vo.OrdersVo;
@@ -21,23 +19,16 @@ import org.lanqiao.vo.TOrderToOrderVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+import static org.lanqiao.util.common.Common.*;
 import static org.lanqiao.util.result.ResultFactory.setResultError;
 import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
@@ -54,9 +45,6 @@ public class TOrdersController {
 
     @Reference
     TOrdersService tOrdersService;
-
-    @Reference
-    TConsumersService tConsumersService;
 
     @Autowired
     private KafkaTemplate kafkaTemplate;
@@ -75,6 +63,7 @@ public class TOrdersController {
 
     @Autowired
     Snowflake snowflake;
+
 
     @ApiOperation("生成订单")
     @ResponseBody
@@ -127,17 +116,17 @@ public class TOrdersController {
 //        ModelAndView  model = new ModelAndView("redirect:" + form);
         Integer flag = tOrdersService.updateOrder(o_no);
         if (flag != 0) {
-            if ("6折月度大会员".equals(subject)) {
+            if (QGVIP.equals(subject)) {
                 tOrdersService.to1Vip(con_no);
                 stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,30,TimeUnit.DAYS);
-            } else if ("月度大会员".equals(subject)) {
+            } else if (YDVIP.equals(subject)) {
                 tOrdersService.to1Vip(con_no);
                 stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,30,TimeUnit.DAYS);
-            } else if ("季度大会员".equals(subject)) {
-                tOrdersService.to3Vip(con_no);
+            } else if (JDVIP.equals(subject)) {
+                tOrdersService.to1Vip(con_no);
                 stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,90,TimeUnit.DAYS);
-            } else if ("年度大会员".equals(subject)) {
-                tOrdersService.to12Vip(con_no);
+            } else if (NDVIP.equals(subject)) {
+                tOrdersService.to1Vip(con_no);
                 stringRedisTemplate.opsForValue().set(con_no.toString(),total_amount,365,TimeUnit.DAYS);
             } else {
                 return null;
@@ -147,6 +136,7 @@ public class TOrdersController {
         }
         return setResultSuccess(200, "success", form);
     }
+
 
     @ApiOperation("生成订单")
     @ResponseBody
@@ -169,11 +159,17 @@ public class TOrdersController {
         return setResultSuccess(this.tOrdersService.queryOrder(o_no));
     }
 
+    /**
+     *
+     * @param num 设置秒杀量
+     * @param second 设置秒杀时间
+     * @return
+     */
     @ApiOperation("开始秒杀活动")
     @ResponseBody
     @PostMapping("setSecKill")
-    public Result setSecKill() {
-        stringRedisTemplate.opsForValue().set("key", String.valueOf(1000), Duration.ofSeconds(60 * 60 * 24 * 3));
+    public Result setSecKill(int num,int second) {
+        stringRedisTemplate.opsForValue().set("key", String.valueOf(num), Duration.ofSeconds(second));
         return setResultSuccess();
     }
 
@@ -186,10 +182,10 @@ public class TOrdersController {
         try {
             Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, clientId, 2, TimeUnit.SECONDS);
             if (!result) {
-                return setResultError(400, "抢购失败", "secKillFail.html");
+                return setResultError(400, BUY_FAIL, "secKillFail.html");
             }
             if(stringRedisTemplate.getExpire("key") == -1){
-                return setResultError(400, "抢购失败", "secKillFail.html");
+                return setResultError(400, BUY_FAIL, "secKillFail.html");
             }
             int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("key"));
 
@@ -199,7 +195,7 @@ public class TOrdersController {
                 System.out.println("扣减成功！库存：" + realStock);
             } else {
                 System.out.println("扣减失败，库存不足！");
-                return setResultSuccess(200, "抢购成功", "secKillFail.html");
+                return setResultSuccess(200, BUY_SUC, "secKillFail.html");
             }
         } finally {
             if (clientId.equals(stringRedisTemplate.opsForValue().get(lockKey))) {
@@ -207,7 +203,7 @@ public class TOrdersController {
             }
         }
 //        ModelAndView modelAndView = new ModelAndView("redirect:secKillOrder.html");
-        return setResultSuccess(200, "抢购成功", "secKillOrder.html");
+        return setResultSuccess(200, BUY_SUC, "secKillOrder.html");
     }
 
 }

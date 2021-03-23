@@ -31,1171 +31,1087 @@
 
 <body>
 
-<!-- Wrapper -->
-<div id="wrapper">
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-    <!-- sidebar -->
-    <div class="main_sidebar">
-        <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+        <!-- sidebar -->
+        <div class="main_sidebar">
+            <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
 
-        <!-- sidebar header -->
-        <div class="sidebar-header">
-            <h4> 导航</h4>
-            <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
-        </div>
+            <!-- sidebar header -->
+            <div class="sidebar-header">
+                <h4> 导航</h4>
+                <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+            </div>
 
-        <!-- sidebar Menu -->
-        <div class="sidebar">
-            <div class="sidebar_innr" data-simplebar>
+            <!-- sidebar Menu -->
+            <div class="sidebar">
+                <div class="sidebar_innr" data-simplebar>
 
-                <div class="sections">
-                    <h3> 导航 </h3>
-                    <ul>
-                        <li class="active"><a href="home.html"> <i class="uil-home-alt"></i> <span> 首页 </span> </a>
-                        </li>
-                        <li><a href="browse-channals.html">
-                        <li><a href="your-watch-later.html"> <i class="iconfont icon-shoucang"></i> <span> 我的收藏 </span>
-                        </a>
-                        </li>
-                        <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
-                            <span>  我推荐的视频 </span> </a></li>
-                        <li><a href="browse-catagroies.html"> <i class="uil-layers"></i> <span> 视频分类</span> </a>
-                        </li>
-                        <li><a href="your-history.html"> <i class="uil-history"></i> <span> 观看记录 </span> </a></li>
-                    </ul>
-                </div>
-
-
-                <div id="focus">
                     <div class="sections">
-                        <!--                <div class="sections" v-for="(f,index) in focuses">-->
-                        <h3> 关注列表 </h3>
-                        <!--                        <ul>-->
-                        <ul v-for="(f,index) in focuses">
-                            <li>
-                                <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
-                                    <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
-
-                                    <!--                            <li>-->
-                                    <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
-                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
-                                    <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
+                        <h3> 导航 </h3>
+                        <ul>
+                            <li class="active"><a href="home.html"> <i class="uil-home-alt"></i> <span> 首页 </span> </a>
                             </li>
-                            <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                            <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
-
+                            <li><a href="browse-channals.html">
+                            <li><a href="your-watch-later.html"> <i class="iconfont icon-shoucang"></i>
+                                <span> 我的收藏 </span>
+                            </a>
+                            </li>
+                            <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
+                                <span>  我推荐的视频 </span> </a></li>
+                            <li><a href="browse-catagroies.html"> <i class="uil-layers"></i> <span> 视频分类</span> </a>
+                            </li>
+                            <li><a href="your-history.html"> <i class="uil-history"></i> <span> 观看记录 </span> </a></li>
                         </ul>
-
-                        <!-- view more subcription-->
-                        <!--                    <div class="uk-flex uk-flex-center mb-3">-->
-                        <!--                        <a href="browse-channals.html" class="button default circle px-5">-->
-                        <!--                            <i class="uil-plus mr-2"></i> 更多关注</a>-->
-                        <!--                    </div>-->
-
                     </div>
-                </div>
 
-                <div class="sections">
-                    <h3> 更多 </h3>
-                    <ul>
-                        <li><a href="page-setting.html"><i class="uil-cog"></i> <span> 账户设置 </span> </a></li>
-                        <li><a href="#"><i class="uil-user-circle"></i> <span> 账户 </span> </a>
-                            <ul>
+
+                    <div id="focus">
+                    <div id="fo">
+                        <div class="sections">
+                            <!--                <div class="sections" v-for="(f,index) in focuses">-->
+                            <h3> 关注列表 </h3>
+                            <!--                        <ul>-->
+                            <ul v-for="(f,index) in focuses">
                                 <li>
-                                    <a href="b_login.html"> 登录 </a>
-                                    <a href="b_register.html"> 注册 </a>
+                                    <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
+                                        <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
+
+                                        <!--                            <li>-->
+                                        <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
+                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                        <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
+                                        <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
                                 </li>
+                                <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                                <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
+
                             </ul>
 
-                        </li>
-                    </ul>
-                </div>
+                            <!-- view more subcription-->
+                            <!--                    <div class="uk-flex uk-flex-center mb-3">-->
+                            <!--                        <a href="browse-channals.html" class="button default circle px-5">-->
+                            <!--                            <i class="uil-plus mr-2"></i> 更多关注</a>-->
+                            <!--                    </div>-->
 
-                <div id="foot">
-                    <div class="foot-content">
-                        <p>© 2021 <strong>IK</strong>. 版权所有. </p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="sections">
+                        <h3> 更多 </h3>
+                        <ul>
+                            <li><a href="page-setting.html"><i class="uil-cog"></i> <span> 账户设置 </span> </a></li>
+                            <li><a href="#"><i class="uil-user-circle"></i> <span> 账户 </span> </a>
+                                <ul>
+                                    <li>
+                                        <a href="b_login.html"> 登录 </a>
+                                        <a href="b_register.html"> 注册 </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="foot">
+                        <div class="foot-content">
+                            <p>© 2021 <strong>IK</strong>. 版权所有. </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- header -->
-    <div id="main_header">
-        <header>
+        <!-- header -->
+        <div id="main_header">
+            <header>
 
-            <!-- Logo-->
-            <i class="header-traiger uil-bars"
-               uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></i>
+                <!-- Logo-->
+                <i class="header-traiger uil-bars"
+                   uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></i>
 
-            <!-- Logo-->
-            <div id="logo">
-                <!--                                <a href="#"> -->
-                <!--                                    <img src="assets/images/logo.png" alt="">-->
-                <!--                                </a>-->
-                <!--                <a href="#"> -->
-                <!--                    <img src="assets/images/logo-light.png" class="logo-inverse" alt="">-->
-                <!--                </a>-->
-                <!--                    <a href="#"> <img src="admin/images/logo.jpg" alt=""></a>-->
-                <!--                    <a href="#"> <img src="admin/images/logo.jpg" width="50px" height="236" class="logo-inverse" alt=""></a>-->
-            </div>
+                <!-- Logo-->
+                <div id="logo">
+                    <!--                                <a href="#"> -->
+                    <!--                                    <img src="assets/images/logo.png" alt="">-->
+                    <!--                                </a>-->
+                    <!--                <a href="#"> -->
+                    <!--                    <img src="assets/images/logo-light.png" class="logo-inverse" alt="">-->
+                    <!--                </a>-->
+                    <!--                    <a href="#"> <img src="admin/images/logo.jpg" alt=""></a>-->
+                    <!--                    <a href="#"> <img src="admin/images/logo.jpg" width="50px" height="236" class="logo-inverse" alt=""></a>-->
+                </div>
 
-            <!-- form search-->
-            <div class="head_search">
-                <form>
-                    <div class="head_search_cont">
-                        <input value="" type="text" class="form-control"
-                               placeholder="Adobe XD设计免费教程..." autocomplete="off">
-                        <i class="s_icon uil-search-alt"></i>
-                    </div>
+                <!-- form search-->
+                <div class="head_search">
+                    <form>
+                        <div class="head_search_cont">
+                            <input value="" type="text" class="form-control"
+                                   placeholder="Adobe XD设计免费教程..." autocomplete="off">
+                            <i class="s_icon uil-search-alt"></i>
+                        </div>
 
-                    <!-- Search box dropdown -->
-                    <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
-                         class="dropdown-search">
-                        <!-- User menu -->
+                        <!-- Search box dropdown -->
+                        <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
+                             class="dropdown-search">
+                            <!-- User menu -->
 
-                        <ul class="dropdown-search-list">
-                            <li class="list-title"> 最近搜索</li>
-                            <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
-                            <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
-                            </li>
-                            <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
-                            </a></li>
-                            <li><a href="single-video.html"> Adobe XD设计教程公司网站登录页面
-                                .. </a></li>
-                            <div class="menu-divider">
-                                <li class="list-footer"><a href="your-history.html"> 观看记录 </a></li>
+                            <ul class="dropdown-search-list">
+                                <li class="list-title"> 最近搜索</li>
+                                <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
+                                <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
+                                </li>
+                                <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
+                                </a></li>
+                                <li><a href="single-video.html"> Adobe XD设计教程公司网站登录页面
+                                    .. </a></li>
+                                <div class="menu-divider">
+                                    <li class="list-footer"><a href="your-history.html"> 观看记录 </a></li>
+                                </div>
+                            </ul>
+
+                        </div>
+
+
+                    </form>
+                </div>
+
+                <!-- user icons -->
+                <div class="head_user">
+
+                    <a href="page-pricing.html" class="btn-upgrade uk-visible@s"> <i class="uil-bolt-alt"></i> 大会员</a>
+                    <a href="#" class="btn-upload uk-visible@s"> <i class="uil-cloud-upload"></i> 投稿</a>
+
+                    <!-- upload dropdown box -->
+                    <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
+                         class="dropdown-notifications">
+
+                        <!-- notivication header -->
+                        <div class="dropdown-notifications-headline">
+                            <h4>Upload Video</h4>
+                        </div>
+
+                        <!-- notification contents -->
+                        <div class="dropdown-notifications-content uk-flex uk-flex-middle uk-flex-center text-center">
+
+
+                            <div class="uk-flex uk-flex-column choose-upload  text-center">
+                                <img src="assets/images/upload.png" width="70" class="m-auto" alt="">
+                                <p class="my-3"> 分享生活，分享每一份美好 <br> 点击上传...
+                                </p>
+                                <div uk-form-custom>
+                                    <input type="file">
+                                    <a href="#" class="button soft-primary small"> 选择文件</a>
+                                </div>
+
+                                <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
+                                <!--                               uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">-->
+                                <!--                                Or Import Video -->
+                                <!--                            </a>-->
                             </div>
-                        </ul>
 
-                    </div>
-
-
-                </form>
-            </div>
-
-            <!-- user icons -->
-            <div class="head_user">
-
-                <a href="page-pricing.html" class="btn-upgrade uk-visible@s"> <i class="uil-bolt-alt"></i> 大会员</a>
-                <a href="#" class="btn-upload uk-visible@s"> <i class="uil-cloud-upload"></i> 投稿</a>
-
-                <!-- upload dropdown box -->
-                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
-                     class="dropdown-notifications">
-
-                    <!-- notivication header -->
-                    <div class="dropdown-notifications-headline">
-                        <h4>Upload Video</h4>
-                    </div>
-
-                    <!-- notification contents -->
-                    <div class="dropdown-notifications-content uk-flex uk-flex-middle uk-flex-center text-center">
-
-
-                        <div class="uk-flex uk-flex-column choose-upload  text-center">
-                            <img src="assets/images/upload.png" width="70" class="m-auto" alt="">
-                            <p class="my-3"> 分享生活，分享每一份美好 <br> 点击上传...
-                            </p>
-                            <div uk-form-custom>
-                                <input type="file">
-                                <a href="#" class="button soft-primary small"> 选择文件</a>
-                            </div>
-
+                            <!--                        <div class="uk-flex uk-flex-column choose-upload" hidden>-->
+                            <!--                            <i class="uil-import icon-large text-muted"></i>-->
+                            <!--                            <p class="my-3"> Import videos from YouTube <br> Copy / Paste your video link here </p>-->
+                            <!--                            <form class="uk-grid-small" uk-grid>-->
+                            <!--                                <div class="uk-width-expand">-->
+                            <!--                                    <input type="text" class="uk-input uk-form-small" placeholder="Paste link">-->
+                            <!--                                </div>-->
+                            <!--                                <div class="uk-width-auto">-->
+                            <!--                                    <button type="submit" class="button soft-primary">-->
+                            <!--                                        Import-->
+                            <!--                                    </button>-->
+                            <!--                                </div>-->
+                            <!--                            </form>-->
                             <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
-                            <!--                               uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">-->
-                            <!--                                Or Import Video -->
-                            <!--                            </a>-->
-                        </div>
+                            <!--                               uk-toggle="target: .choose-upload ; animation: uk-animation-slide-left-small, uk-animation-slide-right-medium; queued: true">-->
+                            <!--                                Or Upload Video </a>-->
+                            <!--                        </div>-->
 
-                        <!--                        <div class="uk-flex uk-flex-column choose-upload" hidden>-->
-                        <!--                            <i class="uil-import icon-large text-muted"></i>-->
-                        <!--                            <p class="my-3"> Import videos from YouTube <br> Copy / Paste your video link here </p>-->
-                        <!--                            <form class="uk-grid-small" uk-grid>-->
-                        <!--                                <div class="uk-width-expand">-->
-                        <!--                                    <input type="text" class="uk-input uk-form-small" placeholder="Paste link">-->
-                        <!--                                </div>-->
-                        <!--                                <div class="uk-width-auto">-->
-                        <!--                                    <button type="submit" class="button soft-primary">-->
-                        <!--                                        Import-->
-                        <!--                                    </button>-->
-                        <!--                                </div>-->
-                        <!--                            </form>-->
-                        <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
-                        <!--                               uk-toggle="target: .choose-upload ; animation: uk-animation-slide-left-small, uk-animation-slide-right-medium; queued: true">-->
-                        <!--                                Or Upload Video </a>-->
-                        <!--                        </div>-->
-
-
-                    </div>
-                    <hr class="m-0">
-                    <div class="text-center uk-text-small py-2 uk-text-muted"> 您的视频大小不得超过999MB
-                    </div>
-                </div>
-
-
-                <!-- videos feed  -->
-                <a href="#video" class="opts_icon" uk-toggle>
-                    <i class="uil-youtube-alt"></i>
-                    <!--                    <span></span> -->
-                </a>
-
-                <!-- videos feed  offcanvas-->
-                <div id="video" uk-offcanvas="overlay: true ;flip: true">
-                    <div class="uk-offcanvas-bar uk-width-large">
-
-                        <h3> 我的投稿 </h3>
-                        <hr class="mb-3" style="margin:0 -20px">
-                        <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-                        <div class="video-list-small uk-child-width-1-1" uk-grid>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-
-                                        <img src="images/wallpaper%20(3).jpg" alt="">
-
-                                    </div>
-
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.3M</span>
-                                        <span class="video-post-time">14:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/3.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn Creating Laravel Package Initializing ... </h3>
-                                        <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                        <span class="video-post-user">Alex Dolgove</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/4.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to upload files using Laravel .. </h3>
-                                        <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                        <span class="video-post-user">Adrian Mohani</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="images/wallpaper%20(3).jpg" alt="">
-                                    </div>
-
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element ..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
 
                         </div>
-
-                    </div>
-                </div>
-
-                <!-- profile -image -->
-                <a class="opts_account"> <img src="assets/images/avatars/avatar-2.jpg" alt=""></a>
-
-                <!-- profile dropdown-->
-                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
-                     class="dropdown-notifications small">
-
-                    <!-- User Name / Avatar -->
-                    <a href="#">
-
-                        <div class="dropdown-user-details">
-                            <div class="dropdown-user-avatar">
-                                <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                            </div>
-                            <div class="dropdown-user-name">
-                                <span id="usn"> 未登录</span>
-                                <span> 已验证 <i class="uil-check"></i> </span>
-                            </div>
+                        <hr class="m-0">
+                        <div class="text-center uk-text-small py-2 uk-text-muted"> 您的视频大小不得超过999MB
                         </div>
+                    </div>
 
+
+                    <!-- videos feed  -->
+                    <a href="#video" class="opts_icon" uk-toggle>
+                        <i class="uil-youtube-alt"></i>
+                        <!--                    <span></span> -->
                     </a>
 
-                    <!-- User menu -->
+                    <!-- videos feed  offcanvas-->
+                    <div id="video" uk-offcanvas="overlay: true ;flip: true">
+                        <div class="uk-offcanvas-bar uk-width-large">
 
-                    <ul class="dropdown-user-menu">
-                        <li><a href="page-pricing.html"> <i class="uil-bolt"></i> 大会员</a></li>
-                        <!--                        <li><a href="browse-channals.html"> <i class="uil-user"></i> 我的关注 </a></li>-->
-                        <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i> 我推荐的视频 </a></li>
-                        <li><a href="b_collections.html"> <i class="uil-history"></i> 我的收藏 </a></li>
-                        <li><a href="page-setting.html"> <i class="uil-cog"></i> 账户设置</a></li>
-                        <li>
-                            <a href="#" id="night-mode" class="btn-night-mode">
-                                <i class="icon-feather-moon"></i> 夜间模式
-                                <span class="btn-night-mode-switch">
+                            <h3> 我的投稿 </h3>
+                            <hr class="mb-3" style="margin:0 -20px">
+                            <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                            <div class="video-list-small uk-child-width-1-1" uk-grid>
+
+                                <div>
+                                    <a href="single-video.html" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="video-post-count">1.4M</span>
+                                            <span class="video-post-time">23:00</span>
+                                            <span class="play-btn-trigger"></span>
+
+                                            <img src="images/wallpaper%20(3).jpg" alt="">
+
+                                        </div>
+
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <h3> How to create a basic Sticky HTML element..</h3>
+                                            <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                            <span class="video-post-user">Jonathan Madano</span>
+                                            <span class="video-post-views">531k views</span>
+                                            <span class="video-post-date"> 2 weeks ago </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="single-video.html" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="video-post-count">2.7k</span>
+                                            <span class="video-post-time">40:00</span>
+                                            <span class="play-btn-trigger"></span>
+                                            <img src="assets/images/video-thumbal/1.png" alt="">
+                                        </div>
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <h3> Learn how to create PHP singleton class </h3>
+                                            <img src="assets/images/avatars/avatar-2.jpg" alt="">
+                                            <span class="video-post-user">Stella Johnson</span>
+                                            <span class="video-post-views">938k views</span>
+                                            <span class="video-post-date"> 3 weeks ago </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="single-video.html" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="video-post-count">2.3M</span>
+                                            <span class="video-post-time">14:00</span>
+                                            <span class="play-btn-trigger"></span>
+                                            <img src="assets/images/video-thumbal/3.png" alt="">
+                                        </div>
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <h3> Learn Creating Laravel Package Initializing ... </h3>
+                                            <img src="assets/images/avatars/avatar-5.jpg" alt="">
+                                            <span class="video-post-user">Alex Dolgove</span>
+                                            <span class="video-post-views">531k views</span>
+                                            <span class="video-post-date"> 2 weeks ago </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="single-video.html" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="video-post-count">1.4M</span>
+                                            <span class="video-post-time">23:00</span>
+                                            <span class="play-btn-trigger"></span>
+                                            <img src="assets/images/video-thumbal/4.png" alt="">
+                                        </div>
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <h3> Learn how to upload files using Laravel .. </h3>
+                                            <img src="assets/images/avatars/avatar-4.jpg" alt="">
+                                            <span class="video-post-user">Adrian Mohani</span>
+                                            <span class="video-post-views">531k views</span>
+                                            <span class="video-post-date"> 2 weeks ago </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="single-video.html" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="video-post-count">1.4M</span>
+                                            <span class="video-post-time">23:00</span>
+                                            <span class="play-btn-trigger"></span>
+                                            <img src="images/wallpaper%20(3).jpg" alt="">
+                                        </div>
+
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <h3> How to create a basic Sticky HTML element ..</h3>
+                                            <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                            <span class="video-post-user">Jonathan Madano</span>
+                                            <span class="video-post-views">531k views</span>
+                                            <span class="video-post-date"> 2 weeks ago </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="single-video.html" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="video-post-count">2.7k</span>
+                                            <span class="video-post-time">40:00</span>
+                                            <span class="play-btn-trigger"></span>
+                                            <img src="assets/images/video-thumbal/1.png" alt="">
+                                        </div>
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <h3> Learn how to create PHP singleton class </h3>
+                                            <img src="assets/images/avatars/avatar-2.jpg" alt="">
+                                            <span class="video-post-user">Stella Johnson</span>
+                                            <span class="video-post-views">938k views</span>
+                                            <span class="video-post-date"> 3 weeks ago </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- profile -image -->
+                    <a class="opts_account"> <img src="assets/images/avatars/avatar-2.jpg" alt=""></a>
+
+                    <!-- profile dropdown-->
+                    <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
+                         class="dropdown-notifications small">
+
+                        <!-- User Name / Avatar -->
+                        <a href="#">
+
+                            <div class="dropdown-user-details">
+                                <div class="dropdown-user-avatar">
+                                    <img src="assets/images/avatars/avatar-2.jpg" alt="">
+                                </div>
+                                <div class="dropdown-user-name">
+                                    <span id="usn"> 未登录</span>
+                                    <span> 已验证 <i class="uil-check"></i> </span>
+                                </div>
+                            </div>
+
+                        </a>
+
+                        <!-- User menu -->
+
+                        <ul class="dropdown-user-menu">
+                            <li><a href="page-pricing.html"> <i class="uil-bolt"></i> 大会员</a></li>
+                            <!--                        <li><a href="browse-channals.html"> <i class="uil-user"></i> 我的关注 </a></li>-->
+                            <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i> 我推荐的视频 </a></li>
+                            <li><a href="b_collections.html"> <i class="uil-history"></i> 我的收藏 </a></li>
+                            <li><a href="page-setting.html"> <i class="uil-cog"></i> 账户设置</a></li>
+                            <li>
+                                <a href="#" id="night-mode" class="btn-night-mode">
+                                    <i class="icon-feather-moon"></i> 夜间模式
+                                    <span class="btn-night-mode-switch">
                                         <span class="uk-switch-button"></span>
                                     </span>
-                            </a>
-                        </li>
-                        <div class="menu-divider">
-                            <li><a href="b_login.html"> <i class="icon-feather-log-out"></i> 退出登录</a>
+                                </a>
                             </li>
-                        </div>
-                    </ul>
-
-
-                </div>
-
-            </div>
-
-        </header>
-
-    </div>
-
-    <!-- contents -->
-    <div class="main_content">
-
-        <div class="main_content_inner">
-
-            <!-- 幻灯片放映 -->
-
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
-                 uk-slideshow="animation: push ;min-height: 200; max-height: 350 ;autoplay: t rue">
-
-                <ul class="uk-slideshow-items rounded">
-                    <li>
-                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                            <img src="images/FQEAV.jpg" alt="" uk-cover>
-                        </div>
-                        <div class="uk-position-cover"
-                             uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
-                        <div class="uk-position-bottom-left bg-gradient-4 uk-width-1-1 p-4">
-                            <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small"> 享受生活
-                                </h1>
+                            <div class="menu-divider">
+                                <li><a href="b_login.html"> <i class="icon-feather-log-out"></i> 退出登录</a>
+                                </li>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                            <img src="assets/images/banner/img2.jpg" alt="" uk-cover>
-                        </div>
-                        <div class="uk-position-cover"
-                             uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
-                        <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
-                            <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small">发现美好</h1>
-                        </div>
-                    </li>
-                </ul>
-
-                <a class="uk-position-center-left-out uk-position-small uk-hidden-hover slidenav-prev" href="#"
-                   uk-slideshow-item="previous"></a>
-                <a class="uk-position-center-right-out uk-position-small uk-hidden-hover slidenav-next" href="#"
-                   uk-slideshow-item="next"></a>
-
-            </div>
+                        </ul>
 
 
-            <!-- 精选视频 -->
-
-            <div class="video-grid-slider mt-4" uk-slider="finite: true">
-
-                <div class="grid-slider-header">
-                    <div>
-                        <h3> 精选视频 </h3>
-                        <!--                        <p> Channals You are Fallowing. </p>-->
                     </div>
 
-                    <div class="grid-slider-header-link">
-
-                        <div class="btn-arrow-slider">
-                            <a href="#" class="btn-arrow-slides" uk-slider-item="previous">
-                                <span class="arrow-left"></span>
-                            </a>
-                            <a href="#" class="btn-arrow-slides" uk-slider-item="next">
-                                <span class="arrow-right"></span>
-                            </a>
-                        </div>
-
-                    </div>
                 </div>
 
-                <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid">
-
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-<!--                                播放量-->
-                                <span class="video-post-count" id="playNum">播放量</span>
-<!--                                <span class="video-post-time">23:00</span>-->
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-<!--                                视频封面-->
-                                <img src="images/wallpaper%20(3).jpg" alt="">
-
-                            </div>
-
-                            <div class="video-post-content">
-                                <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                <img src="assets/images/avatars/avatar-3.jpg" alt="" >
-                                <span class="video-post-user" id="VideoUser">sonnie</span>
-                                <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                <span class="video-post-date">播放量：3000</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <!--                                播放量-->
-                                <span class="video-post-count" id="playNum">播放量</span>
-                                <!--                                <span class="video-post-time">23:00</span>-->
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                <!--                                视频封面-->
-                                <img src="images/wallpaper%20(3).jpg" alt="">
-
-                            </div>
-
-                            <div class="video-post-content">
-                                <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                <img src="assets/images/avatars/avatar-3.jpg" alt="" >
-                                <span class="video-post-user" id="VideoUser">sonnie</span>
-                                <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                <span class="video-post-date">播放量：3000</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <!--                                播放量-->
-                                <span class="video-post-count" id="playNum">播放量</span>
-                                <!--                                <span class="video-post-time">23:00</span>-->
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                <!--                                视频封面-->
-                                <img src="images/wallpaper%20(3).jpg" alt="">
-
-                            </div>
-
-                            <div class="video-post-content">
-                                <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                <img src="assets/images/avatars/avatar-3.jpg" alt="" >
-                                <span class="video-post-user" id="VideoUser">sonnie</span>
-                                <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                <span class="video-post-date">播放量：3000</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <!--                                播放量-->
-                                <span class="video-post-count" id="playNum">播放量</span>
-                                <!--                                <span class="video-post-time">23:00</span>-->
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                <!--                                视频封面-->
-                                <img src="images/wallpaper%20(3).jpg" alt="">
-
-                            </div>
-
-                            <div class="video-post-content">
-                                <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                <img src="assets/images/avatars/avatar-3.jpg" alt="" >
-                                <span class="video-post-user" id="VideoUser">sonnie</span>
-                                <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                <span class="video-post-date">播放量：3000</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <!--                                播放量-->
-                                <span class="video-post-count" id="playNum">播放量</span>
-                                <!--                                <span class="video-post-time">23:00</span>-->
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                <!--                                视频封面-->
-                                <img src="images/wallpaper%20(3).jpg" alt="">
-
-                            </div>
-
-                            <div class="video-post-content">
-                                <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                <img src="assets/images/avatars/avatar-3.jpg" alt="" >
-                                <span class="video-post-user" id="VideoUser">sonnie</span>
-                                <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                <span class="video-post-date">播放量：3000</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="video-post-count">2.7k</span>
-                                <span class="video-post-time">40:00</span>
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                        <i class="icon-feather-more-vertical"></i>
-                                    </span>
-                                <div class="dropdown-option-nav"
-                                     uk-dropdown="pos: bottom-right ;mode : hover;animation: uk-animation-slide-bottom-small">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/video-thumbal/1.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Learn how to create a PHP singleton class </h3>
-                                <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                <span class="video-post-user">Stella Johnson</span>
-                                <span class="video-post-views">938k views</span>
-                                <span class="video-post-date"> 3 weeks ago </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="video-post-count">2.3M</span>
-                                <span class="video-post-time">14:00</span>
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                        <i class="icon-feather-more-vertical"></i>
-                                    </span>
-                                <div class="dropdown-option-nav"
-                                     uk-dropdown="pos: bottom-right ;mode : hover;animation: uk-animation-slide-bottom-small">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/video-thumbal/3.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Creating a Laravel Package - and Initializing Package Folders </h3>
-                                <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                <span class="video-post-user">Alex Dolgove</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="video-post-time">23:00</span>
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                        <i class="icon-feather-more-vertical"></i>
-                                    </span>
-                                <div class="dropdown-option-nav"
-                                     uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/video-thumbal/4.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Learn how to upload files using Laravel and Filepond </h3>
-                                <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                <span class="video-post-user">Adrian Mohani</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="single-video.html" class="video-post">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="video-post-count">1.4M</span>
-                                <span class="video-post-time">23:00</span>
-                                <span class="play-btn-trigger"></span>
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                        <i class="icon-feather-more-vertical"></i>
-                                    </span>
-                                <div class="dropdown-option-nav"
-                                     uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <img src="images/wallpaper%20(3).jpg" alt="">
-
-                            </div>
-
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> How to create a basic Sticky HTML element using CSS </h3>
-                                <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                <span class="video-post-user">Jonathan Madano</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                            </div>
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-            <div class="section-header-right" style="margin-top: 5px;margin-left: 1000px;padding-left: 40px">
-                <a href="video-list.html" class="see-all"> 查看更多</a>
-            </div>
-
-
-
-
-            <!-- 热门番剧 -->
-
-            <div class="section-header mt-5">
-                <div class="section-header-left">
-                    <h3> 热门番剧 </h3>
-                    <!--                    <p> Channals You are Subscriped</p>-->
-                </div>
-                <div class="section-header-right">
-                    <a href="fan-list.html" class="see-all"> 查看更多</a>
-                </div>
-            </div>
-            <div class="section-small pt-0">
-                <div uk-slider="finite: true">
-
-                    <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3">
-
-
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <!--                                <span class="video-post-time">23:00</span>-->
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                    <!--                                视频封面-->
-                                    <img src="images/仍无法v.jpg" alt="">
-
-                                </div>
-
-                                <div class="video-post-content">
-                                    <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <!--                                <span class="video-post-time">23:00</span>-->
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                    <!--                                视频封面-->
-                                    <img src="images/仍无法v.jpg" alt="">
-
-                                </div>
-
-                                <div class="video-post-content">
-                                    <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <!--                                <span class="video-post-time">23:00</span>-->
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                    <!--                                视频封面-->
-                                    <img src="images/仍无法v.jpg" alt="">
-
-                                </div>
-
-                                <div class="video-post-content">
-                                    <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <!--                                <span class="video-post-time">23:00</span>-->
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                    <!--                                视频封面-->
-                                    <img src="images/仍无法v.jpg" alt="">
-
-                                </div>
-
-                                <div class="video-post-content">
-                                    <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <!--                                <span class="video-post-time">23:00</span>-->
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                    <!--                                视频封面-->
-                                    <img src="images/仍无法v.jpg" alt="">
-
-                                </div>
-
-                                <div class="video-post-content">
-                                    <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <!--                                <span class="video-post-time">23:00</span>-->
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-<!--                                        <i class="icon-feather-more-vertical"></i>-->
-                                </span>
-                                    <!--                                视频封面-->
-                                    <img src="images/仍无法v.jpg" alt="">
-
-                                </div>
-
-                                <div class="video-post-content">
-                                    <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <a class="uk-position-center-left-out uk-position-small slidenav-prev" href="#"
-                       uk-slider-item="previous"></a>
-                    <a class="uk-position-center-right-out uk-position-small slidenav-next" href="#"
-                       uk-slider-item="next"></a>
-
-                </div>
-
-            </div>
-
-
-
-
-            <!-- 正在直播 -->
-
-            <div class="section-header mt-5">
-                <div class="section-header-left">
-                    <h3> 正在直播 </h3>
-                    <!--                    <p> Channals You are Subscriped</p>-->
-                </div>
-                <div class="section-header-right">
-                    <a href="live-list.html" class="see-all"> 查看更多</a>
-                </div>
-            </div>
-            <div class="section-small pt-0">
-                <div uk-slider="finite: true">
-
-                    <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3">
-
-                        <li>
-                            <a href="single-video.html" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-                                            <i class="icon-feather-more-vertical"></i>
-                                        </span>
-                                    <div class="dropdown-option-nav"
-                                         uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                        <ul>
-                                            <li>
-                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span>1000</span></span>
-                                            </li>
-                                            <li>
-                                                <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <img src="images/jkiu.jpg" alt="">
-
-                                </div>
-
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <h3> 直播间标题 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-                                            <i class="icon-feather-more-vertical"></i>
-                                        </span>
-                                    <div class="dropdown-option-nav"
-                                         uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                        <ul>
-                                            <li>
-                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span>1000</span></span>
-                                            </li>
-                                            <li>
-                                                <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <img src="images/jkiu.jpg" alt="">
-
-                                </div>
-
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <h3> 直播间标题 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-                                            <i class="icon-feather-more-vertical"></i>
-                                        </span>
-                                    <div class="dropdown-option-nav"
-                                         uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                        <ul>
-                                            <li>
-                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span>1000</span></span>
-                                            </li>
-                                            <li>
-                                                <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <img src="images/jkiu.jpg" alt="">
-
-                                </div>
-
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <h3> 直播间标题 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-                                            <i class="icon-feather-more-vertical"></i>
-                                        </span>
-                                    <div class="dropdown-option-nav"
-                                         uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                        <ul>
-                                            <li>
-                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span>1000</span></span>
-                                            </li>
-                                            <li>
-                                                <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <img src="images/jkiu.jpg" alt="">
-
-                                </div>
-
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <h3> 直播间标题 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-                                            <i class="icon-feather-more-vertical"></i>
-                                        </span>
-                                    <div class="dropdown-option-nav"
-                                         uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                        <ul>
-                                            <li>
-                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span>1000</span></span>
-                                            </li>
-                                            <li>
-                                                <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <img src="images/jkiu.jpg" alt="">
-
-                                </div>
-
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <h3> 直播间标题 </h3>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="video-post">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <!-- option menu -->
-                                    <span class="btn-option">
-                                            <i class="icon-feather-more-vertical"></i>
-                                        </span>
-                                    <div class="dropdown-option-nav"
-                                         uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
-                                        <ul>
-                                            <li>
-                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span>1000</span></span>
-                                            </li>
-                                            <li>
-                                                <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <img src="images/jkiu.jpg" alt="">
-
-                                </div>
-
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <h3> 直播间标题 </h3>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <a class="uk-position-center-left-out uk-position-small slidenav-prev" href="#"
-                       uk-slider-item="previous"></a>
-                    <a class="uk-position-center-right-out uk-position-small slidenav-next" href="#"
-                       uk-slider-item="next"></a>
-
-                </div>
-
-            </div>
-            <hr class="m-0">
-
-
-
-
-
-            <!-- footer -->
-
-            <div class="footer">
-                <div class="uk-grid-collapse" uk-grid>
-                    <div class="uk-width-expand@s uk-first-column">
-                        <p>© 2021 <strong>IK</strong>. 版权所有. </p>
-                    </div>
-                    <div class="uk-width-auto@s">
-                        <nav class="footer-nav-icon">
-                            <ul>
-                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+            </header>
 
         </div>
+
+        <!-- contents -->
+        <div class="main_content">
+
+            <div class="main_content_inner">
+
+                <!-- 幻灯片放映 -->
+
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+                     uk-slideshow="animation: push ;min-height: 200; max-height: 350 ;autoplay: t rue">
+
+                    <ul class="uk-slideshow-items rounded">
+
+                        <li>
+                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/你是否.jpg" alt="" uk-cover>
+                            </div>
+                            <div class="uk-position-cover"
+                                 uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                            <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
+                                <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small"> 享受生活</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="assets/images/banner/img2.jpg" alt="" uk-cover>
+                            </div>
+                            <div class="uk-position-cover"
+                                 uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                            <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
+                                <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small"> 发现美好</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/v儿删.jpg" alt="" uk-cover>
+                            </div>
+                            <div class="uk-position-cover"
+                                 uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                            <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
+                                <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small"> 分享快乐</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/hhhh.jpg" alt="" uk-cover>
+                            </div>
+                            <div class="uk-position-cover"
+                                 uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                            <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
+                                <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small"> 守护彼此</h1>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a class="uk-position-center-left-out uk-position-small uk-hidden-hover slidenav-prev" href="#"
+                       uk-slideshow-item="previous"></a>
+                    <a class="uk-position-center-right-out uk-position-small uk-hidden-hover slidenav-next" href="#"
+                       uk-slideshow-item="next"></a>
+
+                </div>
+
+                <!-- 精选视频 -->
+                <div id="home">
+                <div class="video-grid-slider mt-4" uk-slider="finite: true">
+
+                    <div class="grid-slider-header">
+                        <div>
+                            <h3> 精选视频 </h3>
+                            <!--                        <p> Channals You are Fallowing. </p>-->
+                        </div>
+
+                        <div class="grid-slider-header-link">
+
+                            <div class="btn-arrow-slider">
+                                <a href="#" class="btn-arrow-slides" uk-slider-item="previous">
+                                    <span class="arrow-left"></span>
+                                </a>
+                                <a href="#" class="btn-arrow-slides" uk-slider-item="next">
+                                    <span class="arrow-right"></span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid">
+
+                        <li>
+                            <a v-bind:href="['single-video.html?v_no='+videos[0].v_no]" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">{{videos[0].v_amount_of_play}}</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img v-bind:src="videos[0].v_pic" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> {{videos[0].v_title}} </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[0].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[0].v_amount_of_play}}</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a v-bind:href="['single-video.html?v_no='+videos[1].v_no]" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">{{videos[1].v_amount_of_play}}</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img v-bind:src="videos[1].v_pic" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> {{videos[1].v_title}} </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[1].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[1].v_amount_of_play}}</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a v-bind:href="['single-video.html?v_no='+videos[2].v_no]" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">{{videos[2].v_amount_of_play}}</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img v-bind:src="videos[2].v_pic" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> {{videos[2].v_title}} </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[2].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[2].v_amount_of_play}}</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="single-video.html" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">1111100</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img src="images/wallpaper%20(3).jpg" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
+                                    <span class="video-post-date">播放量：3000</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="single-video.html" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">5424501</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img src="images/wallpaper%20(3).jpg" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
+                                    <span class="video-post-date">播放量：3000</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="single-video.html" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">34558</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img src="images/wallpaper%20(3).jpg" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
+                                    <span class="video-post-date">播放量：3000</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="single-video.html" class="video-post">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <!--                                播放量-->
+                                    <span class="video-post-count" id="playNum">播放量</span>
+                                    <!--                                <span class="video-post-time">23:00</span>-->
+                                    <span class="play-btn-trigger"></span>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                    <!--                                视频封面-->
+                                    <img src="images/wallpaper%20(3).jpg" alt="">
+
+                                </div>
+
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
+                                    <span class="video-post-date">播放量：3000</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="section-header-right" style="margin-top: 5px;margin-left: 1000px;padding-left: 40px">
+                    <a href="video-list.html" class="see-all"> 查看更多</a>
+                </div>
+
+
+                <!-- 热门番剧 -->
+
+                <div class="section-header mt-5">
+                    <div class="section-header-left">
+                        <h3> 热门番剧 </h3>
+                        <!--                    <p> Channals You are Subscriped</p>-->
+                    </div>
+                    <div class="section-header-right">
+                        <a href="fan-list.html" class="see-all"> 查看更多</a>
+                    </div>
+                </div>
+                <div class="section-small pt-0">
+                    <div uk-slider="finite: true">
+
+                        <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3">
+
+
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <!--                                <span class="video-post-time">23:00</span>-->
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                        <!--                                视频封面-->
+                                        <img src="images/仍无法v.jpg" alt="">
+
+                                    </div>
+
+                                    <div class="video-post-content">
+                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <!--                                <span class="video-post-time">23:00</span>-->
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                        <!--                                视频封面-->
+                                        <img src="images/仍无法v.jpg" alt="">
+
+                                    </div>
+
+                                    <div class="video-post-content">
+                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <!--                                <span class="video-post-time">23:00</span>-->
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                        <!--                                视频封面-->
+                                        <img src="images/仍无法v.jpg" alt="">
+
+                                    </div>
+
+                                    <div class="video-post-content">
+                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <!--                                <span class="video-post-time">23:00</span>-->
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                        <!--                                视频封面-->
+                                        <img src="images/仍无法v.jpg" alt="">
+
+                                    </div>
+
+                                    <div class="video-post-content">
+                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <!--                                <span class="video-post-time">23:00</span>-->
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                        <!--                                视频封面-->
+                                        <img src="images/仍无法v.jpg" alt="">
+
+                                    </div>
+
+                                    <div class="video-post-content">
+                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <!--                                <span class="video-post-time">23:00</span>-->
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+<!--                                        <i class="icon-feather-more-vertical"></i>-->
+                                </span>
+                                        <!--                                视频封面-->
+                                        <img src="images/仍无法v.jpg" alt="">
+
+                                    </div>
+
+                                    <div class="video-post-content">
+                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <a class="uk-position-center-left-out uk-position-small slidenav-prev" href="#"
+                           uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right-out uk-position-small slidenav-next" href="#"
+                           uk-slider-item="next"></a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 正在直播 -->
+
+                <div class="section-header mt-5">
+                    <div class="section-header-left">
+                        <h3> 正在直播 </h3>
+                        <!--                    <p> Channals You are Subscriped</p>-->
+                    </div>
+                    <div class="section-header-right">
+                        <a href="live-list.html" class="see-all"> 查看更多</a>
+                    </div>
+                </div>
+                <div class="section-small pt-0">
+                    <div uk-slider="finite: true">
+
+                        <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3">
+
+                            <li>
+                                <a href="single-video.html" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+                                            <i class="icon-feather-more-vertical"></i>
+                                        </span>
+                                        <div class="dropdown-option-nav"
+                                             uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
+                                            <ul>
+                                                <li>
+                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>1000</span></span>
+                                                </li>
+                                                <li>
+                                                    <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="images/jkiu.jpg" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> 直播间标题 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+                                            <i class="icon-feather-more-vertical"></i>
+                                        </span>
+                                        <div class="dropdown-option-nav"
+                                             uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
+                                            <ul>
+                                                <li>
+                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>1000</span></span>
+                                                </li>
+                                                <li>
+                                                    <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="images/jkiu.jpg" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> 直播间标题 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+                                            <i class="icon-feather-more-vertical"></i>
+                                        </span>
+                                        <div class="dropdown-option-nav"
+                                             uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
+                                            <ul>
+                                                <li>
+                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>1000</span></span>
+                                                </li>
+                                                <li>
+                                                    <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="images/jkiu.jpg" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> 直播间标题 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+                                            <i class="icon-feather-more-vertical"></i>
+                                        </span>
+                                        <div class="dropdown-option-nav"
+                                             uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
+                                            <ul>
+                                                <li>
+                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>1000</span></span>
+                                                </li>
+                                                <li>
+                                                    <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="images/jkiu.jpg" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> 直播间标题 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+                                            <i class="icon-feather-more-vertical"></i>
+                                        </span>
+                                        <div class="dropdown-option-nav"
+                                             uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
+                                            <ul>
+                                                <li>
+                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>1000</span></span>
+                                                </li>
+                                                <li>
+                                                    <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="images/jkiu.jpg" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> 直播间标题 </h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="video-post">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="play-btn-trigger"></span>
+                                        <!-- option menu -->
+                                        <span class="btn-option">
+                                            <i class="icon-feather-more-vertical"></i>
+                                        </span>
+                                        <div class="dropdown-option-nav"
+                                             uk-dropdown="pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small">
+                                            <ul>
+                                                <li>
+                                                <span> <i class="iconfont icon-gongnengpaihangbang"></i>人气：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span>1000</span></span>
+                                                </li>
+                                                <li>
+                                                    <span style="margin-top: -30px"> <i class="uil-bookmark"></i> 直播间编号：<span>101010</span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="images/jkiu.jpg" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> 直播间标题 </h3>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <a class="uk-position-center-left-out uk-position-small slidenav-prev" href="#"
+                           uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right-out uk-position-small slidenav-next" href="#"
+                           uk-slider-item="next"></a>
+
+                    </div>
+
+                </div>
+                <hr class="m-0">
+
+
+                <!-- footer -->
+
+                <div class="footer">
+                    <div class="uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand@s uk-first-column">
+                            <p>© 2021 <strong>IK</strong>. 版权所有. </p>
+                        </div>
+                        <div class="uk-width-auto@s">
+                            <nav class="footer-nav-icon">
+                                <ul>
+                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-
 </div>
-
 
 <!-- For Night mode -->
 <script>
@@ -1233,7 +1149,6 @@
     })(window, document);
 </script>
 
-
 <!-- javaScripts
             ================================================== -->
 <script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
@@ -1262,10 +1177,20 @@
         // })
 
         var con_no;
-        var home = new Vue({
+        var fo = new Vue({
             el: '#focus',
             data: {
-                focuses: [],
+                focuses: []
+            },
+            mounted: function () {
+
+            },
+            methods: {
+            }
+        });
+        var home = new Vue({
+            el: '#home',
+            data: {
                 videos: [],
                 fans: [],
                 lives: []
@@ -1275,7 +1200,7 @@
             },
             methods: {
                 //鉴权——》视频
-                toVideo:function(index){
+                toVideo: function (index) {
                     $.ajax({
                         url: basePath + "/getConByRequestToken",
                         type: "post",
@@ -1286,17 +1211,17 @@
                         success: function (data) {
                             console.log(data);
                             role = data.data.role_no;
-                            if(role!==null){
-                                v_no= this.videos[index].v_no;
-                                window.location.href = "single-video.html"+v_no;
-                            }else{
+                            if (role !== null) {
+                                v_no = this.videos[index].v_no;
+                                window.location.href = "single-video.html" + v_no;
+                            } else {
                                 window.location.href = "b_login.html";
                             }
                         }
                     });
                 },
                 //鉴权——》番剧
-                toFan:function(index){
+                toFan: function (index) {
                     $.ajax({
                         url: basePath + "/getConByRequestToken",
                         type: "post",
@@ -1307,17 +1232,17 @@
                         success: function (data) {
                             console.log(data);
                             role = data.data.role_no;
-                            if(role === 4 || role === 5 || role === 6){
+                            if (role === 4) {
                                 f_no = this.videos[index].fan_no;
                                 window.location.href = "fan-juji-list.html" + f_no;
-                            }else{
+                            } else {
                                 window.location.href = "b_login.html";
                             }
                         }
                     });
                 },
                 //鉴权——》直播间
-                toLive:function(index){
+                toLive: function (index) {
                     $.ajax({
                         url: basePath + "/getConByRequestToken",
                         type: "post",
@@ -1328,11 +1253,11 @@
                         success: function (data) {
                             console.log(data);
                             role = data.data.role_no;
-                            if(role!==null){
+                            if (role !== null) {
                                 // v_no= this.videos[index].v_no;
                                 // window.location.href = "live-list.html"
-                                window.location.href = 'http://49.234.77.189:5080/oflaDemo/zhibo.html';;
-                            }else{
+                                window.location.href = 'http://49.234.77.189:8080/video/盘点一拳超人中的帅气救场.mp4';
+                            } else {
                                 window.location.href = "b_login.html";
                             }
                         }
@@ -1371,16 +1296,33 @@
                     },
                     success: function (data) {
                         console.log(data);
-                        home.focuses = data.data;
+                        fo.focuses = data.data;
                     }
                 })
             }
         })
 
+
+        //获取视频列表
+        $.ajax({
+            url: basePath + "/getAllVideos",
+            type: "get",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {},
+            success: function (data) {
+                console.log(data);
+                console.log(data.list);
+                console.log(data.data.list);
+                home.videos = data.data.list;
+            }
+        })
+
     });
 </script>
-
-
 </body>
 
 </html>

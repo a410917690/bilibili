@@ -77,14 +77,14 @@ public class TOrdersServiceImpl implements TOrdersService {
         return tConsumersDao.to1Vip(con_no);
     }
 
-    @Override
-    public int to3Vip(Integer con_no) {
-        return tConsumersDao.to3Vip(con_no);
-    }
-
-    @Override
-    public int to12Vip(Integer con_no) {
-        return tConsumersDao.to12Vip(con_no);
-    }
+//    @Override
+//    public int to3Vip(Integer con_no) {
+//        return tConsumersDao.to3Vip(con_no);
+//    }
+//
+//    @Override
+//    public int to12Vip(Integer con_no) {
+//        return tConsumersDao.to12Vip(con_no);
+//    }
 
 }

@@ -1,32 +1,1529 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/up.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/iconfont/iconfont.css">
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>视频播放页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
+    <link rel="icon" href="assets/images/favicon.png">
+    <link href="css/iconfont/iconfont.css" rel="stylesheet">
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/night-mode.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/css/uikit.min.css">
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <!-- Google font
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/video.css">
+    <link href="css/iconfont/iconfont.css" rel="stylesheet">
+    <link href="css/list.css" rel="stylesheet">
+    <link href="css/scojs.css" rel="stylesheet">
+    <link href="css/colpick.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/video.css">
+    <link href="css/iconfont/iconfont.css" rel="stylesheet" >
+    <link href="css/list.css" rel="stylesheet">
+    <link href="css/scojs.css" rel="stylesheet" >
+    <link href="css/colpick.css" rel="stylesheet" >
+    <link href="css/bootstrap.css" rel="stylesheet" >
+    <link href="css/main.css" rel="stylesheet" >
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.shCircleLoader.js"></script>
+    <script src="js/sco.tooltip.js"></script>
+    <script src="js/colpick.js"></script>
+    <script src="js/jquery.danmu.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/head.js"></script>
+
 </head>
-<body>
-<div>
-    <div id="list">
-        <a class="list-tll">主站</a>
-        <a class="list-tl">番剧</a>
-        <a class="list-tl">直播</a>
-        <a class="list-tl">会员购</a>
-        <a class="list-tr">欢迎你，<span>**</span></a>
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- sidebar -->
+    <div class="main_sidebar">
+        <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+
+        <!-- sidebar header -->
+        <div class="sidebar-header">
+            <h4> 导航</h4>
+            <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+        </div>
+
+        <!-- sidebar Menu -->
+        <div class="sidebar">
+            <div class="sidebar_innr" data-simplebar>
+
+                <div class="sections">
+                    <h3> 导航 </h3>
+                    <ul>
+                        <li class="active"><a href="home.html"> <i class="uil-home-alt"></i> <span> 首页 </span> </a>
+                        </li>
+                        <li><a href="your-watch-later.html"> <i class="iconfont icon-shoucang"></i> <span> 我的收藏 </span>
+                        </a>
+                        </li>
+                        <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
+                            <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="browse-catagroies.html"> <i class="uil-layers"></i> <span> 视频分类</span> </a>
+                        </li>
+                        <li><a href="your-history.html"> <i class="uil-history"></i> <span> 观看记录 </span> </a></li>
+                    </ul>
+                </div>
+
+
+                <div id="focus">
+                    <div class="sections">
+                        <!--                <div class="sections" v-for="(f,index) in focuses">-->
+                        <h3> 关注列表 </h3>
+                        <!--                        <ul>-->
+                        <ul v-for="(f,index) in focuses">
+                            <li>
+                                <a v-bind:href="['single-channal.html?fo_fo_no='+focuses[index].con_no]">
+                                    <!--                            <li><a id="fo" href="single-channal.html?fo_fo_no=" v-on:click="AddParam(this)">-->
+
+                                    <!--                            <li>-->
+                                    <!--                                <a :href="single-channal.html+ '?fo_fo_no='+f.con_no">-->
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <!--                                <span id="fd" style="color: white">{{f.con_no}}</span>-->
+                                    <span> {{f.name}} </span> <span class="dot-notiv"></span></a>
+                            </li>
+                            <!--                            <li><a href="single-channal.html"> <img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                            <!--                                <span> {{focuses[0].name}} </span> <span class="dot-notiv"></span></a></li>-->
+
+                        </ul>
+
+                        <!-- view more subcription-->
+                        <!--                    <div class="uk-flex uk-flex-center mb-3">-->
+                        <!--                        <a href="browse-channals.html" class="button default circle px-5">-->
+                        <!--                            <i class="uil-plus mr-2"></i> 更多关注</a>-->
+                        <!--                    </div>-->
+
+                    </div>
+                </div>
+
+                <div class="sections">
+                    <h3> 更多 </h3>
+                    <ul>
+                        <li><a href="page-setting.html"><i class="uil-cog"></i> <span> 账户设置 </span> </a></li>
+                        <li><a href="#"><i class="uil-user-circle"></i> <span> 账户 </span> </a>
+                            <ul>
+                                <li>
+                                    <a href="b_login.html"> 登录 </a>
+                                    <a href="b_register.html"> 注册 </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="foot">
+                    <div class="foot-content">
+                        <p>© 2021 <strong>IK</strong>. 版权所有. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="p"></div>
-    <div class="col-home">
-        <a>我要投稿</a>
+
+    <!-- header -->
+    <div id="main_header">
+        <header>
+
+            <!-- Logo-->
+            <i class="header-traiger uil-bars"
+               uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></i>
+
+            <!-- Logo-->
+            <div id="logo">
+                <!--                                <a href="#"> -->
+                <!--                                    <img src="assets/images/logo.png" alt="">-->
+                <!--                                </a>-->
+                <!--                <a href="#"> -->
+                <!--                    <img src="assets/images/logo-light.png" class="logo-inverse" alt="">-->
+                <!--                </a>-->
+                <!--                    <a href="#"> <img src="admin/images/logo.jpg" alt=""></a>-->
+                <!--                    <a href="#"> <img src="admin/images/logo.jpg" width="50px" height="236" class="logo-inverse" alt=""></a>-->
+            </div>
+
+            <!-- form search-->
+            <div class="head_search">
+                <form>
+                    <div class="head_search_cont">
+                        <input value="" type="text" class="form-control"
+                               placeholder="Adobe XD设计免费教程..." autocomplete="off">
+                        <i class="s_icon uil-search-alt"></i>
+                    </div>
+
+                    <!-- Search box dropdown -->
+                    <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
+                         class="dropdown-search">
+                        <!-- User menu -->
+
+                        <ul class="dropdown-search-list">
+                            <li class="list-title"> 最近搜索</li>
+                            <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
+                            <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
+                            </li>
+                            <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
+                            </a></li>
+                            <li><a href="single-video.html"> Adobe XD设计教程公司网站登录页面
+                                .. </a></li>
+                            <div class="menu-divider">
+                                <li class="list-footer"><a href="your-history.html"> 观看记录 </a></li>
+                            </div>
+                        </ul>
+
+                    </div>
+
+
+                </form>
+            </div>
+
+            <!-- user icons -->
+            <div class="head_user">
+
+                <a href="page-pricing.html" class="btn-upgrade uk-visible@s"> <i class="uil-bolt-alt"></i> 大会员</a>
+                <a href="#" class="btn-upload uk-visible@s"> <i class="uil-cloud-upload"></i> 投稿</a>
+
+                <!-- upload dropdown box -->
+                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
+                     class="dropdown-notifications">
+
+                    <!-- notivication header -->
+                    <div class="dropdown-notifications-headline">
+                        <h4>Upload Video</h4>
+                    </div>
+
+                    <!-- notification contents -->
+                    <div class="dropdown-notifications-content uk-flex uk-flex-middle uk-flex-center text-center">
+
+
+                        <div class="uk-flex uk-flex-column choose-upload  text-center">
+                            <img src="assets/images/upload.png" width="70" class="m-auto" alt="">
+                            <p class="my-3"> 分享生活，分享每一份美好 <br> 点击上传...
+                            </p>
+                            <div uk-form-custom>
+                                <input type="file">
+                                <a href="#" class="button soft-primary small"> 选择文件</a>
+                            </div>
+
+                            <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
+                            <!--                               uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">-->
+                            <!--                                Or Import Video -->
+                            <!--                            </a>-->
+                        </div>
+
+                        <!--                        <div class="uk-flex uk-flex-column choose-upload" hidden>-->
+                        <!--                            <i class="uil-import icon-large text-muted"></i>-->
+                        <!--                            <p class="my-3"> Import videos from YouTube <br> Copy / Paste your video link here </p>-->
+                        <!--                            <form class="uk-grid-small" uk-grid>-->
+                        <!--                                <div class="uk-width-expand">-->
+                        <!--                                    <input type="text" class="uk-input uk-form-small" placeholder="Paste link">-->
+                        <!--                                </div>-->
+                        <!--                                <div class="uk-width-auto">-->
+                        <!--                                    <button type="submit" class="button soft-primary">-->
+                        <!--                                        Import-->
+                        <!--                                    </button>-->
+                        <!--                                </div>-->
+                        <!--                            </form>-->
+                        <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
+                        <!--                               uk-toggle="target: .choose-upload ; animation: uk-animation-slide-left-small, uk-animation-slide-right-medium; queued: true">-->
+                        <!--                                Or Upload Video </a>-->
+                        <!--                        </div>-->
+
+
+                    </div>
+                    <hr class="m-0">
+                    <div class="text-center uk-text-small py-2 uk-text-muted"> 您的视频大小不得超过999MB
+                    </div>
+                </div>
+
+
+                <!-- videos feed  -->
+                <a href="#video" class="opts_icon" uk-toggle>
+                    <i class="uil-youtube-alt"></i>
+                    <!--                    <span></span> -->
+                </a>
+
+                <!-- videos feed  offcanvas-->
+                <div id="video" uk-offcanvas="overlay: true ;flip: true">
+                    <div class="uk-offcanvas-bar uk-width-large">
+
+                        <h3> 我的投稿 </h3>
+                        <hr class="mb-3" style="margin:0 -20px">
+                        <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                        <div class="video-list-small uk-child-width-1-1" uk-grid>
+
+                            <div>
+                                <a href="single-video.html" class="video-post video-post-list">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="video-post-count">1.4M</span>
+                                        <span class="video-post-time">23:00</span>
+                                        <span class="play-btn-trigger"></span>
+
+                                        <img src="assets/images/video-thumbal/2.png" alt="">
+
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> How to create a basic Sticky HTML element..</h3>
+                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                        <span class="video-post-user">Jonathan Madano</span>
+                                        <span class="video-post-views">531k views</span>
+                                        <span class="video-post-date"> 2 weeks ago </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="single-video.html" class="video-post video-post-list">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="video-post-count">2.7k</span>
+                                        <span class="video-post-time">40:00</span>
+                                        <span class="play-btn-trigger"></span>
+                                        <img src="assets/images/video-thumbal/1.png" alt="">
+                                    </div>
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> Learn how to create PHP singleton class </h3>
+                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
+                                        <span class="video-post-user">Stella Johnson</span>
+                                        <span class="video-post-views">938k views</span>
+                                        <span class="video-post-date"> 3 weeks ago </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="single-video.html" class="video-post video-post-list">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="video-post-count">2.3M</span>
+                                        <span class="video-post-time">14:00</span>
+                                        <span class="play-btn-trigger"></span>
+                                        <img src="assets/images/video-thumbal/3.png" alt="">
+                                    </div>
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> Learn Creating Laravel Package Initializing ... </h3>
+                                        <img src="assets/images/avatars/avatar-5.jpg" alt="">
+                                        <span class="video-post-user">Alex Dolgove</span>
+                                        <span class="video-post-views">531k views</span>
+                                        <span class="video-post-date"> 2 weeks ago </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="single-video.html" class="video-post video-post-list">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="video-post-count">1.4M</span>
+                                        <span class="video-post-time">23:00</span>
+                                        <span class="play-btn-trigger"></span>
+                                        <img src="assets/images/video-thumbal/4.png" alt="">
+                                    </div>
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> Learn how to upload files using Laravel .. </h3>
+                                        <img src="assets/images/avatars/avatar-4.jpg" alt="">
+                                        <span class="video-post-user">Adrian Mohani</span>
+                                        <span class="video-post-views">531k views</span>
+                                        <span class="video-post-date"> 2 weeks ago </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="single-video.html" class="video-post video-post-list">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="video-post-count">1.4M</span>
+                                        <span class="video-post-time">23:00</span>
+                                        <span class="play-btn-trigger"></span>
+                                        <img src="assets/images/video-thumbal/2.png" alt="">
+                                    </div>
+
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> How to create a basic Sticky HTML element ..</h3>
+                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                        <span class="video-post-user">Jonathan Madano</span>
+                                        <span class="video-post-views">531k views</span>
+                                        <span class="video-post-date"> 2 weeks ago </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="single-video.html" class="video-post video-post-list">
+                                    <!-- Blog Post Thumbnail -->
+                                    <div class="video-post-thumbnail">
+                                        <span class="video-post-count">2.7k</span>
+                                        <span class="video-post-time">40:00</span>
+                                        <span class="play-btn-trigger"></span>
+                                        <img src="assets/images/video-thumbal/1.png" alt="">
+                                    </div>
+                                    <!-- Blog Post Content -->
+                                    <div class="video-post-content">
+                                        <h3> Learn how to create PHP singleton class </h3>
+                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
+                                        <span class="video-post-user">Stella Johnson</span>
+                                        <span class="video-post-views">938k views</span>
+                                        <span class="video-post-date"> 3 weeks ago </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- profile -image -->
+                <a class="opts_account"> <img src="assets/images/avatars/avatar-2.jpg" alt=""></a>
+
+                <!-- profile dropdown-->
+                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small"
+                     class="dropdown-notifications small">
+
+                    <!-- User Name / Avatar -->
+                    <a href="#">
+
+                        <div class="dropdown-user-details">
+                            <div class="dropdown-user-avatar">
+                                <img src="assets/images/avatars/avatar-2.jpg" alt="">
+                            </div>
+                            <div class="dropdown-user-name">
+                                <span id="usn"> 未登录</span>
+                                <span id="yz"> 未登录 <i class="uil-check"></i> </span>
+                            </div>
+                        </div>
+
+                    </a>
+
+                    <!-- User menu -->
+
+                    <ul class="dropdown-user-menu">
+                        <li><a href="page-pricing.html"> <i class="uil-bolt"></i> 大会员</a></li>
+                        <!--                        <li><a href="browse-channals.html"> <i class="uil-user"></i> 我的关注 </a></li>-->
+                        <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i> 我推荐的视频 </a></li>
+                        <li><a href="b_collections.html"> <i class="uil-history"></i> 我的收藏 </a></li>
+                        <li><a href="page-setting.html"> <i class="uil-cog"></i> 账户设置</a></li>
+                        <li>
+                            <a href="#" id="night-mode" class="btn-night-mode">
+                                <i class="icon-feather-moon"></i> 夜间模式
+                                <span class="btn-night-mode-switch">
+                                        <span class="uk-switch-button"></span>
+                                    </span>
+                            </a>
+                        </li>
+                        <div class="menu-divider">
+                            <li><a href="b_login.html"> <i class="icon-feather-log-out"></i> 退出登录</a>
+                            </li>
+                        </div>
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+        </header>
+
     </div>
-    <div id="up">
-        <span class="iconfont icon-shangchuan" style="font-size: 88px;"></span>
-        <br>
-        <a href="javascript:;" class="upload">选择文件
-            <input class="change" type="file" multiple="multiple"/>
-        </a>
+
+
+
+
+
+    <div id="v">
+
+        <div id="danmup" style="left: 150px;top:120px;padding-left: 100px;margin-left: 100px"></div>
+        <div class="alert_back">加载中</div>
+<!--        <div id="ti" style="font-size: 25px;"><span style="padding-top: 30px;padding-left: 20px"></span></div>-->
+        <h3 style="margin-left: 300px;padding-left: 20px;margin-top: 70px;padding-top: 70px">性能的呢我i女此SBCBNEWINV</h3>
+        <div style="padding-top: -15px;margin-top: -15px">
+            <span style="margin-left: 300px;padding-left: 20px;margin-top: -50px;padding-top:-25px;color: gray;font-size: 11px">
+            <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
+            <span style="margin-left: 50px;padding-left: 20px;margin-top: -50px;padding-top:-25px;color: gray;font-size: 11px">
+                <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
+        </div>
+
+        <div class="video-post-content" style="margin-left: 320px;flex: 2;padding-top: 26px;">
+            <img src="assets/images/avatars/avatar-3.jpg" alt="">
+            <span class="video-post-user">作者：sonnie</span>
+        </div>
+        <div style="margin-left: 320px;height: 30px;width: 1100px;border-bottom: 1px solid;border-bottom-color:silver">
+        </div>
+
+        <div id="icon" style="margin-left: 270px;margin-top: 100px;display: flex;">
+            <div>
+                <span id="dz" class="iconfont icon-dianzan" v-on:click="give_a_like"></span>
+                <div><span id="dz0" style="font-size: 18px;margin-left: 8px">{{video.v_likes}}</span></div>
+            </div>
+            <div>
+                <span id="jb" class="iconfont icon-jinbi" v-on:click="give_coins"></span>
+                <div><span id="jb0" style="font-size: 18px;margin-left: 9px">{{video.v_coins}}</span></div>
+            </div>
+            <div>
+                <span id="cl" class="iconfont icon-collection-b" v-on:click="collect"></span>
+                <div><span id="cl0" style="font-size: 16px;margin-left: -14px;">收藏一下</span></div>
+            </div>
+        </div>
+
+
+        <!--    评论区-->
+        <div style="padding-left: 150px;padding-top: 50px;margin-left: 300px">
+            <span style="font-size: 30px">视频评论</span>
+        </div>
+        <div id="com" style="padding-left: 180px;margin-left: 270px">
+            <div id="add">
+                <div style="padding-top: 30px;padding-bottom: 10px">评论一下嘛...</div>
+                <textarea name='comment' id="myCom" rows="8" cols="5" class='form-control' style='width: 840px;
+                      background:white;border: 1px solid gainsboro;'
+                          placeholder='发表一条友善的评论'>
+        </textarea>
+                <button id="s" style="height: 30px;background-color: deepskyblue;color: white;border: deepskyblue"
+                        v-on:click="give_a_comment">&nbsp;发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表&nbsp;</button>
+            </div>
+            <br>
+
+
+            <div class="comments" v-for="com in comments">
+                <div>
+                    <span id="showName">{{com.name}}</span>
+                </div>
+                <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 900px;
+                      background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{com.con_comment}}
+            </textarea>
+                <!--                <div>-->
+                <!--                    <div style="display:flex;">-->
+                <!--                        <h5 id="hf" v-on:click="showRe(com.com_no)" style="color: gray">查看回复</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--                        <h5 id="hhh" v-on:click="hhh()" style="color: gray">回复</h5>-->
+                <!--                    </div>-->
+                <!--                    <div class="sec">-->
+                <!--                        <div class="comments" v-for="re in reply">-->
+                <!--                            <div>-->
+                <!--                                <span id="re_name">回复者：{{re.name}}</span>-->
+                <!--                            </div>-->
+                <!--                            <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 600px; background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{re.com_com}}-->
+                <!--                        </textarea>-->
+                <!--                            <h5 id="yc" v-on:click="yc()" style="color: gray">隐藏回复</h5>-->
+                <!--                            <br>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+
+                <!--                    <div class="hfk">-->
+                <!--                     <textarea name='comment' id="r" rows="8" cols="5" class='form-control' style='width: 840px;background:white;border: 1px solid gainsboro;' placeholder='发表一条友善的评论'>-->
+                <!--                     </textarea>-->
+                <!--                        <span id="djhf" v-on:click="give_a_reply(com.com_no)" style="width: 50px;height: 30px;border: 1px solid deepskyblue;background-color: deepskyblue;color: white">回复</span>-->
+                <!--                        <h5 id="yck" v-on:click="tck()" style="color: gray">隐藏回复</h5>-->
+                <!--                    </div>-->
+
+                <!--                </div>-->
+                <br><br>
+            </div>
+
+            <!--            <script>$(".sec").hide();$(".hfk").hide()</script>-->
+
+            <!--        <div style="padding-left: 400px">-->
+            <!--            <input type="button" id="before" value="上一页 " style="border: gray 1px solid">-->
+            <!--            <input type="button" id="next" value=" 下一页" style="border: gray 1px solid">-->
+            <!--        </div>-->
+
+        </div>
     </div>
+
+
+
 </div>
+</div>
+<!-- For Night mode -->
+<script>
+    (function (window, document, undefined) {
+        'use strict';
+        if (!('localStorage' in window)) return;
+        var nightMode = localStorage.getItem('gmtNightMode');
+        if (nightMode) {
+            document.documentElement.className += ' night-mode';
+        }
+    })(window, document);
+
+
+    (function (window, document, undefined) {
+
+        'use strict';
+
+        // Feature test
+        if (!('localStorage' in window)) return;
+
+        // Get our newly insert toggle
+        var nightMode = document.querySelector('#night-mode');
+        if (!nightMode) return;
+
+        // When clicked, toggle night mode on or off
+        nightMode.addEventListener('click', function (event) {
+            event.preventDefault();
+            document.documentElement.classList.toggle('night-mode');
+            if (document.documentElement.classList.contains('night-mode')) {
+                localStorage.setItem('gmtNightMode', true);
+                return;
+            }
+            localStorage.removeItem('gmtNightMode');
+        }, false);
+
+    })(window, document);
+</script>
+
+
+<!-- javaScripts
+            ================================================== -->
+<script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
+<script src="assets/js/simplebar.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    $(function () {
+        var username = localStorage.getItem("name");
+        $("#usn").html(username);
+        if(username !== null){
+            $("#yz").html("已验证");
+        }
+
+        var con_no;
+        var home = new Vue({
+            el: '#focus',
+            data: {
+                focuses:[],
+                videos:[],
+                fans:[],
+                lives:[]
+            },
+            mounted: function () {
+
+            },
+            methods: {
+                // to: function (con_no) {
+                //     if(token===null){
+                //         window.location = "b_login.html";
+                //     }else{
+                //         window.location.href = 'b_video.html?id='+v_no;
+                //         //加入历史记录
+                //         $.ajax({
+                //             url: basePath + "/insertHistory",
+                //             data: {"con_no": con_no,"v_no":v_no},
+                //             beforeSend: function (request) {
+                //                 request.setRequestHeader("Authorization", token);
+                //             },
+                //             type: "post",
+                //             dataType: "json",
+                //             success: function (data) {
+                //                 console.log(data);
+                //             }
+                //         })
+                //     }
+                // },
+            }
+        });
+
+
+
+        //获取用户id
+        $.ajax({
+            url: basePath + "/getConsumersByName",
+            type: "post",
+            dataType: "json",//接收类型
+            // dataType: "text",
+            // beforeSend:function(request){
+            //     request.setRequestHeader("Authorization",token);
+            // },
+            data: {
+                "name": username
+            },
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.con_no);
+                con_no = data.data.con_no;
+                $.ajax({
+                    url: basePath + "/getAllFocusConsumerByCon",
+                    type: "post",
+                    dataType: "json",//接收类型
+                    // dataType: "text",
+                    // beforeSend:function(request){
+                    //     request.setRequestHeader("Authorization",token);
+                    // },
+                    data: {
+                        "con_no": con_no
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        home.focuses = data.data;
+                    }
+                })
+            }
+        })
+
+    });
+</script>
+
+<script>
+    $(function () {
+
+        var token = localStorage.getItem("token");
+        var name = localStorage.getItem("name");
+        var con_no;
+        var v_no;
+        var num_likes;
+        var com_page = 1;
+
+        var vl = new Vue({
+            el: '#v',
+            data: {
+                video: [],
+                comments: [],
+                isCol:false,
+                isLike:false,
+                num_likes:num_likes,
+                reply:[],
+            },
+            mounted: function () {
+
+            },
+            methods: {
+
+                // hf:function(){
+                //
+                // },
+
+                showRe:function(com_no){
+                    $(".sec").show();
+
+                    $.ajax({
+                        url: basePath + "/getComReply",
+                        data:{"com_no":com_no},
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            if(data.code === 200){
+                                vl.reply = data.data;
+                            }
+                        }
+                    });
+                },
+
+                collect: function () {
+                    if (this.isCol ===  false){
+                        $.ajax({
+                            url: basePath + "/insertCollections",
+                            data:{"con_no": con_no, "v_no" : v_no},
+                            beforeSend:function(request){
+                                request.setRequestHeader("Authorization",token);
+                            },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                // console.log(data);
+                                if(data.code === 200){
+                                    $("#cl").css({"color": "#ff568b"});
+                                    $("#cl0").text("收藏成功").css({"font-size":"13px","margin-left":"-8px"});
+                                    this.isCol = true;
+                                }
+                                else {
+                                    // $("#cl0").text("不能重复收藏哦").css({"font-size":"13px","margin-left":"-30px"});
+                                    $.ajax({
+                                        url: basePath + "/deleteCollections",
+                                        data:{"con_no": con_no, "v_no" : v_no},
+                                        beforeSend:function(request){
+                                            request.setRequestHeader("Authorization",token);
+                                        },
+                                        type: "post",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            // console.log(data);
+                                            if(data.code === 200){
+                                                $("#cl").css({"color": "gray"});
+                                                $("#cl0").text("已取消收藏").css({"font-size":"13px","margin-left":"-13px"});
+                                                this.isCol = false;
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }else {
+                        $.ajax({
+                            url: basePath + "/deleteCollections",
+                            data:{"con_no": con_no, "v_no" : v_no},
+                            beforeSend:function(request){
+                                request.setRequestHeader("Authorization",token);
+                            },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                // console.log(data);
+                                if(data.code === 200){
+                                    $("#cl").css({"color": "gray"});
+                                    $("#cl0").text("已取消收藏").css({"font-size":"13px","margin-left":"-13px"});
+                                    this.isCol = false;
+                                }else {
+                                    $.ajax({
+                                        url: basePath + "/insertCollections",
+                                        data: {"con_no": con_no, "v_no": v_no},
+                                        beforeSend:function(request){
+                                            request.setRequestHeader("Authorization",token);
+                                        },
+                                        type: "post",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            // console.log(data);
+                                            if (data.code === 200) {
+                                                $("#cl").css({"color": "#ff568b"});
+                                                $("#cl0").text("收藏成功").css({
+                                                    "font-size": "13px",
+                                                    "margin-left": "-8px"
+                                                });
+                                                this.isCol = true;
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        });
+                    }
+                },
+
+
+                give_a_like: function () {
+                    if (this.isLike ===  false){
+                        $.ajax({
+                            url: basePath + "/giveLike",
+                            data:{"con_no": con_no, "v_no" : v_no},
+                            beforeSend:function(request){
+                                request.setRequestHeader("Authorization",token);
+                            },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                // console.log(data);
+                                if(data.code === 200){
+                                    $("#dz").css({"color": "#ff568b"});
+                                    this.isLike = true;
+                                    $.ajax({
+                                        url: basePath + "/getLikesNum",
+                                        data:{"v_no":v_no},
+                                        beforeSend:function(request){
+                                            request.setRequestHeader("Authorization",token);
+                                        },
+                                        type: "post",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            console.log(data.data);
+                                            if(data.code === 200){
+                                                num_likes = data.data;
+                                                // window.location.href = "b_video.html?v_no=" + v_no;
+                                            }
+                                        }
+                                    });
+                                    window.location.href = "single-video.html?v_no=" + v_no;
+                                }
+                                else {
+                                    $("#dz0").text("不能重复点赞哦").css({"font-size":"13px","margin-left":"-30px"});
+                                }
+                            }
+                        });
+                    }
+                },
+
+
+                give_coins: function () {
+                    $.ajax({
+                        url: basePath + "/giveCoins",
+                        data:{"con_no": con_no, "v_no" : v_no},
+                        beforeSend:function(request){
+                            request.setRequestHeader("Authorization",token);
+                        },
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            // console.log(data);
+                            if(data.code === 200){
+                                $("#jb").css({"color": "#ff568b"});
+                                $("#jb0").text("已投币").css({"font-size":"13px","margin-left":"-0.5px"});
+                            }else {
+                                // $("#jb").css({"color": "#ff568b"});
+                                $("#jb0").text("币数不足，请充值").css({"font-size":"13px","margin-left":"-30px"});
+                            }
+                        }
+                    });
+                },
+                //举报视频功能
+                // reportVideo: function () {
+                //     $.ajax({
+                //         url: basePath + "/",
+                //         data:{"con_no": con_no, "v_no" : v_no},
+                //         beforeSend:function(request){
+                //             request.setRequestHeader("Authorization",token);
+                //         },
+                //         type: "post",
+                //         dataType: "json",
+                //         success: function (data) {
+                //             // console.log(data);
+                //             if(data.code === 200){
+                //                 $("#rv").css({"color": "#ff568b"});
+                //                 $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                //             }else {
+                //                 $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                //             }
+                //         }
+                //     });
+                // },
+                //举报作者功能
+                // reportCon: function () {
+                //     $.ajax({
+                //         url: basePath + "/",
+                //         data:{"con_no": con_no, "re_con_no" : },
+                //         beforeSend:function(request){
+                //             request.setRequestHeader("Authorization",token);
+                //         },
+                //         type: "post",
+                //         dataType: "json",
+                //         success: function (data) {
+                //             // console.log(data);
+                //             if(data.code === 200){
+                //                 $("#rv").css({"color": "#ff568b"});
+                //                 $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                //             }else {
+                //                 $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                //             }
+                //         }
+                //     });
+                // },
+
+
+                give_a_comment: function () {
+                    $.ajax({
+                        url: basePath + "/insertComment",
+                        data:{"con_comment":$("#myCom").val(),"con_no": con_no, "v_no" : v_no},
+                        beforeSend:function(request){
+                            request.setRequestHeader("Authorization",token);
+                        },
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            window.location.href = "single-video.html?v_no=" + v_no;
+                        }
+                    });
+                },
+
+                give_a_reply:function(com_no){
+                    $.ajax({
+                        url: basePath + "/insertComReply",
+                        data:{"com_com":$("#r").val(),"com_no": com_no,"con_no":con_no},
+                        beforeSend:function(request){
+                            request.setRequestHeader("Authorization",token);
+                        },
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            // window.location.href = "b_video.html?v_no=" + v_no;
+
+                            window.location.href = "single-video.html?v_no=" + v_no;
+                        }
+                    });
+
+                },
+
+
+
+
+                yc:function(){
+                    $(".sec").hide();
+                },
+
+                hhh:function () {
+                    $(".hfk").show();
+                },
+
+                tck:function () {
+                    $(".hfk").hide();
+                },
+            }
+        });
+
+
+        $("#next").click(function(){
+            com_page += 1;
+        })
+
+        $("#before").click(function(){
+            if(com_page === 1){
+                com_page = 1;
+            }else{
+                com_page -= 1;
+            }
+        })
+
+        let oneValues = function () {
+            var url = window.location.search; //获取url中"?"符后的字串
+            // alert(url);
+            if (url.indexOf("?") !== -1) {
+                v_no = url.substr(url.indexOf("=") + 1);
+            }
+            // alert(t_no)
+            return v_no;
+        };
+        oneValues();
+
+
+        //默认执行
+        let b = function () {
+
+            $.ajax({
+                url: basePath + "/getCommentsByVno",
+                data:{"page":1,"v_no":v_no},
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    if(data.code === 200){
+                        vl.comments = data.data.list;
+                    }
+                }
+            });
+
+            $.ajax({
+                url: basePath + "/getConsumersByName?name=" + name,
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data.data.con_no);
+                    con_no = data.data.con_no;
+                    $.ajax({
+                        url: basePath + "/isCollections?con_no="+con_no+"&v_no="+v_no,
+                        type: "post",
+                        beforeSend:function(request){
+                            request.setRequestHeader("Authorization",token);
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            if(data.code === 200){
+                                $("#cl").css({"color": "#ff568b"});
+                                $("#cl0").text("收藏过啦").css({"font-size":"13px","margin-left":"-8px"});
+                                vl.isCol = true;
+                            }
+                        }
+                    });
+
+                    $.ajax({
+                        url: basePath + "/isLike",
+                        data:{"con_no":con_no,"v_no":v_no},
+                        beforeSend:function(request){
+                            request.setRequestHeader("Authorization",token);
+                        },
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            if(data.code !== 200){
+                                $("#dz").css({"color": "#ff568b"});
+                                // $("#cl0").text("啦").css({"font-size":"13px","margin-left":"-8px"});
+                                vl.isLike = true;
+                            }
+                        }
+                    });
+
+
+
+                    var DanmuPlayer = function (element, options) {
+                        this.$element = $(element);
+                        this.options = options;
+                        $(element).data("paused", 1);
+                        var that = this;
+                        //播放器全局样式
+                        this.$element.css({
+                            "position": "relation",
+                            //"left":this.options.left,
+                            //"top":this.options.top,
+                            "width": this.options.width,
+                            "height": this.options.height,
+                            "overflow": "hidden"
+                        });
+
+
+                        //选择器规范
+                        this.$element.addClass("danmu-player");
+                        if (!$(element).attr("id"))
+                            $(element).attr("id", (Math.random() * 65535).toString());
+                        this.id = "#" + $(element).attr("id");
+
+
+                        //弹幕层设置,使用了定制的jquery.danmu.js
+                        this.$element.append('<div class="danmu-div" id="' + $(element).attr("id") + '-danmu-div" ></div>');
+                        $(this.id + " .danmu-div").danmu({
+                            width: "100%",
+                            height: "100%",
+                            speed: options.speed,
+                            opacity: options.opacity,
+                            fontSizeSmall: options.fontSizeSmall,
+                            FontSizeBig: options.FontSizeBig,
+                            topBottonDanmuTime: options.topBottonDanmuTime,
+                            SubtitleProtection: true,
+                            positionOptimize: true
+                        });
+
+
+                        //控件添加
+                        this.$element.css("height", this.$element.height() + 40);
+                        this.$element.append('<video class="danmu-video" src="' + options.src + '" width="' + options.width + '" height="' + options.height + '"></video>');
+                        this.$element.append('<div class="danmu-player-load" ></div>');
+                        this.$element.append('<div class="danmu-player-ctrl" ></div>');
+                        this.$element.append('<div class="danmu-player-tip" ></div>');
+                        this.$tip = $(this.id + " .danmu-player-tip");
+                        this.$ctrl = $(this.id + " .danmu-player-ctrl");
+                        this.$ctrl.append('<div class="ctrl-progress"><div class="current">' +
+                            '<div class="progress-handle"></div></div>' +
+                            '<div class="buffered"></div></div>');
+                        this.$ctrl.append('<div class="ctrl-main"></div>');
+                        this.$ctrlMain = $(this.id + " .ctrl-main");
+                        this.$ctrlMain.append('<div class="play-btn ctrl-btn"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></div>');
+                        this.$ctrlMain.append('<div class="current-time time-text ctrl-btn">0:00</div>');
+                        this.$ctrlMain.append('<div class="slash time-text ctrl-btn">/</div>');
+                        this.$ctrlMain.append('<div class="duration ctrl-btn time-text" >0:00</div>');
+                        this.$ctrlMain.append('<div class="opt-btn ctrl-btn " ><span class="glyphicon glyphicon-text-color" aria-hidden="true"></div>');
+                        this.$ctrlMain.append('<input class="danmu-input ctrl-btn"   type="textarea" id="danmu_text" max=300 />'); // -> button あ
+                        this.$ctrlMain.append('<div class=" send-btn  ctrl-btn"  >发送 ></div>');
+                        // this.$ctrlMain.append('<div class="full-screen   ctrl-btn-right"><span class=" glyphicon glyphicon-resize-full" aria-hidden="true"></span></div>');
+                        this.$ctrlMain.append('<div class="loop-btn   ctrl-btn-right"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></div>');
+                        this.$ctrlMain.append('<div class="show-danmu  ctrl-btn-right ctrl-btn-right-active"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>');
+                        this.$ctrlMain.append('<div class="opacity ctrl-btn-right"><input class="ctrl-btn-right danmu-op" value="100" type="range" /></div>');
+                        $("body").append('<div id="' + this.id.slice(1, this.id.length) + 'fontTip"  hidden="true">' +
+                            '<form  id="danmu-position">弹幕位置：' +
+                            '<input type="radio" checked="checked"  name="danmu_position" value=0 />滚动&nbsp;&nbsp;<input type="radio" name="danmu_position" value=1 />顶端' +
+                            '&nbsp;&nbsp;<input type="radio" name="danmu_position" value=2 />底端&nbsp;&nbsp;</form>' +
+                            '<form  id="danmu-size" >弹幕大小：<input   type="radio" checked="checked"  name="danmu_size" value="1" />大文字&nbsp;&nbsp;' +
+                            '<input   type="radio" name="danmu_size" value="0" />小文字&nbsp;&nbsp;</form>' +
+                            '<div class="colpicker" ></div></div>');
+
+
+                        //播放器状态
+                        this.video = $(this.id + " .danmu-video").get(0);
+                        this.current = 0;  //当前播放时间
+                        this.duration = this.video.duration;  //总时间
+                        this.danmuPlayerFullScreen = false;
+                        this.danmuShowed = true;
+                        this.isLoop = false;
+                        this.danmuSize = 0;
+                        this.danmuColor = this.options.defaultColor;
+                        this.danmuPosition = 0;
+                        //等待层
+                        $(this.id + " .danmu-player-load").shCircleLoader({
+                            keyframes: "0%   {background:black}\
+         40%  {background:transparent}\
+         60%  {background:transparent}\
+         100% {background:black}"
+                        });
+
+                        //tip声明
+                        var temFontTipID = this.id + "fontTip";
+                        $(this.id + " .opt-btn").scojs_tooltip({
+                            appendTo: this.id,
+                            contentElem: temFontTipID,
+                            position: "n"
+                        });
+                        $(this.id + " .opacity").scojs_tooltip({
+                            appendTo: this.id,
+                            content: '弹幕透明度'
+                        });
+                        $(this.id + " .show-danmu").scojs_tooltip({
+                            appendTo: this.id,
+                            content: '开启/关闭 弹幕'
+                        });
+                        $(this.id + " .loop-btn").scojs_tooltip({
+                            appendTo: this.id,
+                            content: '循环播放'
+                        });
+                        $(this.id + " .full-screen").scojs_tooltip({
+                            appendTo: this.id,
+                            content: '全屏'
+                        });
+                        $(this.id + ' .colpicker').colpick({
+                            flat: true,
+                            layout: 'hex',
+                            submit: 0,
+                            color: "ffffff",
+                            onChange: function (hsb, hex, rgb, el, bySetColor) {
+                                that.danmuColor = "#" + hex
+                            }
+                        });
+
+                        //从后端获取弹幕
+                        this.getDanmu = function () {
+                            $.get(basePath + "/Fan/getDanMu?v_no=" + v_no, function (data, status) {
+                                // danmuFromSql = eval(data);
+                                console.log(data);
+                                for (var i = 0; i < data.length; i++) {
+                                    // try {
+                                    //     var danmuLs = eval('(' + danmuFromSql[i] + ')');
+                                    // } catch (e) {
+                                    //     continue;
+                                    // }
+                                    $(that.id + ' .danmu-div').danmu("addDanmu",data[i]);
+                                }
+                            });
+                        };
+
+                        if (options.urlToGetDanmu)
+                            this.getDanmu();
+
+                        //发送弹幕
+                        this.sendDanmu = function (e) {
+                            var text = $(e.data.that.id + " .danmu-input").get(0).value;
+                            if (text.length === 0) {
+                                return;
+                            }
+                            if (text.length > 255){
+                                alert("弹幕过长！");
+                                return;
+                            }
+                            text = text.replace(/&/g, "&gt;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\n/g, "<br>");
+                            var color = e.data.that.danmuColor;
+                            var position = $(e.data.that.id + " input[name=danmu_position]:checked").val();
+                            var size = $(e.data.that.id + " input[name=danmu_size]:checked").val();
+                            var time = $(e.data.that.id + " .danmu-div").data("nowTime") + 3;
+                            var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + '}';
+                            if (e.data.that.options.urlToPostDanmu)
+
+                                // $.post(e.data.that.options.urlToPostDanmu, {
+                                //     // danmu: textObj
+                                //
+                                // });
+
+                                $.ajax({
+                                    url:basePath + "/insertDanMu",
+                                    data:{"color":color,"con_no":con_no,"position":position,"size":size,"text":text,"time":time,"v_no":v_no},
+                                    type:"post",
+                                    beforeSend:function(request){
+                                        request.setRequestHeader("Authorization",token);
+                                    },
+                                    dataType:"text",
+                                    success: function (data) {
+                                        console.log(data);
+                                    }
+                                });
+                            textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + ',"isnew":""}';
+                            var newObj = eval('(' + textObj + ')');
+                            $(e.data.that.id + " .danmu-div").danmu("addDanmu", newObj);
+                            $(e.data.that.id + " .danmu-input").get(0).value = '';
+                            //触发事件
+                            $(e.data.that).trigger("senddanmu");
+                        };
+
+                        //播放暂停
+                        this.playPause = function (e) {
+                            if (e.data.video.paused) {
+                                e.data.video.play();
+                                $(e.data.that.id + " .danmu-div").danmu('danmuResume');
+                                $(e.data.that.id + " .play-btn span").removeClass("glyphicon-play").addClass("glyphicon-pause");
+                            }
+                            else {
+                                e.data.video.pause();
+                                $(e.data.that.id + " .danmu-div").danmu('danmuPause');
+                                $(e.data.that.id + " .play-btn span").removeClass("glyphicon-pause").addClass("glyphicon-play");
+                            }
+                        };
+
+                        //主计时器
+                        var mainTimer = setInterval(function () {
+                            //缓冲条
+                            var bufTime=$(that.id + " .danmu-video").get(0).buffered.end($(that.id + " .danmu-video").get(0).buffered.length-1);
+
+                            var buffPrecent = (bufTime/that.duration) * 100;
+                            $(that.id + ".danmu-player .ctrl-progress .buffered ").css("width", buffPrecent + "%");
+                            // 时间轴修正
+                            // if (Math.abs($(that.id + " .danmu-div").data("nowTime") - parseInt(that.video.currentTime)*10) > 1) {
+                            //     $(that.id + " .danmu-div").data("nowTime", parseInt(that.video.currentTime)*10);
+                            //     console.log("revise time：")
+                            // }
+                        }, 1000);
+
+
+                        var secTimer = setInterval(function () {
+                            // if (Math.abs($(that.id + " .danmu-div").data("nowTime") - parseInt(that.video.currentTime*10)) > 1) {
+                            //  console.log("revise time"+$(that.id + " .danmu-div").data("nowTime")+ ","+that.video.currentTime*10);
+                            $(that.id + " .danmu-div").data("nowTime", parseInt(that.video.currentTime*10));
+
+                            //  }
+                        }, 50);
+                        //按键事件
+                        $(document).ready(function () {
+                            jQuery("body").keydown({that: that}, function (event) {
+                                if (event.which == 13) {
+                                    that.sendDanmu(event);
+                                    return false
+                                }
+
+                            });
+                        });
+
+
+                        //播放事件
+                        $(this.id + " .play-btn").on("click", {video: this.video, that: that}, function (e) {
+                            that.playPause(e);
+                        });
+                        $(this.id + " .danmu-div").on("click", {video: this.video, that: that}, function (e) {
+                            that.playPause(e);
+
+                        });
+
+                        //waiting事件
+                        $(this.id + " .danmu-video").on('waiting', {that: that}, function (e) {
+
+                            if ($(e.data.that.id + " .danmu-video").get(0).currentTime == 0) {
+                                $(e.data.that.id + " .danmu-div").data("nowTime", 0);
+                                $(e.data.that.id + " .danmu-div").data("danmuPause");
+                            } else {
+                                $(e.data.that.id + " .danmu-div").data("nowTime", parseInt($(e.data.that.id + " .danmu-video").get(0).currentTime)*10);
+                                $(e.data.that.id + " .danmu-div").data("danmuPause");
+                            }
+                            $(e.data.that.id + " .danmu-player-load").css("display","block");
+
+                        });
+
+                        //playing事件
+                        $(this.id + " .danmu-video").on('play playing', {that: that}, function (e) {
+
+                            if ($(e.data.that.id + " .danmu-video").get(0).currentTime == 0) {
+                                $(e.data.that.id + " .danmu-div").data("nowTime", 0);
+                                $(e.data.that.id + " .danmu-div").data("danmuResume");
+                            } else {
+                                $(e.data.that.id + " .danmu-div").data("nowTime", parseInt($(e.data.that.id + " .danmu-video").get(0).currentTime)*10);
+                                $(e.data.that.id + " .danmu-div").data("danmuResume");
+                            }
+                            $(e.data.that.id + " .danmu-player-load").css("display","none");
+
+                        });
+
+
+                        //seeked事件
+                        $(this.id + " .danmu-video").on('seeked ', {that: that}, function (e) {
+                            $(e.data.that.id + " .danmu-div").danmu("danmuHideAll");
+                        });
+
+
+                        //调整透明度事件
+                        $(this.id + " .danmu-op").on('mouseup touchend', {that: that}, function (e) {
+                            $(e.data.that.id + " .danmu-div").data("opacity", (e.target.value / 100));
+                            $(e.data.that.id + " .danmaku").css("opacity", (e.target.value / 100));
+
+                        });
+
+                        //全屏事件
+                        $(this.id + " .full-screen").on("click", {video: this.video, that: that}, function (e) {
+                            if (!e.data.that.danmuPlayerFullScreen) {
+                                //$css({"position":"fixed","zindex":"999","top":"0","left":"0","height":"100vh","width":"100vw"});
+                                $(e.data.that.id).addClass("danmu-player-full-screen");
+                                e.data.that.danmuPlayerFullScreen = true;
+                                $(e.data.that.id + " .full-screen span").removeClass("glyphicon-resize-full").addClass("glyphicon-resize-small");
+                            }
+                            else {
+                                $(e.data.that.id).removeClass("danmu-player-full-screen");
+                                e.data.that.danmuPlayerFullScreen = false;
+                                $(e.data.that.id + " .full-screen span").removeClass("glyphicon-resize-small").addClass("glyphicon-resize-full");
+                            }
+
+                        });
+
+                        //显示和隐藏弹幕按钮事件
+                        $(this.id + " .show-danmu").on("click", {that: that}, function (e) {
+                            if (e.data.that.danmuShowed) {
+                                $(e.data.that.id + " .danmu-div").css("visibility", "hidden");
+                                e.data.that.danmuShowed = false;
+                                $(e.data.that.id + " .show-danmu").removeClass("ctrl-btn-right-active");
+                            }
+                            else {
+                                e.data.that.danmuShowed = true;
+                                $(e.data.that.id + " .danmu-div").css("visibility", "visible");
+                                $(e.data.that.id + " .show-danmu").addClass("ctrl-btn-right-active");
+                            }
+
+                        });
+
+                        //循环播放按钮事件
+                        $(this.id + " .loop-btn").on("click", {that: that}, function (e) {
+                            if (!e.data.that.isLoop) {
+                                e.data.that.video.loop = true;
+                                e.data.that.isLoop = true;
+                                $(e.data.that.id + " .loop-btn").addClass("ctrl-btn-right-active");
+                            }
+                            else {
+                                e.data.that.video.loop = true;
+                                e.data.that.isLoop = false;
+
+                                $(e.data.that.id + " .loop-btn").removeClass("ctrl-btn-right-active");
+                            }
+                        });
+
+                        //时间改变事件
+                        $(this.id + " .danmu-video").on('loadedmetadata', {video: this.video, that: that}, function (e) {
+                            e.data.that.duration = e.data.video.duration;
+                            var duraMin = parseInt(e.data.that.duration / 60);
+                            var duraSec = parseInt(e.data.that.duration % 60) < 10 ? "0" + parseInt(e.data.that.duration % 60) : parseInt(e.data.that.duration % 60);
+                            $(e.data.that.id + " .duration").text(duraMin + ":" + duraSec);
+                            $(e.data.that.id + " .danmu-video").on('timeupdate', {
+                                video: e.data.video,
+                                that: e.data.that
+                            }, function (e) {
+                                var current = e.data.that.current = e.data.video.currentTime;
+                                var curMin = parseInt(current / 60);
+                                var curSec = parseInt(current % 60) < 10 ? "0" + parseInt(current % 60) : parseInt(current % 60);
+                                $(e.data.that.id + " .current-time").text(curMin + ":" + curSec);
+                                var duraMin = parseInt(e.data.that.duration / 60);
+                                var duraSec = parseInt(e.data.that.duration % 60) < 10 ? "0" + parseInt(e.data.that.duration % 60) : parseInt(e.data.that.duration % 60);
+                                $(e.data.that.id + " .duration").text(duraMin + ":" + duraSec);
+                                var percentage = 100 * current / e.data.that.duration;
+                                $(e.data.that.id + '.danmu-player .ctrl-progress .current ').css('width', percentage + '%');
+                                e.data.that.reviseFlag = e.data.that.reviseFlag + 1;
+                            });
+                        });
+
+                        // var aimTime;
+                        //进度条事件
+                        $(this.id + " .ctrl-progress").on('click', {video: this.video, that: that}, function (e) {
+                            var sumLen = $(e.data.that.id + " .ctrl-progress").width();
+                            var pos = e.pageX - $(e.data.that.id + " .ctrl-progress").offset().left;
+                            var percentage = pos / sumLen;
+                            $(e.data.that.id + '.danmu-player .ctrl-progress .current ').css('width', percentage * 100 + '%');
+                            aimTime = parseFloat(percentage * e.data.that.duration);
+                            e.data.video.currentTime = aimTime;
+                        });
+
+                        var timeDrag = false;
+                        $(this.id + " .ctrl-progress").on('mousedown touchstart', function (e) {
+                            timeDrag = true;
+                        });
+                        $(document).on('mouseup', function (e) {
+                            if (timeDrag) timeDrag = false;
+                        });
+                        $(this.id + " .ctrl-progress").on('mousemove touchmove', {video: this.video, that: that}, function (e) {
+                            if (timeDrag) {
+                                var sumLen = $(e.data.that.id + " .ctrl-progress").width();
+                                var pos = e.pageX - $(e.data.that.id + " .ctrl-progress").offset().left;
+                                var percentage = pos / sumLen;
+                                if (percentage > 1)
+                                    percentage = 1;
+                                if (percentage < 0)
+                                    percentage = 0;
+                                aimTime = parseFloat(percentage * e.data.that.duration);
+                                e.data.video.currentTime = aimTime;
+                                $(e.data.that.id + '.danmu-player .ctrl-progress .current ').css('width', percentage * 100 + '%');
+                            }
+                        });
+
+                        //发送弹幕事件
+                        $(this.id + " .send-btn").on("click", {that: that}, function (e) {
+                            e.data.that.sendDanmu(e);
+                        });
+
+                        //用户操作控制条事件
+                        $(this.id + " .ctrl-progress").on("mouseup touchend", {that: that}, function (e) {
+                            $(e.data.that.id + " .danmaku").remove();
+                        });
+
+                    };//danmuplayer构造函数
+
+
+                    DanmuPlayer.DEFAULTS = {
+                        left: 0,
+                        top: 0,
+                        height: 360,
+                        width: 640,
+                        zindex: 100,
+                        speed: 8000,
+                        sumTime: 65535,
+                        defaultColor: "#ffffff",
+                        fontSizeSmall: 16,
+                        FontSizeBig: 24,
+                        opacity: "1",
+                        topBottonDanmuTime: 6000,
+                        urlToGetDanmu: basePath + "/Fan/getDanMu?v_no=" + v_no,
+                        urlToPostDanmu: ""
+                    };
+
+
+                    function Plugin(option, arg) {
+                        return this.each(function () {
+                            var $this = $(this);
+                            var options = $.extend({}, DanmuPlayer.DEFAULTS, typeof option == 'object' && option);
+                            var data = $this.data('DanmuPlayer');
+                            var action = typeof option == 'string' ? option : NaN;
+                            if (!data) $this.data('danmu', (data = new DanmuPlayer(this, options)));
+                            if (action)    data[action](arg);
+                        })
+                    }
+
+
+                    $.fn.DanmuPlayer = Plugin;
+                    $.fn.DanmuPlayer.Constructor = DanmuPlayer;
+
+                }
+            });
+
+                    $("#danmup").DanmuPlayer({
+                        src:"http://49.234.77.189:8080/video/盘点一拳超人中的帅气救场.mp4",
+                        // src: data.data.v_url,
+                        height: "600px", //区域的高度
+                        width: "1200px" //区域的宽度
+                        , urlToGetDanmu: "query.php"
+                        , urlToPostDanmu: "stone.php"
+                    });
+
+                    $("#danmup .danmu-div").danmu("addDanmu", [
+                        {"text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2}
+                        , {"text": "这是测试弹幕", size: 5, position: 0,time:5}
+                        , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 3}
+                        , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 2}
+                        , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 3}
+                        , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 9}
+                        , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 3}
+                    ])
+        }
+
+        b();
+
+        let aa = function () {
+
+        }
+        aa();
+
+
+
+    });
+</script>
 </body>
+
 </html>

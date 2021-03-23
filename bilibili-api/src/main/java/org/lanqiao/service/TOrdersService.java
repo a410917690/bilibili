@@ -25,8 +25,8 @@ public interface TOrdersService {
 
     int to1Vip(Integer con_no);
 
-    int to3Vip(Integer con_no);
-
-    int to12Vip(Integer con_no);
+//    int to3Vip(Integer con_no);
+//
+//    int to12Vip(Integer con_no);
 
 }

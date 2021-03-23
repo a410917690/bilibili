@@ -1,15 +1,14 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TConsumers;
 import org.lanqiao.entity.TFocus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TFocusDao {
@@ -35,7 +34,7 @@ public interface TFocusDao {
     @Select("SELECT count(*) b FROM t_focus WHERE con_no = #{fo_fo_no}")
     Integer getNumF(Integer fo_fo_no);
 
-    @Select("SELECT count( v_likes ) c FROM t_videos WHERE con_no = #{fo_fo_no}")
+    @Select("SELECT v_likes c FROM t_videos WHERE con_no = #{fo_fo_no}")
     Integer getNumL(Integer fo_fo_no);
 
     @Select("select * from t_consumers where con_no in (select fo_fo_no from t_focus where con_no=#{con_no})")

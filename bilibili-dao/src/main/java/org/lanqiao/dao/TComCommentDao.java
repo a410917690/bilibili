@@ -1,9 +1,7 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TComComment;
 import org.lanqiao.vo.TCommentVo;
 import org.springframework.stereotype.Repository;
@@ -16,6 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:22:12
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TComCommentDao {
@@ -30,8 +29,9 @@ public interface TComCommentDao {
     int queryComNo(@Param("v_no") Integer v_no,@Param("con_no") Integer con_no);
 
 
+//    @Select("select * from t_com_comment where com_no=(select com_no from t_comments where v_no=#{v_no} and con_no=#{con_no})")
     @Select("select * from t_com_comment where com_no=(select com_no from t_comments where v_no=#{v_no} and con_no=#{con_no})")
-    List<TCommentVo> queryComReply(@Param("v_no") Integer v_no,@Param("con_no") Integer con_no);
+    List<TCommentVo> queryComReply(@Param("com_no") Integer v_no,@Param("con_no") Integer con_no);
 
 
     List<TComComment> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);

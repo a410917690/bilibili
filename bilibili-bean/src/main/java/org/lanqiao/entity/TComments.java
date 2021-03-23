@@ -3,6 +3,7 @@ package org.lanqiao.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * 评论(TComments)实体类
@@ -30,7 +31,7 @@ public class TComments implements Serializable {
      */
     private String con_comment;
 
-
+    private Timestamp com_time;
 
 
 }

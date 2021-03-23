@@ -3,11 +3,13 @@ package org.lanqiao.dao;
 import org.apache.ibatis.annotations.*;
 
 
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.vo.THistoryVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface THistoryVoDao {

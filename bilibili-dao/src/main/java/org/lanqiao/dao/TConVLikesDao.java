@@ -1,9 +1,7 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TConVLikes;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-11 15:37:34
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TConVLikesDao {
@@ -54,6 +53,11 @@ public interface TConVLikesDao {
      */
     @Insert("insert into t_con_v_likes (con_no,v_no) values (#{con_no},#{v_no})")
     int insert(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
+
+
+
+    @Insert("insert into t_con_v_likes (con_no,v_no) values (#{con_no},#{v_no})")
+    int updateLikes(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
     /**
      * 修改数据

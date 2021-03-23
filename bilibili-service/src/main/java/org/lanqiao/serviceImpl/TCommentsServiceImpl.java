@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import org.lanqiao.dao.TCommentsDao;
 import org.lanqiao.entity.TComments;
 import org.lanqiao.service.TCommentsService;
+import org.lanqiao.vo.CommentVo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -37,7 +38,7 @@ public class TCommentsServiceImpl implements TCommentsService {
     @Override
     public Object queryAllByVno(int pageNum, int pageSize,Integer v_no) {
         PageHelper.startPage(pageNum,pageSize);
-        List<TComments> list = tCommentsDao.queryAllByVno(v_no);
+        List<CommentVo> list = tCommentsDao.queryAllByVno(v_no);
         return new PageInfo<>(list);
     }
 
@@ -51,9 +52,9 @@ public class TCommentsServiceImpl implements TCommentsService {
      * @return 实例对象
      */
     @Override
-    public TComments insert(TComments tComments) {
+    public List<CommentVo> insert(TComments tComments) {
         this.tCommentsDao.insert(tComments);
-        return tComments;
+        return this.tCommentsDao.queryAllByVno(tComments.getV_no());
     }
 
     /**

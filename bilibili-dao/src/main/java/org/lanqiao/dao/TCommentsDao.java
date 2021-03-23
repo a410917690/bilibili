@@ -1,7 +1,9 @@
 package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TComments;
+import org.lanqiao.vo.CommentVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:23:24
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TCommentsDao {
@@ -26,8 +29,8 @@ public interface TCommentsDao {
 
 
 
-    @Select("select * from t_comments where v_no in (select v_no from t_videos where v_no = #{v_no})")
-    List<TComments> queryAllByVno(Integer v_no);
+    @Select("select t1.total,t2.* from (select count(*)total,t.v_no from (SELECT t.NAME,tt.* FROM t_consumers t,(SELECT com_no,v_no,con_no,con_comment,com_reports FROM t_comments WHERE v_no IN (SELECT v_no FROM t_videos WHERE v_no = #{#v_no} )) tt WHERE t.con_no = tt.con_no)t)t1,(SELECT t.NAME,tt.* FROM t_consumers t,(SELECT com_no,v_no,con_no,con_comment,com_reports,SUBSTR(com_time,1,19) com_time FROM t_comments WHERE v_no IN (SELECT v_no FROM t_videos WHERE v_no = #{#v_no} )) tt WHERE t.con_no = tt.con_no)t2 where t1.v_no=t2.v_no")
+    List<CommentVo> queryAllByVno(Integer v_no);
 
     /**
      * 通过实体作为筛选条件查询

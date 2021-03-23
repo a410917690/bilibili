@@ -1,6 +1,7 @@
 package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TFan;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:23:47
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TFanDao {

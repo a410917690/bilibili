@@ -1,8 +1,10 @@
 package org.lanqiao.dao;
 
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TManagers;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +16,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:26:23
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TManagersDao {

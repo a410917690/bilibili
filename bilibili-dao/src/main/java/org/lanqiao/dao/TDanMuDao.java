@@ -1,9 +1,7 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TDanMu;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:23:40
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TDanMuDao {

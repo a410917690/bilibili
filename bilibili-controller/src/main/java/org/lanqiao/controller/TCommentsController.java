@@ -28,8 +28,8 @@ public class TCommentsController {
 
     @ResponseBody
     @PostMapping("getCommentsByVno")
-    public Result queryAllByVno(@RequestParam(defaultValue = "1")int page, Integer v_no){
-        return setResultSuccess(tCommentsService.queryAllByVno(page,10,v_no));
+    public Result queryAllByVno(@RequestParam(defaultValue = "1")int page,@RequestParam(defaultValue = "8") int pageSize, Integer v_no){
+        return setResultSuccess(tCommentsService.queryAllByVno(page,pageSize,v_no));
     }
 
     @ResponseBody

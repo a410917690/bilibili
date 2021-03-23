@@ -17,4 +17,6 @@ public class TReport implements Serializable {
     private Integer v_no;
 
     private Integer room_no;
+
+    private String reason;
 }

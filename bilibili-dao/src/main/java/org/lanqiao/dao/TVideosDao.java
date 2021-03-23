@@ -1,7 +1,9 @@
 package org.lanqiao.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TVideos;
+import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:27:01
  */
+@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TVideosDao {
@@ -21,8 +24,8 @@ public interface TVideosDao {
      * 通过v_no查询单个视频
      *
      */
-    @Select("select * from t_videos where v_no=#{v_no}")
-    TVideos queryById(Integer v_no);
+    @Select("select c.name,t.* from t_consumers c,(select v.con_no,v.v_amount_of_play,v.v_coins,v.v_legal,v.v_likes,v.v_no,v.v_pic,v.v_reports,v.v_title,v.v_url from t_videos v where v_no=#{v_no})t where c.con_no = t.con_no")
+    VideoVo queryById(Integer v_no);
 
 
     /**
@@ -65,8 +68,8 @@ public interface TVideosDao {
      * @param v_no
      * @return
      */
-    @Update("update t_videos set v_likes=v_likes+1 where v_no=#{v_no}")
-    int updateLikeNum(Integer v_no);
+    @Update("update t_videos set v_likes=#{likes} where v_no=#{v_no}")
+    int updateLikeNum(Integer v_no,Integer likes);
 
 
     /**
@@ -88,14 +91,9 @@ public interface TVideosDao {
     /**
      * 举报视频插入v_videos表中
      */
-    @Update("update t_videos set v_reports=v_reports+1")
-    int updateVideosReports();
+    @Update("update t_videos set v_reports = v_reports+1 where v_no = #{v_no}   ")
+    int updateVideosReports(Integer v_no);
 
-    /**
-     * 举报视频插入t_report表中（当该用户还未举报过时）
-     */
-    @Insert("insert into t_report (con_no,v_no) values (#{con_no},#{v_no})")
-    int insertVideosReport(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
     @Select("select v_likes from t_videos where v_no=#{v_no}")
     int getLike(Integer v_no);

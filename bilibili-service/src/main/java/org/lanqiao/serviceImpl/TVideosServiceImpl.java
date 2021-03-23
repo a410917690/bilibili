@@ -3,10 +3,12 @@ package org.lanqiao.serviceImpl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.lanqiao.dao.TReportDao;
 import org.lanqiao.dao.TVideosDao;
 import org.lanqiao.entity.TVideos;
 import org.lanqiao.service.TReportService;
 import org.lanqiao.service.TVideosService;
+import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -25,6 +27,9 @@ public class TVideosServiceImpl implements TVideosService {
     private TVideosDao tVideosDao;
 
     @Resource
+    private TReportDao tReportDao;
+
+    @Resource
     TReportService tReportService;
 
 
@@ -34,7 +39,7 @@ public class TVideosServiceImpl implements TVideosService {
      * @return 实例对象
      */
     @Override
-    public TVideos queryById(Integer v_no) {
+    public VideoVo queryById(Integer v_no) {
         return this.tVideosDao.queryById(v_no);
     }
 
@@ -58,7 +63,7 @@ public class TVideosServiceImpl implements TVideosService {
      * @return 实例对象
      */
     @Override
-    public TVideos update(TVideos tVideos) {
+    public VideoVo update(TVideos tVideos) {
         this.tVideosDao.update(tVideos);
         return tVideosDao.queryById(tVideos.getV_no());
 
@@ -112,8 +117,8 @@ public class TVideosServiceImpl implements TVideosService {
      * @return
      */
     @Override
-    public int updateLikeNum(Integer v_no) {
-        return this.tVideosDao.updateLikeNum(v_no);
+    public int updateLikeNum(Integer v_no,Integer likes) {
+        return this.tVideosDao.updateLikeNum(v_no,likes);
     }
 
     /**
@@ -124,9 +129,9 @@ public class TVideosServiceImpl implements TVideosService {
      * @return
      */
     @Override
-    public boolean updateReportVideo(Integer con_no, Integer v_no) {
+    public boolean updateReportVideo(Integer con_no, Integer v_no,String reason) {
         if (tReportService.getTreportByConNoV(con_no, v_no) == false) {
-            if (this.tVideosDao.updateVideosReports() > 0 && this.tVideosDao.insertVideosReport(con_no, v_no) > 0) {
+            if (this.tVideosDao.updateVideosReports(v_no) > 0 && this.tReportDao.insertVideosReport(con_no, v_no,reason) > 0) {
                 return true;
             } else {
                 return false;

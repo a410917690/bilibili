@@ -8,10 +8,13 @@ import org.lanqiao.service.TVideosService;
 import org.lanqiao.util.RedisUtil;
 import org.lanqiao.util.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
+
+import java.util.concurrent.TimeUnit;
 
 import static org.lanqiao.util.result.ResultFactory.setResultError;
 import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
@@ -114,6 +117,9 @@ public class TVideosController {
      * @param v_no
      * @return
      */
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
     @ApiOperation("点赞视频")
     @ResponseBody
     @PostMapping("giveLike")
@@ -128,8 +134,13 @@ public class TVideosController {
 //            return setResultError(400,"点赞失败！");
 //        }
         boolean flag = tConVLikesService.queryByVnoCno(con_no, v_no);
-        if (flag == true) {
-            if (this.tVideosService.updateLikeNum(v_no) > 0 && this.tConVLikesService.insert(con_no, v_no)) {
+        if (flag) {
+            int like0 = tVideosService.getLike(v_no);
+            stringRedisTemplate.opsForValue().set(v_no+con_no.toString(),String.valueOf(like0+1),30, TimeUnit.SECONDS);
+            String l = stringRedisTemplate.opsForValue().get(v_no + con_no.toString());
+            int like1 = Integer.parseInt(l);
+            int i = tVideosService.updateLikeNum(v_no, like1);
+            if (i > 0 && this.tConVLikesService.insert(con_no, v_no)) {
                 int like = tVideosService.getLike(v_no);
                 return setResultSuccess(200,"点赞成功！",like);
             } else {
@@ -145,9 +156,9 @@ public class TVideosController {
      */
     @ApiOperation(value = "举报视频")
     @ResponseBody
-    @GetMapping("reportVideo")
-    public Result reportVideo(@RequestParam("con_no") Integer con_no, @RequestParam("v_no") Integer v_no) {
-        if (this.tVideosService.updateReportVideo(con_no, v_no) == true) {
+    @PostMapping("reportVideo")
+    public Result reportVideo(@RequestParam("con_no") Integer con_no, @RequestParam("v_no") Integer v_no,@RequestParam("reason") String reason) {
+        if (this.tVideosService.updateReportVideo(con_no, v_no,reason) == true) {
             return setResultSuccess("举报成功！");
         } else {
             return setResultError(400, "举报失败，您已举报过该视频!");

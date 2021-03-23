@@ -15,10 +15,27 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class test {
     public static void main(String[] args) {
-        System.out.println(Runtime.getRuntime().availableProcessors());
+//        System.out.println(Runtime.getRuntime().availableProcessors());
+//
+//        List list0 = new Vector();
+//        List list1 = Collections.synchronizedList(new ArrayList<>());
+//        List list2 = new CopyOnWriteArrayList();
+//
+//        int i = 0;
+//        i = i++ + i;
+//        System.out.println("I ="+i);
 
-        List list0 = new Vector();
-        List list1 = Collections.synchronizedList(new ArrayList<>());
-        List list2 = new CopyOnWriteArrayList();
+        int h = 0,i = 0, j = 0;
+        int m = h+++h;
+        int k = i+++i++;
+        j = ++j+j++;
+        int l = 0;
+        l = l+++15+l++;
+        System.out.println(h);
+        System.out.println(m);
+        System.out.println(i);
+        System.out.println(j);
+        System.out.println(k);
+        System.out.println(l);
     }
 }

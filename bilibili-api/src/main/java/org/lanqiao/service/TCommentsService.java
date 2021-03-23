@@ -1,6 +1,9 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TComments;
+import org.lanqiao.vo.CommentVo;
+
+import java.util.List;
 
 /**
  * 评论(TComments)表服务接口
@@ -33,7 +36,7 @@ public interface TCommentsService {
      * @param tComments 实例对象
      * @return 实例对象
      */
-    TComments insert(TComments tComments);
+    List<CommentVo> insert(TComments tComments);
 
     /**
      * 修改数据

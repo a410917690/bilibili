@@ -7,7 +7,6 @@ import org.lanqiao.entity.TConsumers;
 import org.lanqiao.service.TConsumersService;
 import org.lanqiao.util.RedisUtil;
 import org.lanqiao.util.jwt.JWT_HS256;
-import org.lanqiao.util.jwt.JWT_RS256;
 import org.lanqiao.util.result.Result;
 import org.lanqiao.util.result.ResultFactory;
 import org.lanqiao.vo.ConsumerCodeVo;
@@ -25,8 +24,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.time.Duration;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
+import static org.lanqiao.util.common.Common.CG;
+import static org.lanqiao.util.common.Common.SB;
 import static org.lanqiao.util.result.ResultFactory.setResultError;
 import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
@@ -218,7 +218,7 @@ public class TConsumersController {
         if (!"".equals(password)) {
             return setResultSuccess(200, password);
         }
-        return setResultError(400, "fail");
+        return setResultError(400, SB);
     }
 
     @ApiOperation("更新密码")
@@ -227,9 +227,9 @@ public class TConsumersController {
     public Result updatePwd(String name, String password) {
         Integer res = tConsumersService.updatePwd(name, password);
         if (res != 0) {
-            return setResultSuccess(200, "success", res);
+            return setResultSuccess(200, CG, res);
         }
-        return setResultError(400, "fail");
+        return setResultError(400, SB);
     }
 
     @ApiOperation("修改用户信息")
@@ -238,9 +238,9 @@ public class TConsumersController {
     public Result updateDetail(String newName, String name, String tele_num, Integer age, String password, String newPwd, String confirmPwd) {
         Integer res = tConsumersService.updateDetail(newName, name, tele_num, age, password, newPwd, confirmPwd);
         if (res != 0) {
-            return setResultSuccess(200, "success", res);
+            return setResultSuccess(200, CG, res);
         }
-        return setResultError(400, "fail");
+        return setResultError(400, SB);
     }
 
     @ApiOperation("上传图片")
@@ -315,7 +315,7 @@ public class TConsumersController {
     @PostMapping(value = "/decrMemberDeadline")
     public Result decrMemberDeadline(Integer con_no) {
         int i = tConsumersService.decrMemberDeadline(con_no);
-        return setResultSuccess(200, "success",i);
+        return setResultSuccess(200, CG,i);
     }
 
 }

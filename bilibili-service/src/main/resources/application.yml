@@ -2,7 +2,7 @@ dubbo:
   application:
     name: dubbo_provider
   registry:
-    address: zookeeper://106.12.195.187:2181
+    address: zookeeper://49.232.26.166:2181
   protocol:
     name: dubbo
     port: 20882
@@ -25,9 +25,9 @@ spring:
     username: sonnie_yyds@qq.com
     password: meifunitfnkmbfgh
   redis:
-    host: 106.12.195.187
+    host: 49.232.26.166
     port: 6379
-    password: root
+    password: sonnie
     jedis:
       pool:
         max-active: 8

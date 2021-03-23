@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IK登录</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.slider.css"/>
+    <link rel="stylesheet" href="css/forget.css"/>
+    <script src="js/http.js"></script>
+    <script src="js/express.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/jquery.slider.min.js"></script>
+    <script src="js/head.js"></script>
+
+    <script src="js/jquery.validate.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row" style="z-index:1000">
+        <div class="col-md-4  col-lg-5">
+        </div>
+        <div class="col-md-8 col-sm-12 col-lg-7 col-xs-12 left">
+            <div class="main">
+                <div class="mt10 pull-right">
+                    <a href="b_register.html"><i class="glyphicon glyphicon-forward"></i>立即注册</a>
+                </div>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#namePW" data-toggle="tab">邮箱验证登录</a></li>
+                    <li><a href="b_login.html" data-toggle="tab">用户名登录</a></li>
+                    <!--                    <li class="dropdown"><a href="#face" data-toggle="tab">人脸登录</a></li>-->
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="namePW">
+                        <form role="form" id="loginMail">
+                            <div class="form-group">
+                                <label for="inputTel">邮箱</label>
+                                <input type="text" class="form-control" id="inputTel" name="mobile" placeholder="请输入邮箱">
+                            </div>
+                            <div class="form-group">
+                                <label for="telCode">验证码</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12 ">
+                                        <input type="text" class="form-control" id="telCode" name="smsCode"
+                                               placeholder="请输入验证码">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12 telCode">
+                                        <button type="button" class="btn btn-info" id="getTelCode">获取验证码</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-lg btn-block" id="submit2">登录</button>
+                            <a id="forget" style="font-size:13px;color: gray;margin-left: 235px;" href="b_forget.html">忘记密码?</a>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="phone">
+                        <form role="form" id="loginMail">
+                            <div class="form-group">
+                                <label for="inputTel">邮箱</label>
+                                <input type="text" class="form-control" id="inputTel" name="mobile" placeholder="请输入邮箱">
+                            </div>
+                            <div class="form-group">
+                                <label for="telCode">验证码</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12 ">
+                                        <input type="text" class="form-control" id="telCode" name="smsCode"
+                                               placeholder="请输入验证码">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-lg-6 col-xs-12 telCode">
+                                        <button type="button" class="btn btn-info" id="getTelCode">获取验证码</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-lg btn-block" id="submit2">登录</button>
+                            <a id="forget" style="font-size:13px;color: gray;margin-left: 235px;" href="b_forget.html">忘记密码?</a>
+                        </form>
+                    </div>
+                    <!--                    <div class="tab-pane fade" id="face">-->
+                    <!--                        <div class="capture">-->
+                    <!--                            <video id="video" autoplay></video>-->
+                    <!--                            <canvas id="canvas" width="480" height="320" style="display: none;"></canvas>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="messageInfo" value="">
+<script>
+    $(function () {
+
+        var con_no;
+        let cookieName = 'loginCookie';
+
+        $(function () {
+
+            // 传递消息
+            let text = $("#messageInfo").val();
+            if (text != null && text !== '') {
+                layer.msg(text, {icon: 2});
+                $("#messageInfo").val('');
+            }
+
+            // 验证码
+            $("#getTelCode").click(function () {
+                sendCode($("#getTelCode"));
+            });
+            let v = getCookieValue(cookieName);//获取cookie值
+            if (v > 0) {
+                setTime($("#getTelCode"));//开始倒计时
+            }
+        });
+
+        function refresh(obj) {
+            obj.src = "/auth/code/getVerifyCode?" + Math.random();
+        }
+
+        function mouseover(obj) {
+            obj.style.cursor = "pointer";
+        }
+
+        // 发送验证码
+        function sendCode(obj) {
+            let phoneNum = $("#inputTel").val();
+            if (!isPoneAvailable(phoneNum)) {
+                layer.msg("手机号码不合法", {icon: 7});
+                return false;
+            }
+            sendJson(HTTP.GET, '/auth/code/sms?mobile=' + phoneNum, null, false, function (res) {
+                    if (res.code === 0) {
+                        layer.msg("短信发送成功", {icon: 1});
+                        addCookie(cookieName, 60, 60);//添加cookie记录,有效时间60s
+                        setTime(obj);//开始倒计
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                },
+                function () {
+                    layer.msg("未知错误", {icon: 2});
+                });
+        }
+
+        //开始倒计时
+        function setTime(obj) {
+            let countdown = getCookieValue(cookieName);
+            if (countdown == 0) {
+                obj.removeAttr("disabled");
+                document.getElementById("getTelCode").innerText = '重新获取验证码';
+                return;
+            } else {
+                obj.attr("disabled", true);
+                document.getElementById("getTelCode").innerText = countdown + 's之后重新发送';
+                countdown--;
+                editCookie(cookieName, countdown, countdown + 1);
+            }
+            setTimeout(function () {
+                setTime(obj)
+            }, 1000) //每1000毫秒执行一次
+        }
+
+        // 切换tab页
+        let videoTimer = null;
+        $(function () {
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // 获取已激活的标签页的名称
+                let activeTab = $(e.target).text();
+                // 获取前一个激活的标签页的名称
+                if (activeTab == "人脸登录") {
+                    startCamera();
+                } else {
+                    if (streams) {
+                        streams.stop();
+                        videoTimer = null;
+                    }
+                    clearInterval(timers)
+                }
+                let previousTab = $(e.relatedTarget).text();
+                $(".active-tab span").html(activeTab);
+                $(".previous-tab span").html(previousTab);
+            });
+        });
+
+
+
+
+
+
+
+        //设置localStorage【过期时间】
+        const foowwLocalStorage = {
+            set: function (key, value, ttl_ms) {
+                var data = value;
+                localStorage.setItem(key, JSON.stringify(data));
+            },
+            get: function (key) {
+                var data = JSON.parse(localStorage.getItem(key));
+                if (data !== null) {
+                    debugger
+                    if (data.expirse != null && data.expirse < new Date().getTime()) {
+                        localStorage.removeItem(key);
+                    } else {
+                        return data.value;
+                    }
+                }
+                return null;
+            }
+        }
+
+
+
+        var date = new Date().getTime();
+//设置localStorage的值
+//         foowwLocalStorage.set("test", "你好", date + 10000);
+//获取localStorage的值
+//         var data = foowwLocalStorage.get("test");
+
+        $().ready(function() {
+            $("#loginUserName").validate({
+                rules: {
+                    userName: {
+                        required: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    userName: {
+                        required:"用户名不能为空"
+                    },
+                    password: {
+                        required: "密码不能为空"
+                    }
+                },
+                submitHandler: function (form) {
+
+                }
+            });
+        });
+
+
+        $().ready(function() {
+            $("#loginMail").validate({
+                rules: {
+                    mobile: {
+                        required: true,
+                        pattern:'[1-9]\\d{7,10}@qq\\.com'
+                    },
+                    smsCode: {
+                        required: true
+                    }
+                },
+                messages: {
+                    mobile: {
+                        required: "邮箱不能为空",
+                        pattern: "请正确填写"
+                    },
+                    smsCode: {
+                        required: "验证码不能为空"
+                    }
+                },
+                submitHandler: function (form) {
+
+                }
+            });
+        });
+
+
+        /**
+         * 显示验证码剩余时间
+         * @type {number}
+         */
+        var time = 60;
+        $("#getTelCode").on('click',function () {
+            $(this).attr("disabled",true);
+            var timer = setInterval(function () {
+                if(time == 0){
+                    $("#getTelCode").removeAttr("disabled");
+                    $("#getTelCode").html("重新发送");
+                    clearInterval(timer);
+                }else {
+                    $("#getTelCode").html(time);
+                    time--;
+                }
+            },1000);
+        });
+
+        //获取验证码
+        $("#getTelCode").click(function () {
+            $.ajax({
+                url: basePath + "/send",
+                type: "post",
+                dataType: "json",//接收类型
+                // dataType: "text",
+                // beforeSend:function(request){
+                //     request.setRequestHeader("Authorization",token);
+                // },
+                data: {
+                    "mail": $("#inputTel").val()
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+
+        //邮箱验证码登录
+        $("#submit2").click(function () {
+            $.ajax({
+                url: basePath + "/loginByMail",
+                type: "post",
+                dataType: "json",//接收类型
+                // dataType: "text",
+                // beforeSend:function(request){
+                //     request.setRequestHeader("Authorization",token);
+                // },
+                data: {
+                    "mail": $("#inputTel").val(),
+                    "code": $("#telCode").val()
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data.code === 200) {
+                        var getToken = data.data;
+                        // var getToken ="Bearer "+data.token;
+                        localStorage.setItem("token", getToken);
+                        // localStorage.setItem("token", getToken);
+                        // localStorage.setItem("name",name);
+                        $.ajax({
+                            url: basePath + "/getConByToken",
+                            type: "post",
+                            dataType: "json",//接收类型
+                            // dataType: "text",
+                            // beforeSend:function(request){
+                            //     request.setRequestHeader("Authorization",token);
+                            // },
+                            data: {
+                                "token": getToken
+                            },
+                            success: function (data) {
+                                console.log(data);
+                                if (data.code === 200) {
+                                    var name = data.data.name;
+                                    // localStorage.setItem("name",name);
+                                    localStorage.setItem("name", name);
+                                    //获取用户id
+                                    $.ajax({
+                                        url: basePath + "/getConsumersByName",
+                                        type: "post",
+                                        dataType: "json",//接收类型
+                                        // dataType: "text",
+                                        // beforeSend:function(request){
+                                        //     request.setRequestHeader("Authorization",token);
+                                        // },
+                                        data: {
+                                            "name": name
+                                        },
+                                        success: function (data) {
+                                            console.log(data);
+                                            console.log(data.data.con_no);
+                                            con_no = data.data.con_no;
+                                            $.ajax({
+                                                url: basePath + "/decrMemberDeadline",
+                                                type: "post",
+                                                dataType: "json",//接收类型
+                                                // dataType: "text",
+                                                // beforeSend:function(request){
+                                                //     request.setRequestHeader("Authorization",token);
+                                                // },
+                                                data: {
+                                                    "con_no": con_no
+                                                },
+                                                success: function (data) {
+                                                    console.log(data);
+                                                }
+                                            })
+                                        }
+                                    })
+                                    window.location.href = "home.html";
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+        })
+
+
+
+
+        // // 默认执行
+        // let a = function () {
+        //
+        //     $.ajax({
+        //         url: basePath + "/decrMemberDeadline",
+        //         data:{"con_no":con_no},
+        //         type: "post",
+        //         // beforeSend:function(request){
+        //         //     request.setRequestHeader("Authorization",token);
+        //         // },
+        //         dataType: "json",
+        //         success: function (data) {
+        //             console.log(data);
+        //         }
+        //     });
+        // }
+        // a();
+
+        //滑块验证
+        $("#slider1").slider({
+            callback: function (result) {
+                if (result !== true) {
+                    $("#result1").text("验证结果：" + result);
+                } else {
+                    // $("#result1").text("验证结果：" + result);
+                    $("#doLogin").click(function () {
+                        //用户名密码登录
+                        $.ajax({
+                            url: basePath + "/login",
+                            type: "post",
+                            dataType: "json",//接收类型
+                            // dataType: "text",
+
+                            // beforeSend:function(request){
+                            //     request.setRequestHeader("Authorization",token);
+                            // },
+                            data: {
+                                "name": $("#userName").val(),
+                                "password": $("#passwd").val()
+                            },
+                            success: function (data) {
+                                // console.log(data);
+                                // alert("用户 : " + data.name + " 正在登录...");
+                                var getToken = data.data;
+                                // var getToken ="Bearer "+data.token;
+                                var name = $("#userName").val();
+                                localStorage.setItem("name", name);
+                                localStorage.setItem("token", getToken);
+                                //获取用户id
+                                $.ajax({
+                                    url: basePath + "/getConsumersByName",
+                                    type: "post",
+                                    dataType: "json",//接收类型
+                                    // dataType: "text",
+                                    // beforeSend:function(request){
+                                    //     request.setRequestHeader("Authorization",token);
+                                    // },
+                                    data: {
+                                        "name": name
+                                    },
+                                    success: function (data) {
+                                        console.log(data);
+                                        console.log(data.data.con_no);
+                                        con_no = data.data.con_no;
+                                        $.ajax({
+                                            url: basePath + "/decrMemberDeadline",
+                                            type: "post",
+                                            dataType: "json",//接收类型
+                                            // dataType: "text",
+                                            // beforeSend:function(request){
+                                            //     request.setRequestHeader("Authorization",token);
+                                            // },
+                                            data: {
+                                                "con_no": con_no
+                                            },
+                                            success: function (data) {
+                                                console.log(data);
+                                            }
+                                        })
+                                    }
+                                })
+                                window.location.href = "home.html";
+                            }
+                        })
+                    })
+                }
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>

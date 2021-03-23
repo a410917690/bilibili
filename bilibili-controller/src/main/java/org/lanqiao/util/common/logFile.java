@@ -1,4 +1,4 @@
-package org.lanqiao.util;
+package org.lanqiao.util.common;
 
 import org.lanqiao.config.AlipayConfig;
 import java.io.FileWriter;

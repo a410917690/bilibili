@@ -1,0 +1,12 @@
+spring:
+  redis:
+    host: 49.232.26.166
+    port: 6379
+    password: sonnie
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    database: 0
