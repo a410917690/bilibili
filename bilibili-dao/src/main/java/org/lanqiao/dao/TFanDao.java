@@ -13,7 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:23:47
  */
-@CacheNamespace(implementation = RedisCache.class)
+//@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TFanDao {

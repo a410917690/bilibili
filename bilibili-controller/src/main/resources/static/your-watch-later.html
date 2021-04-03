@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -248,10 +248,10 @@
                         <hr class="mb-3" style="margin:0 -20px">
                         <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-                        <div class="video-list-small uk-child-width-1-1" uk-grid>
+                        <div class="video-list-small uk-child-width-1-1" uk-grid v-for="(collection,index) in cols">
 
                             <div>
-                                <a href="single-video.html" class="video-post video-post-list">
+                                <a href="['collection']" class="video-post video-post-list">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <span class="video-post-count">1.4M</span>
@@ -1034,6 +1034,48 @@
                 })
             }
         })
+        //遍历收藏的视频
+        var col = new Vue({
+            el: 'cols',
+            data:{
+                collections:[],
+
+            },
+            mounted:function () {
+
+            },
+            methods:{
+
+            }
+
+        });
+        var con_no = localStorage.getItem("con_no");
+        $.ajax({
+            url:basePath+"/getCollections"+"?con_no="+con_no,
+            type: "get",
+            dataType: "json",
+            date:{
+                "con_no": con_no
+            },
+            success:function (data) {
+                console.log(data);
+                col.collections = data.data.list;
+
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //显示我的头像
         // $.ajax({

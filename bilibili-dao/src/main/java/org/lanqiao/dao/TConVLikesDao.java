@@ -13,28 +13,27 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-11 15:37:34
  */
-@CacheNamespace(implementation = RedisCache.class)
+//@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TConVLikesDao {
 
     /**
-     * 通过ID查询单条数据
+     * 通过ID查询数据
      *
-
      * @return 实例对象
      */
+    @Select("select * from t_con_v_likes where con_no =#{con_no}")
+    List<TConVLikes> queryByCno(Integer con_no);
+
+
+
+
+
     @Select("select * from t_con_v_likes where con_no=#{con_no} and v_no=#{v_no}")
     TConVLikes queryByVnoCno(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no);
 
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    List<TConVLikes> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+
 
 
     /**

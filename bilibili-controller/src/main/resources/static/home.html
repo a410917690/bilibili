@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -604,11 +604,11 @@
 
 
                         <li>
-                            <a href="single-video.html" class="video-post">
+                            <a v-bind:href="['single-video.html?v_no='+videos[3].v_no]" class="video-post">
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">1111100</span>
+                                    <span class="video-post-count" id="playNum">{{videos[3].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -616,25 +616,25 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                     <!--                                视频封面-->
-                                    <img src="images/wallpaper%20(3).jpg" alt="">
+                                    <img v-bind:src="videos[3].v_pic" alt="">
 
                                 </div>
 
                                 <div class="video-post-content">
-                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <h3 id="videoTitle"> {{videos[3].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                    <span class="video-post-date">播放量：3000</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[3].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[3].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="single-video.html" class="video-post">
+                            <a v-bind:href="['single-video.html?v_no='+videos[4].v_no]" class="video-post">
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">5424501</span>
+                                    <span class="video-post-count" id="playNum">{{videos[4].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -642,25 +642,25 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                     <!--                                视频封面-->
-                                    <img src="images/wallpaper%20(3).jpg" alt="">
+                                    <img v-bind:src="videos[4].v_pic" alt="">
 
                                 </div>
 
                                 <div class="video-post-content">
-                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <h3 id="videoTitle"> {{videos[4].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                    <span class="video-post-date">播放量：3000</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[4].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[4].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="single-video.html" class="video-post">
+                            <a v-bind:href="['single-video.html?v_no='+videos[5].v_no]" class="video-post">
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">34558</span>
+                                    <span class="video-post-count" id="playNum">{{videos[5].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -668,25 +668,25 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                     <!--                                视频封面-->
-                                    <img src="images/wallpaper%20(3).jpg" alt="">
+                                    <img v-bind:src="videos[5].v_pic" alt="">
 
                                 </div>
 
                                 <div class="video-post-content">
-                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <h3 id="videoTitle"> {{videos[5].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                    <span class="video-post-date">播放量：3000</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[5].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[5].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="single-video.html" class="video-post">
+                            <a v-bind:href="['single-video.html?v_no='+videos[6].v_no]" class="video-post">
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">播放量</span>
+                                    <span class="video-post-count" id="playNum">{{videos[6].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -694,16 +694,16 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                     <!--                                视频封面-->
-                                    <img src="images/wallpaper%20(3).jpg" alt="">
+                                    <img v-bind:src="videos[6].v_pic" alt="">
 
                                 </div>
 
                                 <div class="video-post-content">
-                                    <h3 id="videoTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                    <h3 id="videoTitle"> {{videos[6].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：1000</span>
-                                    <span class="video-post-date">播放量：3000</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[6].v_likes}}</span>
+                                    <span class="video-post-date">播放量：{{videos[6].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -1282,6 +1282,7 @@
                 console.log(data);
                 console.log(data.data.con_no);
                 con_no = data.data.con_no;
+                localStorage.setItem("con_no",con_no);
                 //获取关注列表
                 $.ajax({
                     url: basePath + "/getAllFocusConsumerByCon",

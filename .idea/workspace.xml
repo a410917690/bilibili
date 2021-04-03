@@ -19,23 +19,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9db7c9c4-e539-409d-9611-d5159758b853" name="Default Changelist" comment="个人中心-已登录/未登录">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210302-034728.reason.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210302-034728.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210302-042629.reason.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210302-042629.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TReportService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TReportDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TReportServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9db7c9c4-e539-409d-9611-d5159758b853" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210328-041812.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210328-041812.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210329-080725.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210329-080725.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210329-081825.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210329-081825.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210331-081649.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210331-081649.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210401-051247.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210401-051247.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210403-112154.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/5c68bda6-da43-43fd-9124-85945aee4e3a.corrupted.20210403-112154.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/CnoVideoLikesVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/CollectionsVideoVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/single_kind_videos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/test.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/bilibili-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/bilibili-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TCollectionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TCollectionsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TVideosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TVideosService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TConVLikesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TConVLikesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/THistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/THistoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TCollectionsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TCollectionsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TComCommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TComCommentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TCommentsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TCommentsService.class" afterDir="false" />
@@ -54,6 +59,7 @@
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TLiveRoomsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TLiveRoomsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TManagersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TManagersService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TOrdersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TOrdersService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TReportService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TRolesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TRolesService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TRoomConService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TRoomConService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TRoomGiftService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TRoomGiftService.class" afterDir="false" />
@@ -62,7 +68,8 @@
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TVideosService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/TVideosService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/UpdateCoinsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-api/target/classes/org/lanqiao/service/UpdateCoinsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/bilibili-bean.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/bilibili-bean.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TVideos.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TVideos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/THistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/THistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/THistoryVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/THistoryVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TCollections.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TCollections.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TComComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TComComment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TComments.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TComments.class" afterDir="false" />
@@ -80,12 +87,14 @@
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TLiveRooms.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TLiveRooms.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TManagers.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TManagers.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TOrders.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TOrders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TReport.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TRoles.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TRoles.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TRoomCon.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TRoomCon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TRoomGift.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TRoomGift.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TTag.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TTag.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TVTag.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TVTag.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TVideos.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/entity/TVideos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/CommentVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/CommentVo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumerCodeVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumerCodeVo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumerCodeVoToConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumerCodeVoToConsumer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumersVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumersVo.class" afterDir="false" />
@@ -94,11 +103,47 @@
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/THistoryVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/THistoryVo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/TOrderToOrderVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/TOrderToOrderVo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/UpdateCoinsVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/UpdateCoinsVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConsumersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConsumersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/VideoVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/VideoVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TCollectionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TCollectionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConVLikesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConVLikesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/THistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/THistoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/browse-catagroies.html" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/browse-catagroies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/live-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/live-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/single-channal.html" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/single-channal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/video-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/video-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/your-watch-later.html" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/your-watch-later.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/bilibili-dao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/bilibili-dao.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TCollectionsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TCollectionsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TComCommentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TComCommentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TCommentsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TCommentsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConGiftDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConGiftDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConVLikesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConVLikesDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConsumersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConsumersDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TDanMuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TDanMuDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanSeriesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanSeriesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFocusDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFocusDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TGiftDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TGiftDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryVoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryVoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TIncomingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TIncomingDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TItemsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TItemsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TLiveRoomsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TLiveRoomsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TManagersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TManagersDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TOrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TReportDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TReportDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRolesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRolesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomConDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomConDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomGiftDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomGiftDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TTagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TTagDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVTagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVTagDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVideosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVideosDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/UpdateCoinsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/UpdateCoinsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/cache/RedisCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/cache/RedisCache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/config/RedisConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TCollectionsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TCollectionsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TComCommentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TComCommentDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TCommentsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TCommentsDao.class" afterDir="false" />
@@ -117,6 +162,7 @@
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TLiveRoomsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TLiveRoomsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TManagersDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TManagersDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TOrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TOrderDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TReportDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TReportDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TRolesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TRolesDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TRoomConDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TRoomConDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TRoomGiftDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TRoomGiftDao.class" afterDir="false" />
@@ -124,7 +170,13 @@
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TVTagDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TVTagDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TVideosDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/TVideosDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/UpdateCoinsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/dao/UpdateCoinsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TVideosServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TVideosServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/util/ApplicationContextUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/util/ApplicationContextUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/util/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-dao/target/classes/org/lanqiao/util/RedisUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TCollectionsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TCollectionsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TConVLikesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TConVLikesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryVoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryVoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bilibili-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bilibili-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bilibili-controller/target/" />
     <ignored path="$PROJECT_DIR$/bilibili-bean/target/" />
@@ -142,57 +194,60 @@
     <session id="-1652671078">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="1" />
+          <entry key="class" value="2" />
+          <entry key="html" value="25" />
           <entry key="iml" value="2" />
-          <entry key="java" value="25" />
+          <entry key="java" value="113" />
+          <entry key="js" value="1" />
+          <entry key="vue" value="2" />
+          <entry key="xml" value="2" />
+          <entry key="yml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="1" />
+          <entry key="CLASS" value="2" />
+          <entry key="HTML" value="25" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="25" />
+          <entry key="JAVA" value="113" />
+          <entry key="JavaScript" value="1" />
+          <entry key="Vue.js" value="2" />
+          <entry key="XML" value="2" />
+          <entry key="YAML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2347" />
+          <entry key="html" value="507" />
+          <entry key="java" value="4482" />
+          <entry key="txt" value="21" />
+          <entry key="yml" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2347" />
+          <entry key="HTML" value="507" />
+          <entry key="JAVA" value="4482" />
+          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="YAML" value="51" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="77" column="17" lean-forward="true" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2148#2149#0" expanded="true" />
-                <element signature="e#2219#2220#0" expanded="true" />
-                <element signature="e#2415#2416#0" expanded="true" />
-                <element signature="e#2487#2488#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -200,6 +255,7 @@
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="Interface" />
+        <option value="Vue Single File Component" />
         <option value="Class" />
       </list>
     </option>
@@ -210,18 +266,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConsumersController.java" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/test.vue" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/video-list.html" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/single_kind_videos.html" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/b_list_videos.html" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/single-channal.html" />
+        <option value="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/CollectionsVideoVo.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TCollectionsDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TComCommentDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TCommentsDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConGiftDao.java" />
         <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConsumersDao.java" />
-        <option value="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TVideos.java" />
-        <option value="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TReport.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TDanMuDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanSeriesDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFocusDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TGiftDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryVoDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TIncomingDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TItemsDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TLiveRoomsDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TManagersDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TOrderDao.java" />
         <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TReportDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRolesDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomConDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomGiftDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TTagDao.java" />
         <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVideosDao.java" />
-        <option value="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TReportService.java" />
-        <option value="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TVideosService.java" />
-        <option value="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TReportServiceImpl.java" />
-        <option value="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TVideosServiceImpl.java" />
-        <option value="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVTagDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/UpdateCoinsDao.java" />
         <option value="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TCollectionsService.java" />
+        <option value="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TCollectionsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/CnoVideoLikesVo.java" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConVLikesController.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConVLikesDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TConVLikesServiceImpl.java" />
+        <option value="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TConVLikesService.java" />
+        <option value="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryVoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryDao.java" />
+        <option value="$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/THistoryService.java" />
+        <option value="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/THistory.java" />
+        <option value="$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/THistoryVo.java" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/THistoryController.java" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TCollectionsController.java" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/live-list.html" />
+        <option value="$PROJECT_DIR$/bilibili-service/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/home.html" />
+        <option value="$PROJECT_DIR$/bilibili-controller/src/main/resources/static/your-watch-later.html" />
       </list>
     </option>
   </component>
@@ -232,10 +327,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="57" />
-    <option name="y" value="17" />
-    <option name="width" value="1818" />
-    <option name="height" value="978" />
+    <option name="x" value="117" />
+    <option name="y" value="72" />
+    <option name="width" value="1605" />
+    <option name="height" value="919" />
   </component>
   <component name="ProjectId" id="1jV2vAvHLJMBLPqBdGvuq3DoKeG" />
   <component name="ProjectView">
@@ -243,8 +338,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,9 +365,10 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/ideaproject/bilibili/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java&#10;&lt;h3 class=&#9;null&#9;null&#10;uk-heading-line&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614686103255" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1617469585402" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -282,7 +378,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.13574219" />
     <property name="project.structure.side.proportion" value="0.2446602" />
   </component>
@@ -298,11 +394,11 @@
       <recent name="org.lanqiao.cache" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaproject\bilibili\bilibili-controller\src\main\resources\static" />
       <recent name="E:\file\毕设\bilibili项目\bilibili-withoutSercurity\bilibili-controller\src\main\resources\static" />
       <recent name="E:\file\毕设\bilibili项目\bilibili-withoutSercurity\bilibili-controller\src\main\resources\static\assets\images\channals" />
       <recent name="E:\file\毕设\bilibili项目\bilibili-withoutSercurity\bilibili-controller\src\main\resources\static\assets\images\banner" />
       <recent name="E:\file\毕设\bilibili项目\bilibili-withoutSercurity\bilibili-controller\src\main\resources\static\assets\images\avatars" />
-      <recent name="E:\file\毕设\bilibili项目\bilibili-withoutSercurity\bilibili-controller\src\main\resources\static\admin\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -317,7 +413,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BilibiliServiceApplication">
+  <component name="RunManager" selected="Spring Boot.BilibiliControllerApplication">
     <configuration name="test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.lanqiao.controller.test" />
       <module name="bilibili-controller" />
@@ -459,6 +555,12 @@
       <workItem from="1614664056644" duration="5718000" />
       <workItem from="1614671250907" duration="1680000" />
       <workItem from="1614673592432" duration="7667000" />
+      <workItem from="1616919494834" duration="1463000" />
+      <workItem from="1617019658328" duration="465000" />
+      <workItem from="1617020314508" duration="3200000" />
+      <workItem from="1617193028516" duration="12648000" />
+      <workItem from="1617268369560" duration="608000" />
+      <workItem from="1617463330091" duration="6393000" />
     </task>
     <task id="LOCAL-00001" summary="all-1">
       <created>1614069507763</created>
@@ -499,12 +601,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9347000" />
+    <option name="totallyTimeSpent" value="34124000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="14" width="1454" height="782" extended-state="0" />
+    <frame x="94" y="58" width="1284" height="735" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27148998" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29771614" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -514,15 +616,15 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3379845" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36378738" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41166666" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.5092199" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.16453901" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.44067797" />
@@ -575,7 +677,8 @@
     <MESSAGE value="all-2" />
     <MESSAGE value="all-pages-frame-ok!" />
     <MESSAGE value="个人中心-已登录/未登录" />
-    <option name="LAST_COMMIT_MESSAGE" value="个人中心-已登录/未登录" />
+    <MESSAGE value="收藏+历史记录+我的推荐后端接口 --rj" />
+    <option name="LAST_COMMIT_MESSAGE" value="收藏+历史记录+我的推荐后端接口 --rj" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="75" width="1164" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614587466571">
@@ -723,123 +826,179 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConsumersDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="29" column="95" selection-start-line="29" selection-start-column="95" selection-end-line="29" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConsumersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="67" column="25" lean-forward="true" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TOrders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TLiveRooms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="14" column="69" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConGiftDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="102">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TVideos.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConsumersDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="57" column="7" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+        <state relative-caret-position="102">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TOrdersServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TDanMuDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="102">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TManagersServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFanSeriesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TFocusDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TGiftDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TIncomingDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TItemsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TLiveRoomsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TManagersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TOrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TReportDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TVideosServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRolesDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
-          <folding>
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#2178#2179#0" expanded="true" />
-            <element signature="e#2236#2237#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomConDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TRoomGiftDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TTagDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVideosDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="32" column="56" lean-forward="true" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+        <state relative-caret-position="102">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TVideosService.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TVTagDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+        <state relative-caret-position="102">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/UpdateCoinsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConsumersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1297">
+          <caret line="66" column="27" lean-forward="true" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TCollectionsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2578#2579#0" expanded="true" />
+            <element signature="e#2631#2632#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TConVLikesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+          <folding>
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TCollectionsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="275">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -848,76 +1007,215 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TConVLikesService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        <state relative-caret-position="350">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TCollectionsController.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/TConVLikesDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        <state relative-caret-position="160">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TComCommentController.java">
+    <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TIncomeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        <state relative-caret-position="50">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/THistoryVoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryVoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryVoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/CnoVideoLikesVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/CollectionsVideoVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="66" column="28" lean-forward="true" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TConVLikesServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="79" column="52" lean-forward="true" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-          <folding>
-            <element signature="e#1623#1624#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/TReportService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/TReportServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+        <state relative-caret-position="50">
+          <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-bean/target/classes/org/lanqiao/vo/ConsumerCodeVo.class">
+    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/vo/THistoryVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
+        <state relative-caret-position="150">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-api/src/main/java/org/lanqiao/service/THistoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
           <folding>
-            <element signature="e#0#3786#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bilibili-dao/bilibili-dao.iml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/bilibili-dao/src/main/java/org/lanqiao/dao/THistoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/java/org/lanqiao/serviceImpl/THistoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="143" column="37" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+            <element signature="e#1579#1580#0" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/THistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="48" column="35" lean-forward="true" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/THistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-bean/src/main/java/org/lanqiao/entity/TCollections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/static/test.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/BilibiliControllerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#912#913#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/static/js/head.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/static/live-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="1" column="60" lean-forward="true" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/static/b_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TVideosController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="77" column="17" lean-forward="true" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
+        <state relative-caret-position="50">
+          <caret line="67" column="29" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/java/org/lanqiao/controller/TCollectionsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2148#2149#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2415#2416#0" expanded="true" />
-            <element signature="e#2487#2488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/static/your-watch-later.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="246" column="21" selection-start-line="246" selection-start-column="21" selection-end-line="246" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bilibili-controller/src/main/resources/static/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9794">
+          <caret line="714" column="71" lean-forward="true" selection-start-line="714" selection-start-column="71" selection-end-line="714" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -974,11 +1272,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>bilibili-api</last-edited>
+          <last-edited>bilibili-controller</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.2446602" />
                 <option value="0.6" />
               </list>
             </option>

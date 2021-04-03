@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.lanqiao.cache.RedisCache;
 import org.springframework.stereotype.Repository;
 
-@CacheNamespace(implementation = RedisCache.class)
+//@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TIncomingDao {

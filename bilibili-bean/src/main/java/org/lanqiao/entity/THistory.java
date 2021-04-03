@@ -3,6 +3,7 @@ package org.lanqiao.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**

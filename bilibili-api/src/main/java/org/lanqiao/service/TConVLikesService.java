@@ -1,8 +1,10 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TConVLikes;
+import org.lanqiao.vo.CnoVideoLikesVo;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * 用户点赞过 的视频(TConVLikes)表服务接口
@@ -13,11 +15,18 @@ import java.util.List;
 public interface TConVLikesService {
 
     /**
-     * 通过ID查询单条数据
+     * 通过cno查询数据
      *
-
-     * @return 实例对象
+     *@return 实例对象
      */
+    Set<CnoVideoLikesVo> queryByCno(Integer con_no);
+
+
+
+
+
+
+
     boolean queryByVnoCno(Integer v_no,Integer con_no);
 
     /**

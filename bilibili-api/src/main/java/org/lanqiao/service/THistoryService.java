@@ -1,8 +1,11 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.THistory;
+import org.lanqiao.vo.THistoryVo;
 
+import java.text.ParseException;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 观看历史(THistory)表服务接口
@@ -19,6 +22,18 @@ public interface THistoryService {
      * @return 实例对象
      */
     THistory queryById(Integer hisNo);
+
+    /**
+     * 通过con查询当前用户的历史记录
+     */
+    List<THistory> queryByCno(Integer cno_no);
+
+
+    /**
+     * 获取用户观看历史
+     */
+    Set<THistoryVo> getHistory(Integer con_no) throws ParseException;
+
 
     /**
      * 查询多条数据

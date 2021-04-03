@@ -4,10 +4,13 @@ import com.alibaba.dubbo.config.annotation.Service;
 import org.lanqiao.dao.TConVLikesDao;
 import org.lanqiao.entity.TConVLikes;
 import org.lanqiao.service.TConVLikesService;
+import org.lanqiao.service.TVideosService;
+import org.lanqiao.vo.CnoVideoLikesVo;
+import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 
 /**
  * 用户点赞过 的视频(TConVLikes)表服务实现类
@@ -21,44 +24,73 @@ public class TConVLikesServiceImpl implements TConVLikesService {
     @Resource
     private TConVLikesDao tConVLikesDao;
 
+    @Resource
+    private TVideosService tVideosService;
+
+    @Override
+    public Set<CnoVideoLikesVo> queryByCno(Integer con_no) {
+        List<TConVLikes> tConVLikes = this.tConVLikesDao.queryByCno(con_no);
+        List<Integer> v_nos = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        Set<CnoVideoLikesVo> cnoVideoLikesVos = new HashSet<>();
+        for (TConVLikes tConVLikes1 : tConVLikes) {
+            v_nos.add(tConVLikes1.getV_no());
+            map.put(tConVLikes1.getV_no(), tConVLikes1.getCon_v_likes_no());
+        }
+
+        for (Integer vNo : v_nos) {
+            VideoVo videoVo = tVideosService.queryById(vNo);
+            CnoVideoLikesVo cnoVideoLikesVo = new CnoVideoLikesVo();
+            cnoVideoLikesVo.setBlong_con_no(videoVo.getCon_no());
+            cnoVideoLikesVo.setCon_no(con_no);
+            cnoVideoLikesVo.setCon_v_likes_no(map.get(vNo));
+            cnoVideoLikesVo.setV_amount_of_play(videoVo.getV_amount_of_play());
+            cnoVideoLikesVo.setV_coins(videoVo.getV_coins());
+            cnoVideoLikesVo.setV_legal(videoVo.isV_legal());
+            cnoVideoLikesVo.setV_likes(videoVo.getV_likes());
+            cnoVideoLikesVo.setV_no(videoVo.getV_no());
+            cnoVideoLikesVo.setV_pic(videoVo.getV_pic());
+            cnoVideoLikesVo.setV_reports(videoVo.getV_reports());
+            cnoVideoLikesVo.setV_title(videoVo.getV_title());
+            cnoVideoLikesVo.setV_url(videoVo.getV_url());
+
+            cnoVideoLikesVos.add(cnoVideoLikesVo);
+        }
+
+
+        return cnoVideoLikesVos;
+    }
+
     /**
      * 通过ID查询单条数据
      *
-
      * @return 实例对象
      */
 
 
     @Override
-    public boolean queryByVnoCno(Integer con_no,Integer v_no) {
-        if(this.tConVLikesDao.queryByVnoCno(con_no,v_no) == null ){
+    public boolean queryByVnoCno(Integer con_no, Integer v_no) {
+        if (this.tConVLikesDao.queryByVnoCno(con_no, v_no) == null) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
     @Override
     public List<TConVLikes> queryAllByLimit(int offset, int limit) {
-        return this.tConVLikesDao.queryAllByLimit(offset, limit);
+        return null;
     }
+
 
     /**
      * 新增数据
      *
-
      * @return 实例对象
      */
     @Override
-    public boolean insert(Integer con_no,Integer v_no) {
-        this.tConVLikesDao.insert(con_no,v_no);
+    public boolean insert(Integer con_no, Integer v_no) {
+        this.tConVLikesDao.insert(con_no, v_no);
         return true;
     }
 

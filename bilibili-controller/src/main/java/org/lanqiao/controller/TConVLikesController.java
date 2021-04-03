@@ -1,6 +1,7 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.service.TConVLikesService;
 import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,18 @@ import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 public class TConVLikesController {
     @Reference
     TConVLikesService tConVLikesService;
+
+
+    @ApiOperation(value = "获取用户点赞的所有视频")
+    @ResponseBody
+    @GetMapping("getConVLikes")
+    public Result getConVLikes(Integer con_no){
+        return setResultSuccess(this.tConVLikesService.queryByCno(con_no));
+    }
+
+
+
+
 
 
 

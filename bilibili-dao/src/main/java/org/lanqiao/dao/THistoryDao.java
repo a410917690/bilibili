@@ -13,7 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:24:53
  */
-@CacheNamespace(implementation = RedisCache.class)
+//@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface THistoryDao {
@@ -26,10 +26,10 @@ public interface THistoryDao {
     @Select("select * from t_history where con_no=#{con_no} and v_no=#{v_no}")
     THistory queryByCnoVno(@Param("con_no")Integer con_no,@Param("v_no")Integer v_no);
 
+
     /**
      * 查询指定行数据
      *
-
      */
     @Select("select * from t_history where con_no=#{con_no}")
     List<THistory> queryAllHisBycon(Integer con_no);

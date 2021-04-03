@@ -3,6 +3,7 @@ package org.lanqiao.service;
 import org.lanqiao.entity.TCollections;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * 收藏(TCollections)表服务接口
@@ -17,7 +18,7 @@ public interface TCollectionsService {
      *
      * @return 实例对象
      */
-    List queryByCno(Integer con_no);
+    Object queryByCno(Integer con_no,int pageNum,int pageSize);
 
     List getVno(Integer con_no);  //用来判断是否可以添加收藏（已收藏过就无法再收藏）;
 

@@ -15,7 +15,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-07 11:26:29
  */
-@CacheNamespace(implementation = RedisCache.class)
+//@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TRolesDao {

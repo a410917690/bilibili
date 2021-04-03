@@ -67,7 +67,7 @@ public class TVideosController {
     @ResponseBody
     @GetMapping("getAllVideos")
     public Result getAllVideosByPage(@RequestParam(defaultValue = "1") int page) {
-        return setResultSuccess(tVideosService.getAllVideosByPage(page, 6));
+        return setResultSuccess(tVideosService.getAllVideosByPage(page, 7));
     }
 
     /**

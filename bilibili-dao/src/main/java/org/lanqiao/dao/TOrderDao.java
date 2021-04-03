@@ -14,7 +14,7 @@ import java.util.List;
  * @Description:
  * @Date 2021/2/17 18:56
  */
-@CacheNamespace(implementation = RedisCache.class)
+//@CacheNamespace(implementation = RedisCache.class)
 @Repository
 @Mapper
 public interface TOrderDao {
