@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户文件列表</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<hr>
+<h3>视频投稿</h3>
+<a>视频</a>
+<input type="file" value="选择视频" name="fileName1" id="fileName1"/>
+<br><br>
+<a>封面</a>
+<input type="file" value="选择封面" name="fileName2" id="fileName2"/>
+<br><br>
+<input type="button" onclick="sendToUser()" id="sendToUser" value="提交"/>
+<!--unless时if的反义 为true就不显示-->
+</body>
+<script>
+    function sendToUser() { //在这里进行ajax 文件上传 用户的信息
+        // var $file1 = $("input[name='fileName1']").val();//用户文件内容(文件)
+
+        var type = "file";
+        var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
+        formData.append(type, $("#fileName1")[0].files[0]);
+        formData.append(type, $("#fileName2")[0].files[0]);
+        $.ajax({
+            type: "post",
+            url: "/tVideos/upload",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == "error") {
+                    alert("视频提交失败!");
+                } else {
+                    $("input[name='userUrl']").val(data);
+                    alert("视频上传成功!");
+                }
+            }
+        });
+    }
+
+</script>
+</html>

@@ -57,6 +57,10 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="your-watch-later.html"> <i class="uil-lightbulb-alt"></i>
+                            <span> 正在直播 </span>
+                        </a>
+                        </li>
                         <li><a href="browse-catagroies.html"> <i class="uil-layers"></i> <span> 视频分类</span> </a>
                         </li>
                         <li><a href="your-history.html"> <i class="uil-history"></i> <span> 观看记录 </span> </a></li>
@@ -144,7 +148,7 @@
                 <form>
                     <div class="head_search_cont">
                         <input value="" type="text" class="form-control"
-                               placeholder="Adobe XD设计免费教程..." autocomplete="off">
+                               placeholder="视频" autocomplete="off">
                         <i class="s_icon uil-search-alt"></i>
                     </div>
 
@@ -155,7 +159,7 @@
 
                         <ul class="dropdown-search-list">
                             <li class="list-title"> 最近搜索</li>
-                            <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
+                            <li><a href="single-video.html"> 视频 </a></li>
                             <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
                             </li>
                             <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
@@ -247,131 +251,33 @@
                         <hr class="mb-3" style="margin:0 -20px">
                         <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-                        <div class="video-list-small uk-child-width-1-1" uk-grid>
+                        <div class="video-list-small uk-child-width-1-1"  >
 
                             <div>
-                                <a href="single-video.html" class="video-post video-post-list">
+                                <!--<a href="single-video.html" class="video-post video-post-list" >-->
+                                <a v-bind:href="['single-video.html?v_no='+videos[index].v_no]"></a>
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <span class="video-post-count">1.4M</span>
                                         <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
+                                        <span class="play-btn-trigger">{{v.v_amount_of_play}}</span>
 
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
+                                        <img v-bind:src="videos[index].v_pic" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element..</h3>
+                                        <h3 id="videoTitle"> {{v.v_title}}</h3>
                                         <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                         <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
+                                        <span class="video-post-views" id="likeNum">点赞数：{{v.v_likes}}</span>
+                                        <span class="video-post-date"> 播放量：{{v.v_amount_of_play}} </span>
                                     </div>
                                 </a>
                             </div>
 
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
 
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.3M</span>
-                                        <span class="video-post-time">14:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/3.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn Creating Laravel Package Initializing ... </h3>
-                                        <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                        <span class="video-post-user">Alex Dolgove</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/4.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to upload files using Laravel .. </h3>
-                                        <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                        <span class="video-post-user">Adrian Mohani</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
-                                    </div>
-
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element ..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
 
                         </div>
 
@@ -440,26 +346,26 @@
 
                 <div class="uk-width-1-4@m uk-flex-last@m"></div>
 
-                <div class="uk-width-3-4@m">
+                <div class="uk-width-3-4@m" id="vo">
                     <div class="section-header mb-5 border-bottom uk-flex-middle">
                         <div class="section-header-left">
                             <h3> 视频列表</h3>
                         </div>
                     </div>
 
-
-                    <a href="single-video.html" class="video-post video-post-list">
+                <ul v-for="(v,index) in videos">
+                    <li>
+                    <a v-bind:href="['single-video.html?v_no='+videos[index].v_no]" class="video-post video-post-list">
                         <!-- Blog Post Thumbnail -->
                         <div class="video-post-thumbnail">
                             <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
+                            <img v-bind:src="videos[index].v_pic" alt="">
                         </div>
                         <!-- Blog Post Content -->
                         <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
+                            <h3>{{v.v_title}}</h3>
                             <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
+                            <span class="video-post-views">播放量：{{v.v_amount_of_play}}</span>
                             <p> 视频标签：鬼畜、舞蹈、娱乐</p>
                             <!-- option menu -->
                             <span class="btn-option">
@@ -468,10 +374,10 @@
                             <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
                                 <ul>
                                     <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
+                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>{{v.v_amount_of_play}}</span></span>
                                     </li>
                                     <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
+                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>{{v.v_likes}}</span></span>
                                     </li>
                                     <li>
                                         <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
@@ -481,245 +387,246 @@
 
                         </div>
                     </a>
+                    </li>
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <a href="single-video.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>视频标题
-                            </h3>
-                            <span class="video-post-user">视频作者：sonnie</span>
-                            <span class="video-post-views">播放量：10000</span>
-                            <p> 视频标签：鬼畜、舞蹈、娱乐</p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>
-                                    </li>
-                                    <li>
-                                        <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--<a href="single-video.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>视频标题-->
+                            <!--</h3>-->
+                            <!--<span class="video-post-user">视频作者：sonnie</span>-->
+                            <!--<span class="video-post-views">播放量：10000</span>-->
+                            <!--<p> 视频标签：鬼畜、舞蹈、娱乐</p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>20000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>1000</span></span>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                        </div>
-                    </a>
-
+                        <!--</div>-->
+                    <!--</a>-->
+                </ul>
                 </div>
             </div>
 
@@ -834,7 +741,9 @@
                             role = data.data.role_no;
                             if(role!==null){
                                 v_no= this.videos[index].v_no;
+
                                 window.location.href = "single-video.html"+v_no;
+                                console.log("v_no="+v_no);
                             }else{
                                 window.location.href = "b_login.html";
                             }
@@ -879,7 +788,42 @@
                     }
                 })
             }
-        })
+        });
+
+
+        var vs = new Vue({
+            el:"#vo",
+            data:{
+                videos:[]
+            },
+            mounted: function () {
+
+            },
+            methods:{
+
+            }
+        });
+
+
+        $.ajax({
+            url:basePath+"/getAllVideosNotPage",
+            type:"get",
+            dataType:"json",
+            data:{
+
+            },
+            success: function (data) {
+
+                home.videos = data.data;
+                vs.videos = data.data;
+                console.log(vs.videos);
+            }
+
+        });
+
+
+
+
 
         //显示我的头像
         // $.ajax({

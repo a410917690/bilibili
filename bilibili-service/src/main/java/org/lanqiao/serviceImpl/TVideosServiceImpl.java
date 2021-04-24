@@ -95,6 +95,11 @@ public class TVideosServiceImpl implements TVideosService {
         return new PageInfo<>(list);
     }
 
+    @Override
+    public List<TVideos> getAllVideosNotPage() {
+        return this.tVideosDao.getListByPage();
+    }
+
     /**
      * 通过标签获取其下的所有视频
      *

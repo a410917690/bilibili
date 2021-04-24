@@ -54,6 +54,12 @@ public interface TVideosService {
      */
      Object getAllVideosByPage(int pageNum,int pageSize);
 
+
+    /**
+     * 获取所有视频（不分页）
+     */
+    List<TVideos> getAllVideosNotPage();
+
     /**
      * 通过标签获取所有视频（分页）
      * @param pageNum

@@ -19,6 +19,22 @@ import java.util.concurrent.TimeUnit;
 import static org.lanqiao.util.result.ResultFactory.setResultError;
 import static org.lanqiao.util.result.ResultFactory.setResultSuccess;
 
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
 /**
  * 视频(TVideos)表控制层
  *
@@ -68,6 +84,17 @@ public class TVideosController {
     @GetMapping("getAllVideos")
     public Result getAllVideosByPage(@RequestParam(defaultValue = "1") int page) {
         return setResultSuccess(tVideosService.getAllVideosByPage(page, 7));
+    }
+
+
+    /**
+     * 获取所有视频（不分页）
+     */
+    @ApiOperation(value = "获取所有视频（不分页）")
+    @ResponseBody
+    @GetMapping("getAllVideosNotPage")
+    public Result getAllVideosNotPage(){
+        return setResultSuccess(tVideosService.getAllVideosNotPage());
     }
 
     /**
@@ -176,5 +203,74 @@ public class TVideosController {
 //    public Result getLikesNum(Integer v_no){
 //        return setResultSuccess(200,"获取点赞数");
 //    }
+
+    /**
+     * 新增视频，（投稿视频）
+     */
+    @ApiOperation(value = "投稿视频（新增视频）")
+    @ResponseBody
+    @PostMapping("tVideos/upload")
+    public String upload(HttpSession session, @RequestParam("file") MultipartFile[] file, RedirectAttributes attributes, @RequestParam("con_no") int con_no) throws IOException {
+        //多个文件
+        if (file.length == 0) {
+            attributes.addFlashAttribute("msg", "上传的文件不能为空");
+            return "redirect:/files/fileAll";
+        }
+        //开Ftp通道
+        Ftp ftp = new Ftp("49.234.77.189", 21, "13593568046", "123456");
+        ftp.ftpLogin();
+        TVideos tVideos = new TVideos();
+        for (MultipartFile multipartFile : file) {
+            //获取原始文件名称
+            String originalFilename = multipartFile.getOriginalFilename();
+            //获取文件后缀名
+            String extension = "." + FilenameUtils.getExtension(originalFilename);
+            //获取新文件名称 命名：时间戳+UUID+后缀
+            String newFileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())
+                    + UUID.randomUUID().toString().substring(0, 4)
+                    + extension;
+            File file1 = new File(newFileName);
+            FileUtils.copyInputStreamToFile(multipartFile.getInputStream(), file1);
+            boolean b = ftp.uploadFile(file1, "/home/data/");
+            if (file1.exists()) {
+                boolean a = file1.delete();
+            }
+            //对象上传数据库
+            if (extension.equals(".jpg") || extension.equals(".png")) {
+                tVideos.setV_pic("http://49.234.77.189:8080/video/" + file1.getName());
+            } else {
+                int nameLength = multipartFile.getOriginalFilename().lastIndexOf('.');
+                String vTitle = multipartFile.getOriginalFilename().substring(0,nameLength);
+                String vUrl = "http://49.234.77.189:8080/video/" + file1.getName();
+                tVideos.setV_title(vTitle);
+                tVideos.setV_url(vUrl);
+                tVideos.setCon_no(con_no);
+                tVideos.setV_coins(0);
+            }
+        }
+        tVideosService.insert(tVideos);
+
+        //获取资源路径 classpath的项目路径+/static/files  classpath就是resources的资源路径
+//        String path = ResourceUtils.getURL("classpath:").getPath() + "static/files/";
+        //新建一个时间文件夹标识，用来分类
+//        String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        //全路径(存放资源的路径) 资源路径+时间文件夹标识
+//        String dataDir = path + format;
+//        System.out.println(dataDir);
+        //全路径存放在文件类中，判断文件夹是否存在不存在就创建
+//        File dataFile = new File(dataDir);  //也可以直接放进去进行拼接 File dataFile = new File(path,format);
+//        if (!dataFile.exists()) {
+//            dataFile.mkdirs();
+//        }
+//          文件上传至指定路径
+//        file.transferTo(new File(dataFile, newFileName));
+//        上传本地文件夹
+//        boolean up = ftp.uploadDirectory("C:\\Users\\77181\\Desktop\\123", "/home/data/");
+//        System.out.println(lo);
+//        System.out.println(up);
+//=============================================================================================
+        ftp.ftpLogOut();
+        return "redirect:/files/fileAll";
+    }
 
 }

@@ -35,6 +35,8 @@ public interface TVideosDao {
      */
     @Select("select * from t_videos where v_no =(select v_no from t_v_tag where t_no=#{t_no})")
     List<TVideos> queryByTag(Integer t_no);
+    //以上方法有错误，有bug
+
 
     /**
      * 获取所有视频

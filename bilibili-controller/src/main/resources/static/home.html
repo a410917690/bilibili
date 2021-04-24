@@ -60,6 +60,10 @@
                             </li>
                             <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                                 <span>  我推荐的视频 </span> </a></li>
+                            <li><a href="your-watch-later.html"> <i class="uil-lightbulb-alt"></i>
+                                <span> 正在直播 </span>
+                            </a>
+                            </li>
                             <li><a href="browse-catagroies.html"> <i class="uil-layers"></i> <span> 视频分类</span> </a>
                             </li>
                             <li><a href="your-history.html"> <i class="uil-history"></i> <span> 观看记录 </span> </a></li>
@@ -149,7 +153,7 @@
                     <form>
                         <div class="head_search_cont">
                             <input value="" type="text" class="form-control"
-                                   placeholder="Adobe XD设计免费教程..." autocomplete="off">
+                                   placeholder="视频" autocomplete="off">
                             <i class="s_icon uil-search-alt"></i>
                         </div>
 
@@ -160,7 +164,7 @@
 
                             <ul class="dropdown-search-list">
                                 <li class="list-title"> 最近搜索</li>
-                                <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
+                                <li><a href="single-video.html"> 视频 </a></li>
                                 <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
                                 </li>
                                 <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
@@ -202,9 +206,17 @@
                                 <p class="my-3"> 分享生活，分享每一份美好 <br> 点击上传...
                                 </p>
                                 <div uk-form-custom>
-                                    <input type="file">
-                                    <a href="#" class="button soft-primary small"> 选择文件</a>
+                                    <a class="button soft-primary small"> 选择视频</a>
+                                    <input type="file" value="选择视频" name="fileName1" id="fileName1"/>
+
+                                    <br><br>
+                                    <a class="button soft-primary small"> 选择封面</a>
+                                    <input type="file" value="选择封面" name="fileName2" id="fileName2"/>
+
+                                    <br><br>
+                                    <input type="button" onclick="sendToUser()" id="sendToUser" value="提交"/>
                                 </div>
+
 
                                 <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
                                 <!--                               uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">-->
@@ -528,7 +540,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[0].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">300{{videos[0].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -544,8 +556,8 @@
                                     <h3 id="videoTitle"> {{videos[0].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[0].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[0].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：200{{videos[0].v_likes}}</span>
+                                    <span class="video-post-date">播放量：300{{videos[0].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -554,7 +566,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[1].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">800{{videos[1].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -570,8 +582,8 @@
                                     <h3 id="videoTitle"> {{videos[1].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[1].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[1].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：300{{videos[1].v_likes}}</span>
+                                    <span class="video-post-date">播放量：800{{videos[1].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -580,7 +592,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[2].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">5{{videos[2].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -596,8 +608,8 @@
                                     <h3 id="videoTitle"> {{videos[2].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[2].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[2].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：3{{videos[2].v_likes}}</span>
+                                    <span class="video-post-date">播放量：5{{videos[2].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -608,7 +620,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[3].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">12{{videos[3].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -624,8 +636,8 @@
                                     <h3 id="videoTitle"> {{videos[3].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[3].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[3].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：25{{videos[3].v_likes}}</span>
+                                    <span class="video-post-date">播放量：12{{videos[3].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -634,7 +646,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[4].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">30{{videos[4].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -650,8 +662,8 @@
                                     <h3 id="videoTitle"> {{videos[4].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[4].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[4].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：10{{videos[4].v_likes}}</span>
+                                    <span class="video-post-date">播放量：30{{videos[4].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -660,7 +672,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[5].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">30{{videos[5].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -676,8 +688,8 @@
                                     <h3 id="videoTitle"> {{videos[5].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[5].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[5].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：10{{videos[5].v_likes}}</span>
+                                    <span class="video-post-date">播放量：30{{videos[5].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -686,7 +698,7 @@
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
                                     <!--                                播放量-->
-                                    <span class="video-post-count" id="playNum">{{videos[6].v_amount_of_play}}</span>
+                                    <span class="video-post-count" id="playNum">998{{videos[6].v_amount_of_play}}</span>
                                     <!--                                <span class="video-post-time">23:00</span>-->
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -702,8 +714,8 @@
                                     <h3 id="videoTitle"> {{videos[6].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user" id="VideoUser">sonnie</span>
-                                    <span class="video-post-views" id="likeNum">点赞数：{{videos[6].v_likes}}</span>
-                                    <span class="video-post-date">播放量：{{videos[6].v_amount_of_play}}</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：33{{videos[6].v_likes}}</span>
+                                    <span class="video-post-date">播放量：998{{videos[6].v_amount_of_play}}</span>
                                 </div>
                             </a>
                         </li>
@@ -744,12 +756,12 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                         <!--                                视频封面-->
-                                        <img src="images/仍无法v.jpg" alt="">
+                                        <img src="images/csxdj.webp" alt="">
 
                                     </div>
 
                                     <div class="video-post-content">
-                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                        <h3 id="fanTitle"> 厨神小当家 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -764,12 +776,12 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                         <!--                                视频封面-->
-                                        <img src="images/仍无法v.jpg" alt="">
+                                        <img src="images/gwsb.webp" alt="">
 
                                     </div>
 
                                     <div class="video-post-content">
-                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                        <h3 id="fanTitle"> 怪物事变 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -784,12 +796,12 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                         <!--                                视频封面-->
-                                        <img src="images/仍无法v.jpg" alt="">
+                                        <img src="images/longxs.webp" alt="">
 
                                     </div>
 
                                     <div class="video-post-content">
-                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                        <h3 id="fanTitle"> 龙先生，想要买个家 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -804,12 +816,12 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                         <!--                                视频封面-->
-                                        <img src="images/仍无法v.jpg" alt="">
+                                        <img src="images/tlw.webp" alt="">
 
                                     </div>
 
                                     <div class="video-post-content">
-                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                        <h3 id="fanTitle"> 通灵王 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -824,12 +836,12 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                         <!--                                视频封面-->
-                                        <img src="images/仍无法v.jpg" alt="">
+                                        <img src="images/dj.webp" alt="">
 
                                     </div>
 
                                     <div class="video-post-content">
-                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                        <h3 id="fanTitle"> 迪迦奥特曼 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -844,12 +856,12 @@
 <!--                                        <i class="icon-feather-more-vertical"></i>-->
                                 </span>
                                         <!--                                视频封面-->
-                                        <img src="images/仍无法v.jpg" alt="">
+                                        <img src="images/yzs.webp" alt="">
 
                                     </div>
 
                                     <div class="video-post-content">
-                                        <h3 id="fanTitle"> 如何使用CSS创建基本的Sticky HTML元素 </h3>
+                                        <h3 id="fanTitle"> 影之诗 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -904,13 +916,13 @@
                                             </ul>
                                         </div>
 
-                                        <img src="images/jkiu.jpg" alt="">
+                                        <img src="images/djzb.jpg" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> 直播间标题 </h3>
+                                        <h3> 电竞直播间 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -936,13 +948,13 @@
                                             </ul>
                                         </div>
 
-                                        <img src="images/jkiu.jpg" alt="">
+                                        <img src="images/llhtdpym.jpg" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> 直播间标题 </h3>
+                                        <h3> 老罗和他的朋友们 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -968,13 +980,13 @@
                                             </ul>
                                         </div>
 
-                                        <img src="images/jkiu.jpg" alt="">
+                                        <img src="images/jdqs.jpg" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> 直播间标题 </h3>
+                                        <h3> 绝地求生 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -1000,13 +1012,13 @@
                                             </ul>
                                         </div>
 
-                                        <img src="images/jkiu.jpg" alt="">
+                                        <img src="images/yxlm.jpg" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> 直播间标题 </h3>
+                                        <h3> 英雄联盟 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -1032,13 +1044,13 @@
                                             </ul>
                                         </div>
 
-                                        <img src="images/jkiu.jpg" alt="">
+                                        <img src="images/cfsj.jpg" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> 直播间标题 </h3>
+                                        <h3> 财富商机 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -1064,13 +1076,13 @@
                                             </ul>
                                         </div>
 
-                                        <img src="images/jkiu.jpg" alt="">
+                                        <img src="images/yyzb.jpg" alt="">
 
                                     </div>
 
                                     <!-- Blog Post Content -->
                                     <div class="video-post-content">
-                                        <h3> 直播间标题 </h3>
+                                        <h3> 音乐直播 </h3>
                                     </div>
                                 </a>
                             </li>
@@ -1323,6 +1335,31 @@
         })
 
     });
+
+    //文件上传处理
+    function sendToUser() { //在这里进行ajax 文件上传 用户的信息
+        // var $file1 = $("input[name='fileName1']").val();//用户文件内容(文件)
+
+        var type = "file";
+        var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
+        formData.append(type, $("#fileName1")[0].files[0]);
+        formData.append(type, $("#fileName2")[0].files[0]);
+        $.ajax({
+            type: "post",
+            url: "/tVideos/upload",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == "error") {
+                    alert("视频提交失败!");
+                } else {
+                    $("input[name='userUrl']").val(data);
+                    alert("视频上传成功!");
+                }
+            }
+        });
+    }
 </script>
 </body>
 
