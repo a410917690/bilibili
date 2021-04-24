@@ -1,9 +1,6 @@
 package org.lanqiao.dao;
 
-import org.apache.ibatis.annotations.CacheNamespace;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TLiveRooms;
 import org.springframework.stereotype.Repository;
@@ -30,8 +27,25 @@ public interface TLiveRoomsDao {
     @Select("select * from t_live_rooms where room_no=#{room_no}")
     TLiveRooms queryById(Integer room_no);
 
-    @Select("select * from t_live_rooms")
+    /**
+     * 获取所有直播间用于首页
+     * @return
+     */
+    @Select("select * from t_live_rooms order by room_likes desc")
     List<TLiveRooms> queryAllByPage();
+
+    /**
+     * 获取所有正在直播的直播间（不分页）
+     */
+    @Select("select * from t_live_rooms where is_live=1")
+    List<TLiveRooms> getAllLives();
+
+    /**
+     *关闭直播间（修改is_ive）
+     */
+    @Update("update t_live_rooms set is_live=0 where room_no=#{room_no}")
+    int closeLive(Integer room_no);
+
 
     /**
      * 查询指定行数据

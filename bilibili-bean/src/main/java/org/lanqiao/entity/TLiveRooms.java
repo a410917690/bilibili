@@ -38,5 +38,10 @@ public class TLiveRooms implements Serializable {
      */
     private Boolean is_live;
 
+    /**
+     * 直播间点赞数
+     */
+    private Integer room_likes;
+
 
 }

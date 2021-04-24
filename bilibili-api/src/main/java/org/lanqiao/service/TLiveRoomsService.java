@@ -23,6 +23,12 @@ public interface TLiveRoomsService {
     Object queryAllByPage(int pageNum,int pageSize);
 
     /**
+     * 获取所有直播间
+     *
+     */
+    List<TLiveRooms> getAllLives();
+
+    /**
      * 查询多条数据
      *
      * @param offset 查询起始位置
@@ -54,5 +60,10 @@ public interface TLiveRoomsService {
      * @return 是否成功
      */
     boolean deleteById(Integer roomNo);
+
+    /**
+     * 关闭直播间
+     */
+    boolean closeLive(Integer room_no);
 
 }

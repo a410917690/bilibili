@@ -41,6 +41,11 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
         return new PageInfo<>(list);
     }
 
+    @Override
+    public List<TLiveRooms> getAllLives() {
+        return this.tLiveRoomsDao.getAllLives();
+    }
+
     /**
      * 查询多条数据
      *
@@ -85,5 +90,10 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
     @Override
     public boolean deleteById(Integer roomNo) {
         return this.tLiveRoomsDao.deleteById(roomNo) > 0;
+    }
+
+    @Override
+    public boolean closeLive(Integer room_no) {
+        return this.tLiveRoomsDao.closeLive(room_no) > 0;
     }
 }

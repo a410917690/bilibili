@@ -27,6 +27,10 @@ public interface TFanDao {
     @Select("select * from t_fan where fan_no=#{fan_no}")
     TFan queryById(Integer fan_no);
 
+
+    @Select("select * from t_fan")
+    List<TFan> getAllFan();
+
     @Select("select * from t_fan")
     List<TFan> queryAllByPage();
 

@@ -1,6 +1,7 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.entity.TFan;
 
 import org.lanqiao.service.TFanService;
@@ -40,6 +41,13 @@ public class TFanController {
     @GetMapping("Fan/getAllFan")
     public Result queryAllFanByPage(@RequestParam(defaultValue = "1")int page){
         return setResultSuccess(tFanService.queryAllByPage(page,6));
+    }
+
+    @ApiOperation(value = "获取所有番剧（不分页）")
+    @ResponseBody
+    @GetMapping("getAllFan")
+    public Result getAllFan(){
+        return setResultSuccess(tFanService.getAllFan());
     }
 
     @ResponseBody

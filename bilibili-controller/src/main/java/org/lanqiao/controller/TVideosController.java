@@ -112,6 +112,17 @@ public class TVideosController {
     }
 
     /**
+     * 获取用户投稿的视频
+     */
+    @ApiOperation(value = "通过con_no 获取用户投稿的所有视频")
+    @ResponseBody
+    @GetMapping("getListByConNo")
+    public Result getListByConNo(Integer con_no){
+        return setResultSuccess(tVideosService.getListByConNo(con_no));
+    }
+
+
+    /**
      * 修改视频信息
      *
      * @param tVideos

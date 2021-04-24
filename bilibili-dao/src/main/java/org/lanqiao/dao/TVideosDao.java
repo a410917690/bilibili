@@ -45,6 +45,12 @@ public interface TVideosDao {
     @Select("select * from t_videos order by v_no desc")
     List<TVideos> getListByPage();
 
+    /**
+     * 通过con_no 获取用户投稿的所有视频
+     */
+    @Select("select * from t_videos where con_no=#{con_no}")
+    List<TVideos> getListByConNo(Integer con_no);
+
 
     /**
      * 新增视频

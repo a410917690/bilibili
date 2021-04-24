@@ -60,6 +60,12 @@ public interface TVideosService {
      */
     List<TVideos> getAllVideosNotPage();
 
+
+    /**
+     * 获取用户投稿的视频
+     */
+    List<TVideos> getListByConNo(Integer con_no);
+
     /**
      * 通过标签获取所有视频（分页）
      * @param pageNum

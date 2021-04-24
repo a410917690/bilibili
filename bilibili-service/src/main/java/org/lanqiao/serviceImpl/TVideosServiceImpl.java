@@ -100,6 +100,11 @@ public class TVideosServiceImpl implements TVideosService {
         return this.tVideosDao.getListByPage();
     }
 
+    @Override
+    public List<TVideos> getListByConNo(Integer con_no) {
+        return this.tVideosDao.getListByConNo(con_no);
+    }
+
     /**
      * 通过标签获取其下的所有视频
      *

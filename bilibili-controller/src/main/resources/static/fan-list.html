@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -446,7 +446,7 @@
 
                 </div>
 
-                <div class="uk-width-3-4@m">
+                <div class="uk-width-3-4@m" id="Fan">
 
 
                     <div class="section-header mb-5 border-bottom uk-flex-middle">
@@ -454,132 +454,160 @@
                             <h3> 番剧列表</h3>
                         </div>
                     </div>
-
-
-                    <a href="fan-juji-list.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="images/csxdj.webp" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>厨神小当家</h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
+                    <ul v-for="(f,index) in fans">
+                        <li>
+                            <a v-bind:href="['fan-juji-list.html?fan_no='+fans[index].fan_no]" class="video-post video-post-list">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <span class="play-btn-trigger"></span>
+                                    <img v-bind:src="fans[index].fan_pic" alt="">
+                                </div>
+                                <!-- Blog Post Content -->
+                                <div class="video-post-content">
+                                    <h3>{{f.fan_title}}</h3>
+                                    <p>  </p>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
                                     <i class="icon-feather-more-vertical"></i>
                                 </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
+                                        <ul>
+                                            <li>
+                                                <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                            </li>
+                                        </ul>
+                                    </div>
 
-                        </div>
-                    </a>
+                                </div>
+                            </a>
+                        </li>
 
-                    <a href="fan-juji-list.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="images/gwsb.webp" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>怪物事变</h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    </ul>
 
-                        </div>
-                    </a>
+                    <!--<a href="fan-juji-list.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="images/csxdj.webp" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>厨神小当家</h3>-->
+                            <!--<p>  </p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="fan-juji-list.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="images/longxs.webp" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>龙先生，想要买个家</h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                        </div>
-                    </a>
+                    <!--<a href="fan-juji-list.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="images/gwsb.webp" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>怪物事变</h3>-->
+                            <!--<p>  </p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="fan-juji-list.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="images/tlw.webp" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>通灵王</h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                        </div>
-                    </a>
+                    <!--<a href="fan-juji-list.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="images/longxs.webp" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>龙先生，想要买个家</h3>-->
+                            <!--<p>  </p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="fan-juji-list.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="images/dj.webp" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3>迪迦奥特曼</h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                        </div>
-                    </a>
+                    <!--<a href="fan-juji-list.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="images/tlw.webp" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>通灵王</h3>-->
+                            <!--<p>  </p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</a>-->
+
+                    <!--<a href="fan-juji-list.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="images/dj.webp" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3>迪迦奥特曼</h3>-->
+                            <!--<p>  </p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</a>-->
 
                 </div>
             </div>
@@ -743,6 +771,32 @@
                 })
             }
         })
+
+        var fa = new Vue({
+            el:"#Fan",
+            data:{
+                fans:[]
+            },
+            mounted: function () {
+
+            },
+            methods:{
+
+            }
+        });
+        //获取番剧列表
+        $.ajax({
+            url:basePath+"/getAllFan",
+            type:"get",
+            dataType:"json",
+            data:{
+
+            },
+            success: function (data) {
+                fa.fans = data.data;
+            }
+
+        });
 
 
     });

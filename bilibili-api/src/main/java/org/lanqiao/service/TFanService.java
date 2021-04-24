@@ -23,13 +23,9 @@ public interface TFanService {
     Object queryAllByPage(int pageNum,int pageSize);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
+     * 获取所有番剧
      */
-    List<TFan> queryAllByLimit(int offset, int limit);
+    List<TFan> getAllFan();
 
     /**
      * 新增数据
