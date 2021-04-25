@@ -53,6 +53,7 @@ public class THistoryController {
         return setResultSuccess(tHistoryService.deleteById(con_no,v_no));
     }
 
+    @ApiOperation(value = "插入观看记录")
     @ResponseBody
     @PostMapping("insertHistory")
     public Result insertHistory(@RequestParam("con_no") Integer con_no,@RequestParam("v_no") Integer v_no){

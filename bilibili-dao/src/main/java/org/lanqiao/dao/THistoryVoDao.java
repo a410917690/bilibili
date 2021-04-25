@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface THistoryVoDao {
-    @Select("select * from t_videos v,(select v_no from t_history h where con_no=#{con_no}) n where v.v_no = n.v_no")
+    @Select("select * from t_videos v,(select v_no from t_history h where con_no=#{con_no}) n where v.v_no = n.v_no order by his_no desc")
     List<THistoryVo> selectTHistoryByCon(Integer con_no);
 
 

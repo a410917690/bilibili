@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>TubeLite Streaming Video HTML Template</title>
+    <title>观看历史</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
@@ -58,7 +58,7 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
-                        <li><a href="your-watch-later.html"> <i class="uil-lightbulb-alt"></i>
+                        <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
                         </a>
                         </li>
@@ -160,7 +160,7 @@
 
                         <ul class="dropdown-search-list">
                             <li class="list-title"> 最近搜索</li>
-                            <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
+                            <li><a href="single-video.html"> 视频 </a></li>
                             <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
                             </li>
                             <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
@@ -441,132 +441,135 @@
         <div class="main_content">
             <div class="main_content_inner">
 
-                <h2 class="mt-lg-2 mb-sm-0"> Watched history </h2>
+                <h2 class="mt-lg-2 mb-sm-0"> 观看历史 </h2>
 
                 <div class="section-small">
 
                     <div uk-grid>
                         <div class="uk-width-1-4@m uk-flex-last@m">
 
-                            <nav class="responsive-tab style-3 setting-menu uk-sticky"
-                                uk-sticky="top:30 ; offset:100; media:@m ;bottom:true; animation: uk-animation-slide-top">
-                                <h4 class="mb-0 p-3 uk-visible@m"> History type</h4>
-                                <hr class="m-0">
-                                <ul class="uk-form-controls">
-                                    <li><a href="#">
-                                            <label>
-                                                <input class="uk-radio" type="radio" name="radio1">
-                                                <span class="checkmark ml-2"> Watch History </span>
-                                            </label>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <label>
-                                                <input class="uk-radio" type="radio" name="radio1">
-                                                <span class="checkmark ml-2"> Search History </span>
-                                            </label>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <label>
-                                                <input class="uk-radio" type="radio" name="radio1">
-                                                <span class="checkmark ml-2"> Comments </span>
-                                            </label>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <label>
-                                                <input class="uk-radio" type="radio" name="radio1">
-                                                <span class="checkmark ml-2"> Community </span>
-                                            </label>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <label>
-                                                <input class="uk-radio" type="radio" name="radio1">
-                                                <span class="checkmark ml-2"> Browse all History </span>
-                                            </label>
-                                        </a></li>
-                                </ul>
-                            </nav>
+                            <!--<nav class="responsive-tab style-3 setting-menu uk-sticky"-->
+                                <!--uk-sticky="top:30 ; offset:100; media:@m ;bottom:true; animation: uk-animation-slide-top">-->
+                                <!--<h4 class="mb-0 p-3 uk-visible@m"> History type</h4>-->
+                                <!--<hr class="m-0">-->
+                                <!--<ul class="uk-form-controls">-->
+                                    <!--<li><a href="#">-->
+                                            <!--<label>-->
+                                                <!--<input class="uk-radio" type="radio" name="radio1">-->
+                                                <!--<span class="checkmark ml-2"> Watch History </span>-->
+                                            <!--</label>-->
+                                        <!--</a></li>-->
+                                    <!--<li><a href="#">-->
+                                            <!--<label>-->
+                                                <!--<input class="uk-radio" type="radio" name="radio1">-->
+                                                <!--<span class="checkmark ml-2"> Search History </span>-->
+                                            <!--</label>-->
+                                        <!--</a></li>-->
+                                    <!--<li><a href="#">-->
+                                            <!--<label>-->
+                                                <!--<input class="uk-radio" type="radio" name="radio1">-->
+                                                <!--<span class="checkmark ml-2"> Comments </span>-->
+                                            <!--</label>-->
+                                        <!--</a></li>-->
+                                    <!--<li><a href="#">-->
+                                            <!--<label>-->
+                                                <!--<input class="uk-radio" type="radio" name="radio1">-->
+                                                <!--<span class="checkmark ml-2"> Community </span>-->
+                                            <!--</label>-->
+                                        <!--</a></li>-->
+                                    <!--<li><a href="#">-->
+                                            <!--<label>-->
+                                                <!--<input class="uk-radio" type="radio" name="radio1">-->
+                                                <!--<span class="checkmark ml-2"> Browse all History </span>-->
+                                            <!--</label>-->
+                                        <!--</a></li>-->
+                                <!--</ul>-->
+                            <!--</nav>-->
                         </div>
-                        <div class="uk-width-3-4@m">
+                        <div class="uk-width-3-4@m" id="hVideos">
+                            <ul v-for="(h,index) in videos ">
+                                <li>
+                                    <a v-bind:href="['single-video.html?v_no='+videos[index].v_no]" class="video-post video-post-list">
+                                        <!-- Blog Post Thumbnail -->
+                                        <div class="video-post-thumbnail">
+                                            <span class="play-btn-trigger"></span>
+                                            <span class="video-post-time">23:00</span>
+                                            <img v-bind:src="videos[index].v_pic" alt="">
+                                        </div>
+                                        <!-- Blog Post Content -->
+                                        <div class="video-post-content">
+                                            <label class="p-3 circle bg-secondary uk-align-right ml-2"
+                                                    uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close id="deleteHistory"></label>
+                                            <h3>{{h.v_title}}</h3>
+                                            <!--<span class="video-post-user">Jonathan Madano</span>-->
+                                            <span class="video-post-date"> {{h.watch_date}} </span>
+                                            <!--<p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue-->
+                                                <!--nihil imperdiet doming id quod mazim placerat facer... </p>-->
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
 
 
-                            <a href="single-video.html" class="video-post video-post-list">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <span class="video-post-time">23:00</span>
-                                    <img src="assets/images/video-thumbal/2.png" alt="">
-                                </div>
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <button class="p-3 circle bg-secondary uk-align-right ml-2"
-                                        uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>
-                                    <h3>how to create a basic Sticky HTML element using the CSS fixed position property
-                                    </h3>
-                                    <span class="video-post-user">Jonathan Madano</span>
-                                    <span class="video-post-date"> 2 weeks ago </span>
-                                    <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-                                </div>
-                            </a>
 
-                            <a href="single-video.html" class="video-post video-post-list">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="video-post-time">23:00</span>
-                                    <span class="play-btn-trigger"></span>
-                                    <img src="assets/images/video-thumbal/img-1.png" alt="">
-                                </div>
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <button class="p-3 circle bg-secondary uk-align-right ml-2"
-                                        uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>
-                                    <h3> Learn How-To Design & Prototype in Adobe XD Tutorial with Fixed Position and
-                                        Overlays </h3>
-                                    <span class="video-post-user">Alex Dolgove</span>
-                                    <span class="video-post-date"> 2 weeks ago </span>
-                                    <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-                                </div>
-                            </a>
+                            <!--<a href="single-video.html" class="video-post video-post-list">-->
+                                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                                <!--<div class="video-post-thumbnail">-->
+                                    <!--<span class="video-post-time">23:00</span>-->
+                                    <!--<span class="play-btn-trigger"></span>-->
+                                    <!--<img src="assets/images/video-thumbal/img-1.png" alt="">-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                                <!--<div class="video-post-content">-->
+                                    <!--<button class="p-3 circle bg-secondary uk-align-right ml-2"-->
+                                        <!--uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>-->
+                                    <!--<h3> Learn How-To Design & Prototype in Adobe XD Tutorial with Fixed Position and-->
+                                        <!--Overlays </h3>-->
+                                    <!--<span class="video-post-user">Alex Dolgove</span>-->
+                                    <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                                    <!--<p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue-->
+                                        <!--nihil imperdiet doming id quod mazim placerat facer... </p>-->
+                                <!--</div>-->
+                            <!--</a>-->
 
-                            <a href="single-video.html" class="video-post video-post-list">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <span class="video-post-time">23:00</span>
-                                    <img src="assets/images/video-thumbal/img-3.png" alt="">
-                                </div>
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <button class="p-3 circle bg-secondary uk-align-right ml-2"
-                                        uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>
-                                    <h3> Learn How to Prototype Faster Smarter and Easier with Mockplus! in 2020</h3>
-                                    <span class="video-post-user">Adrian Mohani</span>
-                                    <span class="video-post-date"> 2 weeks ago </span>
-                                    <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-                                </div>
-                            </a>
+                            <!--<a href="single-video.html" class="video-post video-post-list">-->
+                                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                                <!--<div class="video-post-thumbnail">-->
+                                    <!--<span class="play-btn-trigger"></span>-->
+                                    <!--<span class="video-post-time">23:00</span>-->
+                                    <!--<img src="assets/images/video-thumbal/img-3.png" alt="">-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                                <!--<div class="video-post-content">-->
+                                    <!--<button class="p-3 circle bg-secondary uk-align-right ml-2"-->
+                                        <!--uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>-->
+                                    <!--<h3> Learn How to Prototype Faster Smarter and Easier with Mockplus! in 2020</h3>-->
+                                    <!--<span class="video-post-user">Adrian Mohani</span>-->
+                                    <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                                    <!--<p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue-->
+                                        <!--nihil imperdiet doming id quod mazim placerat facer... </p>-->
+                                <!--</div>-->
+                            <!--</a>-->
 
 
-                            <a href="single-video.html" class="video-post video-post-list">
-                                <!-- Blog Post Thumbnail -->
-                                <div class="video-post-thumbnail">
-                                    <span class="play-btn-trigger"></span>
-                                    <span class="video-post-time">23:00</span>
-                                    <img src="assets/images/video-thumbal/img-5.png" alt="">
-                                </div>
-                                <!-- Blog Post Content -->
-                                <div class="video-post-content">
-                                    <button class="p-3 circle bg-secondary uk-align-right ml-2"
-                                        uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>
-                                    <h3> Create a Social Media App - Design and Prototype Adobe Xd Tutorial </h3>
-                                    <span class="video-post-user">Stella Johnson</span>
-                                    <span class="video-post-date"> 2 weeks ago </span>
-                                    <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-                                </div>
-                            </a>
+                            <!--<a href="single-video.html" class="video-post video-post-list">-->
+                                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                                <!--<div class="video-post-thumbnail">-->
+                                    <!--<span class="play-btn-trigger"></span>-->
+                                    <!--<span class="video-post-time">23:00</span>-->
+                                    <!--<img src="assets/images/video-thumbal/img-5.png" alt="">-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                                <!--<div class="video-post-content">-->
+                                    <!--<button class="p-3 circle bg-secondary uk-align-right ml-2"-->
+                                        <!--uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close></button>-->
+                                    <!--<h3> Create a Social Media App - Design and Prototype Adobe Xd Tutorial </h3>-->
+                                    <!--<span class="video-post-user">Stella Johnson</span>-->
+                                    <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                                    <!--<p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue-->
+                                        <!--nihil imperdiet doming id quod mazim placerat facer... </p>-->
+                                <!--</div>-->
+                            <!--</a>-->
 
                         </div>
 
@@ -754,6 +757,49 @@
         //     console.log(data);
         //     home.lives = data.data.list;
         // });
+        var hv = new Vue({
+            el:"#hVideos",
+            data:{
+                videos:[]
+            },
+            mounted: function () {
+
+            },
+            methods:{
+
+            }
+        });
+        var conNo = localStorage.getItem("con_no");
+        $.ajax({
+            url:basePath+"/getHistory?con_no="+conNo,
+            type:"get",
+            dataType:"json",
+            data:{
+            },
+            success: function (data) {
+                hv.videos = data.data;
+            }
+
+        });
+
+        $("#deleteHistory").click(function () {
+            event.stopPropagation();
+            // $.ajax({
+            //     url:basePath+"/deleteHistory",
+            //     type:"post",
+            //     dataType:"json",
+            //     data:{
+            //         con_no:conNo,
+            //         v_no:videos[index].v_no
+            //     },
+            //     success: function (data) {
+            //         // hv.videos = data.data;
+            //         window.location.reload();
+            //     }
+            //
+            // });
+        });
+
 
 
     });
