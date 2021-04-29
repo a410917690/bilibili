@@ -25,6 +25,10 @@ spring:
           max-active: 8
           max-idle: 8
           min-idle: 0
+    servlet:
+      multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
   kafka:
     #    bootstrap-servers: 127.0.0.1:9092
     bootstrap-servers: 49.232.26.166:9092

@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<!--<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />-->
 <head>
 
     <!-- Basic Page Needs
@@ -60,6 +60,8 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                            <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
                         </a>
@@ -152,7 +154,7 @@
             <div class="head_search">
                 <form>
                     <div class="head_search_cont">
-                        <input value="" type="text" class="form-control"
+                        <input value="" type="text" class="form-control" id="serch"
                                placeholder="视频" autocomplete="off">
                         <i class="s_icon uil-search-alt"></i>
                     </div>
@@ -205,17 +207,18 @@
                             <img src="assets/images/upload.png" width="70" class="m-auto" alt="">
                             <p class="my-3"> 分享生活，分享每一份美好 <br> 点击上传...
                             </p>
-                            <div uk-form-custom>
-                                <a class="button soft-primary small"> 选择视频</a>
-                                <input type="file" value="选择视频" name="fileName1" id="fileName1"/>
+                               <br/>
+                                <p class="button soft-primary small"> 选择视频</p>
+                                <input type="file"  style="height: 35px; width:192px " value="选择视频" name="fileName1" id="fileName1"/>
 
-                                <br><br>
-                                <a class="button soft-primary small"> 选择封面</a>
-                                <input type="file" value="选择封面" name="fileName2" id="fileName2"/>
+                                <br/>
+                                <!--class="button soft-primary small"-->
+                                <p class="button soft-primary small"> 选择封面</p>
+                                <input type="file" style="height: 35px; width:192px " value="选择封面" name="fileName2" id="fileName2"/>
 
-                                <br><br>
+                                <br/>
                                 <input type="button" onclick="sendToUser()" id="sendToUser" value="提交"/>
-                            </div>
+
 
 
                             <!--                            <a href="#" class="uk-text-muted mt-3 uk-link"-->
@@ -285,7 +288,7 @@
                                             <div class="video-post-content">
                                                 <h3 style="color: white">{{v.v_title}}</h3>
                                                 <!--<img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                                                <span class="video-post-user">Jonathan Madano</span>
+                                                <span class="video-post-user">{{v.name}}</span>
                                                 <span class="video-post-views">{{v.v_amount_of_play}}</span>
                                                 <!--<span class="video-post-date"> 2 weeks ago </span>-->
                                             </div>
@@ -293,112 +296,111 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            <!--<div>-->
-                            <!--<a href="single-video.html" class="video-post video-post-list">-->
-                            <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
-                            <!--<div class="video-post-thumbnail">-->
-                            <!--<span class="video-post-count">2.7k</span>-->
-                            <!--<span class="video-post-time">40:00</span>-->
-                            <!--<span class="play-btn-trigger"></span>-->
-                            <!--<img src="assets/images/video-thumbal/1.png" alt="">-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
-                            <!--<div class="video-post-content">-->
-                            <!--<h3> Learn how to create PHP singleton class </h3>-->
-                            <!--<img src="assets/images/avatars/avatar-2.jpg" alt="">-->
-                            <!--<span class="video-post-user">Stella Johnson</span>-->
-                            <!--<span class="video-post-views">938k views</span>-->
-                            <!--<span class="video-post-date"> 3 weeks ago </span>-->
-                            <!--</div>-->
-                            <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div>-->
-                            <!--<a href="single-video.html" class="video-post video-post-list">-->
-                            <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
-                            <!--<div class="video-post-thumbnail">-->
-                            <!--<span class="video-post-count">2.3M</span>-->
-                            <!--<span class="video-post-time">14:00</span>-->
-                            <!--<span class="play-btn-trigger"></span>-->
-                            <!--<img src="assets/images/video-thumbal/3.png" alt="">-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
-                            <!--<div class="video-post-content">-->
-                            <!--<h3> Learn Creating Laravel Package Initializing ... </h3>-->
-                            <!--<img src="assets/images/avatars/avatar-5.jpg" alt="">-->
-                            <!--<span class="video-post-user">Alex Dolgove</span>-->
-                            <!--<span class="video-post-views">531k views</span>-->
-                            <!--<span class="video-post-date"> 2 weeks ago </span>-->
-                            <!--</div>-->
-                            <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div>-->
-                            <!--<a href="single-video.html" class="video-post video-post-list">-->
-                            <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
-                            <!--<div class="video-post-thumbnail">-->
-                            <!--<span class="video-post-count">1.4M</span>-->
-                            <!--<span class="video-post-time">23:00</span>-->
-                            <!--<span class="play-btn-trigger"></span>-->
-                            <!--<img src="assets/images/video-thumbal/4.png" alt="">-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
-                            <!--<div class="video-post-content">-->
-                            <!--<h3> Learn how to upload files using Laravel .. </h3>-->
-                            <!--<img src="assets/images/avatars/avatar-4.jpg" alt="">-->
-                            <!--<span class="video-post-user">Adrian Mohani</span>-->
-                            <!--<span class="video-post-views">531k views</span>-->
-                            <!--<span class="video-post-date"> 2 weeks ago </span>-->
-                            <!--</div>-->
-                            <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div>-->
-                            <!--<a href="single-video.html" class="video-post video-post-list">-->
-                            <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
-                            <!--<div class="video-post-thumbnail">-->
-                            <!--<span class="video-post-count">1.4M</span>-->
-                            <!--<span class="video-post-time">23:00</span>-->
-                            <!--<span class="play-btn-trigger"></span>-->
-                            <!--<img src="images/wallpaper%20(3).jpg" alt="">-->
-                            <!--</div>-->
-
-                            <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
-                            <!--<div class="video-post-content">-->
-                            <!--<h3> How to create a basic Sticky HTML element ..</h3>-->
-                            <!--<img src="assets/images/avatars/avatar-3.jpg" alt="">-->
-                            <!--<span class="video-post-user">Jonathan Madano</span>-->
-                            <!--<span class="video-post-views">531k views</span>-->
-                            <!--<span class="video-post-date"> 2 weeks ago </span>-->
-                            <!--</div>-->
-                            <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div>-->
-                            <!--<a href="single-video.html" class="video-post video-post-list">-->
-                            <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
-                            <!--<div class="video-post-thumbnail">-->
-                            <!--<span class="video-post-count">2.7k</span>-->
-                            <!--<span class="video-post-time">40:00</span>-->
-                            <!--<span class="play-btn-trigger"></span>-->
-                            <!--<img src="assets/images/video-thumbal/1.png" alt="">-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
-                            <!--<div class="video-post-content">-->
-                            <!--<h3> Learn how to create PHP singleton class </h3>-->
-                            <!--<img src="assets/images/avatars/avatar-2.jpg" alt="">-->
-                            <!--<span class="video-post-user">Stella Johnson</span>-->
-                            <!--<span class="video-post-views">938k views</span>-->
-                            <!--<span class="video-post-date"> 3 weeks ago </span>-->
-                            <!--</div>-->
-                            <!--</a>-->
-                            <!--</div>-->
-
+                            <!--下方注释该是此处-->
                         </div>
 
                     </div>
                 </div>
+                <!--<div>-->
+                <!--<a href="single-video.html" class="video-post video-post-list">-->
+                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                <!--<div class="video-post-thumbnail">-->
+                <!--<span class="video-post-count">2.7k</span>-->
+                <!--<span class="video-post-time">40:00</span>-->
+                <!--<span class="play-btn-trigger"></span>-->
+                <!--<img src="assets/images/video-thumbal/1.png" alt="">-->
+                <!--</div>-->
+                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                <!--<div class="video-post-content">-->
+                <!--<h3> Learn how to create PHP singleton class </h3>-->
+                <!--<img src="assets/images/avatars/avatar-2.jpg" alt="">-->
+                <!--<span class="video-post-user">Stella Johnson</span>-->
+                <!--<span class="video-post-views">938k views</span>-->
+                <!--<span class="video-post-date"> 3 weeks ago </span>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--</div>-->
+
+                <!--<div>-->
+                <!--<a href="single-video.html" class="video-post video-post-list">-->
+                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                <!--<div class="video-post-thumbnail">-->
+                <!--<span class="video-post-count">2.3M</span>-->
+                <!--<span class="video-post-time">14:00</span>-->
+                <!--<span class="play-btn-trigger"></span>-->
+                <!--<img src="assets/images/video-thumbal/3.png" alt="">-->
+                <!--</div>-->
+                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                <!--<div class="video-post-content">-->
+                <!--<h3> Learn Creating Laravel Package Initializing ... </h3>-->
+                <!--<img src="assets/images/avatars/avatar-5.jpg" alt="">-->
+                <!--<span class="video-post-user">Alex Dolgove</span>-->
+                <!--<span class="video-post-views">531k views</span>-->
+                <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--</div>-->
+
+                <!--<div>-->
+                <!--<a href="single-video.html" class="video-post video-post-list">-->
+                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                <!--<div class="video-post-thumbnail">-->
+                <!--<span class="video-post-count">1.4M</span>-->
+                <!--<span class="video-post-time">23:00</span>-->
+                <!--<span class="play-btn-trigger"></span>-->
+                <!--<img src="assets/images/video-thumbal/4.png" alt="">-->
+                <!--</div>-->
+                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                <!--<div class="video-post-content">-->
+                <!--<h3> Learn how to upload files using Laravel .. </h3>-->
+                <!--<img src="assets/images/avatars/avatar-4.jpg" alt="">-->
+                <!--<span class="video-post-user">Adrian Mohani</span>-->
+                <!--<span class="video-post-views">531k views</span>-->
+                <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--</div>-->
+
+                <!--<div>-->
+                <!--<a href="single-video.html" class="video-post video-post-list">-->
+                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                <!--<div class="video-post-thumbnail">-->
+                <!--<span class="video-post-count">1.4M</span>-->
+                <!--<span class="video-post-time">23:00</span>-->
+                <!--<span class="play-btn-trigger"></span>-->
+                <!--<img src="images/wallpaper%20(3).jpg" alt="">-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                <!--<div class="video-post-content">-->
+                <!--<h3> How to create a basic Sticky HTML element ..</h3>-->
+                <!--<img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                <!--<span class="video-post-user">Jonathan Madano</span>-->
+                <!--<span class="video-post-views">531k views</span>-->
+                <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--</div>-->
+
+                <!--<div>-->
+                <!--<a href="single-video.html" class="video-post video-post-list">-->
+                <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                <!--<div class="video-post-thumbnail">-->
+                <!--<span class="video-post-count">2.7k</span>-->
+                <!--<span class="video-post-time">40:00</span>-->
+                <!--<span class="play-btn-trigger"></span>-->
+                <!--<img src="assets/images/video-thumbal/1.png" alt="">-->
+                <!--</div>-->
+                <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                <!--<div class="video-post-content">-->
+                <!--<h3> Learn how to create PHP singleton class </h3>-->
+                <!--<img src="assets/images/avatars/avatar-2.jpg" alt="">-->
+                <!--<span class="video-post-user">Stella Johnson</span>-->
+                <!--<span class="video-post-views">938k views</span>-->
+                <!--<span class="video-post-date"> 3 weeks ago </span>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--</div>-->
 
                 <!-- profile -image -->
                 <a class="opts_account"> <img src="assets/images/avatars/avatar-2.jpg" alt=""></a>
@@ -560,7 +562,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[0].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[0].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[0].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[0].v_amount_of_play}}</span>
                                 </div>
@@ -586,7 +588,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[1].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[1].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[1].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[1].v_amount_of_play}}</span>
                                 </div>
@@ -612,7 +614,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[2].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[2].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[2].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[2].v_amount_of_play}}</span>
                                 </div>
@@ -640,7 +642,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[3].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[3].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[3].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[3].v_amount_of_play}}</span>
                                 </div>
@@ -666,7 +668,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[4].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[4].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[4].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[4].v_amount_of_play}}</span>
                                 </div>
@@ -692,7 +694,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[5].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[5].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[5].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[5].v_amount_of_play}}</span>
                                 </div>
@@ -718,7 +720,7 @@
                                 <div class="video-post-content">
                                     <h3 id="videoTitle"> {{videos[6].v_title}} </h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                    <span class="video-post-user" id="VideoUser">sonnie</span>
+                                    <span class="video-post-user" id="VideoUser">{{videos[6].name}}</span>
                                     <span class="video-post-views" id="likeNum">点赞数：{{videos[6].v_likes}}</span>
                                     <span class="video-post-date">播放量：{{videos[6].v_amount_of_play}}</span>
                                 </div>
@@ -750,7 +752,7 @@
                         <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3" >
 <!--v-for="(f,index) in fans"-->
                             <li>
-                                <a v-bind:href="['single-video.html?v_no='+fans[0].f_no]" class="video-post">
+                                <a v-bind:href="['single-video.html?fan_no='+fans[0].fan_no]" class="video-post">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <!--                                <span class="video-post-time">23:00</span>-->
@@ -770,7 +772,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a v-bind:href="['single-video.html?v_no='+fans[1].f_no]" class="video-post">
+                                <a v-bind:href="['single-video.html?fan_no='+fans[1].fan_no]" class="video-post">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <!--                                <span class="video-post-time">23:00</span>-->
@@ -790,7 +792,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a v-bind:href="['single-video.html?v_no='+fans[2].f_no]" class="video-post">
+                                <a v-bind:href="['single-video.html?fan_no='+fans[2].fan_no]" class="video-post">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <!--                                <span class="video-post-time">23:00</span>-->
@@ -810,7 +812,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a v-bind:href="['single-video.html?v_no='+fans[3].f_no]" class="video-post">
+                                <a v-bind:href="['single-video.html?fan_no='+fans[3].fan_no]" class="video-post">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <!--                                <span class="video-post-time">23:00</span>-->
@@ -830,7 +832,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a v-bind:href="['single-video.html?v_no='+fans[4].f_no]" class="video-post">
+                                <a v-bind:href="['single-video.html?fan_no='+fans[4].fan_no]" class="video-post">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <!--                                <span class="video-post-time">23:00</span>-->
@@ -850,7 +852,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a v-bind:href="['single-video.html?v_no='+fans[5].f_no]" class="video-post">
+                                <a v-bind:href="['single-video.html?fan_no='+fans[5].fan_no]" class="video-post">
                                     <!-- Blog Post Thumbnail -->
                                     <div class="video-post-thumbnail">
                                         <!--                                <span class="video-post-time">23:00</span>-->
@@ -1130,6 +1132,7 @@
 
 <!-- For Night mode -->
 <script>
+
     (function (window, document, undefined) {
         'use strict';
         if (!('localStorage' in window)) return;
@@ -1393,9 +1396,21 @@
 
         });
 
+        //搜索功能
+        $("#serch").keydown(function (event) {
+            var vTitle = $("#serch").val();
+            if (event.keyCode ==13){
+                window.location.href =basePath+"/serchResult.html?v_title="+vTitle;
+
+                //阻止默认事件
+                return false;
+            }
+
+        });
+
+
 
     });
-
     //文件上传处理
     function sendToUser() { //在这里进行ajax 文件上传 用户的信息
         // var $file1 = $("input[name='fileName1']").val();//用户文件内容(文件)
@@ -1404,22 +1419,26 @@
         var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
         formData.append(type, $("#fileName1")[0].files[0]);
         formData.append(type, $("#fileName2")[0].files[0]);
+
+        var conNo = localStorage.getItem("con_no");
+        formData.append("con_no",conNo);
         $.ajax({
             type: "post",
             url: "/tVideos/upload",
             data: formData,
             processData: false,
             contentType: false,
-            success: function (data) {
-                if (data == "error") {
-                    alert("视频提交失败!");
-                } else {
-                    $("input[name='userUrl']").val(data);
-                    alert("视频上传成功!");
+            success: function (callback) {
+                if (callback === "success") {
+                    alert("视频提交成功!");
+                } else{
+                    alert("视频上传失败!")
                 }
             }
         });
     }
+
+
 </script>
 </body>
 

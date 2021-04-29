@@ -36,6 +36,17 @@ public class TCollectionsController {
         return setResultSuccess(this.tCollectionsService.queryByCno(con_no,pageNum,9));
     }
 
+    @ApiOperation(value = "获取当前用户收藏的视频（不分页）")
+    @ResponseBody
+    @GetMapping("getCollectionsNotPage")
+    public Result getCollectionsNotPage(Integer con_no){
+        return setResultSuccess(this.tCollectionsService.queryAllCollections(con_no));
+
+    }
+
+
+
+
     @ApiOperation(value = "收藏视频")
     @ResponseBody
     @PostMapping("insertCollections")

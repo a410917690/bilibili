@@ -20,6 +20,13 @@ public interface TTagService {
      */
     TTag queryById(Integer tNo);
 
+
+    /**
+     * 通过标签号获取标签名称
+     * @return
+     */
+    String getTagName(Integer t_no);
+
     List<TTag> queryAll();
 
     /**

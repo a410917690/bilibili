@@ -2,6 +2,7 @@ package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import io.swagger.annotations.ApiOperation;
+import net.minidev.json.JSONObject;
 import org.lanqiao.entity.TVideos;
 import org.lanqiao.service.TConVLikesService;
 import org.lanqiao.service.TVideosService;
@@ -27,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -97,6 +99,17 @@ public class TVideosController {
         return setResultSuccess(tVideosService.getAllVideosNotPage());
     }
 
+
+    /**
+     * 模糊查找视频结果
+     */
+    @ApiOperation(value = "搜索视频")
+    @ResponseBody
+    @PostMapping("serchVideos")
+    public Result serchVideos(String v_title){
+        return setResultSuccess(tVideosService.serchVideos(v_title));
+    }
+
     /**
      * 通过标签获取其下的所有视频
      *
@@ -109,6 +122,17 @@ public class TVideosController {
     @GetMapping("getVideosByTag")
     public Result getVideosByTag(@RequestParam(defaultValue = "1") int page, int t_no) {
         return setResultSuccess(tVideosService.getVideosByTag(page, 6, t_no));
+    }
+
+
+    /**
+     * 通过标签获取其下所有视频（不分页）
+     */
+    @ApiOperation(value = "通过标签获取其下的所有视频(不分页)")
+    @ResponseBody
+    @GetMapping("getVideosByTagNotPage")
+    public Result getVideosByTag(Integer t_no) {
+        return setResultSuccess(tVideosService.getVideosByTagNotPage(t_no));
     }
 
     /**
@@ -221,12 +245,14 @@ public class TVideosController {
     @ApiOperation(value = "投稿视频（新增视频）")
     @ResponseBody
     @PostMapping("tVideos/upload")
-    public String upload(HttpSession session, @RequestParam("file") MultipartFile[] file, RedirectAttributes attributes, @RequestParam("con_no") int con_no) throws IOException {
+    public String upload(@RequestParam("file") MultipartFile[] file, HttpServletRequest httpServletRequest) throws IOException {
         //多个文件
         if (file.length == 0) {
-            attributes.addFlashAttribute("msg", "上传的文件不能为空");
-            return "redirect:/files/fileAll";
+//            attributes.addFlashAttribute("msg", "上传的文件不能为空");
+//            return "redirect:/files/fileAll";
+            return "false";
         }
+
         //开Ftp通道
         Ftp ftp = new Ftp("49.234.77.189", 21, "13593568046", "123456");
         ftp.ftpLogin();
@@ -255,7 +281,13 @@ public class TVideosController {
                 String vUrl = "http://49.234.77.189:8080/video/" + file1.getName();
                 tVideos.setV_title(vTitle);
                 tVideos.setV_url(vUrl);
-                tVideos.setCon_no(con_no);
+                String con = httpServletRequest.getParameter("con_no");
+                if(con==null || con.length()==0){
+                    return ("无效参数");
+                }
+
+                tVideos.setCon_no(Integer.valueOf(con));
+//                tVideos.setCon_no(1);
                 tVideos.setV_coins(0);
             }
         }
@@ -281,7 +313,7 @@ public class TVideosController {
 //        System.out.println(up);
 //=============================================================================================
         ftp.ftpLogOut();
-        return "redirect:/files/fileAll";
+        return "success";
     }
 
 }

@@ -78,6 +78,8 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                            <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
                         </a>
@@ -168,8 +170,8 @@
             <div class="head_search">
                 <form>
                     <div class="head_search_cont">
-                        <input value="" type="text" class="form-control"
-                               placeholder="Adobe XD设计免费教程..." autocomplete="off">
+                        <input value="" type="text" class="form-control" id="serch"
+                               placeholder="视频" autocomplete="off">
                         <i class="s_icon uil-search-alt"></i>
                     </div>
 
@@ -1718,6 +1720,18 @@
                 }
             });
         })
+
+        //搜索功能
+        $("#serch").keydown(function (event) {
+            var vTitle = $("#serch").val();
+            if (event.keyCode ==13){
+                window.location.href =basePath+"/serchResult.html?v_title="+vTitle;
+
+                //阻止默认事件
+                return false;
+            }
+
+        });
 
     });
 </script>

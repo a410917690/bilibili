@@ -8,10 +8,12 @@ import org.lanqiao.dao.TVideosDao;
 import org.lanqiao.entity.TVideos;
 import org.lanqiao.service.TReportService;
 import org.lanqiao.service.TVideosService;
+import org.lanqiao.vo.VideoTagVo;
 import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +99,44 @@ public class TVideosServiceImpl implements TVideosService {
 
     @Override
     public List<TVideos> getAllVideosNotPage() {
-        return this.tVideosDao.getListByPage();
+        List<TVideos> List = this.tVideosDao.getListByPage();
+        List<TVideos> realList = new ArrayList<>();
+        for (TVideos list1:List) {
+            Integer vNo = list1.getV_no();
+            List<VideoTagVo> tagList = getVideoTags(vNo);
+            List<String> tagNames = new ArrayList<>();
+            for (VideoTagVo tagList1:tagList) {
+                tagNames.add(tagList1.getT_name());
+            }
+            list1.setTags(tagNames);
+            realList.add(list1);
+
+        }
+        return realList;
+    }
+
+    @Override
+    public List<TVideos> serchVideos(String v_title) {
+        List<TVideos> List = this.tVideosDao.serchVideos(v_title);
+        List<TVideos> realList = new ArrayList<>();
+        for (TVideos list1:List) {
+            Integer vNo = list1.getV_no();
+            List<VideoTagVo> tagList = getVideoTags(vNo);
+            List<String> tagNames = new ArrayList<>();
+            for (VideoTagVo tagList1:tagList) {
+                tagNames.add(tagList1.getT_name());
+            }
+            list1.setTags(tagNames);
+            realList.add(list1);
+
+        }
+        return realList;
+    }
+
+
+    @Override
+    public List<VideoTagVo> getVideoTags(Integer v_no) {
+        return this.tVideosDao.getVideoTags(v_no);
     }
 
     @Override
@@ -118,6 +157,11 @@ public class TVideosServiceImpl implements TVideosService {
         PageHelper.startPage(pageNum, pageSize);
         List<TVideos> list = tVideosDao.queryByTag(t_no);
         return new PageInfo<>(list);
+    }
+
+    @Override
+    public List<TVideos> getVideosByTagNotPage(Integer t_no) {
+        return this.tVideosDao.queryByTagNotPage(t_no);
     }
 
     /**

@@ -3,6 +3,7 @@ package org.lanqiao.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 视频(TVideos)实体类
@@ -62,6 +63,16 @@ public class TVideos implements Serializable {
      * 视频是否合法
      */
     private boolean v_legal;
+
+    /**
+     * 投稿人name
+     */
+    private String name;
+
+    /**
+     * 视频标签
+     */
+    private List<String> tags;
 
 
 

@@ -1,6 +1,7 @@
 package org.lanqiao.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.service.TTagService;
 import org.lanqiao.util.result.Result;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,11 +27,17 @@ public class TTagController {
     TTagService tTagService;
 
     /**
-     * 通过主键查询单条数据
+     * 通过标签号获取标签名称
      *
-     * @param  主键
+     * @param
      * @return 单条数据
      */
+    @ApiOperation(value = "获取单个标签名称")
+    @ResponseBody
+    @GetMapping("getTagName")
+    public Result getTagName(Integer t_no){
+        return setResultSuccess(this.tTagService.getTagName(t_no));
+    }
 
 
     @ResponseBody

@@ -29,6 +29,13 @@ public interface TTagDao {
      */
     TTag queryById(Integer tNo);
 
+
+    /**
+     * 通过标签号获取标签名
+     */
+    @Select("select t_name from t_tag where t_no=#{t_no}")
+    String getTagName(Integer t_no);
+
     /**
      * 查询指定行数据
      *

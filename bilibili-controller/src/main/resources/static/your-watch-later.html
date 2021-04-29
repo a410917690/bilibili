@@ -57,6 +57,8 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                            <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
                         </a>
@@ -147,7 +149,7 @@
             <div class="head_search">
                 <form>
                     <div class="head_search_cont">
-                        <input value="" type="text" class="form-control"
+                        <input value="" type="text" class="form-control" id="serch"
                                placeholder="视频" autocomplete="off">
                         <i class="s_icon uil-search-alt"></i>
                     </div>
@@ -567,9 +569,9 @@
             }
         });
 
-
+        var conNo = localStorage.getItem("con_no")
         $.ajax({
-            url:basePath+"/getAllVideosNotPage",
+            url:basePath+"/getCollectionsNotPage?con_no="+conNo,
             type:"get",
             dataType:"json",
             data:{
@@ -577,14 +579,24 @@
             },
             success: function (data) {
 
-                home.videos = data.data;
+                // home.videos = data.data;
                 vs.videos = data.data;
                 console.log(vs.videos);
             }
 
         });
 
+        //搜索功能
+        $("#serch").keydown(function (event) {
+            var vTitle = $("#serch").val();
+            if (event.keyCode ==13){
+                window.location.href =basePath+"/serchResult.html?v_title="+vTitle;
 
+                //阻止默认事件
+                return false;
+            }
+
+        });
 
 
 

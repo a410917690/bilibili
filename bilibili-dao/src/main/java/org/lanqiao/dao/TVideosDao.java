@@ -3,6 +3,7 @@ package org.lanqiao.dao;
 import org.apache.ibatis.annotations.*;
 import org.lanqiao.cache.RedisCache;
 import org.lanqiao.entity.TVideos;
+import org.lanqiao.vo.VideoTagVo;
 import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Repository;
 
@@ -37,20 +38,37 @@ public interface TVideosDao {
     List<TVideos> queryByTag(Integer t_no);
     //以上方法有错误，有bug
 
+    /**
+     * 获取单个标签下的所有视频
+     */
+    @Select("select * from t_v_tag a left join (select b.*,c.name from t_videos b,t_consumers c where b.con_no=c.con_no) b on a.v_no = b.v_no where a.t_no=#{t_no}")
+    List<TVideos> queryByTagNotPage(Integer t_no);
+
+
+    @Select("select * from t_videos a left join (select con_no,name from t_consumers) b on a.con_no=b.con_no where a.v_title like '%${v_title}%'")
+    List<TVideos> serchVideos(String v_title);
+
+
+
 
     /**
      * 获取所有视频
      * @return
      */
-    @Select("select * from t_videos order by v_no desc")
+    @Select("select * from t_videos a left join (select con_no,name from t_consumers) b on a.con_no=b.con_no order by v_amount_of_play desc")
     List<TVideos> getListByPage();
 
     /**
      * 通过con_no 获取用户投稿的所有视频
      */
-    @Select("select * from t_videos where con_no=#{con_no}")
+    @Select("select * from t_videos a left join (select con_no,name from t_consumers) b on a.con_no=b.con_no where a.con_no=#{con_no}")
     List<TVideos> getListByConNo(Integer con_no);
 
+    /**
+     * 获取视频标签
+     */
+    @Select("select * from t_v_tag a left join t_tag b on a.t_no = b.t_no where v_no=#{v_no}")
+    List<VideoTagVo> getVideoTags(Integer v_no);
 
     /**
      * 新增视频
@@ -99,7 +117,7 @@ public interface TVideosDao {
     /**
      * 举报视频插入v_videos表中
      */
-    @Update("update t_videos set v_reports = v_reports+1 where v_no = #{v_no}   ")
+    @Update("update t_videos set v_reports = v_reports+1 where v_no = #{v_no}")
     int updateVideosReports(Integer v_no);
 
 

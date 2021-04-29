@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>IK我点赞过的视频</title>
+    <title>我的推荐</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
     <link rel="icon" href="assets/images/favicon.png">
 
     <link href="css/iconfont/iconfont.css" rel="stylesheet">
-    <!-- CSS 
+    <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/night-mode.css">
@@ -52,12 +52,13 @@
                         <li class="active"><a href="home.html"> <i class="uil-home-alt"></i> <span> 首页 </span> </a>
                         </li>
                         <li><a href="browse-channals.html">
-                            <i class="uil-users-alt"></i> <span> 我的关注 </span> </a></li>
                         <li><a href="your-watch-later.html"> <i class="iconfont icon-shoucang"></i> <span> 我的收藏 </span>
                         </a>
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                            <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
                         </a>
@@ -148,8 +149,8 @@
             <div class="head_search">
                 <form>
                     <div class="head_search_cont">
-                        <input value="" type="text" class="form-control"
-                               placeholder="Adobe XD设计免费教程..." autocomplete="off">
+                        <input value="" type="text" class="form-control" id="serch"
+                               placeholder="视频" autocomplete="off">
                         <i class="s_icon uil-search-alt"></i>
                     </div>
 
@@ -160,7 +161,7 @@
 
                         <ul class="dropdown-search-list">
                             <li class="list-title"> 最近搜索</li>
-                            <li><a href="single-video.html"> Adobe XD设计免费教程.. </a></li>
+                            <li><a href="single-video.html"> 视频 </a></li>
                             <li><a href="single-video.html"> 如何创建基本的Sticky HTML元素.. </a>
                             </li>
                             <li><a href="single-video.html"> 了解在2020年如何使用Mockplus更快地进行原型制作！
@@ -252,131 +253,33 @@
                         <hr class="mb-3" style="margin:0 -20px">
                         <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-                        <div class="video-list-small uk-child-width-1-1" uk-grid>
+                        <div class="video-list-small uk-child-width-1-1"  >
 
                             <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
+                                <!--<a href="single-video.html" class="video-post video-post-list" >-->
+                                <a v-bind:href="['single-video.html?v_no='+videos[index].v_no]"></a>
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <span class="video-post-count">1.4M</span>
+                                    <span class="video-post-time">23:00</span>
+                                    <span class="play-btn-trigger">{{v.v_amount_of_play}}</span>
 
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
+                                    <img v-bind:src="videos[index].v_pic" alt="">
 
-                                    </div>
+                                </div>
 
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
+                                <!-- Blog Post Content -->
+                                <div class="video-post-content">
+                                    <h3 id="videoTitle"> {{v.v_title}}</h3>
+                                    <img src="assets/images/avatars/avatar-3.jpg" alt="">
+                                    <span class="video-post-user">Jonathan Madano</span>
+                                    <span class="video-post-views" id="likeNum">点赞数：{{v.v_likes}}</span>
+                                    <span class="video-post-date"> 播放量：{{v.v_amount_of_play}} </span>
+                                </div>
                                 </a>
                             </div>
 
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
 
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.3M</span>
-                                        <span class="video-post-time">14:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/3.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn Creating Laravel Package Initializing ... </h3>
-                                        <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                        <span class="video-post-user">Alex Dolgove</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/4.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to upload files using Laravel .. </h3>
-                                        <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                        <span class="video-post-user">Adrian Mohani</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
-                                    </div>
-
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element ..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
 
                         </div>
 
@@ -437,343 +340,143 @@
     </div>
 
 
-        <!-- contents -->
-        <div class="main_content">
-            <div class="main_content_inner">
+    <!-- contents -->
+    <div class="main_content">
+        <div class="main_content_inner">
 
-                <div uk-grid>
+            <div uk-grid>
 
-                    <div class="uk-width-1-4@m uk-flex-last@m">
+                <div class="uk-width-1-4@m uk-flex-last@m"></div>
 
-
-                        <div class="uk-card-default rounded" uk-sticky="top:10; offset: 90; bottom: true; media: @m;">
-
-                            <div class="text-center p-3">
-
-                                <img src="assets/images/avatars/home-profile.jpg"
-                                    class="avatar-large circle m-auto my-3" alt="">
-                                <h4 class="mb-1"> Thomas Bruns </h4>
-                                <p class="uk-text-small text-muted"> Since 2016</p>
-
-                            </div>
-
-                            <hr class="my-0">
-                            <ul class="uk-list uk-list-divider uk-margin-small-top pt-1 pb-2">
-                                <i>
-                                    <a href="#" class="ml-4">
-                                        <i class="uil-user mr-1"></i>
-                                        Subscriptions <span class="pr-4 uk-float-right"> 122</span> </a>
-                                </i>
-                                <li>
-                                    <a href="#" class="ml-4">
-                                        <i class="uil-cloud-upload mr-1"></i>
-                                        Uploads <span class="pr-4 uk-float-right"> 12</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="ml-4">
-                                        <i class="uil-thumbs-up mr-1"></i>
-                                        Likes <span class="pr-4 uk-float-right"> 43</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="ml-4">
-                                        <i class="uil-layers mr-1"></i>
-                                        Playlists <span class="pr-4 uk-float-right"> 2</span>
-                                    </a>
-                                </li>
-                            </ul>
-
+                <div class="uk-width-3-4@m" id="vo">
+                    <div class="section-header mb-5 border-bottom uk-flex-middle">
+                        <div class="section-header-left">
+                            <h3> 我的推荐</h3>
                         </div>
-
-
                     </div>
 
-                    <div class="uk-width-3-4@m">
-
-
-                        <div class="section-header mb-5 border-bottom uk-flex-middle">
-                            <div class="section-header-left">
-                                <h3> Your Liked Videos</h4>
-                            </div>
-                            <div class="section-header-right">
-                                <div class="display-as">
-                                    <a href="#" uk-tooltip="title: Veiw as list; pos: top-right">
-                                        <i class="icon-feather-grid"></i>
-                                    </a>
-                                    <a href="your-watch-later.html" class="active"
-                                        uk-tooltip="title: Veiw as Grid; pos: top-right">
-                                        <i class="icon-feather-list"></i>
-                                    </a>
+                    <ul v-for="(v,index) in videos">
+                        <li>
+                            <a v-bind:href="['single-video.html?v_no='+videos[index].v_no]" class="video-post video-post-list">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <span class="play-btn-trigger"></span>
+                                    <img v-bind:src="videos[index].v_pic" alt="">
                                 </div>
-                            </div>
-                        </div>
-
-
-                        <a href="single-video.html" class="video-post video-post-list">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="play-btn-trigger"></span>
-                                <span class="video-post-time">23:00</span>
-                                <img src="assets/images/video-thumbal/2.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3>how to create a basic Sticky HTML element using the CSS fixed position property
-                                </h3>
-                                <span class="video-post-user">Jonathan Madano</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                                <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-                                <!-- option menu -->
-                                <span class="btn-option">
+                                <!-- Blog Post Content -->
+                                <div class="video-post-content">
+                                    <h3>{{v.v_title}}</h3>
+                                    <span class="video-post-user">视频作者：sonnie</span>
+                                    <span class="video-post-views">播放量：{{v.v_amount_of_play}}</span>
+                                    <p> 视频标签：鬼畜、舞蹈、娱乐</p>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
                                     <i class="icon-feather-more-vertical"></i>
                                 </span>
-                                <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
+                                    <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
+                                        <ul>
+                                            <li>
+                                                <span> <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>{{v.v_amount_of_play}}</span></span>
+                                            </li>
+                                            <li>
+                                                <span> <i class="iconfont icon-dianzan"></i> 点赞数：<span>{{v.v_likes}}</span></span>
+                                            </li>
+                                            <li>
+                                                <span> <i class="iconfont icon-shoucang"></i> 被收藏：<span>666</span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
                                 </div>
+                            </a>
+                        </li>
 
-                            </div>
-                        </a>
-
-                        <a href="single-video.html" class="video-post video-post-list">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="video-post-time">23:00</span>
-                                <span class="play-btn-trigger"></span>
-                                <img src="assets/images/video-thumbal/img-1.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Learn How-To Design & Prototype in Adobe XD Tutorial with Fixed Position and
-                                    Overlays </h3>
-                                <span class="video-post-user">Alex Dolgove</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                                <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                                <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </a>
-
-                        <a href="single-video.html" class="video-post video-post-list">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="play-btn-trigger"></span>
-                                <span class="video-post-time">23:00</span>
-                                <img src="assets/images/video-thumbal/img-3.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Learn How to Prototype Faster Smarter and Easier with Mockplus! in 2020</h3>
-                                <span class="video-post-user">Adrian Mohani</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                                <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                                <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </a>
-
-                        <a href="single-video.html" class="video-post video-post-list">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="play-btn-trigger"></span>
-                                <span class="video-post-time">23:00</span>
-                                <img src="assets/images/video-thumbal/img-4.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Adobe XD Design Tutorial: Company Website Landing Page </h3>
-                                <span class="video-post-user">Stella Johnson</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                                <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                                <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </a>
-
-                        <a href="single-video.html" class="video-post video-post-list">
-                            <!-- Blog Post Thumbnail -->
-                            <div class="video-post-thumbnail">
-                                <span class="play-btn-trigger"></span>
-                                <span class="video-post-time">23:00</span>
-                                <img src="assets/images/video-thumbal/img-5.png" alt="">
-                            </div>
-                            <!-- Blog Post Content -->
-                            <div class="video-post-content">
-                                <h3> Create a Social Media App - Design and Prototype Adobe Xd Tutorial </h3>
-                                <span class="video-post-user">Jonathan Madano</span>
-                                <span class="video-post-views">531k views</span>
-                                <span class="video-post-date"> 2 weeks ago </span>
-                                <p> Lorem ipsum dolor sit amet liber tempor cum soluta nobis eleifend option congue
-                                        nihil imperdiet doming id quod mazim placerat facer... </p>
-
-                                <!-- option menu -->
-                                <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                                <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                    <ul>
-                                        <li>
-                                            <span> <i class="uil-history"></i> Watch Later</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-bookmark"></i> Add Bookmark</span>
-                                        </li>
-                                        <li>
-                                            <span> <i class="uil-share-alt"></i> Share Your Friends</span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </a>
-
-                    </div>
+                    </ul>
                 </div>
-
-
-                <!-- footer
-               ================================================== -->
-                <div class="footer">
-                    <div class="uk-grid-collapse" uk-grid>
-                        <div class="uk-width-expand@s uk-first-column">
-                            <p>© 2021 <strong>IK</strong>. 版权所有. </p>
-                        </div>
-                        <div class="uk-width-auto@s">
-                            <nav class="footer-nav-icon">
-                                <ul>
-                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
+
+
+            <!-- footer -->
+            <div class="footer">
+                <div class="uk-grid-collapse" uk-grid>
+                    <div class="uk-width-expand@s uk-first-column">
+                        <p>© 2021 <strong>IK</strong>. 版权所有. </p>
+                    </div>
+                    <div class="uk-width-auto@s">
+                        <nav class="footer-nav-icon">
+                            <ul>
+                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                                <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-</div>
     </div>
+</div>
+</div>
 
 
-    <!-- For Night mode -->
-    <script>
-        (function (window, document, undefined) {
-            'use strict';
-            if (!('localStorage' in window)) return;
-            var nightMode = localStorage.getItem('gmtNightMode');
-            if (nightMode) {
-                document.documentElement.className += ' night-mode';
+<!-- For Night mode -->
+<script>
+    (function (window, document, undefined) {
+        'use strict';
+        if (!('localStorage' in window)) return;
+        var nightMode = localStorage.getItem('gmtNightMode');
+        if (nightMode) {
+            document.documentElement.className += ' night-mode';
+        }
+    })(window, document);
+
+
+    (function (window, document, undefined) {
+
+        'use strict';
+
+        // Feature test
+        if (!('localStorage' in window)) return;
+
+        // Get our newly insert toggle
+        var nightMode = document.querySelector('#night-mode');
+        if (!nightMode) return;
+
+        // When clicked, toggle night mode on or off
+        nightMode.addEventListener('click', function (event) {
+            event.preventDefault();
+            document.documentElement.classList.toggle('night-mode');
+            if (document.documentElement.classList.contains('night-mode')) {
+                localStorage.setItem('gmtNightMode', true);
+                return;
             }
-        })(window, document);
+            localStorage.removeItem('gmtNightMode');
+        }, false);
+
+    })(window, document);
+</script>
 
 
-        (function (window, document, undefined) {
-
-            'use strict';
-
-            // Feature test
-            if (!('localStorage' in window)) return;
-
-            // Get our newly insert toggle
-            var nightMode = document.querySelector('#night-mode');
-            if (!nightMode) return;
-
-            // When clicked, toggle night mode on or off
-            nightMode.addEventListener('click', function (event) {
-                event.preventDefault();
-                document.documentElement.classList.toggle('night-mode');
-                if (document.documentElement.classList.contains('night-mode')) {
-                    localStorage.setItem('gmtNightMode', true);
-                    return;
-                }
-                localStorage.removeItem('gmtNightMode');
-            }, false);
-
-        })(window, document);
-    </script>
-
-
-    <!-- javaScripts
-                ================================================== -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/simplebar.js"></script>
-    <script src="assets/js/main.js"></script>
+<!-- javaScripts
+            ================================================== -->
+<script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/simplebar.js"></script>
+<script src="assets/js/main.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/head.js"></script>
 <script>
     $(function () {
         var username = localStorage.getItem("name");
         $("#usn").html(username);
+        var token = localStorage.getItem("token");
+        var role;
+        var v_no;
+        var f_no;
+        var l_no;
         if(username !== null){
             $("#yz").html("已验证");
         }
@@ -782,34 +485,36 @@
             el: '#focus',
             data: {
                 focuses:[],
-                videos:[],
-                fans:[],
-                lives:[]
+                videos:[]
             },
             mounted: function () {
 
             },
             methods: {
-                // to: function (con_no) {
-                //     if(token===null){
-                //         window.location = "b_login.html";
-                //     }else{
-                //         window.location.href = 'b_video.html?id='+v_no;
-                //         //加入历史记录
-                //         $.ajax({
-                //             url: basePath + "/insertHistory",
-                //             data: {"con_no": con_no,"v_no":v_no},
-                //             beforeSend: function (request) {
-                //                 request.setRequestHeader("Authorization", token);
-                //             },
-                //             type: "post",
-                //             dataType: "json",
-                //             success: function (data) {
-                //                 console.log(data);
-                //             }
-                //         })
-                //     }
-                // },
+
+                //鉴权——》视频
+                toVideo:function(index){
+                    $.ajax({
+                        url: basePath + "/getConByRequestToken",
+                        type: "post",
+                        dataType: "json",//接收类型
+                        beforeSend: function (request) {
+                            request.setRequestHeader("token", token);
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            role = data.data.role_no;
+                            if(role!==null){
+                                v_no= this.videos[index].v_no;
+
+                                window.location.href = "single-video.html"+v_no;
+                                console.log("v_no="+v_no);
+                            }else{
+                                window.location.href = "b_login.html";
+                            }
+                        }
+                    });
+                },
             }
         });
 
@@ -848,7 +553,53 @@
                     }
                 })
             }
-        })
+        });
+
+
+        var vs = new Vue({
+            el:"#vo",
+            data:{
+                videos:[]
+            },
+            mounted: function () {
+
+            },
+            methods:{
+
+            }
+        });
+
+        var conNo = localStorage.getItem("con_no")
+        $.ajax({
+            url:basePath+"/getConVLikes?con_no="+conNo,
+            type:"get",
+            dataType:"json",
+            data:{
+
+            },
+            success: function (data) {
+
+                // home.videos = data.data;
+                vs.videos = data.data;
+                console.log(vs.videos);
+            }
+
+        });
+
+
+        //搜索功能
+        $("#serch").keydown(function (event) {
+            var vTitle = $("#serch").val();
+            if (event.keyCode ==13){
+                window.location.href =basePath+"/serchResult.html?v_title="+vTitle;
+
+                //阻止默认事件
+                return false;
+            }
+
+        });
+
+
 
         //显示我的头像
         // $.ajax({

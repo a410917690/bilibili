@@ -33,6 +33,11 @@ public class TTagServiceImpl implements TTagService {
     }
 
     @Override
+    public String getTagName(Integer t_no) {
+        return this.tTagDao.getTagName(t_no);
+    }
+
+    @Override
     public List<TTag> queryAll() {
         return this.tTagDao.queryAll();
     }

@@ -1,6 +1,7 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TCollections;
+import org.lanqiao.vo.CollectionsVideoVo;
 
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,9 @@ public interface TCollectionsService {
      * @return 实例对象
      */
     Object queryByCno(Integer con_no,int pageNum,int pageSize);
+
+
+    List<CollectionsVideoVo> queryAllCollections(Integer con_no);
 
     List getVno(Integer con_no);  //用来判断是否可以添加收藏（已收藏过就无法再收藏）;
 

@@ -1,6 +1,7 @@
 package org.lanqiao.service;
 
 import org.lanqiao.entity.TVideos;
+import org.lanqiao.vo.VideoTagVo;
 import org.lanqiao.vo.VideoVo;
 
 import java.util.List;
@@ -62,6 +63,17 @@ public interface TVideosService {
 
 
     /**
+     * 搜索视频
+     */
+    List<TVideos> serchVideos(String v_title);
+
+    /**
+     * 获取视频标签
+     */
+    List<VideoTagVo> getVideoTags(Integer v_no);
+
+
+    /**
      * 获取用户投稿的视频
      */
     List<TVideos> getListByConNo(Integer con_no);
@@ -75,6 +87,11 @@ public interface TVideosService {
      */
      Object getVideosByTag(int pageNum,int pageSize,Integer t_no);
 
+
+    /**
+     * 通过标签获取所有视频（不分页）
+     */
+    List<TVideos> getVideosByTagNotPage(Integer t_no);
 
     /**
      * 给视频点赞数

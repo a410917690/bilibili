@@ -81,6 +81,11 @@
             <artifactId>commons-net</artifactId>
             <version>3.8.0</version>
         </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.4</version>
+        </dependency>
 
         <!--支付宝支付宝-->
         <dependency>
@@ -88,6 +93,7 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>4.10.97.ALL</version>
         </dependency>
+
 
         <dependency>
             <groupId>javax.servlet</groupId>

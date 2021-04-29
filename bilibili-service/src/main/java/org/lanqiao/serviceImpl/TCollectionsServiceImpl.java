@@ -49,7 +49,6 @@ public class TCollectionsServiceImpl implements TCollectionsService {
             map.put(tCollections1.getV_no(),tCollections1.getCol_no());
         }
 
-
         for (Integer vNo : v_nos) {
             VideoVo videoVo = tVideosService.queryById(vNo);
             CollectionsVideoVo collectionsVideoVo = new CollectionsVideoVo();
@@ -71,6 +70,39 @@ public class TCollectionsServiceImpl implements TCollectionsService {
         return new PageInfo<>(collectionsVideoVos);
 
     }
+
+    @Override
+    public List<CollectionsVideoVo> queryAllCollections(Integer con_no) {
+        List<TCollections> tCollections = tCollectionsDao.queryByCno(con_no);
+        List<Integer> v_nos = new ArrayList<>();
+        HashMap<Integer,Integer> map = new HashMap<>();
+        List<CollectionsVideoVo> collectionsVideoVos = new ArrayList<>();
+        for (TCollections tCollections1 : tCollections) {
+            v_nos.add(tCollections1.getV_no());
+            map.put(tCollections1.getV_no(),tCollections1.getCol_no());
+        }
+
+        for (Integer vNo : v_nos) {
+            VideoVo videoVo = tVideosService.queryById(vNo);
+            CollectionsVideoVo collectionsVideoVo = new CollectionsVideoVo();
+            collectionsVideoVo.setCol_no(map.get(vNo));
+            collectionsVideoVo.setBlong_con_no(videoVo.getCon_no());
+            collectionsVideoVo.setCon_no(con_no);
+            collectionsVideoVo.setV_amount_of_play(videoVo.getV_amount_of_play());
+            collectionsVideoVo.setV_coins(videoVo.getV_coins());
+            collectionsVideoVo.setV_legal(videoVo.isV_legal());
+            collectionsVideoVo.setV_likes(videoVo.getV_likes());
+            collectionsVideoVo.setV_no(videoVo.getV_no());
+            collectionsVideoVo.setV_pic(videoVo.getV_pic());
+            collectionsVideoVo.setV_reports(videoVo.getV_reports());
+            collectionsVideoVo.setV_title(videoVo.getV_title());
+            collectionsVideoVo.setV_url(videoVo.getV_url());
+
+            collectionsVideoVos.add(collectionsVideoVo);
+        }
+        return collectionsVideoVos;
+    }
+
 
     @Override
     public List getVno(Integer con_no) {

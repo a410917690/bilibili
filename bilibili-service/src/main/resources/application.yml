@@ -25,6 +25,10 @@ spring:
             enable: true
     username: sonnie_yyds@qq.com
     password: meifunitfnkmbfgh
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   redis:
     host: 49.232.26.166
     port: 6379
