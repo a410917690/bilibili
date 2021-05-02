@@ -2,9 +2,11 @@ package org.lanqiao.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import io.swagger.annotations.ApiOperation;
 import org.lanqiao.entity.TFanSeries;
 import org.lanqiao.service.TFanSeriesService;
 import org.lanqiao.util.result.Result;
+import org.springframework.data.annotation.AccessType;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -39,6 +41,13 @@ public class TFanSeriesController {
     }
 
 
+
+    @ApiOperation(value = "获取番剧所有剧集（不分页）")
+    @ResponseBody
+    @GetMapping("getFanSeries")
+    public Result getFanSeries(Integer fan_no){
+        return setResultSuccess(tFanSeriesService.getFanSeries(fan_no));
+    }
 
     @ResponseBody
     @GetMapping("Fan/getSeriesFan")

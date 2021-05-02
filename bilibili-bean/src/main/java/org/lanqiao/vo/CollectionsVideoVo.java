@@ -3,6 +3,8 @@ package org.lanqiao.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
+
 @Data
 public class CollectionsVideoVo implements Serializable {
     private static final long serialVersionUID = 567574000810585343L;
@@ -65,5 +67,10 @@ public class CollectionsVideoVo implements Serializable {
      * 视频是否合法
      */
     private boolean v_legal;
+
+    /**
+     * 视频标签
+     */
+    private List<String> tagNames;
 
 }

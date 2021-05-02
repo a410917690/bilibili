@@ -32,12 +32,12 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="css/video.css">
-    <link href="css/iconfont/iconfont.css" rel="stylesheet" >
+    <link href="css/iconfont/iconfont.css" rel="stylesheet">
     <link href="css/list.css" rel="stylesheet">
-    <link href="css/scojs.css" rel="stylesheet" >
-    <link href="css/colpick.css" rel="stylesheet" >
-    <link href="css/bootstrap.css" rel="stylesheet" >
-    <link href="css/main.css" rel="stylesheet" >
+    <link href="css/scojs.css" rel="stylesheet">
+    <link href="css/colpick.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/jquery.shCircleLoader.js"></script>
     <script src="js/sco.tooltip.js"></script>
@@ -78,7 +78,7 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
-                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                        <li><a href="playLive.html"> <i class="uil-thermometer"></i>
                             <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
@@ -413,17 +413,17 @@
                      class="dropdown-notifications small">
 
                     <!-- User Name / Avatar -->
-<!--                    <a href="#">-->
-<!--                        <div class="dropdown-user-details">-->
-<!--                            <div class="dropdown-user-avatar">-->
-<!--                                <img src="assets/images/avatars/avatar-2.jpg" alt="">-->
-<!--                            </div>-->
-<!--                            <div class="dropdown-user-name">-->
-<!--                                <span id="usn"> 未登录</span>-->
-<!--                                <span id="yz"> 未登录 <i class="uil-check"></i> </span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </a>-->
+                    <!--                    <a href="#">-->
+                    <!--                        <div class="dropdown-user-details">-->
+                    <!--                            <div class="dropdown-user-avatar">-->
+                    <!--                                <img src="assets/images/avatars/avatar-2.jpg" alt="">-->
+                    <!--                            </div>-->
+                    <!--                            <div class="dropdown-user-name">-->
+                    <!--                                <span id="usn"> 未登录</span>-->
+                    <!--                                <span id="yz"> 未登录 <i class="uil-check"></i> </span>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </a>-->
                     <!-- User menu -->
                     <ul class="dropdown-user-menu">
                         <li>
@@ -446,11 +446,8 @@
     </div>
 
 
-
-
-
     <div id="v">
-<!--        <div id="ti" style="font-size: 25px;"><span style="padding-left: 100px">{{video.v_title}}</span></div>-->
+        <!--        <div id="ti" style="font-size: 25px;"><span style="padding-left: 100px">{{video.v_title}}</span></div>-->
 
         <div id="danmup" style="left: 150px;top:120px;padding-left: 120px;margin-left: 150px"></div>
 
@@ -523,7 +520,8 @@
                           placeholder='发表一条友善的评论'>
         </textarea>
                 <button id="s" style="height: 30px;background-color: deepskyblue;color: white;border: deepskyblue"
-                        v-on:click="give_a_comment">&nbsp;发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表&nbsp;</button>
+                        v-on:click="give_a_comment">&nbsp;发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表&nbsp;
+                </button>
             </div>
             <br>
 
@@ -541,48 +539,47 @@
                 <span id="showTime" style="margin-left: 2px;color: grey;font-size: 12px">发表于{{com.com_time}}</span>
 
                 <!--                <div>-->
-<!--                    <div style="display:flex;">-->
-<!--                        <h5 id="hf" v-on:click="showRe(com.com_no)" style="color: gray">查看回复</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                        <h5 id="hhh" v-on:click="hhh()" style="color: gray">回复</h5>-->
-<!--                    </div>-->
-<!--                    <div class="sec">-->
-<!--                        <div class="comments" v-for="re in reply">-->
-<!--                            <div>-->
-<!--                                <span id="re_name">回复者：{{re.name}}</span>-->
-<!--                            </div>-->
-<!--                            <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 600px; background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{re.com_com}}-->
-<!--                        </textarea>-->
-<!--                            <h5 id="yc" v-on:click="yc()" style="color: gray">隐藏回复</h5>-->
-<!--                            <br>-->
-<!--                            <br>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                <!--                    <div style="display:flex;">-->
+                <!--                        <h5 id="hf" v-on:click="showRe(com.com_no)" style="color: gray">查看回复</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--                        <h5 id="hhh" v-on:click="hhh()" style="color: gray">回复</h5>-->
+                <!--                    </div>-->
+                <!--                    <div class="sec">-->
+                <!--                        <div class="comments" v-for="re in reply">-->
+                <!--                            <div>-->
+                <!--                                <span id="re_name">回复者：{{re.name}}</span>-->
+                <!--                            </div>-->
+                <!--                            <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 600px; background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{re.com_com}}-->
+                <!--                        </textarea>-->
+                <!--                            <h5 id="yc" v-on:click="yc()" style="color: gray">隐藏回复</h5>-->
+                <!--                            <br>-->
+                <!--                            <br>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
 
-<!--                    <div class="hfk">-->
-<!--                     <textarea name='comment' id="r" rows="8" cols="5" class='form-control' style='width: 840px;background:white;border: 1px solid gainsboro;' placeholder='发表一条友善的评论'>-->
-<!--                     </textarea>-->
-<!--                        <span id="djhf" v-on:click="give_a_reply(com.com_no)" style="width: 50px;height: 30px;border: 1px solid deepskyblue;background-color: deepskyblue;color: white">回复</span>-->
-<!--                        <h5 id="yck" v-on:click="tck()" style="color: gray">隐藏回复</h5>-->
-<!--                    </div>-->
+                <!--                    <div class="hfk">-->
+                <!--                     <textarea name='comment' id="r" rows="8" cols="5" class='form-control' style='width: 840px;background:white;border: 1px solid gainsboro;' placeholder='发表一条友善的评论'>-->
+                <!--                     </textarea>-->
+                <!--                        <span id="djhf" v-on:click="give_a_reply(com.com_no)" style="width: 50px;height: 30px;border: 1px solid deepskyblue;background-color: deepskyblue;color: white">回复</span>-->
+                <!--                        <h5 id="yck" v-on:click="tck()" style="color: gray">隐藏回复</h5>-->
+                <!--                    </div>-->
 
-<!--                </div>-->
+                <!--                </div>-->
                 <br><br>
             </div>
 
-<!--            <script>$(".sec").hide();$(".hfk").hide()</script>-->
+            <!--            <script>$(".sec").hide();$(".hfk").hide()</script>-->
 
-                    <div style="padding-left: 350px">
-                        <input type="button" id="before" value="上一页 " style="border: gray 1px solid;height: 30px;width: 60px">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" id="next" value=" 下一页" style="border: gray 1px solid;height: 30px;width: 60px">
-                    </div>
+            <div style="padding-left: 350px">
+                <input type="button" id="before" value="上一页 " style="border: gray 1px solid;height: 30px;width: 60px">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="next" value=" 下一页" style="border: gray 1px solid;height: 30px;width: 60px">
+            </div>
 
         </div>
     </div>
 
 
-
-    </div>
+</div>
 
 <!-- footer -->
 
@@ -604,55 +601,55 @@
     </div>
 </div>
 </div>
-    <!-- For Night mode -->
-    <script>
-        (function (window, document, undefined) {
-            'use strict';
-            if (!('localStorage' in window)) return;
-            var nightMode = localStorage.getItem('gmtNightMode');
-            if (nightMode) {
-                document.documentElement.className += ' night-mode';
+<!-- For Night mode -->
+<script>
+    (function (window, document, undefined) {
+        'use strict';
+        if (!('localStorage' in window)) return;
+        var nightMode = localStorage.getItem('gmtNightMode');
+        if (nightMode) {
+            document.documentElement.className += ' night-mode';
+        }
+    })(window, document);
+
+
+    (function (window, document, undefined) {
+
+        'use strict';
+
+        // Feature test
+        if (!('localStorage' in window)) return;
+
+        // Get our newly insert toggle
+        var nightMode = document.querySelector('#night-mode');
+        if (!nightMode) return;
+
+        // When clicked, toggle night mode on or off
+        nightMode.addEventListener('click', function (event) {
+            event.preventDefault();
+            document.documentElement.classList.toggle('night-mode');
+            if (document.documentElement.classList.contains('night-mode')) {
+                localStorage.setItem('gmtNightMode', true);
+                return;
             }
-        })(window, document);
+            localStorage.removeItem('gmtNightMode');
+        }, false);
+
+    })(window, document);
+</script>
 
 
-        (function (window, document, undefined) {
-
-            'use strict';
-
-            // Feature test
-            if (!('localStorage' in window)) return;
-
-            // Get our newly insert toggle
-            var nightMode = document.querySelector('#night-mode');
-            if (!nightMode) return;
-
-            // When clicked, toggle night mode on or off
-            nightMode.addEventListener('click', function (event) {
-                event.preventDefault();
-                document.documentElement.classList.toggle('night-mode');
-                if (document.documentElement.classList.contains('night-mode')) {
-                    localStorage.setItem('gmtNightMode', true);
-                    return;
-                }
-                localStorage.removeItem('gmtNightMode');
-            }, false);
-
-        })(window, document);
-    </script>
-
-
-    <!-- javaScripts
-                ================================================== -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
-    <script src="assets/js/simplebar.js"></script>
-    <script src="assets/js/main.js"></script>
+<!-- javaScripts
+            ================================================== -->
+<script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
+<script src="assets/js/simplebar.js"></script>
+<script src="assets/js/main.js"></script>
 
 <script>
     $(function () {
         var username = localStorage.getItem("name");
         $("#usn").html(username);
-        if(username !== null){
+        if (username !== null) {
             $("#yz").html("已验证");
         }
 
@@ -660,10 +657,10 @@
         var home = new Vue({
             el: '#focus',
             data: {
-                focuses:[],
-                videos:[],
-                fans:[],
-                lives:[]
+                focuses: [],
+                videos: [],
+                fans: [],
+                lives: []
             },
             mounted: function () {
 
@@ -691,7 +688,6 @@
                 // },
             }
         });
-
 
 
         //获取用户id
@@ -747,10 +743,10 @@
             data: {
                 video: [],
                 comments: [],
-                isCol:false,
-                isLike:false,
-                num_likes:num_likes,
-                reply:[],
+                isCol: false,
+                isLike: false,
+                num_likes: num_likes,
+                reply: [],
             },
             mounted: function () {
 
@@ -761,17 +757,17 @@
                 //
                 // },
 
-                showRe:function(com_no){
+                showRe: function (com_no) {
                     $(".sec").show();
 
                     $.ajax({
                         url: basePath + "/getComReply",
-                        data:{"com_no":com_no},
+                        data: {"com_no": com_no},
                         type: "post",
                         dataType: "json",
                         success: function (data) {
                             console.log(data);
-                            if(data.code === 200){
+                            if (data.code === 200) {
                                 vl.reply = data.data;
                             }
                         }
@@ -779,37 +775,40 @@
                 },
 
                 collect: function () {
-                    if (this.isCol ===  false){
+                    if (this.isCol === false) {
                         $.ajax({
                             url: basePath + "/insertCollections",
-                            data:{"con_no": con_no, "v_no" : v_no},
-                            beforeSend:function(request){
-                                request.setRequestHeader("Authorization",token);
+                            data: {"con_no": con_no, "v_no": v_no},
+                            beforeSend: function (request) {
+                                request.setRequestHeader("Authorization", token);
                             },
                             type: "post",
                             dataType: "json",
                             success: function (data) {
                                 // console.log(data);
-                                if(data.code === 200){
+                                if (data.code === 200) {
                                     $("#cl").css({"color": "#ff568b"});
-                                    $("#cl0").text("收藏成功").css({"font-size":"13px","margin-left":"-8px"});
+                                    $("#cl0").text("收藏成功").css({"font-size": "13px", "margin-left": "-8px"});
                                     this.isCol = true;
                                 }
                                 else {
                                     // $("#cl0").text("不能重复收藏哦").css({"font-size":"13px","margin-left":"-30px"});
                                     $.ajax({
                                         url: basePath + "/deleteCollections",
-                                        data:{"con_no": con_no, "v_no" : v_no},
-                                        beforeSend:function(request){
-                                            request.setRequestHeader("Authorization",token);
+                                        data: {"con_no": con_no, "v_no": v_no},
+                                        beforeSend: function (request) {
+                                            request.setRequestHeader("Authorization", token);
                                         },
                                         type: "post",
                                         dataType: "json",
                                         success: function (data) {
                                             // console.log(data);
-                                            if(data.code === 200){
+                                            if (data.code === 200) {
                                                 $("#cl").css({"color": "gray"});
-                                                $("#cl0").text("已取消收藏").css({"font-size":"13px","margin-left":"-13px"});
+                                                $("#cl0").text("已取消收藏").css({
+                                                    "font-size": "13px",
+                                                    "margin-left": "-13px"
+                                                });
                                                 this.isCol = false;
                                             }
                                         }
@@ -817,27 +816,27 @@
                                 }
                             }
                         });
-                    }else {
+                    } else {
                         $.ajax({
                             url: basePath + "/deleteCollections",
-                            data:{"con_no": con_no, "v_no" : v_no},
-                            beforeSend:function(request){
-                                request.setRequestHeader("Authorization",token);
+                            data: {"con_no": con_no, "v_no": v_no},
+                            beforeSend: function (request) {
+                                request.setRequestHeader("Authorization", token);
                             },
                             type: "post",
                             dataType: "json",
                             success: function (data) {
                                 // console.log(data);
-                                if(data.code === 200){
+                                if (data.code === 200) {
                                     $("#cl").css({"color": "gray"});
-                                    $("#cl0").text("已取消收藏").css({"font-size":"13px","margin-left":"-13px"});
+                                    $("#cl0").text("已取消收藏").css({"font-size": "13px", "margin-left": "-13px"});
                                     this.isCol = false;
-                                }else {
+                                } else {
                                     $.ajax({
                                         url: basePath + "/insertCollections",
                                         data: {"con_no": con_no, "v_no": v_no},
-                                        beforeSend:function(request){
-                                            request.setRequestHeader("Authorization",token);
+                                        beforeSend: function (request) {
+                                            request.setRequestHeader("Authorization", token);
                                         },
                                         type: "post",
                                         dataType: "json",
@@ -861,18 +860,18 @@
 
 
                 give_a_like: function () {
-                    if (this.isLike ===  false){
+                    if (this.isLike === false) {
                         $.ajax({
                             url: basePath + "/giveLike",
-                            data:{"con_no": con_no, "v_no" : v_no},
-                            beforeSend:function(request){
-                                request.setRequestHeader("Authorization",token);
+                            data: {"con_no": con_no, "v_no": v_no},
+                            beforeSend: function (request) {
+                                request.setRequestHeader("Authorization", token);
                             },
                             type: "post",
                             dataType: "json",
                             success: function (data) {
                                 // console.log(data);
-                                if(data.code === 200){
+                                if (data.code === 200) {
                                     $("#dz").css({"color": "#ff568b"});
                                     this.isLike = true;
                                     $.ajax({
@@ -887,7 +886,7 @@
                                     // window.location.href = "single-video.html?v_no=" + v_no;
                                 }
                                 else {
-                                    $("#dz0").text("不能重复点赞哦").css({"font-size":"13px","margin-left":"-30px"});
+                                    $("#dz0").text("不能重复点赞哦").css({"font-size": "13px", "margin-left": "-30px"});
                                 }
                             }
                         });
@@ -898,20 +897,20 @@
                 give_coins: function () {
                     $.ajax({
                         url: basePath + "/giveCoins",
-                        data:{"con_no": con_no, "v_no" : v_no},
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
+                        data: {"con_no": con_no, "v_no": v_no},
+                        beforeSend: function (request) {
+                            request.setRequestHeader("Authorization", token);
                         },
                         type: "post",
                         dataType: "json",
                         success: function (data) {
                             // console.log(data);
-                            if(data.code === 200){
+                            if (data.code === 200) {
                                 $("#jb").css({"color": "#ff568b"});
-                                $("#jb0").text("已投币").css({"font-size":"13px","margin-left":"-0.5px"});
-                            }else {
+                                $("#jb0").text("已投币").css({"font-size": "13px", "margin-left": "-0.5px"});
+                            } else {
                                 // $("#jb").css({"color": "#ff568b"});
-                                $("#jb0").text("币数不足，请充值").css({"font-size":"13px","margin-left":"-30px"});
+                                $("#jb0").text("币数不足，请充值").css({"font-size": "13px", "margin-left": "-30px"});
                             }
                         }
                     });
@@ -944,9 +943,9 @@
                 give_a_comment: function () {
                     $.ajax({
                         url: basePath + "/insertComment",
-                        data:{"con_comment":$("#myCom").val(),"con_no": con_no, "v_no" : v_no},
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
+                        data: {"con_comment": $("#myCom").val(), "con_no": con_no, "v_no": v_no},
+                        beforeSend: function (request) {
+                            request.setRequestHeader("Authorization", token);
                         },
                         type: "post",
                         dataType: "json",
@@ -955,12 +954,12 @@
                             $("#myCom").val("");
                             $.ajax({
                                 url: basePath + "/getCommentsByVno",
-                                data:{"page":1,"v_no":v_no},
+                                data: {"page": 1, "v_no": v_no},
                                 type: "post",
                                 dataType: "json",
                                 success: function (data) {
                                     console.log(data);
-                                    if(data.code === 200){
+                                    if (data.code === 200) {
                                         vl.comments = data.data.list;
                                     }
                                 }
@@ -970,12 +969,12 @@
                     });
                 },
 
-                give_a_reply:function(com_no){
+                give_a_reply: function (com_no) {
                     $.ajax({
                         url: basePath + "/insertComReply",
-                        data:{"com_com":$("#r").val(),"com_no": com_no,"con_no":con_no},
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
+                        data: {"com_com": $("#r").val(), "com_no": com_no, "con_no": con_no},
+                        beforeSend: function (request) {
+                            request.setRequestHeader("Authorization", token);
                         },
                         type: "post",
                         dataType: "json",
@@ -989,41 +988,41 @@
 
                 },
 
-                yc:function(){
+                yc: function () {
                     $(".sec").hide();
                 },
 
-                hhh:function () {
+                hhh: function () {
                     $(".hfk").show();
                 },
 
-                tck:function () {
+                tck: function () {
                     $(".hfk").hide();
                 },
             }
         });
 
 
-        $("#next").click(function(){
+        $("#next").click(function () {
             $.ajax({
                 url: basePath + "/getCommentsByVno",
-                data:{"page":1,"v_no":v_no},
+                data: {"page": 1, "v_no": v_no},
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         var allRows = data.data.total;
-                        var size = allRows-5;
+                        var size = allRows - 5;
 
                         $.ajax({
                             url: basePath + "/getCommentsByVno",
-                            data:{"page":2,"pageSize":size,"v_no":v_no},
+                            data: {"page": 2, "pageSize": size, "v_no": v_no},
                             type: "post",
                             dataType: "json",
                             success: function (data) {
                                 console.log(data);
-                                if(data.code === 200){
+                                if (data.code === 200) {
                                     vl.comments = data.data.list;
                                 }
                             }
@@ -1033,15 +1032,15 @@
             });
         })
 
-        $("#before").click(function(){
+        $("#before").click(function () {
             $.ajax({
                 url: basePath + "/getCommentsByVno",
-                data:{"page":1,"v_no":v_no},
+                data: {"page": 1, "v_no": v_no},
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         vl.comments = data.data.list;
                     }
                 }
@@ -1065,12 +1064,12 @@
 
             $.ajax({
                 url: basePath + "/getCommentsByVno",
-                data:{"page":1,"v_no":v_no},
+                data: {"page": 1, "v_no": v_no},
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         vl.comments = data.data.list;
                         total = data.data.total;
                     }
@@ -1085,17 +1084,17 @@
                     // console.log(data.data.con_no);
                     con_no = data.data.con_no;
                     $.ajax({
-                        url: basePath + "/isCollections?con_no="+con_no+"&v_no="+v_no,
+                        url: basePath + "/isCollections?con_no=" + con_no + "&v_no=" + v_no,
                         type: "post",
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
+                        beforeSend: function (request) {
+                            request.setRequestHeader("Authorization", token);
                         },
                         dataType: "json",
                         success: function (data) {
                             console.log(data);
-                            if(data.code === 200){
+                            if (data.code === 200) {
                                 $("#cl").css({"color": "#ff568b"});
-                                $("#cl0").text("收藏过啦").css({"font-size":"13px","margin-left":"-8px"});
+                                $("#cl0").text("收藏过啦").css({"font-size": "13px", "margin-left": "-8px"});
                                 vl.isCol = true;
                             }
                         }
@@ -1103,22 +1102,21 @@
 
                     $.ajax({
                         url: basePath + "/isLike",
-                        data:{"con_no":con_no,"v_no":v_no},
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
+                        data: {"con_no": con_no, "v_no": v_no},
+                        beforeSend: function (request) {
+                            request.setRequestHeader("Authorization", token);
                         },
                         type: "post",
                         dataType: "json",
                         success: function (data) {
                             console.log(data);
-                            if(data.code !== 200){
+                            if (data.code !== 200) {
                                 $("#dz").css({"color": "#ff568b"});
                                 // $("#cl0").text("啦").css({"font-size":"13px","margin-left":"-8px"});
                                 vl.isLike = true;
                             }
                         }
                     });
-
 
 
                     var DanmuPlayer = function (element, options) {
@@ -1254,7 +1252,7 @@
                                     // } catch (e) {
                                     //     continue;
                                     // }
-                                    $(that.id + ' .danmu-div').danmu("addDanmu",data[i]);
+                                    $(that.id + ' .danmu-div').danmu("addDanmu", data[i]);
                                 }
                             });
                         };
@@ -1268,7 +1266,7 @@
                             if (text.length === 0) {
                                 return;
                             }
-                            if (text.length > 255){
+                            if (text.length > 255) {
                                 alert("弹幕过长！");
                                 return;
                             }
@@ -1280,19 +1278,27 @@
                             var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + '}';
                             if (e.data.that.options.urlToPostDanmu)
 
-                                // $.post(e.data.that.options.urlToPostDanmu, {
-                                //     // danmu: textObj
-                                //
-                                // });
+                            // $.post(e.data.that.options.urlToPostDanmu, {
+                            //     // danmu: textObj
+                            //
+                            // });
 
                                 $.ajax({
-                                    url:basePath + "/insertDanMu",
-                                    data:{"color":color,"con_no":con_no,"position":position,"size":size,"text":text,"time":time,"v_no":v_no},
-                                    type:"post",
-                                    beforeSend:function(request){
-                                        request.setRequestHeader("Authorization",token);
+                                    url: basePath + "/insertDanMu",
+                                    data: {
+                                        "color": color,
+                                        "con_no": con_no,
+                                        "position": position,
+                                        "size": size,
+                                        "text": text,
+                                        "time": time,
+                                        "v_no": v_no
                                     },
-                                    dataType:"text",
+                                    type: "post",
+                                    beforeSend: function (request) {
+                                        request.setRequestHeader("Authorization", token);
+                                    },
+                                    dataType: "text",
                                     success: function (data) {
                                         console.log(data);
                                     }
@@ -1322,9 +1328,9 @@
                         //主计时器
                         var mainTimer = setInterval(function () {
                             //缓冲条
-                            var bufTime=$(that.id + " .danmu-video").get(0).buffered.end($(that.id + " .danmu-video").get(0).buffered.length-1);
+                            var bufTime = $(that.id + " .danmu-video").get(0).buffered.end($(that.id + " .danmu-video").get(0).buffered.length - 1);
 
-                            var buffPrecent = (bufTime/that.duration) * 100;
+                            var buffPrecent = (bufTime / that.duration) * 100;
                             $(that.id + ".danmu-player .ctrl-progress .buffered ").css("width", buffPrecent + "%");
                             // 时间轴修正
                             // if (Math.abs($(that.id + " .danmu-div").data("nowTime") - parseInt(that.video.currentTime)*10) > 1) {
@@ -1337,7 +1343,7 @@
                         var secTimer = setInterval(function () {
                             // if (Math.abs($(that.id + " .danmu-div").data("nowTime") - parseInt(that.video.currentTime*10)) > 1) {
                             //  console.log("revise time"+$(that.id + " .danmu-div").data("nowTime")+ ","+that.video.currentTime*10);
-                            $(that.id + " .danmu-div").data("nowTime", parseInt(that.video.currentTime*10));
+                            $(that.id + " .danmu-div").data("nowTime", parseInt(that.video.currentTime * 10));
 
                             //  }
                         }, 50);
@@ -1369,10 +1375,10 @@
                                 $(e.data.that.id + " .danmu-div").data("nowTime", 0);
                                 $(e.data.that.id + " .danmu-div").data("danmuPause");
                             } else {
-                                $(e.data.that.id + " .danmu-div").data("nowTime", parseInt($(e.data.that.id + " .danmu-video").get(0).currentTime)*10);
+                                $(e.data.that.id + " .danmu-div").data("nowTime", parseInt($(e.data.that.id + " .danmu-video").get(0).currentTime) * 10);
                                 $(e.data.that.id + " .danmu-div").data("danmuPause");
                             }
-                            $(e.data.that.id + " .danmu-player-load").css("display","block");
+                            $(e.data.that.id + " .danmu-player-load").css("display", "block");
 
                         });
 
@@ -1383,10 +1389,10 @@
                                 $(e.data.that.id + " .danmu-div").data("nowTime", 0);
                                 $(e.data.that.id + " .danmu-div").data("danmuResume");
                             } else {
-                                $(e.data.that.id + " .danmu-div").data("nowTime", parseInt($(e.data.that.id + " .danmu-video").get(0).currentTime)*10);
+                                $(e.data.that.id + " .danmu-div").data("nowTime", parseInt($(e.data.that.id + " .danmu-video").get(0).currentTime) * 10);
                                 $(e.data.that.id + " .danmu-div").data("danmuResume");
                             }
-                            $(e.data.that.id + " .danmu-player-load").css("display","none");
+                            $(e.data.that.id + " .danmu-player-load").css("display", "none");
 
                         });
 
@@ -1451,7 +1457,10 @@
                         });
 
                         //时间改变事件
-                        $(this.id + " .danmu-video").on('loadedmetadata', {video: this.video, that: that}, function (e) {
+                        $(this.id + " .danmu-video").on('loadedmetadata', {
+                            video: this.video,
+                            that: that
+                        }, function (e) {
                             e.data.that.duration = e.data.video.duration;
                             var duraMin = parseInt(e.data.that.duration / 60);
                             var duraSec = parseInt(e.data.that.duration % 60) < 10 ? "0" + parseInt(e.data.that.duration % 60) : parseInt(e.data.that.duration % 60);
@@ -1491,7 +1500,10 @@
                         $(document).on('mouseup', function (e) {
                             if (timeDrag) timeDrag = false;
                         });
-                        $(this.id + " .ctrl-progress").on('mousemove touchmove', {video: this.video, that: that}, function (e) {
+                        $(this.id + " .ctrl-progress").on('mousemove touchmove', {
+                            video: this.video,
+                            that: that
+                        }, function (e) {
                             if (timeDrag) {
                                 var sumLen = $(e.data.that.id + " .ctrl-progress").width();
                                 var pos = e.pageX - $(e.data.that.id + " .ctrl-progress").offset().left;
@@ -1544,7 +1556,7 @@
                             var data = $this.data('DanmuPlayer');
                             var action = typeof option == 'string' ? option : NaN;
                             if (!data) $this.data('danmu', (data = new DanmuPlayer(this, options)));
-                            if (action)    data[action](arg);
+                            if (action) data[action](arg);
                         })
                     }
 
@@ -1576,7 +1588,7 @@
 
                     $("#danmup .danmu-div").danmu("addDanmu", [
                         {"text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2}
-                        , {"text": "这是测试弹幕", size: 5, position: 0,time:5}
+                        , {"text": "这是测试弹幕", size: 5, position: 0, time: 5}
                         , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 3}
                         , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 2}
                         , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 3}
@@ -1597,20 +1609,20 @@
         $("#report_efeg").click(function () {
             $.ajax({
                 url: basePath + "/",
-                data:{"con_no": con_no, "v_no" : v_no,reason:"违法违规"},
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
+                data: {"con_no": con_no, "v_no": v_no, reason: "违法违规"},
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", token);
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     // console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         $("#rv").css({"color": "#ff568b"});
                         $("#jbsp0").css({"color": "#ff568b"});
-                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                    }else {
-                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                        $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                    } else {
+                        $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
                     }
                 }
             });
@@ -1618,20 +1630,20 @@
         $("#report_sxcx").click(function () {
             $.ajax({
                 url: basePath + "/",
-                data:{"con_no": con_no, "v_no" : v_no,reason:"涉嫌抄袭"},
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
+                data: {"con_no": con_no, "v_no": v_no, reason: "涉嫌抄袭"},
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", token);
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     // console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         $("#rv").css({"color": "#ff568b"});
                         $("#jbsp0").css({"color": "#ff568b"});
-                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                    }else {
-                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                        $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                    } else {
+                        $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
                     }
                 }
             });
@@ -1639,20 +1651,20 @@
         $("#report_seds").click(function () {
             $.ajax({
                 url: basePath + "/reportVideo",
-                data:{"con_no": con_no, "v_no" : v_no,reason:"色情低俗"},
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
+                data: {"con_no": con_no, "v_no": v_no, reason: "色情低俗"},
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", token);
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     // console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         $("#jbsp0").css({"color": "#ff568b"});
                         $("#rv").css({"color": "#ff568b"});
-                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                    }else {
-                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                        $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                    } else {
+                        $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
                     }
                 }
             });
@@ -1660,20 +1672,20 @@
         $("#report_rsgj").click(function () {
             $.ajax({
                 url: basePath + "/reportVideo",
-                data:{"con_no": con_no, "v_no" : v_no,reason:"人身攻击"},
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
+                data: {"con_no": con_no, "v_no": v_no, reason: "人身攻击"},
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", token);
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     // console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         $("#rv").css({"color": "#ff568b"});
                         $("#jbsp0").css({"color": "#ff568b"});
-                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                    }else {
-                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                        $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                    } else {
+                        $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
                     }
                 }
             });
@@ -1681,20 +1693,20 @@
         $("#report_ljgg").click(function () {
             $.ajax({
                 url: basePath + "/reportVideo",
-                data:{"con_no": con_no, "v_no" : v_no,reason:"垃圾广告"},
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
+                data: {"con_no": con_no, "v_no": v_no, reason: "垃圾广告"},
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", token);
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     // console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         $("#rv").css({"color": "#ff568b"});
                         $("#jbsp0").css({"color": "#ff568b"});
-                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                    }else {
-                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                        $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                    } else {
+                        $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
                     }
                 }
             });
@@ -1702,20 +1714,20 @@
         $("#report_eyyz").click(function () {
             $.ajax({
                 url: basePath + "/reportVideo",
-                data:{"con_no": con_no, "v_no" : v_no,reason:"恶意引战"},
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
+                data: {"con_no": con_no, "v_no": v_no, reason: "恶意引战"},
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", token);
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
                     // console.log(data);
-                    if(data.code === 200){
+                    if (data.code === 200) {
                         $("#rv").css({"color": "#ff568b"});
                         $("#jbsp0").css({"color": "#ff568b"});
-                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                    }else {
-                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                        $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                    } else {
+                        $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
                     }
                 }
             });
@@ -1724,8 +1736,8 @@
         //搜索功能
         $("#serch").keydown(function (event) {
             var vTitle = $("#serch").val();
-            if (event.keyCode ==13){
-                window.location.href =basePath+"/serchResult.html?v_title="+vTitle;
+            if (event.keyCode == 13) {
+                window.location.href = basePath + "/serchResult.html?v_title=" + vTitle;
 
                 //阻止默认事件
                 return false;

@@ -3,6 +3,7 @@ package org.lanqiao.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 public class CnoVideoLikesVo implements Serializable {
@@ -68,4 +69,9 @@ public class CnoVideoLikesVo implements Serializable {
      * 视频是否合法
      */
     private boolean v_legal;
+
+    /**
+     * 视频标签
+     */
+    private List<String> tagNames;
 }

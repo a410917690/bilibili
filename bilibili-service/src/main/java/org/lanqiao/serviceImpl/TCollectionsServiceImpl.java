@@ -9,6 +9,7 @@ import org.lanqiao.entity.TCollections;
 import org.lanqiao.service.TCollectionsService;
 import org.lanqiao.service.TVideosService;
 import org.lanqiao.vo.CollectionsVideoVo;
+import org.lanqiao.vo.VideoTagVo;
 import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Component;
 
@@ -85,6 +86,12 @@ public class TCollectionsServiceImpl implements TCollectionsService {
         for (Integer vNo : v_nos) {
             VideoVo videoVo = tVideosService.queryById(vNo);
             CollectionsVideoVo collectionsVideoVo = new CollectionsVideoVo();
+            List<VideoTagVo> tagList = tVideosService.getVideoTags(vNo);
+            List<String> tagNames = new ArrayList<>();
+            for (VideoTagVo tagList1:tagList) {
+                tagNames.add(tagList1.getT_name());
+            }
+            collectionsVideoVo.setTagNames(tagNames);
             collectionsVideoVo.setCol_no(map.get(vNo));
             collectionsVideoVo.setBlong_con_no(videoVo.getCon_no());
             collectionsVideoVo.setCon_no(con_no);

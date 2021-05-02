@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -10,23 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TubeLite is - Professional A unique and beautiful collection of UI elements">
     <link rel="icon" href="assets/images/favicon.png">
-
     <link href="css/iconfont/iconfont.css" rel="stylesheet">
-    <!-- CSS 
+    <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/night-mode.css">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/css/uikit.min.css">
-
     <!-- icons
     ================================================== -->
     <link rel="stylesheet" href="assets/css/icons.css">
-
     <!-- Google font
     ================================================== -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-
     <link href="css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="css/video.css">
     <link href="css/iconfont/iconfont.css" rel="stylesheet">
@@ -35,11 +30,23 @@
     <link href="css/colpick.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/video.css">
+    <link href="css/iconfont/iconfont.css" rel="stylesheet" >
+    <link href="css/list.css" rel="stylesheet">
+    <link href="css/scojs.css" rel="stylesheet" >
+    <link href="css/colpick.css" rel="stylesheet" >
+    <link href="css/bootstrap.css" rel="stylesheet" >
+    <link href="css/main.css" rel="stylesheet" >
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/jquery.shCircleLoader.js"></script>
     <script src="js/sco.tooltip.js"></script>
     <script src="js/colpick.js"></script>
     <script src="js/jquery.danmu.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/head.js"></script>
 
 </head>
 
@@ -66,14 +73,12 @@
                     <ul>
                         <li class="active"><a href="home.html"> <i class="uil-home-alt"></i> <span> 首页 </span> </a>
                         </li>
-                        <li><a href="browse-channals.html">
-                            <!--<i class="uil-users-alt"></i> <span> 我的关注 </span> </a></li>-->
                         <li><a href="your-watch-later.html"> <i class="iconfont icon-shoucang"></i> <span> 我的收藏 </span>
                         </a>
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
-                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                        <li><a href="playLive.html"> <i class="uil-thermometer"></i>
                             <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
@@ -408,28 +413,19 @@
                      class="dropdown-notifications small">
 
                     <!-- User Name / Avatar -->
-                    <a href="#">
-
-                        <div class="dropdown-user-details">
-                            <div class="dropdown-user-avatar">
-                                <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                            </div>
-                            <div class="dropdown-user-name">
-                                <span id="usn"> 未登录</span>
-                                <span id="yz"> 未登录 <i class="uil-check"></i> </span>
-                            </div>
-                        </div>
-
-                    </a>
-
+                    <!--                    <a href="#">-->
+                    <!--                        <div class="dropdown-user-details">-->
+                    <!--                            <div class="dropdown-user-avatar">-->
+                    <!--                                <img src="assets/images/avatars/avatar-2.jpg" alt="">-->
+                    <!--                            </div>-->
+                    <!--                            <div class="dropdown-user-name">-->
+                    <!--                                <span id="usn"> 未登录</span>-->
+                    <!--                                <span id="yz"> 未登录 <i class="uil-check"></i> </span>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </a>-->
                     <!-- User menu -->
-
                     <ul class="dropdown-user-menu">
-                        <li><a href="page-pricing.html"> <i class="uil-bolt"></i> 大会员</a></li>
-                        <!--                        <li><a href="browse-channals.html"> <i class="uil-user"></i> 我的关注 </a></li>-->
-                        <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i> 我推荐的视频 </a></li>
-                        <li><a href="b_collections.html"> <i class="uil-history"></i> 我的收藏 </a></li>
-                        <li><a href="page-setting.html"> <i class="uil-cog"></i> 账户设置</a></li>
                         <li>
                             <a href="#" id="night-mode" class="btn-night-mode">
                                 <i class="icon-feather-moon"></i> 夜间模式
@@ -438,10 +434,6 @@
                                     </span>
                             </a>
                         </li>
-                        <div class="menu-divider">
-                            <li><a href="b_login.html"> <i class="icon-feather-log-out"></i> 退出登录</a>
-                            </li>
-                        </div>
                     </ul>
 
 
@@ -458,141 +450,204 @@
 
 
     <div id="v">
-        <div id="ti" style="font-size: 25px;"><span style="padding-left: 100px">{{video.v_title}}</span></div>
+        <!--        <div id="ti" style="font-size: 25px;"><span style="padding-left: 100px">{{video.v_title}}</span></div>-->
 
-        <div id="danmup" style="left: 175px;top:100px;padding-left: 100px"></div>
+        <div id="danmup" style="left: 150px;top:120px;padding-left: 120px;margin-left: 150px"></div>
 
         <div class="alert_back">加载中</div>
-        <div id="icon" style="margin-left: 270px;margin-top: 30px;display: flex">
-            <div>
-                <span id="dz" class="iconfont icon-dianzan" v-on:click="give_a_like"></span>
-                <div><span id="dz0" style="font-size: 18px;margin-left: 8px">{{video.v_likes}}</span></div>
-            </div>
-            <div>
-                <span id="jb" class="iconfont icon-jinbi" v-on:click="give_coins"></span>
-                <div><span id="jb0" style="font-size: 18px;margin-left: 9px">{{video.v_coins}}</span></div>
-            </div>
-            <div>
-                <span id="cl" class="iconfont icon-collection-b" v-on:click="collect"></span>
-                <div><span id="cl0" style="font-size: 16px;margin-left: -14px;">收藏一下</span></div>
-            </div>
+        <h3 style="margin-left: 300px;padding-left: 20px;margin-top: 70px;padding-top: 70px">{{video.series_title}}</h3>
+        <div style="padding-top: -15px;margin-top: -15px">
+            <span style="margin-left: 300px;padding-left: 20px;margin-top: -50px;padding-top:-25px;color: gray;font-size: 11px">
+            <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>{{video.v_amount_of_play}}</span></span>
+            <span style="margin-left: 50px;padding-left: 20px;margin-top: -50px;padding-top:-25px;color: gray;font-size: 11px">
+                <i class="iconfont icon-dianzan"></i> 点赞数：<span>{{video.v_likes}}</span></span>
         </div>
+        <div class="video-post-content" style="margin-left: 320px;flex: 2;padding-top: 26px;">
+            <img src="assets/images/avatars/avatar-3.jpg" alt="">
+            <span class="video-post-user">作者：{{video.name}}</span>
+        </div>
+        <div style="margin-left: 320px;height: 30px;width: 1100px;border-bottom: 1px solid;border-bottom-color:silver">
+        </div>
+
+        <!--<div id="icon" style="margin-left: 170px;margin-top: 100px;display: flex;">-->
+            <!--<div>-->
+                <!--<span id="dz" class="iconfont icon-dianzan" v-on:click="give_a_like"></span>-->
+                <!--<div><span id="dz0" style="font-size: 18px;margin-left: 8px">{{video.v_likes}}</span></div>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<span id="jb" class="iconfont icon-jinbi" v-on:click="give_coins"></span>-->
+                <!--<div><span id="jb0" style="font-size: 18px;margin-left: 9px">{{video.v_coins}}</span></div>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<span id="cl" class="iconfont icon-collection-b" v-on:click="collect"></span>-->
+                <!--<div><span id="cl0" style="font-size: 16px;margin-left: -12px;">收藏一下</span></div>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<span id="jbsp0" class="iconfont icon-jubao1" v-on:click="collect"></span>-->
+                <!--<div><span id="rv" style="font-size: 16px;margin-left: 4px;">举报</span></div>-->
+            <!--</div>-->
+            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                <!--<ul>-->
+                    <!--<li>-->
+                        <!--<span id="report_efeg"> <h6>违法违规</h6></span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<span id="report_sxcx"> <h6>涉嫌抄袭</h6></span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<span id="report_seds"> <h6>色情低俗</h6></span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<span id="report_rsgj"> <h6>人身攻击</h6></span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<span id="report_ljgg"> <h6>垃圾广告</h6></span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<span id=="report_eyyz"> <h6>恶意引战</h6></span>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
 
 
         <!--    评论区-->
-        <div style="padding-left: 150px;padding-top: 50px;margin-left: 300px">
-            <span style="font-size: 30px">视频评论</span>
-        </div>
-        <div id="com" style="padding-left: 200px;margin-left: 300px">
-            <div id="add">
-                <div style="padding-top: 30px;padding-bottom: 10px">评论一下嘛...</div>
-                <textarea name='comment' id="myCom" rows="8" cols="5" class='form-control' style='width: 840px;
-                      background:white;border: 1px solid gainsboro;'
-                          placeholder='发表一条友善的评论'>
-        </textarea>
-                <button id="s" style="height: 30px;background-color: deepskyblue;color: white;border: deepskyblue"
-                        v-on:click="give_a_comment">&nbsp;发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表&nbsp;</button>
-            </div>
-            <br>
+        <!--<div style="padding-left: 150px;padding-top: 50px;margin-left: 300px">-->
+            <!--<span style="font-size: 30px">视频评论</span>-->
+        <!--</div>-->
+        <!--<div id="com" style="padding-left: 180px;margin-left: 270px">-->
+            <!--<div id="add">-->
+                <!--<div style="padding-top: 30px;padding-bottom: 10px">评论一下嘛...</div>-->
+                <!--<textarea name='comment' id="myCom" rows="8" cols="5" class='form-control' style='width: 840px;-->
+                      <!--background:white;border: 1px solid gainsboro;'-->
+                          <!--placeholder='发表一条友善的评论'>-->
+        <!--</textarea>-->
+                <!--<button id="s" style="height: 30px;background-color: deepskyblue;color: white;border: deepskyblue"-->
+                        <!--v-on:click="give_a_comment">&nbsp;发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表&nbsp;</button>-->
+            <!--</div>-->
+            <!--<br>-->
 
 
-            <div class="comments" v-for="com in comments">
-                <div>
-                    <span id="showName">{{com.name}}</span>
-                </div>
-                <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 900px;
-                      background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{com.con_comment}}
-            </textarea>
-                <div>
-                    <div style="display:flex;">
-                        <h5 id="hf" v-on:click="showRe(com.com_no)" style="color: gray">查看回复</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <h5 id="hhh" v-on:click="hhh()" style="color: gray">回复</h5>
-                    </div>
-                    <div class="sec">
-                        <div class="comments" v-for="re in reply">
-                            <div>
-                                <span id="re_name">回复者：{{re.name}}</span>
-                            </div>
-                            <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 600px; background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{re.com_com}}
-                        </textarea>
-                            <h5 id="yc" v-on:click="yc()" style="color: gray">隐藏回复</h5>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
+            <!--<div class="comments" v-for="com in comments">-->
 
-                    <div class="hfk">
-                     <textarea name='comment' id="r" rows="8" cols="5" class='form-control' style='width: 840px;background:white;border: 1px solid gainsboro;' placeholder='发表一条友善的评论'>
-                     </textarea>
-                        <span id="djhf" v-on:click="give_a_reply(com.com_no)" style="width: 50px;height: 30px;border: 1px solid deepskyblue;background-color: deepskyblue;color: white">回复</span>
-                        <h5 id="yck" v-on:click="tck()" style="color: gray">隐藏回复</h5>
-                    </div>
+                <!--<div>-->
+                    <!--<div class="video-post-content" style="flex: 2;padding-top: 26px;">-->
+                        <!--<img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                    <!--</div>-->
+                    <!--<span id="showName">{{com.name}}</span>-->
+                <!--</div>-->
+                <!--<textarea name='comment' rows="8" cols="5" class='form-control' style='width: 840px;-->
+                      <!--background:white;border: 1px solid gainsboro;font-size: 16px;margin-top: 3px' readonly="readonly"> {{com.con_comment}}</textarea>-->
+                <!--<span id="showTime" style="margin-left: 2px;color: grey;font-size: 12px">发表于{{com.com_time}}</span>-->
 
-                </div>
-                <br><br>
-            </div>
+                <!--&lt;!&ndash;                <div>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <div style="display:flex;">&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <h5 id="hf" v-on:click="showRe(com.com_no)" style="color: gray">查看回复</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <h5 id="hhh" v-on:click="hhh()" style="color: gray">回复</h5>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <div class="sec">&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <div class="comments" v-for="re in reply">&ndash;&gt;-->
+                <!--&lt;!&ndash;                            <div>&ndash;&gt;-->
+                <!--&lt;!&ndash;                                <span id="re_name">回复者：{{re.name}}</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 600px; background:white;border: 1px solid gainsboro;font-size: 16px' readonly="readonly"> {{re.com_com}}&ndash;&gt;-->
+                <!--&lt;!&ndash;                        </textarea>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            <h5 id="yc" v-on:click="yc()" style="color: gray">隐藏回复</h5>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            <br>&ndash;&gt;-->
+                <!--&lt;!&ndash;                            <br>&ndash;&gt;-->
+                <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 
-            <script>$(".sec").hide();$(".hfk").hide()</script>
+                <!--&lt;!&ndash;                    <div class="hfk">&ndash;&gt;-->
+                <!--&lt;!&ndash;                     <textarea name='comment' id="r" rows="8" cols="5" class='form-control' style='width: 840px;background:white;border: 1px solid gainsboro;' placeholder='发表一条友善的评论'>&ndash;&gt;-->
+                <!--&lt;!&ndash;                     </textarea>&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <span id="djhf" v-on:click="give_a_reply(com.com_no)" style="width: 50px;height: 30px;border: 1px solid deepskyblue;background-color: deepskyblue;color: white">回复</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <h5 id="yck" v-on:click="tck()" style="color: gray">隐藏回复</h5>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 
-            <!--        <div style="padding-left: 400px">-->
-            <!--            <input type="button" id="before" value="上一页 " style="border: gray 1px solid">-->
-            <!--            <input type="button" id="next" value=" 下一页" style="border: gray 1px solid">-->
-            <!--        </div>-->
+                <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+                <!--<br><br>-->
+            <!--</div>-->
 
-        </div>
+            <!--&lt;!&ndash;            <script>$(".sec").hide();$(".hfk").hide()</script>&ndash;&gt;-->
+
+            <!--<div style="padding-left: 350px">-->
+                <!--<input type="button" id="before" value="上一页 " style="border: gray 1px solid;height: 30px;width: 60px">-->
+                <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--<input type="button" id="next" value=" 下一页" style="border: gray 1px solid;height: 30px;width: 60px">-->
+            <!--</div>-->
+
+        <!--</div>-->
     </div>
 
 
 
+</div>
+
+<!-- footer -->
+
+<div class="footer">
+    <div class="uk-grid-collapse" uk-grid>
+        <div class="uk-width-expand@s uk-first-column">
+            <p>© 2021 <strong>IK</strong>. 版权所有. </p>
+        </div>
+        <div class="uk-width-auto@s">
+            <nav class="footer-nav-icon">
+                <ul>
+                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                    <li><a href="https://www.baidu.com/"><i class=""></i></a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <!-- For Night mode -->
-    <script>
-        (function (window, document, undefined) {
-            'use strict';
-            if (!('localStorage' in window)) return;
-            var nightMode = localStorage.getItem('gmtNightMode');
-            if (nightMode) {
-                document.documentElement.className += ' night-mode';
+</div>
+<!-- For Night mode -->
+<script>
+    (function (window, document, undefined) {
+        'use strict';
+        if (!('localStorage' in window)) return;
+        var nightMode = localStorage.getItem('gmtNightMode');
+        if (nightMode) {
+            document.documentElement.className += ' night-mode';
+        }
+    })(window, document);
+
+
+    (function (window, document, undefined) {
+
+        'use strict';
+
+        // Feature test
+        if (!('localStorage' in window)) return;
+
+        // Get our newly insert toggle
+        var nightMode = document.querySelector('#night-mode');
+        if (!nightMode) return;
+
+        // When clicked, toggle night mode on or off
+        nightMode.addEventListener('click', function (event) {
+            event.preventDefault();
+            document.documentElement.classList.toggle('night-mode');
+            if (document.documentElement.classList.contains('night-mode')) {
+                localStorage.setItem('gmtNightMode', true);
+                return;
             }
-        })(window, document);
+            localStorage.removeItem('gmtNightMode');
+        }, false);
+
+    })(window, document);
+</script>
 
 
-        (function (window, document, undefined) {
+<!-- javaScripts
+            ================================================== -->
+<script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
+<script src="assets/js/simplebar.js"></script>
+<script src="assets/js/main.js"></script>
 
-            'use strict';
-
-            // Feature test
-            if (!('localStorage' in window)) return;
-
-            // Get our newly insert toggle
-            var nightMode = document.querySelector('#night-mode');
-            if (!nightMode) return;
-
-            // When clicked, toggle night mode on or off
-            nightMode.addEventListener('click', function (event) {
-                event.preventDefault();
-                document.documentElement.classList.toggle('night-mode');
-                if (document.documentElement.classList.contains('night-mode')) {
-                    localStorage.setItem('gmtNightMode', true);
-                    return;
-                }
-                localStorage.removeItem('gmtNightMode');
-            }, false);
-
-        })(window, document);
-    </script>
-
-
-    <!-- javaScripts
-                ================================================== -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/simplebar.js"></script>
-    <script src="assets/js/main.js"></script>
-
-<script src="js/vue.js"></script>
-<script src="js/head.js"></script>
 <script>
     $(function () {
         var username = localStorage.getItem("name");
@@ -600,6 +655,7 @@
         if(username !== null){
             $("#yz").html("已验证");
         }
+
         var con_no;
         var home = new Vue({
             el: '#focus',
@@ -686,6 +742,17 @@
         var num_likes;
         var com_page = 1;
 
+        //获取地址中的参数
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        };
+        var fSNo = getQueryVariable("fan_Series_url");
         var vl = new Vue({
             el: '#v',
             data: {
@@ -712,9 +779,6 @@
                         url: basePath + "/getComReply",
                         data:{"com_no":com_no},
                         type: "post",
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
-                        },
                         dataType: "json",
                         success: function (data) {
                             console.log(data);
@@ -823,21 +887,15 @@
                                     $("#dz").css({"color": "#ff568b"});
                                     this.isLike = true;
                                     $.ajax({
-                                        url: basePath + "/getLikesNum",
-                                        data:{"v_no":v_no},
-                                        beforeSend:function(request){
-                                            request.setRequestHeader("Authorization",token);
-                                        },
-                                        type: "post",
+                                        url: basePath + "/getOneVideos?v_no=" + v_no,
+                                        type: "get",
                                         dataType: "json",
                                         success: function (data) {
-                                            console.log(data.data);
-                                            if(data.code === 200){
-                                                num_likes = data.data;
-                                                // window.location.href = "b_video.html?v_no=" + v_no;
-                                            }
+                                            console.log(data);
+                                            vl.video = data.data;
                                         }
-                                    });
+                                    })
+                                    // window.location.href = "single-video.html?v_no=" + v_no;
                                 }
                                 else {
                                     $("#dz0").text("不能重复点赞哦").css({"font-size":"13px","margin-left":"-30px"});
@@ -869,48 +927,29 @@
                         }
                     });
                 },
-                //举报视频功能
-                reportVideo: function () {
-                    $.ajax({
-                        url: basePath + "/",
-                        data:{"con_no": con_no, "v_no" : v_no},
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
-                        },
-                        type: "post",
-                        dataType: "json",
-                        success: function (data) {
-                            // console.log(data);
-                            if(data.code === 200){
-                                $("#rv").css({"color": "#ff568b"});
-                                $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                            }else {
-                                $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
-                            }
-                        }
-                    });
-                },
+
+
                 //举报作者功能
-                reportCon: function () {
-                    $.ajax({
-                        url: basePath + "/",
-                        data:{"con_no": con_no, "re_con_no" : },
-                        beforeSend:function(request){
-                            request.setRequestHeader("Authorization",token);
-                        },
-                        type: "post",
-                        dataType: "json",
-                        success: function (data) {
-                            // console.log(data);
-                            if(data.code === 200){
-                                $("#rv").css({"color": "#ff568b"});
-                                $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
-                            }else {
-                                $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
-                            }
-                        }
-                    });
-                },
+                // reportCon: function () {
+                //     $.ajax({
+                //         url: basePath + "/",
+                //         data:{"con_no": con_no, "re_con_no" : },
+                //         beforeSend:function(request){
+                //             request.setRequestHeader("Authorization",token);
+                //         },
+                //         type: "post",
+                //         dataType: "json",
+                //         success: function (data) {
+                //             // console.log(data);
+                //             if(data.code === 200){
+                //                 $("#rv").css({"color": "#ff568b"});
+                //                 $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                //             }else {
+                //                 $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                //             }
+                //         }
+                //     });
+                // },
 
 
                 give_a_comment: function () {
@@ -924,7 +963,20 @@
                         dataType: "json",
                         success: function (data) {
                             console.log(data);
-                            // window.location.href = "b_video.html?v_no=" + v_no;
+                            $("#myCom").val("");
+                            $.ajax({
+                                url: basePath + "/getCommentsByVno",
+                                data:{"page":1,"v_no":v_no},
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    console.log(data);
+                                    if(data.code === 200){
+                                        vl.comments = data.data.list;
+                                    }
+                                }
+                            });
+                            // window.location.href = "single-video.html?v_no=" + v_no;
                         }
                     });
                 },
@@ -941,13 +993,12 @@
                         success: function (data) {
                             console.log(data);
                             // window.location.href = "b_video.html?v_no=" + v_no;
+
+                            window.location.href = "single-video.html?v_no=" + v_no;
                         }
                     });
 
                 },
-
-
-
 
                 yc:function(){
                     $(".sec").hide();
@@ -965,15 +1016,47 @@
 
 
         $("#next").click(function(){
-            com_page += 1;
+            $.ajax({
+                url: basePath + "/getCommentsByVno",
+                data:{"page":1,"v_no":v_no},
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    if(data.code === 200){
+                        var allRows = data.data.total;
+                        var size = allRows-5;
+
+                        $.ajax({
+                            url: basePath + "/getCommentsByVno",
+                            data:{"page":2,"pageSize":size,"v_no":v_no},
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                console.log(data);
+                                if(data.code === 200){
+                                    vl.comments = data.data.list;
+                                }
+                            }
+                        });
+                    }
+                }
+            });
         })
 
         $("#before").click(function(){
-            if(com_page === 1){
-                com_page = 1;
-            }else{
-                com_page -= 1;
-            }
+            $.ajax({
+                url: basePath + "/getCommentsByVno",
+                data:{"page":1,"v_no":v_no},
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    if(data.code === 200){
+                        vl.comments = data.data.list;
+                    }
+                }
+            });
         })
 
         let oneValues = function () {
@@ -987,7 +1070,7 @@
         };
         oneValues();
 
-
+        var total;
         //默认执行
         let b = function () {
 
@@ -995,14 +1078,12 @@
                 url: basePath + "/getCommentsByVno",
                 data:{"page":1,"v_no":v_no},
                 type: "post",
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
-                },
                 dataType: "json",
                 success: function (data) {
                     console.log(data);
                     if(data.code === 200){
                         vl.comments = data.data.list;
+                        total = data.data.total;
                     }
                 }
             });
@@ -1010,9 +1091,6 @@
             $.ajax({
                 url: basePath + "/getConsumersByName?name=" + name,
                 type: "post",
-                beforeSend:function(request){
-                    request.setRequestHeader("Authorization",token);
-                },
                 dataType: "json",
                 success: function (data) {
                     // console.log(data.data.con_no);
@@ -1213,10 +1291,10 @@
                             var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + '}';
                             if (e.data.that.options.urlToPostDanmu)
 
-                                // $.post(e.data.that.options.urlToPostDanmu, {
-                                //     // danmu: textObj
-                                //
-                                // });
+                            // $.post(e.data.that.options.urlToPostDanmu, {
+                            //     // danmu: textObj
+                            //
+                            // });
 
                                 $.ajax({
                                     url:basePath + "/insertDanMu",
@@ -1487,48 +1565,175 @@
 
                 }
             });
-        }
-        b();
 
-        let aa = function () {
+
+
+
             $.ajax({
-                url: basePath + "/Fan/getOneVideos?v_no=" + v_no,
+                url: basePath + "Fan/getOneSeriesFan?fan_series_no=" + fSNo,
                 type: "get",
                 dataType: "json",
-                beforeSend: function (request) {
-                    request.setRequestHeader("Authorization", token)
-                },
                 success: function (data) {
+                    console.log(data);
+                    console.log(data.data.series_url);
+                    console.log(data.data);
                     vl.video = data.data;
+
                     $("#danmup").DanmuPlayer({
-                        // src:"http://49.234.77.189:8080/examples/videos/敢杀我的马.mp4",
-                        src: data.data.v_url,
+                        // src:"http://49.234.77.189:8080/video/盘点一拳超人中的帅气救场.mp4",
+                        src: data.data.series_url,
                         height: "600px", //区域的高度
                         width: "1200px" //区域的宽度
                         , urlToGetDanmu: "query.php"
                         , urlToPostDanmu: "stone.php"
                     });
 
-                    $.get(basePath + "/Fan/getAllFan", function (data) {
-                        console.log(data);
-                        for (let i = 0; i < data.data.list.length; i++) {
-                            console.log(data.data.list[i].fan_pic);
-                        }
-                        vl.fan = data.data.list;
-                    });
                     $("#danmup .danmu-div").danmu("addDanmu", [
-                        // {"text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2}
-                        // , {"text": "这是测试弹幕", size: 5, position: 0,time:5}
-                        // , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 3}
-                        // , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 2}
-                        // , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 3}
-                        // , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 9}
-                        // , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 3}t": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 133}
+                        {"text": "这是滚动弹幕", color: "white", size: 1, position: 0, time: 2}
+                        , {"text": "这是测试弹幕", size: 5, position: 0,time:5}
+                        , {"text": "我是帽子绿", color: "green", size: 1, position: 0, time: 3}
+                        , {"text": "哈哈哈啊哈", color: "black", size: 1, position: 0, time: 2}
+                        , {"text": "这是顶部弹幕", color: "yellow", size: 1, position: 1, time: 3}
+                        , {"text": "这是底部弹幕", color: "red", size: 1, position: 2, time: 9}
+                        , {"text": "大家好，我是伊藤橙", color: "orange", size: 1, position: 1, time: 3}
                     ])
                 }
             });
         }
+
+        b();
+
+        let aa = function () {
+
+        }
         aa();
+        // 举报视频功能
+        $("#report_efeg").click(function () {
+            $.ajax({
+                url: basePath + "/",
+                data:{"con_no": con_no, "v_no" : v_no,reason:"违法违规"},
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    if(data.code === 200){
+                        $("#rv").css({"color": "#ff568b"});
+                        $("#jbsp0").css({"color": "#ff568b"});
+                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                    }else {
+                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                    }
+                }
+            });
+        })
+        $("#report_sxcx").click(function () {
+            $.ajax({
+                url: basePath + "/",
+                data:{"con_no": con_no, "v_no" : v_no,reason:"涉嫌抄袭"},
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    if(data.code === 200){
+                        $("#rv").css({"color": "#ff568b"});
+                        $("#jbsp0").css({"color": "#ff568b"});
+                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                    }else {
+                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                    }
+                }
+            });
+        })
+        $("#report_seds").click(function () {
+            $.ajax({
+                url: basePath + "/reportVideo",
+                data:{"con_no": con_no, "v_no" : v_no,reason:"色情低俗"},
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    if(data.code === 200){
+                        $("#jbsp0").css({"color": "#ff568b"});
+                        $("#rv").css({"color": "#ff568b"});
+                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                    }else {
+                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                    }
+                }
+            });
+        })
+        $("#report_rsgj").click(function () {
+            $.ajax({
+                url: basePath + "/reportVideo",
+                data:{"con_no": con_no, "v_no" : v_no,reason:"人身攻击"},
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    if(data.code === 200){
+                        $("#rv").css({"color": "#ff568b"});
+                        $("#jbsp0").css({"color": "#ff568b"});
+                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                    }else {
+                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                    }
+                }
+            });
+        })
+        $("#report_ljgg").click(function () {
+            $.ajax({
+                url: basePath + "/reportVideo",
+                data:{"con_no": con_no, "v_no" : v_no,reason:"垃圾广告"},
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    if(data.code === 200){
+                        $("#rv").css({"color": "#ff568b"});
+                        $("#jbsp0").css({"color": "#ff568b"});
+                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                    }else {
+                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                    }
+                }
+            });
+        })
+        $("#report_eyyz").click(function () {
+            $.ajax({
+                url: basePath + "/reportVideo",
+                data:{"con_no": con_no, "v_no" : v_no,reason:"恶意引战"},
+                beforeSend:function(request){
+                    request.setRequestHeader("Authorization",token);
+                },
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    // console.log(data);
+                    if(data.code === 200){
+                        $("#rv").css({"color": "#ff568b"});
+                        $("#jbsp0").css({"color": "#ff568b"});
+                        $("#rv").text("已举报").css({"font-size":"13px","margin-left":"-0.5px"});
+                    }else {
+                        $("#rv").text("您已经举报过啦").css({"font-size":"13px","margin-left":"-30px"});
+                    }
+                }
+            });
+        })
 
         //搜索功能
         $("#serch").keydown(function (event) {
@@ -1541,9 +1746,6 @@
             }
 
         });
-
-
-
 
     });
 </script>

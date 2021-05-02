@@ -24,6 +24,12 @@ public interface TFanSeriesService {
 
     Object querySeries(int pageNum,int pageSize,Integer fan_no);
 
+
+    /**
+     * 获取番剧剧集（不分页）
+     */
+    List<TFanSeries> getFanSeries(Integer fan_no);
+
     /**
      * 查询多条数据
      *

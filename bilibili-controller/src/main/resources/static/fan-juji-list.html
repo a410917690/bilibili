@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -52,12 +52,18 @@
                         <li class="active"><a href="home.html"> <i class="uil-home-alt"></i> <span> 首页 </span> </a>
                         </li>
                         <li><a href="browse-channals.html">
-                            <i class="uil-users-alt"></i> <span> 我的关注 </span> </a></li>
+                            <!--<i class="uil-users-alt"></i> <span> 我的关注 </span> </a></li>-->
                         <li><a href="your-watch-later.html"> <i class="iconfont icon-shoucang"></i> <span> 我的收藏 </span>
                         </a>
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
+                        <li><a href="playLive.html"> <i class="uil-thermometer"></i>
+                            <span>  我要开播 </span> </a></li>
+                        <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
+                            <span> 正在直播 </span>
+                        </a>
+                        </li>
                         <li><a href="browse-catagroies.html"> <i class="uil-layers"></i> <span> 视频分类</span> </a>
                         </li>
                         <li><a href="your-history.html"> <i class="uil-history"></i> <span> 观看记录 </span> </a></li>
@@ -242,7 +248,7 @@
 
                 <!-- videos feed  offcanvas-->
                 <div id="video" uk-offcanvas="overlay: true ;flip: true">
-                    <div class="uk-offcanvas-bar uk-width-large">
+                    <div class="uk-offcanvas-bar uk-width-large" id="myVideos">
 
                         <h3> 我的投稿 </h3>
                         <hr class="mb-3" style="margin:0 -20px">
@@ -251,127 +257,31 @@
                         <div class="video-list-small uk-child-width-1-1" uk-grid>
 
                             <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
+                                <ul v-for="(v,index) in myVideos">
+                                    <li>
+                                        <a v-bind:href="['single-video.html?v_no='+myVideos[index].v_no]"
+                                           class="video-post video-post-list">
+                                            <!-- Blog Post Thumbnail -->
+                                            <div class="video-post-thumbnail">
+                                                <span class="video-post-count">{{v.v_amount_of_play}}</span>
+                                                <!--<span class="video-post-time">23:00</span>-->
+                                                <span class="play-btn-trigger"></span>
 
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
+                                                <img v-bind:src="myVideos[index].v_pic" alt="">
 
-                                    </div>
+                                            </div>
 
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.3M</span>
-                                        <span class="video-post-time">14:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/3.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn Creating Laravel Package Initializing ... </h3>
-                                        <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                        <span class="video-post-user">Alex Dolgove</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/4.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to upload files using Laravel .. </h3>
-                                        <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                        <span class="video-post-user">Adrian Mohani</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
-                                    </div>
-
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element ..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
+                                            <!-- Blog Post Content -->
+                                            <div class="video-post-content">
+                                                <h3 style="color: white">{{v.v_title}}</h3>
+                                                <!--<img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                                                <span class="video-post-user">{{v.name}}</span>
+                                                <span class="video-post-views">{{v.v_amount_of_play}}</span>
+                                                <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
 
                         </div>
@@ -441,7 +351,7 @@
 
                 <div class="uk-width-1-4@m uk-flex-last@m"></div>
 
-                <div class="uk-width-3-4@m">
+                <div class="uk-width-3-4@m" id="fanSeries">
 
 
                     <div class="section-header mb-5 border-bottom uk-flex-middle">
@@ -449,131 +359,133 @@
                             <h3> 剧集列表</h3>
                         </div>
                     </div>
-
-                    <a href="single-fan.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3><span>番剧标题</span>：<span>第一集</span></h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
+                    <ul v-for="(fs,index) in fanS">
+                        <li>
+                            <a v-bind:href="['single-fan.html?fan_series_no='+fanS[index].fan_series_no]" class="video-post video-post-list">
+                                <!-- Blog Post Thumbnail -->
+                                <div class="video-post-thumbnail">
+                                    <span class="play-btn-trigger"></span>
+                                    <img v-bind:src="fanS[index].series_pic" alt="">
+                                </div>
+                                <!-- Blog Post Content -->
+                                <div class="video-post-content">
+                                    <h3><span>{{fs.series_title}}</span>：<span>第{{fs.series_num}}集</span></h3>
+                                    <p></p>
+                                    <!-- option menu -->
+                                    <span class="btn-option">
                                     <i class="icon-feather-more-vertical"></i>
                                 </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
+                                        <ul>
+                                            <li>
+                                                <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
 
-                        </div>
-                    </a>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--<a href="single-fan.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3><span>番剧标题</span>：<span>第一集</span></h3>-->
+                            <!--<p></p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="single-fan.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3><span>番剧标题</span>：<span>第一集</span></h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                        </div>
-                    </a>
+                    <!--<a href="single-fan.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3><span>番剧标题</span>：<span>第一集</span></h3>-->
+                            <!--<p></p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="single-fan.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3><span>番剧标题</span>：<span>第一集</span></h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                        </div>
-                    </a>
+                    <!--<a href="single-fan.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3><span>番剧标题</span>：<span>第一集</span></h3>-->
+                            <!--<p></p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="single-fan.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3><span>番剧标题</span>：<span>第一集</span></h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <!--</div>-->
+                    <!--</a>-->
 
-                        </div>
-                    </a>
+                    <!--<a href="single-fan.html" class="video-post video-post-list">-->
+                        <!--&lt;!&ndash; Blog Post Thumbnail &ndash;&gt;-->
+                        <!--<div class="video-post-thumbnail">-->
+                            <!--<span class="play-btn-trigger"></span>-->
+                            <!--<img src="assets/images/video-thumbal/2.png" alt="">-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; Blog Post Content &ndash;&gt;-->
+                        <!--<div class="video-post-content">-->
+                            <!--<h3><span>番剧标题</span>：<span>第一集</span></h3>-->
+                            <!--<p></p>-->
+                            <!--&lt;!&ndash; option menu &ndash;&gt;-->
+                            <!--<span class="btn-option">-->
+                                    <!--<i class="icon-feather-more-vertical"></i>-->
+                                <!--</span>-->
+                            <!--<div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
 
-                    <a href="single-fan.html" class="video-post video-post-list">
-                        <!-- Blog Post Thumbnail -->
-                        <div class="video-post-thumbnail">
-                            <span class="play-btn-trigger"></span>
-                            <img src="assets/images/video-thumbal/2.png" alt="">
-                        </div>
-                        <!-- Blog Post Content -->
-                        <div class="video-post-content">
-                            <h3><span>番剧标题</span>：<span>第一集</span></h3>
-                            <p>  </p>
-                            <!-- option menu -->
-                            <span class="btn-option">
-                                    <i class="icon-feather-more-vertical"></i>
-                                </span>
-                            <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
-                                <ul>
-                                    <li>
-                                        <span> <i class="uil-bookmark"></i> 弹幕量：<span>100</span></span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </a>
+                        <!--</div>-->
+                    <!--</a>-->
 
                 </div>
             </div>
@@ -656,17 +568,17 @@
     $(function () {
         var username = localStorage.getItem("name");
         $("#usn").html(username);
-        if(username !== null){
+        if (username !== null) {
             $("#yz").html("已验证");
         }
         var con_no;
         var home = new Vue({
             el: '#focus',
             data: {
-                focuses:[],
-                videos:[],
-                fans:[],
-                lives:[]
+                focuses: [],
+                videos: [],
+                fans: [],
+                lives: []
             },
             mounted: function () {
 
@@ -694,7 +606,6 @@
                 // },
             }
         });
-
 
 
         //获取用户id
@@ -732,7 +643,68 @@
             }
         })
 
-        //获取番剧列表
+        var fs = new Vue({
+            el:"#fanSeries",
+            data:{
+                fanS:[]
+            },
+            mounted: function () {
+
+            },
+            methods:{
+
+            }
+        });
+        //获取地址中的参数
+        function getQueryVariable(variable)
+        {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        }
+
+        var fanSNum = getQueryVariable("fan_no");
+        //获取番剧剧集列表
+        $.ajax({
+            url:basePath+"/getFanSeries?fan_no="+fanSNum,
+            type:"get",
+            dataType:"json",
+            data:{
+
+            },
+            success: function (data) {
+                fs.fanS = data.data;
+            }
+
+        });
+
+        var mV = new Vue({
+            el: "#myVideos",
+            data: {
+                myVideos: []
+            },
+            mounted: function () {
+
+            },
+            methods: {}
+        })
+        //获取我的投稿列表
+        var conNo = localStorage.getItem("con_no");
+        $.ajax({
+            url: basePath + "/getListByConNo?con_no="+conNo,
+            type: "get",
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                // console.log(data.data);
+                mV.myVideos = data.data;
+            }
+
+        });
 
 
         //显示我的头像

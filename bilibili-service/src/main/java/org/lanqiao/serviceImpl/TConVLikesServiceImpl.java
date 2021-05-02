@@ -6,6 +6,7 @@ import org.lanqiao.entity.TConVLikes;
 import org.lanqiao.service.TConVLikesService;
 import org.lanqiao.service.TVideosService;
 import org.lanqiao.vo.CnoVideoLikesVo;
+import org.lanqiao.vo.VideoTagVo;
 import org.lanqiao.vo.VideoVo;
 import org.springframework.stereotype.Component;
 
@@ -41,6 +42,13 @@ public class TConVLikesServiceImpl implements TConVLikesService {
         for (Integer vNo : v_nos) {
             VideoVo videoVo = tVideosService.queryById(vNo);
             CnoVideoLikesVo cnoVideoLikesVo = new CnoVideoLikesVo();
+
+            List<VideoTagVo> tagList = tVideosService.getVideoTags(vNo);
+            List<String> tagNames = new ArrayList<>();
+            for (VideoTagVo tagList1:tagList) {
+                tagNames.add(tagList1.getT_name());
+            }
+            cnoVideoLikesVo.setTagNames(tagNames);
             cnoVideoLikesVo.setBlong_con_no(videoVo.getCon_no());
             cnoVideoLikesVo.setCon_no(con_no);
             cnoVideoLikesVo.setCon_v_likes_no(map.get(vNo));

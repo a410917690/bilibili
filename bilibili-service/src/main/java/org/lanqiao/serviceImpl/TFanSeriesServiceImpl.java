@@ -41,6 +41,10 @@ public class TFanSeriesServiceImpl implements TFanSeriesService {
         return new PageInfo<>(list);
     }
 
+    @Override
+    public List<TFanSeries> getFanSeries(Integer fan_no) {
+        return this.tFanSeriesDao.querySeries(fan_no);
+    }
 
 
     /**

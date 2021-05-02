@@ -58,7 +58,7 @@
                         </li>
                         <li><a href="your-laked-videos.html"> <i class="uil-thumbs-up"></i>
                             <span>  我推荐的视频 </span> </a></li>
-                        <li><a href="your-laked-videos.html"> <i class="uil-thermometer"></i>
+                        <li><a href="playLive.html"> <i class="uil-thermometer"></i>
                             <span>  我要开播 </span> </a></li>
                         <li><a href="live-list.html"> <i class="uil-lightbulb-alt"></i>
                             <span> 正在直播 </span>
@@ -248,7 +248,7 @@
 
                 <!-- videos feed  offcanvas-->
                 <div id="video" uk-offcanvas="overlay: true ;flip: true">
-                    <div class="uk-offcanvas-bar uk-width-large">
+                    <div class="uk-offcanvas-bar uk-width-large" id="myVideos">
 
                         <h3> 我的投稿 </h3>
                         <hr class="mb-3" style="margin:0 -20px">
@@ -257,128 +257,33 @@
                         <div class="video-list-small uk-child-width-1-1" uk-grid>
 
                             <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
+                                <ul v-for="(v,index) in myVideos">
+                                    <li>
+                                        <a v-bind:href="['single-video.html?v_no='+myVideos[index].v_no]"
+                                           class="video-post video-post-list">
+                                            <!-- Blog Post Thumbnail -->
+                                            <div class="video-post-thumbnail">
+                                                <span class="video-post-count">{{v.v_amount_of_play}}</span>
+                                                <!--<span class="video-post-time">23:00</span>-->
+                                                <span class="play-btn-trigger"></span>
 
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
+                                                <img v-bind:src="myVideos[index].v_pic" alt="">
 
-                                    </div>
+                                            </div>
 
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
+                                            <!-- Blog Post Content -->
+                                            <div class="video-post-content">
+                                                <h3 style="color: white">{{v.v_title}}</h3>
+                                                <!--<img src="assets/images/avatars/avatar-3.jpg" alt="">-->
+                                                <span class="video-post-user">{{v.name}}</span>
+                                                <span class="video-post-views">{{v.v_amount_of_play}}</span>
+                                                <!--<span class="video-post-date"> 2 weeks ago </span>-->
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.3M</span>
-                                        <span class="video-post-time">14:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/3.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn Creating Laravel Package Initializing ... </h3>
-                                        <img src="assets/images/avatars/avatar-5.jpg" alt="">
-                                        <span class="video-post-user">Alex Dolgove</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/4.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to upload files using Laravel .. </h3>
-                                        <img src="assets/images/avatars/avatar-4.jpg" alt="">
-                                        <span class="video-post-user">Adrian Mohani</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">1.4M</span>
-                                        <span class="video-post-time">23:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/2.png" alt="">
-                                    </div>
-
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> How to create a basic Sticky HTML element ..</h3>
-                                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                                        <span class="video-post-user">Jonathan Madano</span>
-                                        <span class="video-post-views">531k views</span>
-                                        <span class="video-post-date"> 2 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="single-video.html" class="video-post video-post-list">
-                                    <!-- Blog Post Thumbnail -->
-                                    <div class="video-post-thumbnail">
-                                        <span class="video-post-count">2.7k</span>
-                                        <span class="video-post-time">40:00</span>
-                                        <span class="play-btn-trigger"></span>
-                                        <img src="assets/images/video-thumbal/1.png" alt="">
-                                    </div>
-                                    <!-- Blog Post Content -->
-                                    <div class="video-post-content">
-                                        <h3> Learn how to create PHP singleton class </h3>
-                                        <img src="assets/images/avatars/avatar-2.jpg" alt="">
-                                        <span class="video-post-user">Stella Johnson</span>
-                                        <span class="video-post-views">938k views</span>
-                                        <span class="video-post-date"> 3 weeks ago </span>
-                                    </div>
-                                </a>
-                            </div>
 
                         </div>
 
@@ -501,7 +406,8 @@
                                         <!-- Blog Post Content -->
                                         <div class="video-post-content">
                                             <label class="p-3 circle bg-secondary uk-align-right ml-2"
-                                                    uk-tooltip="title: Clear Video ; pos: left" type="button" uk-close id="deleteHistory"></label>
+                                                    uk-tooltip="title: Clear Video ; pos: left"  type="button" uk-close id="deleteHistory"></label>
+
                                             <h3>{{h.v_title}}</h3>
                                             <!--<span class="video-post-user">Jonathan Madano</span>-->
                                             <span class="video-post-date"> {{h.watch_date}} </span>
@@ -784,22 +690,46 @@
 
         });
 
-        $("#deleteHistory").click(function () {
-            event.stopPropagation();
-            // $.ajax({
-            //     url:basePath+"/deleteHistory",
-            //     type:"post",
-            //     dataType:"json",
-            //     data:{
-            //         con_no:conNo,
-            //         v_no:videos[index].v_no
-            //     },
-            //     success: function (data) {
-            //         // hv.videos = data.data;
-            //         window.location.reload();
-            //     }
-            //
-            // });
+        var mV = new Vue({
+            el: "#myVideos",
+            data: {
+                myVideos: []
+            },
+            mounted: function () {
+
+            },
+            methods: {}
+        });
+
+        //获取我的投稿列表
+        var conNo = localStorage.getItem("con_no");
+        $.ajax({
+            url: basePath + "/getListByConNo?con_no="+conNo,
+            type: "get",
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                // console.log(data.data);
+                mV.myVideos = data.data;
+            }
+
+        });
+
+        $("#deleteHistory").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url:basePath+"/deleteHistory",
+                type:"post",
+                dataType:"json",
+                data:{
+                    con_no:conNo,
+                    v_no:videos[index].v_no
+                },
+                success: function (data) {
+                    // hv.videos = data.data;
+                    window.location.reload();
+                }
+            });
         });
 
         //搜索功能
