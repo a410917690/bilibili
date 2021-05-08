@@ -227,6 +227,17 @@ public class TVideosController {
         }
     }
 
+    /**
+     * 增加视频播放量
+     */
+    @ApiOperation(value = "增加视频播放量")
+    @ResponseBody
+    @GetMapping("addPlayNum")
+    public Result addPlayNum(Integer v_no){
+        return setResultSuccess(tVideosService.addPlayNum(v_no));
+    }
+
+
 //
 //    /**
 //     * 获取视频的点赞数

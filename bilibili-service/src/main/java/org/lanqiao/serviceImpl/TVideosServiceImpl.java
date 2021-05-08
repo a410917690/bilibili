@@ -71,6 +71,11 @@ public class TVideosServiceImpl implements TVideosService {
 
     }
 
+    @Override
+    public boolean addPlayNum(Integer v_no) {
+        return this.tVideosDao.addPlayNum(v_no)>0;
+    }
+
 
     /**
      * 通过主键删除数据

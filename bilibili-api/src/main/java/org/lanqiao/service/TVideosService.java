@@ -38,6 +38,10 @@ public interface TVideosService {
      */
     VideoVo update(TVideos tVideos);
 
+    /**
+     * 增加播放量
+     */
+    boolean addPlayNum(Integer v_no);
 
 
     /**

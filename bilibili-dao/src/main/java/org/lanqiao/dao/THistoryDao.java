@@ -31,7 +31,7 @@ public interface THistoryDao {
      * 查询指定行数据
      *
      */
-    @Select("select * from t_history where con_no=#{con_no}")
+    @Select("select * from t_history where con_no=#{con_no} order by his_no desc")
     List<THistory> queryAllHisBycon(Integer con_no);
 
 

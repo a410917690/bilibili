@@ -1577,6 +1577,29 @@
                     console.log(data.data);
                     vl.video = data.data;
 
+                    //增加播放次数
+                    $.ajax({
+                        url: basePath + "/addPlayNum?v_no=" + v_no,
+                        type: "get",
+                        dataType: "json",
+                        success: function (data) {
+
+                        }
+                    });
+
+                    //记录播放历史
+                    $.ajax({
+                        url: basePath + "/insertHistory",
+                        type: "post",
+                        dataType: "json",
+                        data:{
+                            v_no:v_no,
+                            con_no:con_no
+                        },
+                        success: function (data) {
+                        }
+                    });
+
                     $("#danmup").DanmuPlayer({
                         // src:"http://49.234.77.189:8080/video/盘点一拳超人中的帅气救场.mp4",
                         src: data.data.v_url,

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 
 
 import javax.annotation.Resource;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -19,7 +21,7 @@ public class THistoryVoServiceImpl implements THistoryVoService {
 
 
     @Override
-    public List<THistoryVo> getHistory(Integer con_no) {
+    public LinkedList<THistoryVo> getHistory(Integer con_no) {
         return tHistoryVoDao.selectTHistoryByCon(con_no);
     }
 }

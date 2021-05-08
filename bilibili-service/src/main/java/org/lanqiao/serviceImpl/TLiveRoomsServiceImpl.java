@@ -65,8 +65,8 @@ public class TLiveRoomsServiceImpl implements TLiveRoomsService {
      * @return 实例对象
      */
     @Override
-    public TLiveRooms insert(TLiveRooms tLiveRooms) {
-        return null;
+    public boolean insert(TLiveRooms tLiveRooms) {
+        return this.tLiveRoomsDao.playLive(tLiveRooms)>0;
     }
 
     /**

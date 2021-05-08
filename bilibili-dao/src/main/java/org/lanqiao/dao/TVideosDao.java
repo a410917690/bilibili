@@ -97,6 +97,12 @@ public interface TVideosDao {
     @Update("update t_videos set v_likes=#{likes} where v_no=#{v_no}")
     int updateLikeNum(Integer v_no,Integer likes);
 
+    /**
+     * 修改视频的播放量
+     */
+    @Update("update t_videos set v_amount_of_play=v_amount_of_play+1 where v_no=#{v_no}")
+    int addPlayNum(Integer v_no);
+
 
     /**
      * 修改视频的投币数

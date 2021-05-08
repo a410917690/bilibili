@@ -44,4 +44,14 @@ public class TLiveRooms implements Serializable {
     private Integer room_likes;
 
 
+    /**
+     * 直播间地址
+     */
+    private String room_url;
+
+    /**
+     * 直播间串码
+     */
+    private String room_num;
+
 }

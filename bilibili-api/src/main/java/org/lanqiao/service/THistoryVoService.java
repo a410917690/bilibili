@@ -3,10 +3,12 @@ package org.lanqiao.service;
 
 import org.lanqiao.vo.THistoryVo;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public interface THistoryVoService {
 
-    List<THistoryVo> getHistory(Integer con_no);
+    LinkedList<THistoryVo> getHistory(Integer con_no);
 
 }

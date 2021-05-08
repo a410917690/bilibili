@@ -43,7 +43,7 @@ public interface TLiveRoomsService {
      * @param tLiveRooms 实例对象
      * @return 实例对象
      */
-    TLiveRooms insert(TLiveRooms tLiveRooms);
+    boolean insert(TLiveRooms tLiveRooms);
 
     /**
      * 修改数据

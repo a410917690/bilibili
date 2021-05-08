@@ -330,15 +330,15 @@
                         </div>
                     </div>
                     <div>
-                        <span>请输入直播间标题：</span><input type="text">
+                        <span>请输入直播间标题：</span><input type="text" id="roomName">
                         <br><br>
                         <span>请上传直播间封面：</span><input type="file" value="选择封面" name="fileName" id="fileName">
                         <br><br>
-                        <span>当前直播间地址：</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">
+                        <span>当前直播间推流地址：</span>http://49.234.77.189/live
                         <br><br>
-                        <span>当前直播间串码：</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">
+                        <span>请输入直播间串码：</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="roomNum">
                         <br><br>
-                        <button type="button">点击开播</button>
+                        <button  onclick="sendToUser()" id="play">点击开播</button>
 
                     </div>
 
@@ -534,6 +534,8 @@
 
 
 
+
+
         //显示我的头像
         // $.ajax({
         //     url: basePath + "/getPhoto",
@@ -571,6 +573,35 @@
         });
 
     });
+
+    //文件上传处理
+    function sendToUser() { //在这里进行ajax 文件上传 用户的信息
+        // var $file1 = $("input[name='fileName1']").val();//用户文件内容(文件)
+
+        var type = "file";
+        var formData = new FormData();//这里需要实例化一个FormData来进行文件上传
+        formData.append(type, $("#fileName")[0].files[0]);
+        var conNo = localStorage.getItem("con_no");
+        var rTitle = $("#roomName").val();
+        var rNum = $("#roomNum").val();
+        formData.append("con_no",conNo);
+        formData.append("room_title",rTitle);
+        formData.append("room_num",rNum);
+        $.ajax({
+            type: "post",
+            url: "/playLive",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.code == 200) {
+                    alert("开播成功!");
+                } else{
+                    alert("开播失败!请检查相应信息！")
+                }
+            }
+        });
+    }
 </script>
 
 </body>

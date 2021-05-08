@@ -31,7 +31,7 @@ public interface TLiveRoomsDao {
      * 获取所有直播间用于首页
      * @return
      */
-    @Select("select * from t_live_rooms order by room_likes desc")
+    @Select("select * from t_live_rooms order by room_no desc")
     List<TLiveRooms> queryAllByPage();
 
     /**
@@ -45,6 +45,13 @@ public interface TLiveRoomsDao {
      */
     @Update("update t_live_rooms set is_live=0 where room_no=#{room_no}")
     int closeLive(Integer room_no);
+
+
+    /**
+     * 直播间开播
+     */
+    @Insert("insert into t_live_rooms (room_title,con_no,room_pic,room_is_legal,is_live,report_live_num,room_likes,room_url,room_num) values (#{room_title},#{con_no},#{room_pic},#{room_is_legal},#{is_live},0,0,#{room_url},#{room_num})")
+    int playLive(TLiveRooms tLiveRooms);
 
 
     /**
