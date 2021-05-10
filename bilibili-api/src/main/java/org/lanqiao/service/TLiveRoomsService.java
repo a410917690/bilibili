@@ -66,4 +66,18 @@ public interface TLiveRoomsService {
      */
     boolean closeLive(Integer room_no);
 
+    /**
+     * 举报直播间
+     */
+    boolean updateReportRoom(Integer con_no,Integer room_no,String reason);
+
+    /**
+     * 给当前直播间点赞
+     */
+    boolean likeRoom(Integer con_no,Integer room_no);
+
+    /**
+     * 是否已给当前直播间点过赞
+     */
+    boolean isLikeRoom(Integer con_no,Integer room_no);
 }

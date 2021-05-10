@@ -1631,7 +1631,7 @@
         // 举报视频功能
         $("#report_efeg").click(function () {
             $.ajax({
-                url: basePath + "/",
+                url: basePath + "/reportVideo",
                 data: {"con_no": con_no, "v_no": v_no, reason: "违法违规"},
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", token);
@@ -1652,7 +1652,7 @@
         })
         $("#report_sxcx").click(function () {
             $.ajax({
-                url: basePath + "/",
+                url: basePath + "/reportVideo",
                 data: {"con_no": con_no, "v_no": v_no, reason: "涉嫌抄袭"},
                 beforeSend: function (request) {
                     request.setRequestHeader("Authorization", token);

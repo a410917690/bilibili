@@ -18,12 +18,7 @@ import java.util.List;
 @Mapper
 public interface TLiveRoomsDao {
 
-    /**
-     * 通过ID查询单条数据
-     *
 
-     * @return 实例对象
-     */
     @Select("select * from t_live_rooms where room_no=#{room_no}")
     TLiveRooms queryById(Integer room_no);
 
@@ -52,6 +47,21 @@ public interface TLiveRoomsDao {
      */
     @Insert("insert into t_live_rooms (room_title,con_no,room_pic,room_is_legal,is_live,report_live_num,room_likes,room_url,room_num) values (#{room_title},#{con_no},#{room_pic},#{room_is_legal},#{is_live},0,0,#{room_url},#{room_num})")
     int playLive(TLiveRooms tLiveRooms);
+
+    /**
+     * 修改直播间举报次数
+     */
+    @Update("update t_live_rooms set report_live_num = report_live_num+1 where room_no=#{room_no}")
+    int updateRoomReports(Integer room_no);
+
+
+
+
+    /**
+     * 直播间点赞
+     */
+    @Update("update t_live_rooms set room_likes = room_likes+1 where room_no=#{room_no}")
+    int likeRoom(Integer room);
 
 
     /**

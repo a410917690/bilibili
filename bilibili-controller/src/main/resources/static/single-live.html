@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -147,7 +147,7 @@
     </div>
 
     <!-- header -->
-    <div id="main_header">
+    <div id="main_header" style="padding-bottom: 50px">
         <header>
 
             <!-- Logo-->
@@ -280,19 +280,19 @@
     </div>
 
 
-    <div id="v">
+    <div id="v" style="overflow-x: hidden">
         <!--<div id="ti" style="font-size: 25px;"><span style="padding-left: 100px">{{video.v_title}}</span></div>-->
         <!--<div id="danmup" style="left: 150px;top:120px;padding-left: 120px;margin-left: 150px"></div>-->
-        <div style="background-color: blue;left: 150px;top:180px;padding-left: 120px;margin-left: 200px;width: 1200px;height: 600px;margin-top: 130px">
-            <div id="player" style="left: 150px;top:120px;padding-left: 120px;margin-left: 500px"></div>
+        <div style="left: 100px;padding-left: 5px;margin-left: 300px;width: 1200px;height: 680px;">
+            <div id="player" style="left: 150px;padding-left: 120px;margin-left: 600px;"></div>
         </div>
         <div class="alert_back">加载中</div>
-        <h3 style="margin-left: 300px;padding-left: 20px;margin-top: 70px;padding-top: 70px">title</h3>
+        <h3 style="margin-left: 300px;padding-left: 20px;margin-top: 5px">{{room.room_title}}</h3>
         <div style="padding-top: -15px;margin-top: -15px">
             <span style="margin-left: 300px;padding-left: 20px;margin-top: -50px;padding-top:-25px;color: gray;font-size: 11px">
-            <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>video.v_amount_of_play</span></span>
+            <i class="iconfont icon-bofangliang"></i> 播放量 ：<span>{{video.v_amount_of_play}}</span></span>
             <span style="margin-left: 50px;padding-left: 20px;margin-top: -50px;padding-top:-25px;color: gray;font-size: 11px">
-                <i class="iconfont icon-dianzan"></i> 点赞数：<span>video.v_likes</span></span>
+                <i class="iconfont icon-dianzan"></i> 点赞数：<span>{{room.room_likes}}</span></span>
         </div>
         <div class="video-post-content" style="margin-left: 320px;flex: 2;padding-top: 26px;">
             <img src="assets/images/avatars/avatar-3.jpg" alt="">
@@ -303,20 +303,20 @@
 
         <div id="icon" style="margin-left: 170px;margin-top: 100px;display: flex;">
             <div>
-                <span id="dz" class="iconfont icon-dianzan"></span>
-                <div><span id="dz0" style="font-size: 18px;margin-left: 8px">video.v_likes</span></div>
+                <span id="dz" class="iconfont icon-dianzan" v-on:click="give_a_like"></span>
+                <div><span id="dz0" style="font-size: 18px;margin-left: 8px">{{room.room_likes}}</span></div>
             </div>
-            <div>
-                <span id="jb" class="iconfont icon-jinbi"></span>
-                <div><span id="jb0" style="font-size: 18px;margin-left: 9px">video.v_coins</span></div>
-            </div>
-            <div>
-                <span id="cl" class="iconfont icon-collection-b"></span>
-                <div><span id="cl0" style="font-size: 16px;margin-left: -12px;">收藏一下</span></div>
-            </div>
+            <!--<div>-->
+            <!--<span id="jb" class="iconfont icon-jinbi"></span>-->
+            <!--<div><span id="jb0" style="font-size: 18px;margin-left: 9px">video.v_coins</span></div>-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<span id="cl" class="iconfont icon-collection-b"></span>-->
+            <!--<div><span id="cl0" style="font-size: 16px;margin-left: -12px;">收藏一下</span></div>-->
+            <!--</div>-->
             <div>
                 <span id="jbsp0" class="iconfont icon-jubao1"></span>
-                <div><span id="rv" style="font-size: 16px;margin-left: 4px;">举报</span></div>
+                <div><span id="rv" style="font-size: 16px;margin-left: 4px;" >举报</span></div>
             </div>
             <div class="dropdown-option-nav" uk-dropdown="pos: bottom-right ;mode : hover">
                 <ul>
@@ -343,47 +343,6 @@
         </div>
 
 
-        <!--    评论区-->
-        <div style="padding-left: 150px;padding-top: 50px;margin-left: 300px">
-            <span style="font-size: 30px">视频评论</span>
-        </div>
-        <div id="com" style="padding-left: 180px;margin-left: 270px">
-            <div id="add">
-                <div style="padding-top: 30px;padding-bottom: 10px">评论一下嘛...</div>
-                <textarea name='comment' id="myCom" rows="8" cols="5" class='form-control' style='width: 840px;
-                      background:white;border: 1px solid gainsboro;'
-                          placeholder='发表一条友善的评论'>
-        </textarea>
-                <button id="s" style="height: 30px;background-color: deepskyblue;color: white;border: deepskyblue"
-                >&nbsp;发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表&nbsp;
-                </button>
-            </div>
-            <br>
-
-
-            <div class="comments">
-
-                <div>
-                    <div class="video-post-content" style="flex: 2;padding-top: 26px;">
-                        <img src="assets/images/avatars/avatar-3.jpg" alt="">
-                    </div>
-                    <span id="showName">com.name</span>
-                </div>
-                <textarea name='comment' rows="8" cols="5" class='form-control' style='width: 840px;
-                      background:white;border: 1px solid gainsboro;font-size: 16px;margin-top: 3px' readonly="readonly"> com.con_comment</textarea>
-                <span id="showTime" style="margin-left: 2px;color: grey;font-size: 12px">发表于com.com_time</span>
-
-
-                <br><br>
-            </div>
-
-            <div style="padding-left: 350px">
-                <input type="button" id="before" value="上一页 " style="border: gray 1px solid;height: 30px;width: 60px">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="button" id="next" value=" 下一页" style="border: gray 1px solid;height: 30px;width: 60px">
-            </div>
-
-        </div>
     </div>
 
 
@@ -526,39 +485,10 @@
 
         var token = localStorage.getItem("token");
         var name = localStorage.getItem("name");
-        var con_no;
+        var con_no = localStorage.getItem("con_no");
         var v_no;
         var num_likes;
         var com_page = 1;
-
-        var v1 = new Vue({
-            el: '#player',
-            data: {
-                video: [],
-                comments: [],
-                isCol: false,
-                isLike: false,
-                num_likes: num_likes,
-                reply: [],
-                num: "",
-
-            },
-            mounted: function () {
-
-            },
-            methods: {}
-        });
-
-        var v = new Vue({
-            el: '#v',
-            data: {
-                title: ""
-            },
-            mounted: function () {
-
-            },
-            methods: {}
-        });
 
         //获取地址中的参数
         function getQueryVariable(variable) {
@@ -574,17 +504,96 @@
         }
 
         roomNo = getQueryVariable("room_no");
+
+
+        var v1 = new Vue({
+            el: '#player',
+            data: {
+                video: [],
+                comments: [],
+                room: {},
+                isCol: false,
+                isLike: false,
+                num_likes: num_likes,
+                reply: [],
+                num: "",
+
+
+            },
+            mounted: function () {
+
+            },
+            methods: {}
+        });
+
+        var v = new Vue({
+            el: '#v',
+            data: {
+                title: "",
+                likes_num: 0,
+                room:[],
+                isCol: false,
+                isLike: false,
+            },
+            mounted: function () {
+
+            },
+            methods: {
+                give_a_like: function () {
+                    if (this.isLike === false) {
+                        $.ajax({
+                            url: basePath + "/likeRoom",
+                            data: {"con_no": con_no, "room_no": roomNo},
+                            beforeSend: function (request) {
+                                request.setRequestHeader("Authorization", token);
+                            },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                // console.log(data);
+                                if (data.code === 200) {
+                                    $("#dz").css({"color": "#ff568b"});
+                                    this.isLike = true;
+                                    alert("true");
+                                    $.ajax({
+                                        url: basePath + "/Fan/getOneRoom?room_no=" + roomNo,
+                                        type: "get",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            console.log(data);
+                                            v.room = data.data;
+                                            alert(v.room);
+                                            console.log("直播间为：" + v1.room);
+                                            v.title = data.data.room_title;
+                                            v.likes_num = data.data.room_likes;
+                                            console.log("点赞数：" + v1.num_likes);
+                                        }
+                                    })
+                                    // window.location.href = "single-video.html?v_no=" + v_no;
+                                }
+                                else {
+                                    $("#dz0").text("不能重复点赞哦").css({"font-size": "13px", "margin-left": "-30px"});
+                                }
+                            }
+                        });
+                    }
+                }
+
+            }
+        });
+
         $.ajax({
             url: basePath + "/Fan/getOneRoom?room_no=" + roomNo,
             type: "get",
             dataType: "json",
             success: function (data) {
-                console.log(data);
+                v.room = data.data;
+                console.log("直播间为"+v.room);
                 // console.log(data.data.v_url);
-                console.log(data.data);
                 // vl.video = data.data;
                 v1.num = data.data.room_num;
                 v.title = data.data.room_title;
+                v.likes_num = data.data.room_likes;
                 console.log(v1.num);
                 console.log(v.title);
 
@@ -595,38 +604,187 @@
                     'streamer': 'rtmp://49.234.77.189/live',
                     'controlbar': 'bottom',
                     'width': 1200,
-                    'height': 600,
+                    'height': 680,
                     events: {
                         onReady: function () {
                             console.log('ready__')
                         }
                     }
                 });
-                // jwplayer('danmup').setup({
-                //     'flashplayer': 'player.swf',
-                //     'file': v1.num,
-                //     'streamer': 'rtmp://49.234.77.189/live',
-                //     'controlbar': 'bottom',
-                //     'width': '1200px',
-                //     'height': '600px'
-                // });
+            }
+        });
+
+        $.ajax({
+            url: basePath + "/isLikeRoom",
+            data: {"con_no": con_no, "room_no": roomNo},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                if (data.code === 200) {
+                    $("#dz").css({"color": "#ff568b"});
+                    // $("#cl0").text("啦").css({"font-size":"13px","margin-left":"-8px"});
+                    v.isLike = true;
+                }
             }
         });
 
 
-        //搜索功能
-        $("#serch").keydown(function (event) {
-            var vTitle = $("#serch").val();
-            if (event.keyCode == 13) {
-                window.location.href = basePath + "/serchResult.html?v_title=" + vTitle;
+        // jwplayer('danmup').setup({
+        //     'flashplayer': 'player.swf',
+        //     'file': v1.num,
+        //     'streamer': 'rtmp://49.234.77.189/live',
+        //     'controlbar': 'bottom',
+        //     'width': '1200px',
+        //     'height': '600px'
+        // });
 
-
-                //阻止默认事件
-                return false;
+    // 举报视频功能
+    $("#report_efeg").click(function () {
+        $.ajax({
+            url: basePath + "/reportRoom",
+            data: {"con_no": con_no, "room_no": roomNo, reason: "违法违规"},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                if (data.code === 200) {
+                    $("#rv").css({"color": "#ff568b"});
+                    $("#jbsp0").css({"color": "#ff568b"});
+                    $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                } else {
+                    $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
+                }
             }
         });
-
     });
+    $("#report_sxcx").click(function () {
+        $.ajax({
+            url: basePath + "/reportRoom",
+            data: {"con_no": con_no, "room_no": roomNo, reason: "涉嫌抄袭"},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                if (data.code === 200) {
+                    $("#rv").css({"color": "#ff568b"});
+                    $("#jbsp0").css({"color": "#ff568b"});
+                    $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                } else {
+                    $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
+                }
+            }
+        });
+    });
+    $("#report_seds").click(function () {
+        $.ajax({
+            url: basePath + "/reportRoom",
+            data: {"con_no": con_no, "room_no": roomNo, reason: "色情低俗"},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                if (data.code === 200) {
+                    $("#jbsp0").css({"color": "#ff568b"});
+                    $("#rv").css({"color": "#ff568b"});
+                    $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                } else {
+                    $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
+                }
+            }
+        });
+    });
+    $("#report_rsgj").click(function () {
+        $.ajax({
+            url: basePath + "/reportRoom",
+            data: {"con_no": con_no, "room_no": roomNo, reason: "人身攻击"},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                if (data.code === 200) {
+                    $("#rv").css({"color": "#ff568b"});
+                    $("#jbsp0").css({"color": "#ff568b"});
+                    $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                } else {
+                    $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
+                }
+            }
+        });
+    });
+    $("#report_ljgg").click(function () {
+        $.ajax({
+            url: basePath + "/reportRoom",
+            data: {"con_no": con_no, "room_no": roomNo, reason: "垃圾广告"},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                if (data.code === 200) {
+                    $("#rv").css({"color": "#ff568b"});
+                    $("#jbsp0").css({"color": "#ff568b"});
+                    $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                } else {
+                    $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
+                }
+            }
+        });
+    });
+    $("#report_eyyz").click(function () {
+        $.ajax({
+            url: basePath + "/reportRoom",
+            data: {"con_no": con_no, "room_no": roomNo, reason: "恶意引战"},
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", token);
+            },
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                // console.log(data);
+                if (data.code === 200) {
+                    $("#rv").css({"color": "#ff568b"});
+                    $("#jbsp0").css({"color": "#ff568b"});
+                    $("#rv").text("已举报").css({"font-size": "13px", "margin-left": "-0.5px"});
+                } else {
+                    $("#rv").text("您已经举报过啦").css({"font-size": "13px", "margin-left": "-30px"});
+                }
+            }
+        });
+    });
+
+
+    //搜索功能
+    $("#serch").keydown(function (event) {
+        var vTitle = $("#serch").val();
+        if (event.keyCode == 13) {
+            window.location.href = basePath + "/serchResult.html?v_title=" + vTitle;
+
+
+            //阻止默认事件
+            return false;
+        }
+    });
+
+    })
+    ;
 </script>
 </body>
 

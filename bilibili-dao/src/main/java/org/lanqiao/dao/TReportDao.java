@@ -41,4 +41,11 @@ public interface TReportDao {
     int insertVideosReport(@Param("con_no") Integer con_no,@Param("v_no") Integer v_no,@Param("reason") String reason);
 
 
+    /**
+     * 举报直播间 插入t_report表中（当前用户还未举报时）
+     */
+    @Insert("insert into t_report (con_no,room_no,reason) values(#{con_no},#{room_no},#{reason})")
+    int insertRoomsReport(@Param("con_no") Integer con_no,@Param("room_no") Integer room_no,@Param("reason") String reason);
+
+
 }

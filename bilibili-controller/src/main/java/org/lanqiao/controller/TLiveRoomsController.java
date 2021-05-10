@@ -75,6 +75,39 @@ public class TLiveRoomsController {
         }
     }
 
+    @ApiOperation(value = "举报直播间")
+    @ResponseBody
+    @PostMapping("reportRoom")
+    public Result reportRoom(@RequestParam("con_no") Integer con_no, @RequestParam("room_no") Integer room_no,@RequestParam("reason") String reason){
+        if (this.tLiveRoomsService.updateReportRoom(con_no,room_no,reason)){
+            return setResultSuccess("举报成功");
+        }else {
+            return setResultError(400,"您已经举报过该视频！");
+        }
+    }
+
+    @ApiOperation(value = "给直播间点赞")
+    @ResponseBody
+    @PostMapping("likeRoom")
+    public Result likeRoom(@RequestParam("con_no")Integer con_no,@RequestParam("room_no")Integer room_no){
+        if (this.tLiveRoomsService.likeRoom(con_no,room_no)){
+            return setResultSuccess("点赞成功！");
+        }else {
+            return setResultError(500,"点赞失败，已给当前直播间点过赞！");
+        }
+    }
+
+    @ApiOperation(value = "当前用户是否已经给当前直播间点过赞")
+    @ResponseBody
+    @PostMapping("isLikeRoom")
+    public Result isLikeRoom(@RequestParam("con_no")Integer con_no,@RequestParam("room_no")Integer room_no){
+        if (this.tLiveRoomsService.likeRoom(con_no,room_no)){
+            return setResultSuccess("已经点过赞了！");
+        }else {
+            return setResultError(500,"未点过赞！");
+        }
+    }
+
 
     @ApiOperation(value = "主播开播")
     @ResponseBody

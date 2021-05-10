@@ -21,4 +21,7 @@ public interface TReportService {
      * 查询某用户是否举报过某直播间
      */
     boolean getTreportByConNoR(Integer con_no,Integer room_no);
+
+
+
 }
